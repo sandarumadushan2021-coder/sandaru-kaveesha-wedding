@@ -17,25 +17,24 @@ body {
 }
 
 .container {
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
-h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 28px;
-    color: white;
-}
+h1 { font-size: 45px; }
+h2 { color: white; }
 
 .card {
     border: 1px solid gold;
     margin: 20px auto;
     padding: 20px;
-    max-width: 400px;
+    max-width: 420px;
     border-radius: 10px;
+}
+
+.countdown {
+    font-size: 22px;
+    margin-top: 15px;
+    color: gold;
 }
 
 .btn {
@@ -46,9 +45,15 @@ h2 {
     margin-top: 20px;
     border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
+}
+iframe {
+    width: 90%;
+    height: 250px;
+    border: 0;
+    margin-top: 20px;
 }
 </style>
-
 </head>
 
 <body>
@@ -56,17 +61,59 @@ h2 {
 <div class="container">
 
 <h1>Sandaru ❤️ Kaveesha</h1>
-<h2>We Invite You To Our Wedding</h2>
+<h2>Wedding Invitation</h2>
 
 <div class="card">
 <p><b>Date:</b> 05 November 2026</p>
 <p><b>Time:</b> 10:00 AM</p>
 <p><b>Venue:</b> Royal Dream Palace, Urapola</p>
+
+<div class="countdown" id="countdown"></div>
 </div>
 
-<button class="btn">View Invitation</button>
+<h3>📍 Location</h3>
+<iframe 
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+allowfullscreen>
+</iframe>
+
+<button class="btn" onclick="playMusic()">🎵 Play Music</button>
+
+<audio id="music">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
 
 </div>
+
+<script>
+// Countdown
+var weddingDate = new Date("Nov 5, 2026 10:00:00").getTime();
+
+var x = setInterval(function() {
+
+var now = new Date().getTime();
+var distance = weddingDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+"⏳ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("countdown").innerHTML = "💍 It's Wedding Day!";
+}
+
+}, 1000);
+
+// Music
+function playMusic() {
+document.getElementById("music").play();
+}
+</script>
 
 </body>
 </html>
