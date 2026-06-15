@@ -1,40 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandaru & Kaveesha Wedding</title>
+<h3>💌 RSVP</h3>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<div class="card">
+  <input id="name" placeholder="Your Name" style="padding:10px;width:90%;margin:5px;"><br>
+  <input id="phone" placeholder="Phone Number" style="padding:10px;width:90%;margin:5px;"><br>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    background: black;
-    color: gold;
-    text-align: center;
+  <select id="attend" style="padding:10px;width:95%;margin:5px;">
+    <option>Will you attend?</option>
+    <option>Yes, I will come</option>
+    <option>Sorry, I can't come</option>
+  </select>
+
+  <button class="btn" onclick="sendRSVP()">Send RSVP</button>
+</div>
+
+<script>
+function sendRSVP() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var attend = document.getElementById("attend").value;
+
+    if(name === "" || phone === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    fetch("YOUR_GOOGLE_SCRIPT_URL", {
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            phone: phone,
+            attend: attend
+        })
+    });
+
+    alert("RSVP Sent Successfully 💍");
 }
-
-.container {
-    padding: 60px 20px;
-}
-
-h1 { font-size: 45px; }
-h2 { color: white; }
-
-.card {
-    border: 1px solid gold;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 420px;
-    border-radius: 10px;
-}
-
-.countdown {
-    font-size: 22px;
-    margin-top: 15px;
-    color: gold;
+</script>    color: gold;
 }
 
 .btn {
