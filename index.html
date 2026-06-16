@@ -1,120 +1,91 @@
-<h3>💌 RSVP</h3>
-
-<div class="card">
-  <input id="name" placeholder="Your Name" style="padding:10px;width:90%;margin:5px;"><br>
-  <input id="phone" placeholder="Phone Number" style="padding:10px;width:90%;margin:5px;"><br>
-
-  <select id="attend" style="padding:10px;width:95%;margin:5px;">
-    <option>Will you attend?</option>
-    <option>Yes, I will come</option>
-    <option>Sorry, I can't come</option>
-  </select>
-
-  <button class="btn" onclick="sendRSVP()">Send RSVP</button>
-</div>
-
-<script>
-function sendRSVP() {
-    var name = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
-    var attend = document.getElementById("attend").value;
-
-    if(name === "" || phone === "") {
-        alert("Please fill all fields");
-        return;
-    }
-
-    fetch("YOUR_GOOGLE_SCRIPT_URL", {
-        method: "POST",
-        body: JSON.stringify({
-            name: name,
-            phone: phone,
-            attend: attend
-        })
-    });
-
-    alert("RSVP Sent Successfully 💍");
-}
-</script>    color: gold;
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandaru & Kaveesha Wedding</title><style>
+body{
+margin:0;
+font-family:Georgia,serif;
+background:#fffdf7;
+color:#333;
+text-align:center;
 }
 
-.btn {
-    background: gold;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+.hero{
+padding:80px 20px;
+background:linear-gradient(to bottom,#fff8dc,#ffffff);
 }
-iframe {
-    width: 90%;
-    height: 250px;
-    border: 0;
-    margin-top: 20px;
+
+h1{
+font-size:3rem;
+color:#c9a227;
 }
-</style>
-</head>
 
-<body>
+.countdown{
+font-size:2rem;
+margin:20px;
+font-weight:bold;
+color:#c9a227;
+}
 
-<div class="container">
+.section{
+padding:50px 20px;
+}
 
+.btn{
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+background:#c9a227;
+color:white;
+text-decoration:none;
+border-radius:30px;
+font-size:18px;
+}
+
+.photo{
+width:250px;
+height:250px;
+border-radius:50%;
+object-fit:cover;
+margin:20px;
+}
+</style></head><body><section class="hero">
 <h1>Sandaru ❤️ Kaveesha</h1>
-<h2>Wedding Invitation</h2>
+<p>We are getting married</p><div id="countdown" class="countdown"></div>
+</section><section class="section">
+<img class="photo" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600" alt="">
+<img class="photo" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600" alt="">
+</section><section class="section">
+<h2>Wedding Ceremony</h2>
+<p>05 November 2026</p>
+<p>11:00 AM</p>
+<p>Royal Dream Palace</p><a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8" target="_blank">
+View Location
+</a>
+</section><section class="section">
+<h2>Going Away Reception</h2>
+<p>04:00 PM</p>
+<p>Venue details will be announced later</p>
+</section><section class="section">
+<h2>RSVP</h2><a class="btn" href="https://wa.me/94752452479" target="_blank">
+Confirm Attendance
+</a>
+</section><script>
+const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
 
-<div class="card">
-<p><b>Date:</b> 05 November 2026</p>
-<p><b>Time:</b> 10:00 AM</p>
-<p><b>Venue:</b> Royal Dream Palace, Urapola</p>
+setInterval(function(){
 
-<div class="countdown" id="countdown"></div>
-</div>
+const now = new Date().getTime();
+const distance = weddingDate - now;
 
-<h3>📍 Location</h3>
-<iframe 
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
-allowfullscreen>
-</iframe>
-
-<button class="btn" onclick="playMusic()">🎵 Play Music</button>
-
-<audio id="music">
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-</audio>
-
-</div>
-
-<script>
-// Countdown
-var weddingDate = new Date("Nov 5, 2026 10:00:00").getTime();
-
-var x = setInterval(function() {
-
-var now = new Date().getTime();
-var distance = weddingDate - now;
-
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
 
 document.getElementById("countdown").innerHTML =
-"⏳ " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+days + " Days " + hours + " Hours " + minutes + " Minutes";
 
-if (distance < 0) {
-clearInterval(x);
-document.getElementById("countdown").innerHTML = "💍 It's Wedding Day!";
-}
-
-}, 1000);
-
-// Music
-function playMusic() {
-document.getElementById("music").play();
-}
-</script>
-
-</body>
+},1000);
+</script></body>
 </html>
