@@ -77,21 +77,27 @@ View Location
 <h2>RSVP</h2><a class="btn" href="https://wa.me/94752452479" target="_blank">
 Confirm Attendance
 </a>
-</section><script>
-const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
+</section>const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
 
-setInterval(function(){
+setInterval(function() {
 
 const now = new Date().getTime();
 const distance = weddingDate - now;
 
-const days = Math.floor(distance/(1000*60*60*24));
-const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 document.getElementById("countdown").innerHTML =
-days + " Days " + hours + " Hours " + minutes + " Minutes";
+`
+<div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+  <div><h2>${days}</h2><p>Days</p></div>
+  <div><h2>${hours}</h2><p>Hours</p></div>
+  <div><h2>${minutes}</h2><p>Minutes</p></div>
+  <div><h2>${seconds}</h2><p>Seconds</p></div>
+</div>
+`;
 
-},1000);
-</script></body>
+}, 1000);</body>
 </html>
