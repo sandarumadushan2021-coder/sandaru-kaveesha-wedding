@@ -14,6 +14,7 @@ body{
   text-align:center;
 }
 
+/* HERO */
 .hero{
   padding:80px 20px;
   background:linear-gradient(to bottom,#fff8dc,#ffffff);
@@ -24,6 +25,7 @@ h1{
   color:#c9a227;
 }
 
+/* COUNTDOWN */
 .countdown{
   font-size:2rem;
   margin:30px;
@@ -36,6 +38,7 @@ h1{
   display:inline-block;
 }
 
+/* SECTIONS */
 .section{
   padding:50px 20px;
 }
@@ -51,6 +54,7 @@ h1{
   font-size:18px;
 }
 
+/* PHOTOS */
 .photo{
   width:250px;
   height:250px;
@@ -58,22 +62,90 @@ h1{
   object-fit:cover;
   margin:20px;
 }
+
+/* OVERLAY (ENVELOPE) */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.envelope{
+  width:260px;
+  height:200px;
+  background:white;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 0 25px gold;
+}
+
+.icon{
+  font-size:50px;
+  background:gold;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+/* MENU */
+.menu{
+  position:fixed;
+  bottom:-100%;
+  left:0;
+  width:100%;
+  background:white;
+  padding:30px;
+  border-radius:20px 20px 0 0;
+  box-shadow:0 -5px 20px rgba(0,0,0,0.3);
+  transition:0.4s;
+}
+
+.menu.show{
+  bottom:0;
+}
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
   <h1>Sandaru ❤️ Kaveesha</h1>
   <p>We are getting married</p>
+
   <div id="countdown" class="countdown"></div>
+
+  <br><br>
+  <a href="#" class="btn" onclick="openEnvelope()">Open Invitation 💌</a>
 </section>
 
+<!-- PHOTOS -->
 <section class="section">
-  <img class="photo" src="SAVE_20260322_144012.jpg" alt="Bride">
-  <img class="photo" src="SAVE_20260322_163358.jpg" alt="Couple">
+  <img class="photo" src="SAVE_20260322_144012.jpg">
+  <img class="photo" src="SAVE_20260322_163358.jpg">
 </section>
 
+<!-- CEREMONY -->
 <section class="section">
   <h2>Wedding Ceremony</h2>
   <p>05 November 2026</p>
@@ -85,12 +157,13 @@ h1{
   </a>
 </section>
 
+<!-- RECEPTION -->
 <section class="section">
   <h2>Going Away Reception</h2>
   <p>04:00 PM</p>
-  <p>Venue details will be announced later</p>
 </section>
 
+<!-- RSVP -->
 <section class="section">
   <h2>RSVP</h2>
   <a class="btn" href="https://wa.me/94752452479" target="_blank">
@@ -98,7 +171,26 @@ h1{
   </a>
 </section>
 
+<!-- ENVELOPE POPUP -->
+<div id="overlay" class="overlay" onclick="closeEnvelope()">
+  <div class="envelope" onclick="event.stopPropagation()">
+    <div class="icon" onclick="openMenu()">💍</div>
+    <p>Tap icon to open menu</p>
+  </div>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="menu">
+  <h2>Wedding Menu</h2>
+  <p>💒 Ceremony</p>
+  <p>📍 Location</p>
+  <p>📸 Gallery</p>
+  <p>💌 RSVP</p>
+  <button onclick="closeMenu()">Close</button>
+</div>
+
 <script>
+// COUNTDOWN
 const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
 
 setInterval(function() {
@@ -123,6 +215,24 @@ setInterval(function() {
     <div><h2>${seconds}</h2><p>Seconds</p></div>
   </div>`;
 }, 1000);
+
+// ENVELOPE
+function openEnvelope(){
+  document.getElementById("overlay").style.display="flex";
+}
+
+function closeEnvelope(){
+  document.getElementById("overlay").style.display="none";
+}
+
+// MENU
+function openMenu(){
+  document.getElementById("menu").classList.add("show");
+}
+
+function closeMenu(){
+  document.getElementById("menu").classList.remove("show");
+}
 </script>
 
 </body>
