@@ -1,103 +1,129 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandaru & Kaveesha Wedding</title><style>
+<title>Sandaru & Kaveesha Wedding</title>
+
+<style>
 body{
-margin:0;
-font-family:Georgia,serif;
-background:#fffdf7;
-color:#333;
-text-align:center;
+  margin:0;
+  font-family:Georgia,serif;
+  background:#fffdf7;
+  color:#333;
+  text-align:center;
 }
 
 .hero{
-padding:80px 20px;
-background:linear-gradient(to bottom,#fff8dc,#ffffff);
+  padding:80px 20px;
+  background:linear-gradient(to bottom,#fff8dc,#ffffff);
 }
-<h2>Countdown To Our Wedding Day 💍</h2>
-<div id="countdown" class="countdown"></div>
+
 h1{
-font-size:3rem;
-color:#c9a227;
+  font-size:3rem;
+  color:#c9a227;
 }
 
 .countdown{
-font-size:3rem;
-margin:30px;
-font-weight:bold;
-color:#c9a227;
-background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(201,162,39,0.3);
-display:inline-block;
+  font-size:2rem;
+  margin:30px;
+  font-weight:bold;
+  color:#c9a227;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 0 20px rgba(201,162,39,0.3);
+  display:inline-block;
 }
 
 .section{
-padding:50px 20px;
+  padding:50px 20px;
 }
 
 .btn{
-display:inline-block;
-padding:15px 30px;
-margin:10px;
-background:#c9a227;
-color:white;
-text-decoration:none;
-border-radius:30px;
-font-size:18px;
+  display:inline-block;
+  padding:15px 30px;
+  margin:10px;
+  background:#c9a227;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-size:18px;
 }
 
 .photo{
-width:250px;
-height:250px;
-border-radius:50%;
-object-fit:cover;
-margin:20px;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:20px;
 }
-</style></head><body><section class="hero">
-<h1>Sandaru ❤️ Kaveesha</h1>
-<p>We are getting married</p><div id="countdown" class="countdown"></div>
-</section><section class="section">
-<img class="photo" src="SAVE_20260322_144012.jpg" alt="Bride">
-<img class="photo" src="SAVE_20260322_163358.jpg" alt="Couple">
-</section><section class="section">
-<h2>Wedding Ceremony</h2>
-<p>05 November 2026</p>
-<p>11:00 AM</p>
-<p>Royal Dream Palace</p><a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8" target="_blank">
-View Location
-</a>
-</section><section class="section">
-<h2>Going Away Reception</h2>
-<p>04:00 PM</p>
-<p>Venue details will be announced later</p>
-</section><section class="section">
-<h2>RSVP</h2><a class="btn" href="https://wa.me/94752452479" target="_blank">
-Confirm Attendance
-</a>
-</section>const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Sandaru ❤️ Kaveesha</h1>
+  <p>We are getting married</p>
+  <div id="countdown" class="countdown"></div>
+</section>
+
+<section class="section">
+  <img class="photo" src="SAVE_20260322_144012.jpg" alt="Bride">
+  <img class="photo" src="SAVE_20260322_163358.jpg" alt="Couple">
+</section>
+
+<section class="section">
+  <h2>Wedding Ceremony</h2>
+  <p>05 November 2026</p>
+  <p>11:00 AM</p>
+  <p>Royal Dream Palace</p>
+
+  <a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8" target="_blank">
+    View Location
+  </a>
+</section>
+
+<section class="section">
+  <h2>Going Away Reception</h2>
+  <p>04:00 PM</p>
+  <p>Venue details will be announced later</p>
+</section>
+
+<section class="section">
+  <h2>RSVP</h2>
+  <a class="btn" href="https://wa.me/94752452479" target="_blank">
+    Confirm Attendance
+  </a>
+</section>
+
+<script>
+const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
 
 setInterval(function() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
 
-const now = new Date().getTime();
-const distance = weddingDate - now;
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "💍 Today is the day!";
+    return;
+  }
 
-const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-document.getElementById("countdown").innerHTML =
-`
-<div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-  <div><h2>${days}</h2><p>Days</p></div>
-  <div><h2>${hours}</h2><p>Hours</p></div>
-  <div><h2>${minutes}</h2><p>Minutes</p></div>
-  <div><h2>${seconds}</h2><p>Seconds</p></div>
-</div>
-`;
+  document.getElementById("countdown").innerHTML =
+  `<div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+    <div><h2>${days}</h2><p>Days</p></div>
+    <div><h2>${hours}</h2><p>Hours</p></div>
+    <div><h2>${minutes}</h2><p>Minutes</p></div>
+    <div><h2>${seconds}</h2><p>Seconds</p></div>
+  </div>`;
+}, 1000);
+</script>
 
-}, 1000);</body>
+</body>
 </html>
