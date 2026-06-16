@@ -3,65 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandaru & Kaveesha Wedding</title>
+<title>Sandaru ❤️ Kaveesha Wedding</title>
 
-<!-- FIREWORK LIB -->
-<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
 
 <style>
 body{
   margin:0;
-  font-family:"Georgia",serif;
-  background:#0b0b0f;
+  font-family:Georgia,serif;
+  background:#0a0a0f;
   color:white;
-  text-align:center;
   overflow-x:hidden;
 }
 
-/* START SCREEN */
-#startScreen{
+/* LOADING SCREEN */
+#loader{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle,#2a2a2a,#000);
+  background:black;
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:9999;
+  z-index:99999;
+  flex-direction:column;
+}
+
+.spinner{
+  width:60px;
+  height:60px;
+  border:5px solid #333;
+  border-top:5px solid gold;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  100%{transform:rotate(360deg);}
 }
 
 /* ENVELOPE */
+#startScreen{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle,#1a1a1a,#000);
+  z-index:9999;
+}
+
 .envelope{
   width:260px;
   height:180px;
-  background:#fff;
-  border-radius:10px;
   position:relative;
   cursor:pointer;
-  box-shadow:0 0 40px gold;
-  animation:float 2s infinite ease-in-out;
-  overflow:hidden;
+  perspective:1000px;
 }
 
-/* FLAP (paper open effect) */
-.envelope:before{
-  content:"";
+.flap{
   position:absolute;
-  top:0;
-  left:0;
   width:100%;
   height:50%;
   background:gold;
   transform-origin:top;
   transition:0.8s;
+  border-radius:10px 10px 0 0;
 }
 
-/* open animation */
-.envelope.open:before{
+.front{
+  width:100%;
+  height:100%;
+  background:white;
+  border-radius:10px;
+}
+
+.envelope.open .flap{
   transform:rotateX(180deg);
 }
 
-/* ICON */
-.envelope span{
+.icon{
   position:absolute;
   top:50%;
   left:50%;
@@ -69,22 +89,25 @@ body{
   font-size:45px;
 }
 
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
-}
-
 /* MAIN SITE */
 #mainSite{
   display:none;
-  background:linear-gradient(to bottom,#111,#000);
+}
+
+/* GLASS UI */
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  margin:20px;
+  padding:20px;
+  box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
 /* HERO */
 .hero{
-  padding:80px 20px;
-  background:radial-gradient(circle,#1c1c1c,#000);
+  padding:70px 20px;
+  text-align:center;
 }
 
 h1{
@@ -92,41 +115,47 @@ h1{
   color:gold;
 }
 
-.countdown{
-  font-size:2rem;
-  margin:20px;
+/* COUNTDOWN */
+#countdown{
+  font-size:1.8rem;
   color:gold;
-  font-weight:bold;
-  background:rgba(255,255,255,0.05);
-  padding:20px;
+}
+
+/* SLIDESHOW */
+.slide{
+  display:none;
+  width:100%;
+  height:300px;
+  object-fit:cover;
   border-radius:15px;
-  display:inline-block;
-  box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
 
-/* SECTION */
-.section{
-  padding:50px 20px;
-}
-
+/* BUTTON */
 .btn{
-  padding:15px 30px;
+  padding:12px 25px;
   background:gold;
   color:black;
+  border-radius:25px;
   text-decoration:none;
-  border-radius:30px;
+  font-weight:bold;
   display:inline-block;
   margin:10px;
-  font-weight:bold;
 }
 
-.photo{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
+/* RSVP */
+input{
+  width:90%;
+  padding:10px;
   margin:10px;
-  border:3px solid gold;
+  border-radius:10px;
+  border:none;
+}
+
+/* FIREWORKS */
+#fireworks{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
 }
 
 /* MUSIC BUTTON */
@@ -135,140 +164,155 @@ h1{
   bottom:20px;
   right:20px;
   background:gold;
-  color:black;
-  padding:12px 15px;
+  padding:12px;
   border-radius:50%;
   cursor:pointer;
-  font-size:18px;
-  font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- START SCREEN -->
+<!-- LOADER -->
+<div id="loader">
+  <div class="spinner"></div>
+  <p>Loading Invitation...</p>
+</div>
+
+<!-- ENVELOPE -->
 <div id="startScreen">
   <div class="envelope" id="envelope">
-    <span>💌</span>
+    <div class="flap"></div>
+    <div class="front"></div>
+    <div class="icon">💌</div>
   </div>
 </div>
 
-<!-- FIREWORK AREA -->
-<div id="fireworks" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;"></div>
+<!-- FIREWORKS -->
+<div id="fireworks"></div>
 
 <!-- MAIN SITE -->
 <div id="mainSite">
 
-<div class="hero">
+<div class="hero glass">
   <h1>Sandaru ❤️ Kaveesha</h1>
-  <p>We are getting married</p>
-
-  <div id="countdown" class="countdown"></div>
+  <div id="countdown"></div>
 </div>
 
-<div class="section">
-  <img class="photo" src="SAVE_20260322_144012.jpg">
-  <img class="photo" src="SAVE_20260322_163358.jpg">
+<div class="glass">
+  <img class="slide" src="SAVE_20260322_144012.jpg">
+  <img class="slide" src="SAVE_20260322_163358.jpg">
 </div>
 
-<div class="section">
+<div class="glass">
   <h2>Wedding Ceremony</h2>
   <p>05 November 2026 - 11:00 AM</p>
-
-  <a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8" target="_blank">
-    View Location
-  </a>
 </div>
 
-<div class="section">
+<div class="glass">
+  <a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8">View Location</a>
+</div>
+
+<!-- RSVP -->
+<div class="glass">
   <h2>RSVP</h2>
-  <a class="btn" href="https://wa.me/94752452479" target="_blank">
-    Confirm Attendance
-  </a>
+  <form action="https://script.google.com/macros/s/YOUR_SCRIPT_URL/exec" method="POST">
+    <input name="name" placeholder="Your Name" required>
+    <input name="phone" placeholder="Phone" required>
+    <button class="btn" type="submit">Send RSVP</button>
+  </form>
+</div>
+
+<!-- SHARE -->
+<div class="glass">
+  <a class="btn" id="shareBtn">Share via WhatsApp</a>
 </div>
 
 </div>
 
 <!-- MUSIC -->
-<audio id="bgMusic" loop>
-  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3b6c2d0d3b.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3b6c2d0d3b.mp3">
 </audio>
 
 <div id="musicBtn">🎵</div>
 
 <script>
 
-let fireworks;
+// LOADER
+window.onload = ()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+    document.getElementById("startScreen").style.display="flex";
+  },1500);
+};
 
-// OPEN ENVELOPE
-document.getElementById("envelope").addEventListener("click", function(){
+// ENVELOPE OPEN
+document.getElementById("envelope").onclick = ()=>{
+  document.getElementById("envelope").classList.add("open");
 
-  // paper open animation
-  this.classList.add("open");
-
-  // fireworks start
   setTimeout(()=>{
     document.getElementById("startScreen").style.display="none";
     document.getElementById("mainSite").style.display="block";
 
     startCountdown();
+    startSlides();
     startFireworks();
 
-    // play music
-    document.getElementById("bgMusic").play();
+    document.getElementById("music").play().catch(()=>{});
 
   },800);
-});
+};
 
 // COUNTDOWN
 function startCountdown(){
-  const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
+  const w = new Date("Nov 05, 2026 11:00:00").getTime();
 
-  setInterval(function(){
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const d = Math.floor(distance/(1000*60*60*24));
-    const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const m = Math.floor((distance%(1000*60*60))/(1000*60));
-    const s = Math.floor((distance%(1000*60))/1000);
+  setInterval(()=>{
+    let now = new Date().getTime();
+    let d = w-now;
 
     document.getElementById("countdown").innerHTML =
-    `${d} Days ${h}h ${m}m ${s}s`;
-
+    Math.floor(d/86400000)+" Days";
   },1000);
+}
+
+// SLIDESHOW
+let i=0;
+function startSlides(){
+  let slides = document.getElementsByClassName("slide");
+
+  function show(){
+    for(let s of slides) s.style.display="none";
+    i++;
+    if(i>slides.length) i=1;
+    slides[i-1].style.display="block";
+    setTimeout(show,3000);
+  }
+  show();
 }
 
 // FIREWORKS
 function startFireworks(){
-  fireworks = new Fireworks.default(document.getElementById('fireworks'), {
-    speed:3,
-    acceleration:1.05,
-    friction:0.97,
-    particles:80,
-    trace:3,
-    explosion:5
+  let f = new Fireworks.default(document.getElementById("fireworks"),{
+    particles:80
   });
-
-  fireworks.start();
-
-  setTimeout(()=>{
-    fireworks.stop();
-  },8000);
+  f.start();
+  setTimeout(()=>f.stop(),8000);
 }
 
-// MUSIC BUTTON
-document.getElementById("musicBtn").addEventListener("click", function(){
-  const music = document.getElementById("bgMusic");
-  if(music.paused){
-    music.play();
-    this.innerHTML="🎵";
-  }else{
-    music.pause();
-    this.innerHTML="🔇";
-  }
-});
+// MUSIC
+document.getElementById("musicBtn").onclick = ()=>{
+  let m = document.getElementById("music");
+  m.paused ? m.play() : m.pause();
+};
+
+// SHARE
+document.getElementById("shareBtn").onclick = ()=>{
+  let url = window.location.href;
+  let text = "💍 Join Our Wedding Invitation: " + url;
+  window.open("https://wa.me/?text="+encodeURIComponent(text));
+};
 
 </script>
 
