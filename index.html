@@ -95,6 +95,29 @@ h1{
     flex-direction:column;
     text-align:center;
 }
+.invite{
+    display:none;
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80') center/cover;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.invite::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
+
+.invite-names,
+.invite-text{
+    position:relative;
+    z-index:2;
+}
 
 /* ANIMATED CONTENT */
 .invite-names{
@@ -167,7 +190,24 @@ h1{
 </div>
 
 <!-- INVITATION -->
-<div class="invite" id="invite">
+
+    <div class="invite-names">
+        Sandaru <br>&<br> Kaveesha
+    </div>
+
+    <div class="invite-text">
+        Together with their families,<br><br>
+
+        Request the pleasure of your company<br>
+        at the celebration of their marriage.<br><br>
+
+        <b>Date:</b> 2027 January 15<br>
+        <b>Time:</b> 10.00 AM<br>
+        <b>Venue:</b> Hotel Name, City<br><br>
+
+        We look forward to celebrating with you.
+    </div>
+
 </div>
 
 <script>
