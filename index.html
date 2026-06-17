@@ -65,12 +65,19 @@ h1{
 
 /* GOLD RING */
 .ring{
-    width: 45px;
-    height: 45px;
-    margin: 0 15px;
-    vertical-align: middle;
+    display:inline-block;
+    width:28px;
+    height:28px;
+    margin:0 15px;
+    border-radius:50%;
+    position:relative;
+
+    background: radial-gradient(circle at 30% 30%, #fff6c2, #f5c542, #c8921b);
+    box-shadow:
+        0 0 10px rgba(245, 197, 66, 0.8),
+        inset 0 0 6px rgba(255,255,255,0.6);
+
     animation: pulse 2s infinite;
-    filter: drop-shadow(0 0 8px rgba(245,197,66,0.8));
 }
 
 /* ring shine */
@@ -162,7 +169,7 @@ h1{
     <h1>The Wedding of</h1>
 
     <div class="names">
-      Sandaru <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png" alt="ring"> Kaveesha
+        Sandaru <img class="ring" src="https://pngtree.com/so/wedding-rings"> Kaveesha
 
     <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
 </div>
