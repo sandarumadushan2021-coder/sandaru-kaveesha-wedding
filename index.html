@@ -55,12 +55,14 @@ h1{
 /* NAMES */
 .names{
     font-family: 'Great Vibes', cursive;
-    font-size:80px;
-    margin-top:15px;
-    letter-spacing:2px;
-    opacity:0.95;
-    text-shadow:0 0 10px rgba(255,255,255,0.6);
-    animation: fadeIn 3s ease;
+    font-size: 55px;
+    margin-top: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* ⭐ THIS CENTERS EVERYTHING */
+    justify-content: center;
+    text-align: center;
 }
 
 /* GOLD RING */
@@ -87,8 +89,8 @@ h1{
     animation: pulse 2s infinite;
 }
 
-.btn:hover{
-    transform:scale(1.1);
+.btn{
+    margin-top: 25px;
 }
 
 /* INVITATION PAGE */
@@ -171,7 +173,8 @@ h1{
     <h1>The Wedding of</h1>
 
     <div class="names">
-        Sandaru <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png"> Kaveesha
+    Sandaru <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png"> Kaveesha
+
     <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
 </div>
 
