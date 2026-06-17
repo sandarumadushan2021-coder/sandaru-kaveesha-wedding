@@ -99,25 +99,43 @@ h1{
     height:100%;
     background:#111;
     color:white;
-    display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+}
 
-    transform:scale(0.3);
+/* NAMES FIRST (center main) */
+.invite-names{
+    font-family:'Great Vibes', cursive;
+    font-size:60px;
     opacity:0;
-    transition: all 0.8s ease;
+    transform:translateY(20px);
 }
 
-/* TEXT */
-.invite h2{
-    font-size:35px;
+/* OPEN INVITATION BELOW */
+.invite-text{
     font-family:'Playfair Display', serif;
+    font-size:30px;
+    margin-top:20px;
+    opacity:0;
+    transform:translateY(20px);
 }
 
-.invite p{
-    margin-top:10px;
-    opacity:0.8;
+/* ANIMATION */
+.invite.active .invite-names{
+    animation: fadeUp 1s ease forwards;
+}
+
+.invite.active .invite-text{
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* ANIMATIONS */
