@@ -18,18 +18,93 @@ html{
 }
 
 body{
-    font-family:Georgia,serif;
+    font-family:Georgia, serif;
     background:#fffaf0;
     color:#333;
     text-align:center;
 }
 
-/* INVITATION CONTENT */
+/* Hide content until invitation is opened */
 #content{
     display:none;
 }
 
-/* HERO */
+/* Opening Screen */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom,#f8f3ea,#efe4d1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+/* Professional Brown Envelope */
+.envelope{
+    position:relative;
+    width:340px;
+    height:220px;
+    background:#c49a6c;
+    border-radius:8px;
+    border:1px solid #a67c52;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    overflow:hidden;
+}
+
+.envelope::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:170px solid transparent;
+    border-right:170px solid transparent;
+    border-top:110px solid #b88a5a;
+}
+
+/* Wax Seal */
+.icon{
+    position:relative;
+    z-index:2;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#8b0000;
+    border:5px solid #b8860b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(0,0,0,0.35);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+    100%{transform:scale(1);}
+}
+
+.envelope p{
+    position:relative;
+    z-index:2;
+    margin-top:15px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Hero Section */
 .hero{
     padding:80px 20px;
     background:linear-gradient(to bottom,#fff8dc,#fffaf0);
@@ -38,6 +113,7 @@ body{
 h1{
     font-size:3rem;
     color:#d4af37;
+    margin-bottom:10px;
 }
 
 h2{
@@ -49,13 +125,13 @@ h2{
     padding:50px 20px;
 }
 
-/* COUNTDOWN */
+/* Countdown */
 .countdown{
     font-size:2rem;
     margin:30px auto;
     font-weight:bold;
     color:#d4af37;
-    background:#fff;
+    background:white;
     padding:20px;
     border-radius:20px;
     border:2px solid #f1d27a;
@@ -63,7 +139,7 @@ h2{
     display:inline-block;
 }
 
-/* BUTTON */
+/* Buttons */
 .btn{
     display:inline-block;
     padding:15px 30px;
@@ -73,136 +149,115 @@ h2{
     text-decoration:none;
     border-radius:30px;
     font-size:18px;
+    transition:0.3s;
 }
 
-/* PHOTOS */
+.btn:hover{
+    background:#c19a2b;
+    transform:translateY(-2px);
+}
+
+/* Photos */
 .photo{
     width:250px;
     height:250px;
-    border-radius:50%;
     object-fit:cover;
+    border-radius:50%;
     margin:15px;
     border:5px solid #f1d27a;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-/* OPENING SCREEN */
-.overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom,#fff8dc,#fffaf0);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
+/* Mobile */
+@media(max-width:768px){
 
-.envelope{
-    width:300px;
-    height:220px;
-    background:white;
-    border-radius:20px;
-    border:2px solid #f1d27a;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    box-shadow:0 0 30px rgba(212,175,55,0.35);
-}
+    h1{
+        font-size:2.2rem;
+    }
 
-.icon{
-    font-size:50px;
-    background:#d4af37;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    animation:pulse 1.5s infinite;
-}
+    .photo{
+        width:180px;
+        height:180px;
+    }
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.15);}
-    100%{transform:scale(1);}
-}
+    .envelope{
+        width:300px;
+        height:200px;
+    }
 
-.envelope p{
-    margin-top:20px;
-    color:#666;
-    font-size:18px;
+    .envelope::before{
+        border-left:150px solid transparent;
+        border-right:150px solid transparent;
+        border-top:100px solid #b88a5a;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- OPENING ENVELOPE -->
+<!-- Opening Envelope -->
 <div id="overlay" class="overlay">
     <div class="envelope">
         <div class="icon" onclick="openInvitation()">💍</div>
-        <p>Tap the Ring to Open Invitation</p>
+        <p>Open Your Invitation</p>
     </div>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- Main Invitation -->
 <div id="content">
 
-<section class="hero">
-    <h1>Sandaru ❤️ Kaveesha</h1>
-    <p>We are getting married</p>
+    <section class="hero">
+        <h1>Sandaru ❤️ Kaveesha</h1>
+        <p>We Are Getting Married</p>
 
-    <div id="countdown" class="countdown"></div>
-</section>
+        <div id="countdown" class="countdown"></div>
+    </section>
 
-<section class="section">
-    <img class="photo" src="SAVE_20260322_144012.jpg">
-    <img class="photo" src="SAVE_20260322_163358.jpg">
-</section>
+    <section class="section">
+        <img class="photo" src="SAVE_20260322_144012.jpg" alt="Bride & Groom">
+        <img class="photo" src="SAVE_20260322_163358.jpg" alt="Bride & Groom">
+    </section>
 
-<section class="section">
-    <h2>Wedding Ceremony</h2>
-    <p>05 November 2026</p>
-    <p>11:00 AM</p>
-    <p>Royal Dream Palace</p>
+    <section class="section">
+        <h2>Wedding Ceremony</h2>
+        <p>05 November 2026</p>
+        <p>11:00 AM</p>
+        <p>Royal Dream Palace</p>
 
-    <a class="btn"
-       href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8"
-       target="_blank">
-       View Location
-    </a>
-</section>
+        <a class="btn"
+           href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8"
+           target="_blank">
+            View Location
+        </a>
+    </section>
 
-<section class="section">
-    <h2>Going Away Reception</h2>
-    <p>04:00 PM</p>
-</section>
+    <section class="section">
+        <h2>Going Away Reception</h2>
+        <p>04:00 PM</p>
+    </section>
 
-<section class="section">
-    <h2>RSVP</h2>
+    <section class="section">
+        <h2>RSVP</h2>
 
-    <a class="btn"
-       href="https://wa.me/94752452479"
-       target="_blank">
-       Confirm Attendance
-    </a>
-</section>
+        <a class="btn"
+           href="https://wa.me/94752452479"
+           target="_blank">
+            Confirm Attendance
+        </a>
+    </section>
 
 </div>
 
 <script>
 
-// OPEN INVITATION
+/* Open Invitation */
 function openInvitation(){
-    document.getElementById("overlay").style.display="none";
-    document.getElementById("content").style.display="block";
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("content").style.display = "block";
 }
 
-// COUNTDOWN
+/* Countdown */
 const weddingDate =
 new Date("2026-11-05T11:00:00+05:30").getTime();
 
@@ -213,28 +268,27 @@ setInterval(function(){
 
     if(distance < 0){
         document.getElementById("countdown").innerHTML =
-        "💍 Today is the Day!";
+        "💍 Today Is The Day!";
         return;
     }
 
     const days =
-    Math.floor(distance/(1000*60*60*24));
+    Math.floor(distance / (1000 * 60 * 60 * 24));
 
     const hours =
-    Math.floor((distance%(1000*60*60*24))
-    /(1000*60*60));
+    Math.floor((distance % (1000 * 60 * 60 * 24))
+    / (1000 * 60 * 60));
 
     const minutes =
-    Math.floor((distance%(1000*60*60))
-    /(1000*60));
+    Math.floor((distance % (1000 * 60 * 60))
+    / (1000 * 60));
 
     const seconds =
-    Math.floor((distance%(1000*60))
-    /1000);
+    Math.floor((distance % (1000 * 60))
+    / 1000);
 
-    document.getElementById("countdown").innerHTML =
-    `
-    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
+    document.getElementById("countdown").innerHTML = `
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
         <div>
             <h2>${days}</h2>
             <p>Days</p>
@@ -251,8 +305,7 @@ setInterval(function(){
             <h2>${seconds}</h2>
             <p>Seconds</p>
         </div>
-    </div>
-    `;
+    </div>`;
 },1000);
 
 </script>
