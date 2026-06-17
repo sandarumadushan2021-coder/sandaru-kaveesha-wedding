@@ -12,6 +12,16 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 }
+.ring{
+    font-size: 30px;
+    margin: 0 10px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+.names{
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+}
 
 body, html{
 height:100%;
@@ -134,7 +144,9 @@ to{transform:scale(1);opacity:1}
 <!-- OPENING SCREEN -->
 <div class="container" id="home">
     <h1>The Wedding of</h1>
-    <div class="names">Sandaru & Kaveesha</div>
+    <div class="names">
+    Sandaru <span class="ring">💍</span> Kaveesha
+</div>
 
     <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
 </div>
