@@ -31,7 +31,7 @@ body, html{
     filter: brightness(40%);
 }
 
-/* CENTER SCREEN */
+/* HOME SCREEN */
 .container{
     position:relative;
     height:100%;
@@ -44,7 +44,6 @@ body, html{
     animation: fadeIn 2s ease-in-out;
 }
 
-/* TITLE */
 h1{
     font-family:'Playfair Display', serif;
     font-size:60px;
@@ -57,82 +56,72 @@ h1{
     font-family: 'Great Vibes', cursive;
     font-size: 55px;
     margin-top: 15px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* ⭐ THIS CENTERS EVERYTHING */
-    justify-content: center;
-    text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
 }
 
-/* GOLD RING */
-
-    .ring{
-    width: 45px;
-    height: 45px;
-    margin: 0 15px;
-    vertical-align: middle;
+.ring{
+    width:45px;
+    height:45px;
     filter: drop-shadow(0 0 8px rgba(245,197,66,0.8));
 }
 
 /* BUTTON */
 .btn{
-    margin-top:40px;
+    margin-top:30px;
     padding:15px 40px;
     border:none;
     border-radius:50px;
     background:linear-gradient(45deg,#ff9a9e,#fad0c4);
     color:black;
-    font-size:26px;
+    font-size:20px;
     cursor:pointer;
     transition:0.3s;
     animation: pulse 2s infinite;
 }
 
-.btn{
-    margin-top: 25px;
-}
-
-/* INVITATION PAGE */
+/* INVITATION SCREEN */
 .invite{
     display:none;
     position:absolute;
     width:100%;
     height:100%;
-    background:#111;
+    background:rgba(0,0,0,0.9);
     color:white;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    text-align:center;
 }
 
-/* NAMES FIRST (center main) */
+/* ANIMATED CONTENT */
 .invite-names{
     font-family:'Great Vibes', cursive;
     font-size:60px;
     opacity:0;
-    transform:translateY(20px);
+    transform:translateY(30px);
 }
 
-/* OPEN INVITATION BELOW */
 .invite-text{
     font-family:'Playfair Display', serif;
-    font-size:30px;
+    font-size:28px;
     margin-top:20px;
     opacity:0;
-    transform:translateY(20px);
+    transform:translateY(30px);
 }
 
-/* ANIMATION */
 .invite.active .invite-names{
     animation: fadeUp 1s ease forwards;
 }
 
 .invite.active .invite-text{
     animation: fadeUp 1s ease forwards;
-    animation-delay: 1.2s;
+    animation-delay: 1s;
 }
 
+/* ANIMATIONS */
 @keyframes fadeUp{
     to{
         opacity:1;
@@ -140,7 +129,6 @@ h1{
     }
 }
 
-/* ANIMATIONS */
 @keyframes fadeIn{
     from{opacity:0}
     to{opacity:1}
@@ -156,11 +144,6 @@ h1{
     70%{box-shadow:0 0 0 20px rgba(255,255,255,0);}
     100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
 }
-
-@keyframes zoomIn{
-    from{transform:scale(0.7);opacity:0}
-    to{transform:scale(1);opacity:1}
-}
 </style>
 </head>
 
@@ -168,31 +151,39 @@ h1{
 
 <div class="bg"></div>
 
-<!-- HOME SCREEN -->
+<!-- HOME -->
 <div class="container" id="home">
     <h1>The Wedding of</h1>
 
     <div class="names">
-    Sandaru <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png"> Kaveesha
+        <div>
+            Sandaru
+            <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png">
+            Kaveesha
+        </div>
 
-    <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
+        <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
+    </div>
 </div>
 
-<!-- INVITATION SCREEN -->
+<!-- INVITATION -->
 <div class="invite" id="invite">
-
     <div class="invite-names">
         Sandaru <img class="ring" src="https://cdn-icons-png.flaticon.com/512/2589/2589175.png"> Kaveesha
     </div>
 
-    <div class="invite-text">OPEN INVITATION</div>
-
+    <div class="invite-text">You are warmly invited 💍</div>
 </div>
 
 <script>
 function openInvite(){
     document.getElementById('home').style.display='none';
-    document.getElementById('invite').style.display='flex';
+    const invite = document.getElementById('invite');
+    invite.style.display='flex';
+
+    setTimeout(()=>{
+        invite.classList.add('active');
+    },100);
 }
 </script>
 
