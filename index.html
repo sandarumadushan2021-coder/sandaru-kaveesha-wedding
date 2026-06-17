@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandaru ❤️ Kaveesha Wedding</title>
+<title>Sandaru & Kaveesha Wedding</title>
 
 <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
 
@@ -13,142 +13,118 @@ body{
   font-family:Georgia,serif;
   background:#0a0a0f;
   color:white;
-  overflow-x:hidden;
+  text-align:center;
+  overflow:hidden;
 }
 
-/* LOADING SCREEN */
-#loader{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:99999;
-  flex-direction:column;
-}
-
-.spinner{
-  width:60px;
-  height:60px;
-  border:5px solid #333;
-  border-top:5px solid gold;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-  100%{transform:rotate(360deg);}
-}
-
-/* ENVELOPE */
+/* START SCREEN */
 #startScreen{
   position:fixed;
   inset:0;
-  display:none;
+  background:radial-gradient(circle,#1a1a1a,#000);
+  display:flex;
   justify-content:center;
   align-items:center;
-  background:radial-gradient(circle,#1a1a1a,#000);
   z-index:9999;
+}
+
+/* 3D ENVELOPE WRAPPER */
+.scene{
+  perspective:1000px;
 }
 
 .envelope{
   width:260px;
   height:180px;
   position:relative;
+  transform-style:preserve-3d;
   cursor:pointer;
-  perspective:1000px;
 }
 
+/* FRONT BODY */
+.front{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 0 30px gold;
+}
+
+/* FLAP (3D TOP) */
 .flap{
   position:absolute;
   width:100%;
   height:50%;
   background:gold;
+  top:0;
   transform-origin:top;
+  transform:rotateX(0deg);
   transition:0.8s;
   border-radius:10px 10px 0 0;
 }
 
-.front{
-  width:100%;
-  height:100%;
-  background:white;
-  border-radius:10px;
-}
-
+/* OPEN STATE */
 .envelope.open .flap{
   transform:rotateX(180deg);
 }
 
+/* ICON */
 .icon{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  font-size:45px;
+  font-size:50px;
 }
 
 /* MAIN SITE */
 #mainSite{
   display:none;
-}
-
-/* GLASS UI */
-.glass{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(10px);
-  border-radius:15px;
-  margin:20px;
-  padding:20px;
-  box-shadow:0 0 20px rgba(255,215,0,0.2);
+  background:radial-gradient(circle,#111,#000);
 }
 
 /* HERO */
 .hero{
-  padding:70px 20px;
-  text-align:center;
+  padding:80px 20px;
 }
 
 h1{
   font-size:3rem;
   color:gold;
+  text-shadow:0 0 20px gold;
 }
 
-/* COUNTDOWN */
-#countdown{
-  font-size:1.8rem;
+.countdown{
+  font-size:2rem;
+  margin:20px;
   color:gold;
-}
-
-/* SLIDESHOW */
-.slide{
-  display:none;
-  width:100%;
-  height:300px;
-  object-fit:cover;
+  background:rgba(255,255,255,0.05);
+  padding:20px;
   border-radius:15px;
+  display:inline-block;
 }
 
 /* BUTTON */
 .btn{
-  padding:12px 25px;
+  padding:15px 30px;
   background:gold;
   color:black;
-  border-radius:25px;
+  border-radius:30px;
   text-decoration:none;
   font-weight:bold;
   display:inline-block;
   margin:10px;
 }
 
-/* RSVP */
-input{
-  width:90%;
-  padding:10px;
+/* PHOTO */
+.photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  border:3px solid gold;
+  object-fit:cover;
   margin:10px;
-  border-radius:10px;
-  border:none;
 }
 
 /* FIREWORKS */
@@ -158,12 +134,13 @@ input{
   pointer-events:none;
 }
 
-/* MUSIC BUTTON */
+/* MUSIC */
 #musicBtn{
   position:fixed;
   bottom:20px;
   right:20px;
   background:gold;
+  color:black;
   padding:12px;
   border-radius:50%;
   cursor:pointer;
@@ -173,18 +150,14 @@ input{
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="spinner"></div>
-  <p>Loading Invitation...</p>
-</div>
-
-<!-- ENVELOPE -->
+<!-- START SCREEN -->
 <div id="startScreen">
-  <div class="envelope" id="envelope">
-    <div class="flap"></div>
-    <div class="front"></div>
-    <div class="icon">💌</div>
+  <div class="scene">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="front"></div>
+      <div class="icon">💌</div>
+    </div>
   </div>
 </div>
 
@@ -194,38 +167,32 @@ input{
 <!-- MAIN SITE -->
 <div id="mainSite">
 
-<div class="hero glass">
+<div class="hero">
   <h1>Sandaru ❤️ Kaveesha</h1>
-  <div id="countdown"></div>
+  <p>We are getting married</p>
+
+  <div id="countdown" class="countdown"></div>
 </div>
 
-<div class="glass">
-  <img class="slide" src="SAVE_20260322_144012.jpg">
-  <img class="slide" src="SAVE_20260322_163358.jpg">
+<div>
+  <img class="photo" src="SAVE_20260322_144012.jpg">
+  <img class="photo" src="SAVE_20260322_163358.jpg">
 </div>
 
-<div class="glass">
+<div style="padding:40px">
   <h2>Wedding Ceremony</h2>
   <p>05 November 2026 - 11:00 AM</p>
+
+  <a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8" target="_blank">
+    View Location
+  </a>
 </div>
 
-<div class="glass">
-  <a class="btn" href="https://maps.app.goo.gl/s2BS64UK8cj58Ukt8">View Location</a>
-</div>
-
-<!-- RSVP -->
-<div class="glass">
+<div style="padding:30px">
   <h2>RSVP</h2>
-  <form action="https://script.google.com/macros/s/YOUR_SCRIPT_URL/exec" method="POST">
-    <input name="name" placeholder="Your Name" required>
-    <input name="phone" placeholder="Phone" required>
-    <button class="btn" type="submit">Send RSVP</button>
-  </form>
-</div>
-
-<!-- SHARE -->
-<div class="glass">
-  <a class="btn" id="shareBtn">Share via WhatsApp</a>
+  <a class="btn" href="https://wa.me/94752452479" target="_blank">
+    Confirm Attendance
+  </a>
 </div>
 
 </div>
@@ -239,79 +206,63 @@ input{
 
 <script>
 
-// LOADER
-window.onload = ()=>{
-  setTimeout(()=>{
-    document.getElementById("loader").style.display="none";
-    document.getElementById("startScreen").style.display="flex";
-  },1500);
-};
+let fireworks;
 
-// ENVELOPE OPEN
-document.getElementById("envelope").onclick = ()=>{
-  document.getElementById("envelope").classList.add("open");
+// OPEN ENVELOPE
+document.getElementById("envelope").addEventListener("click", function(){
+
+  this.classList.add("open");
 
   setTimeout(()=>{
+
     document.getElementById("startScreen").style.display="none";
     document.getElementById("mainSite").style.display="block";
 
     startCountdown();
-    startSlides();
     startFireworks();
 
     document.getElementById("music").play().catch(()=>{});
 
   },800);
-};
+});
 
 // COUNTDOWN
 function startCountdown(){
-  const w = new Date("Nov 05, 2026 11:00:00").getTime();
+  const weddingDate = new Date("Nov 05, 2026 11:00:00").getTime();
 
   setInterval(()=>{
-    let now = new Date().getTime();
-    let d = w-now;
+    const now = new Date().getTime();
+    const d = weddingDate - now;
+
+    const days = Math.floor(d/(1000*60*60*24));
+    const hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    const mins = Math.floor((d%(1000*60*60))/(1000*60));
+    const sec = Math.floor((d%(1000*60))/1000);
 
     document.getElementById("countdown").innerHTML =
-    Math.floor(d/86400000)+" Days";
+    `${days} Days ${hours}h ${mins}m ${sec}s`;
+
   },1000);
-}
-
-// SLIDESHOW
-let i=0;
-function startSlides(){
-  let slides = document.getElementsByClassName("slide");
-
-  function show(){
-    for(let s of slides) s.style.display="none";
-    i++;
-    if(i>slides.length) i=1;
-    slides[i-1].style.display="block";
-    setTimeout(show,3000);
-  }
-  show();
 }
 
 // FIREWORKS
 function startFireworks(){
-  let f = new Fireworks.default(document.getElementById("fireworks"),{
-    particles:80
+  fireworks = new Fireworks.default(document.getElementById("fireworks"),{
+    speed:3,
+    particles:80,
+    explosion:5
   });
-  f.start();
-  setTimeout(()=>f.stop(),8000);
+
+  fireworks.start();
+
+  setTimeout(()=>fireworks.stop(),8000);
 }
 
-// MUSIC
+// MUSIC TOGGLE
 document.getElementById("musicBtn").onclick = ()=>{
   let m = document.getElementById("music");
-  m.paused ? m.play() : m.pause();
-};
-
-// SHARE
-document.getElementById("shareBtn").onclick = ()=>{
-  let url = window.location.href;
-  let text = "💍 Join Our Wedding Invitation: " + url;
-  window.open("https://wa.me/?text="+encodeURIComponent(text));
+  if(m.paused){ m.play(); }
+  else{ m.pause(); }
 };
 
 </script>
