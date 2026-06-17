@@ -145,105 +145,8 @@ h1{
     70%{box-shadow:0 0 0 20px rgba(255,255,255,0);}
     100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
 }
-.invite{
-    display:none;
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80') center/cover;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-}
+    /* SECOND PAGE */
 
-.invite::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.65);
-}
-
-.invite-names,
-.invite-text{
-    position:relative;
-    z-index:2;
-}
-.invite.active .invite-names{
-    animation: fadeUp 1s ease forwards;
-}
-
-.invite.active .invite-text{
-    animation: fadeUp 1s ease forwards;
-    animation-delay:1s;
-}
-
-.invite{
-display:none;
-position:absolute;
-width:100%;
-height:100%;
-justify-content:center;
-align-items:center;
-background:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80') center/cover;
-}
-
-.invite::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.75);
-}
-
-.invite-card{
-position:relative;
-z-index:2;
-width:90%;
-max-width:700px;
-padding:50px 30px;
-border:1px solid rgba(212,175,55,0.4);
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-border-radius:25px;
-text-align:center;
-color:white;
-box-shadow:0 0 40px rgba(212,175,55,0.25);
-}
-
-.invite-top{
-color:#d4af37;
-letter-spacing:4px;
-margin-bottom:25px;
-}
-
-.invite-names{
-font-family:'Great Vibes',cursive;
-font-size:80px;
-color:#d4af37;
-}
-
-.invite-names span{
-display:block;
-font-size:50px;
-margin:10px 0;
-}
-
-.invite-text{
-margin-top:25px;
-font-size:22px;
-line-height:1.8;
-}
-
-.invite-details{
-margin-top:35px;
-font-size:24px;
-line-height:2;
-}
-
-.invite-footer{
-margin-top:35px;
-color:#d4af37;
-font-style:italic;
-}
 </style>
 </head>
 
@@ -266,7 +169,7 @@ font-style:italic;
     </div>
 </div>
 
-<!-- INVITATION -->
+<!-- INVITATION SECOND PAGE-->
 
     <div class="invite" id="invite"><div class="invite-card">
 
