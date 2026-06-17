@@ -176,6 +176,74 @@ h1{
     animation: fadeUp 1s ease forwards;
     animation-delay:1s;
 }
+
+.invite{
+display:none;
+position:absolute;
+width:100%;
+height:100%;
+justify-content:center;
+align-items:center;
+background:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80') center/cover;
+}
+
+.invite::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.75);
+}
+
+.invite-card{
+position:relative;
+z-index:2;
+width:90%;
+max-width:700px;
+padding:50px 30px;
+border:1px solid rgba(212,175,55,0.4);
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border-radius:25px;
+text-align:center;
+color:white;
+box-shadow:0 0 40px rgba(212,175,55,0.25);
+}
+
+.invite-top{
+color:#d4af37;
+letter-spacing:4px;
+margin-bottom:25px;
+}
+
+.invite-names{
+font-family:'Great Vibes',cursive;
+font-size:80px;
+color:#d4af37;
+}
+
+.invite-names span{
+display:block;
+font-size:50px;
+margin:10px 0;
+}
+
+.invite-text{
+margin-top:25px;
+font-size:22px;
+line-height:1.8;
+}
+
+.invite-details{
+margin-top:35px;
+font-size:24px;
+line-height:2;
+}
+
+.invite-footer{
+margin-top:35px;
+color:#d4af37;
+font-style:italic;
+}
 </style>
 </head>
 
@@ -200,26 +268,37 @@ h1{
 
 <!-- INVITATION -->
 
-    <div class="invite-names">
-        Sandaru <br>&<br> Kaveesha
+    <div class="invite" id="invite"><div class="invite-card">
+
+    <div class="invite-top">
+        ✦ Wedding Invitation ✦
     </div>
 
-    <div class="invite" id="invite">
-
     <div class="invite-names">
-        Sandaru <br>&<br> Kaveesha
+        Sandaru
+        <span>&</span>
+        Kaveesha
     </div>
 
     <div class="invite-text">
-        Together with their families,<br><br>
-
-        Request the pleasure of your company
-        at the celebration of their marriage.<br><br>
-
-        Date: 2027 January 15<br>
-        Time: 10.00 AM<br>
-        Venue: Hotel Name
+        Together with their beloved families,
+        request the honour of your presence
+        as they celebrate their wedding day.
     </div>
+
+    <div class="invite-details">
+        <div>📅 January 15, 2027</div>
+        <div>⏰ 10:00 AM</div>
+        <div>📍 Venue Name</div>
+    </div>
+
+    <div class="invite-footer">
+        We look forward to sharing this special day with you
+    </div>
+
+</div>
+
+</div>
 
 </div>
 
