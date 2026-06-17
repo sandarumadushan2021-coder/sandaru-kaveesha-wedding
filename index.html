@@ -168,6 +168,14 @@ h1{
     position:relative;
     z-index:2;
 }
+.invite.active .invite-names{
+    animation: fadeUp 1s ease forwards;
+}
+
+.invite.active .invite-text{
+    animation: fadeUp 1s ease forwards;
+    animation-delay:1s;
+}
 </style>
 </head>
 
@@ -197,8 +205,23 @@ h1{
     </div>
 
     <div class="invite" id="invite">
-    <h1 style="color:white;">Hello Wedding Page</h1>
+
+    <div class="invite-names">
+        Sandaru <br>&<br> Kaveesha
     </div>
+
+    <div class="invite-text">
+        Together with their families,<br><br>
+
+        Request the pleasure of your company
+        at the celebration of their marriage.<br><br>
+
+        Date: 2027 January 15<br>
+        Time: 10.00 AM<br>
+        Venue: Hotel Name
+    </div>
+
+</div>
 
 <script>
 function openInvite(){
