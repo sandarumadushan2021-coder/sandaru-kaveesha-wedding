@@ -83,28 +83,7 @@ h1{
     transition:0.3s;
     animation: pulse 2s infinite;
 }
-    .btn{
-    position:relative;
-    display:inline-block;
-}
 
-.click-hint{
-    display:block;
-    font-size:14px;
-    margin-top:5px;
-    font-family:'Poppins', sans-serif;
-    color:rgba(255,255,255,0.8);
-    letter-spacing:1px;
-}
-.click-hint{
-    opacity:0.7;
-    transition:0.3s;
-}
-
-.btn:hover .click-hint{
-    opacity:1;
-    color:#fff;
-}
 
 @keyframes bounce{
     0%,100%{transform:translateY(0);}
@@ -200,8 +179,7 @@ h1{
 <div class="invite-wrapper">
     <button class="btn" onclick="openInvite()">
     OPEN INVITATION
-    <span class="click-hint">Click here</span>
-    </button>
+    <button class="btn" onclick="openInvite()">OPEN INVITATION</button>   </div>   `
     
 <!-- INVITATION SECOND PAGE -->
     
