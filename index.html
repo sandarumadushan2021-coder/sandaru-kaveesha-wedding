@@ -319,7 +319,30 @@ h1{
         0 0 20px rgba(212,175,55,0.3);
     margin:10px 0;
 }
+.lux-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:25px 0;
+    color:#CFB53B;
+}
 
+.lux-divider::before,
+.lux-divider::after{
+    content:"";
+    flex:1;
+    height:2px;
+    background:linear-gradient(to right, transparent, #CFB53B);
+}
+
+.lux-divider::after{
+    background:linear-gradient(to left, transparent, #CFB53B);
+}
+
+.lux-divider span{
+    padding:0 15px;
+    font-size:18px;
+}
 /* DATE */
 .lux-date{
     font-family:'Playfair Display', serif;
@@ -379,6 +402,9 @@ h1{
         <h2 class="lux-title">We are getting married</h2>
 
         <h1 class="lux-names">Sandaru & Kaveesha</h1>
+<div class="lux-divider">
+    <span>♥</span>
+</div>
 
         <p class="lux-date">05 November 2026</p>
 
