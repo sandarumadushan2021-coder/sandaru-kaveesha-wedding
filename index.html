@@ -355,19 +355,44 @@ h1{
 
 /* RSVP TEXT */
 .lux-rsvp{
-    margin-top:25px;
-    font-size:16px;
-    letter-spacing:3px;
-    color:#D4AF37;
-    opacity:0.9;
+    margin-top:60px; /* 👈 තව පහලට */
+    font-size:18px;
+    letter-spacing:4px;
+    color:#C9A24E; /* 👈 more premium gold */
+    opacity:0.95;
+    text-align:center;
     animation:floatText 2s infinite ease-in-out;
-    text-shadow:0 8px 25px rgba(0,0,0,0.8);
+    text-shadow:0 10px 30px rgba(0,0,0,0.6);
+    font-family:'Cinzel', serif;
 }
 
 /* FLOAT ANIMATION */
 @keyframes floatText{
     0%,100%{transform:translateY(0);}
-    50%{transform:translateY(5px);}
+    50%{transform:translateY(6px);}
+}
+
+/* LUXURY SCROLL BUTTON */
+.lux-scroll-btn{
+    display:block;
+    margin:25px auto 0;
+    padding:12px 28px;
+    font-size:14px;
+    letter-spacing:3px;
+    color:#fff;
+    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:40px;
+    cursor:pointer;
+    text-transform:uppercase;
+    font-family:'Cinzel', serif;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    transition:0.3s ease;
+}
+
+.lux-scroll-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
 </style>
 </head>
@@ -409,6 +434,10 @@ h1{
         <p class="lux-date">05 November 2026</p>
 
         <p class="lux-rsvp">Confirm Attendance</p>
+
+<button class="lux-scroll-btn" onclick="scrollToNext()">
+    Scroll Down
+</button>
     </div>
 
 </div>
@@ -416,6 +445,12 @@ h1{
 </div>
 
 <script>
+function scrollToNext(){
+    window.scrollBy({
+        top: 600,
+        behavior: "smooth"
+    });
+}
 function openInvite(){
     const home = document.getElementById("home");
     const invite = document.getElementById("invite");
