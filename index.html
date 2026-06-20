@@ -265,12 +265,28 @@ h1{
 
 <script>
 function openInvite(){
-    document.getElementById("home").style.display = "none";
-    document.getElementById("invite").style.display = "flex";
+    const home = document.getElementById("home");
+    const invite = document.getElementById("invite");
+    const transition = document.getElementById("transition");
+    const vid = document.getElementById("weddingVideo");
 
-    // ensure video plays
-    let vid = document.getElementById("weddingVideo");
-    vid.play();
+    // show transition
+    transition.classList.add("active");
+
+    setTimeout(() => {
+
+        home.style.display = "none";
+        invite.style.display = "flex";
+        invite.classList.add("show");
+
+        vid.play();
+
+        // hide transition
+        setTimeout(() => {
+            transition.classList.remove("active");
+        }, 400);
+
+    }, 800);
 }
 
 </script>
