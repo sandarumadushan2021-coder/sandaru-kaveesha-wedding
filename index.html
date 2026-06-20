@@ -75,6 +75,28 @@ h1{
     cursor:pointer;
     animation:pulse 2s infinite;
 }
+.btn{
+    position:relative;
+    padding:16px 45px;
+}
+
+/* TAP TEXT */
+.tap{
+    position:absolute;
+    bottom:-28px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:14px;
+    color:white;
+    opacity:0.8;
+    animation:blink 1.5s infinite;
+    white-space:nowrap;
+}
+
+@keyframes blink{
+    0%,100%{opacity:0.3;}
+    50%{opacity:1;}
+}
 
 /* ================= INVITE ================= */
 .invite{
@@ -154,9 +176,9 @@ h1{
     </div>
 
     <button class="btn" onclick="openInvite()">
-        OPEN INVITATION
-    </button>
-</div>
+    OPEN INVITATION
+    <span class="tap">Tap to open</span>
+</button>
 
 <!-- INVITE WITH VIDEO -->
 <div class="invite" id="invite">
