@@ -35,6 +35,7 @@ body,html{
     background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
+/* dark overlay */
 #home::before{
     content:"";
     position:absolute;
@@ -50,7 +51,6 @@ body,html{
 h1{
     font-family:'Playfair Display',serif;
     font-size:65px;
-    letter-spacing:2px;
     animation:fadeDown 1.5s ease;
 }
 
@@ -87,7 +87,7 @@ h1{
     transform:scale(1.05);
 }
 
-/* ================= INVITE ================= */
+/* ================= INVITE (3D FLIP FIX) ================= */
 .invite{
     position:fixed;
     inset:0;
@@ -100,20 +100,18 @@ h1{
 
     background:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 
-    transform:perspective(1200px) rotateY(-90deg);
-    transform-origin:left;
     opacity:0;
-    transition:1.2s ease;
+    transform:perspective(1500px) rotateY(-90deg) scale(0.8);
+    transform-origin:left center;
+    filter:blur(8px);
+
+    transition:1.3s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
 .invite.active{
-    transform:perspective(1200px) rotateY(0deg);
     opacity:1;
-}
-
-.invite h2{
-    font-family:'Great Vibes',cursive;
-    font-size:70px;
+    transform:perspective(1500px) rotateY(0deg) scale(1);
+    filter:blur(0);
 }
 
 /* ================= SECTIONS ================= */
@@ -155,7 +153,7 @@ h1{
 
 <body>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div id="home">
     <h1>The Wedding of</h1>
 
@@ -170,16 +168,14 @@ h1{
     </button>
 </div>
 
-<!-- INVITATION PAGE -->
+<!-- INVITATION -->
 <div class="invite" id="invite">
-    <div>
-        <h2>Sandaru & Kaveesha</h2>
-        <p>05 November 2026</p>
-        <p>11.00 AM</p>
-    </div>
+    <h2>Sandaru & Kaveesha</h2>
+    <p>05 November 2026</p>
+    <p>11.00 AM</p>
 </div>
 
-<!-- SCROLL SECTIONS -->
+<!-- SECTIONS -->
 <section class="section">
     <h2>Wedding Details</h2>
     <p>Welcome to our special day 💖</p>
@@ -190,11 +186,19 @@ h1{
     <p>Beautiful Location 🌿</p>
 </section>
 
-<!-- SCRIPT -->
 <script>
 function openInvite(){
-    document.getElementById("home").style.display="none";
-    document.getElementById("invite").classList.add("active");
+    const home = document.getElementById("home");
+    const invite = document.getElementById("invite");
+
+    home.style.transition = "1s ease";
+    home.style.opacity = "0";
+    home.style.transform = "scale(0.95)";
+
+    setTimeout(()=>{
+        home.style.display="none";
+        invite.classList.add("active");
+    },800);
 }
 
 /* scroll animation */
