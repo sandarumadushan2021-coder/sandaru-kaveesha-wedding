@@ -91,14 +91,16 @@ h1{
 .btn::after{
     content:"👆 CLICK TO BEGIN";
     position:absolute;
-    bottom:-38px;
+    bottom:-48px;
     left:50%;
     transform:translateX(-50%);
     font-size:14px;
     color:white;
-    font-family:'Cinzel', serif; /* 👈 font style එක */
+    font-family: 'Cinzel', serif !important;
     letter-spacing:5px;
     animation:blink 1.5s infinite;
+
+    white-space: nowrap; /* 👈 මේකෙන් line break නවත්තනවා */
 }
 
 /* ================= INVITE PAGE ================= */
