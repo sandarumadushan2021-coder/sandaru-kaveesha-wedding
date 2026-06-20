@@ -57,12 +57,27 @@ h1{
 
 .names{
     font-family:'Great Vibes',cursive;
-    font-size:100px;
+    font-size:90px;
     margin-top:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+
     background:linear-gradient(45deg,#fff,#ffd6e0,#fff);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
     animation:fadeUp 2s ease;
+}
+
+/* ring position fix (slightly lower + centered) */
+.ring{
+    width:80px;
+    transform:translateY(10px); /* 👈 මෙතනින් පහලට ගියා */
+    filter:drop-shadow(0 0 10px rgba(255,255,255,0.6));
+    animation:float 3s infinite ease-in-out;
 }
 
 .ring{
@@ -204,10 +219,10 @@ h1{
     <h1>The Wedding of</h1>
 
     <div class="names">
-        Sandaru
-        <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
-        Kaveesha
-    </div>
+    Sandaru
+    <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
+    Kaveesha
+</div>
 
     <button class="btn" onclick="openInvite()">
         OPEN INVITATION
