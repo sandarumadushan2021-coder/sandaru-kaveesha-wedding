@@ -209,6 +209,32 @@ function openInvite(){
     },100);
 
 }
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+.invite{
+    position: fixed;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1519741497674-611481863552') center/cover no-repeat;
+
+    transform: perspective(1500px) rotateY(-90deg);
+    transform-origin: left center;
+
+    opacity: 0;
+    transition: all 1.5s ease;
+}
+
+.invite.active{
+    transform: perspective(1500px) rotateY(0deg);
+    opacity: 1;
+}
+invite.classList.add("active");
 </style>
 </head>
 
