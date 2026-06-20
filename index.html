@@ -52,6 +52,7 @@ h1{
     font-family:'Playfair Display',serif;
     font-size:65px;
     animation:fadeDown 1.5s ease;
+    color:white;
 }
 
 .names{
@@ -71,23 +72,45 @@ h1{
     animation:float 3s infinite ease-in-out;
 }
 
+/* ================= BUTTON BOX ================= */
 .btn{
     margin-top:40px;
-    padding:14px 35px;
-    font-size:18px;
+    padding:18px 50px;
+    font-size:20px;
     border:none;
-    border-radius:40px;
-    cursor:pointer;
+    border-radius:15px;
+
     background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-    font-weight:600;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+
+    position:relative;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
     transition:0.3s;
+
+    animation:pulseBox 2s infinite;
 }
 
 .btn:hover{
     transform:scale(1.05);
 }
 
-/* ================= INVITE (FIXED 3D FLIP) ================= */
+/* TAP HERE TEXT */
+.btn::after{
+    content:"👆 Tap here";
+    position:absolute;
+    bottom:-28px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:14px;
+    color:white;
+    opacity:0.8;
+    animation:blink 1.5s infinite;
+}
+
+/* ================= INVITE (3D FLIP FIX) ================= */
 .invite{
     position:fixed;
     inset:0;
@@ -100,7 +123,6 @@ h1{
 
     background:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 
-    /* start hidden */
     visibility:hidden;
     opacity:0;
 
@@ -159,6 +181,17 @@ h1{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-8px);}
 }
+
+@keyframes pulseBox{
+    0%{box-shadow:0 0 0 0 rgba(255,255,255,0.4);}
+    70%{box-shadow:0 0 0 20px rgba(255,255,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+}
+
+@keyframes blink{
+    0%,100%{opacity:0.5;}
+    50%{opacity:1;}
+}
 </style>
 </head>
 
@@ -209,9 +242,7 @@ function openInvite(){
     setTimeout(() => {
         home.style.display = "none";
 
-        // FIX animation trigger
-        invite.offsetHeight;
-
+        invite.offsetHeight; // fix animation trigger
         invite.classList.add("active");
     }, 700);
 }
