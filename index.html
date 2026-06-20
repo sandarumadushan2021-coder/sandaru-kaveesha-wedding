@@ -19,45 +19,75 @@ body,html{
     height:100%;
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:black;
 }
 
-/* HOME */
+/* ================= HOME ================= */
 #home{
     height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    color:white;
     text-align:center;
-    background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80') center/cover;
-    filter:brightness(0.8);
+    color:white;
+    position:relative;
+
+    background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+#home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+}
+
+#home > *{
+    position:relative;
+    z-index:2;
 }
 
 h1{
     font-family:'Playfair Display',serif;
-    font-size:60px;
+    font-size:65px;
+    letter-spacing:2px;
+    animation:fadeDown 1.5s ease;
 }
 
 .names{
     font-family:'Great Vibes',cursive;
-    font-size:80px;
+    font-size:100px;
     margin-top:20px;
+    background:linear-gradient(45deg,#fff,#ffd6e0,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:fadeUp 2s ease;
 }
 
-/* BUTTON */
+.ring{
+    width:90px;
+    margin:0 15px;
+    filter:drop-shadow(0 0 10px rgba(255,255,255,0.6));
+    animation:float 3s infinite ease-in-out;
+}
+
 .btn{
-    margin-top:30px;
-    padding:12px 30px;
-    font-size:20px;
+    margin-top:40px;
+    padding:14px 35px;
+    font-size:18px;
     border:none;
-    border-radius:30px;
+    border-radius:40px;
     cursor:pointer;
-    background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-weight:600;
+    transition:0.3s;
 }
 
-/* INVITATION */
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* ================= INVITE ================= */
 .invite{
     position:fixed;
     inset:0;
@@ -65,9 +95,10 @@ h1{
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    text-align:center;
     color:white;
 
-    background:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover;
+    background:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 
     transform:perspective(1200px) rotateY(-90deg);
     transform-origin:left;
@@ -85,7 +116,7 @@ h1{
     font-size:70px;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 .section{
     height:100vh;
     display:flex;
@@ -103,26 +134,49 @@ h1{
     opacity:1;
     transform:translateY(0);
 }
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- HOME -->
+<!-- HOME PAGE -->
 <div id="home">
     <h1>The Wedding of</h1>
-    <div class="names">Sandaru ❤️ Kaveesha</div>
+
+    <div class="names">
+        Sandaru
+        <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
+        Kaveesha
+    </div>
 
     <button class="btn" onclick="openInvite()">
-        Open Invitation
+        OPEN INVITATION
     </button>
 </div>
 
-<!-- INVITATION -->
+<!-- INVITATION PAGE -->
 <div class="invite" id="invite">
-    <h2>Sandaru & Kaveesha</h2>
-    <p>05 November 2026</p>
-    <p>11.00 AM</p>
+    <div>
+        <h2>Sandaru & Kaveesha</h2>
+        <p>05 November 2026</p>
+        <p>11.00 AM</p>
+    </div>
 </div>
 
 <!-- SCROLL SECTIONS -->
@@ -133,14 +187,14 @@ h1{
 
 <section class="section">
     <h2>Venue</h2>
-    <p>To be announced</p>
+    <p>Beautiful Location 🌿</p>
 </section>
 
+<!-- SCRIPT -->
 <script>
 function openInvite(){
     document.getElementById("home").style.display="none";
-    const invite = document.getElementById("invite");
-    invite.classList.add("active");
+    document.getElementById("invite").classList.add("active");
 }
 
 /* scroll animation */
