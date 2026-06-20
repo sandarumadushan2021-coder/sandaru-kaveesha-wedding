@@ -5,76 +5,211 @@
 <title>Wedding Invitation</title>
 
 <style>
-body{
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+*{
     margin:0;
     padding:0;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    flex-direction:column;
+    box-sizing:border-box;
 }
 
-/* Tap box */
-.box{
-    width:220px;
-    height:120px;
-    border:2px solid gold;
-    border-radius:12px;
+html, body{
+    height:100%;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ================= HOME ================= */
+#home{
+    height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    cursor:pointer;
+    text-align:center;
     color:white;
-    font-size:18px;
-    animation: glow 2s infinite;
+    background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    position:relative;
 }
 
-@keyframes glow{
-    0%{box-shadow:0 0 5px gold;}
-    50%{box-shadow:0 0 20px gold;}
-    100%{box-shadow:0 0 5px gold;}
+#home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.55);
 }
 
-/* Video page */
-#videoPage{
+#home > *{
+    position:relative;
+    z-index:2;
+}
+
+/* TITLE */
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:60px;
+    animation:fadeIn 1.2s ease;
+}
+
+/* NAMES */
+.names{
+    font-family:'Great Vibes',cursive;
+    font-size:85px;
+    margin-top:20px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    animation:zoomIn 1.5s ease;
+}
+
+/* RING */
+.ring{
+    width:85px;
+    animation:float 3s infinite ease-in-out;
+}
+
+/* BUTTON */
+.btn{
+    margin-top:40px;
+    padding:16px 45px;
+    font-size:20px;
+    border:none;
+    border-radius:35px;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-weight:700;
+    cursor:pointer;
+    position:relative;
+    animation:pulse 2s infinite;
+}
+
+.btn::after{
+    content:"👆 Tap to open";
+    position:absolute;
+    bottom:-28px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:14px;
+    color:white;
+    animation:blink 1.5s infinite;
+}
+
+/* ================= INVITE PAGE ================= */
+.invite{
+    position:fixed;
+    inset:0;
     display:none;
-    width:100%;
-    height:100vh;
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    text-align:center;
+    background:black;
 }
 
-video{
-    width:90%;
-    max-width:400px;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(255,255,255,0.3);
+/* VIDEO FULL SCREEN */
+.invite video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+}
+
+/* TEXT ON TOP */
+.invite-content{
+    position:relative;
+    z-index:2;
+    color:white;
+    text-align:center;
+}
+
+.invite h2{
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    animation:fadeUp 1s ease;
+}
+
+.invite p{
+    font-size:22px;
+    margin-top:10px;
+    animation:fadeUp 1.2s ease;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,255,255,0.4);}
+    70%{box-shadow:0 0 0 20px rgba(255,255,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+}
+
+@keyframes blink{
+    0%,100%{opacity:0.4;}
+    50%{opacity:1;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- FIRST PAGE -->
-<div class="box" onclick="openInvite()">
-    Tap to Open Invitation
+<!-- HOME -->
+<div id="home">
+    <h1>The Wedding of</h1>
+
+    <div class="names">
+        Sandaru
+        <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
+        Kaveesha
+    </div>
+
+    <button class="btn" onclick="openInvite()">
+        OPEN INVITATION
+    </button>
 </div>
 
-<!-- SECOND PAGE -->
-<div id="videoPage">
-    <video autoplay muted loop controls>
+<!-- INVITE WITH VIDEO -->
+<div class="invite" id="invite">
+
+    <!-- 🎥 VIDEO BACKGROUND -->
+    <video id="weddingVideo" autoplay muted loop>
         <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
-        Your browser does not support video.
     </video>
+
+    <div class="invite-content">
+        <h2>Sandaru & Kaveesha</h2>
+        <p>05 November 2026</p>
+        <p>11:00 AM</p>
+    </div>
 </div>
 
 <script>
 function openInvite(){
-    document.querySelector(".box").style.display="none";
-    document.getElementById("videoPage").style.display="flex";
+    document.getElementById("home").style.display = "none";
+    document.getElementById("invite").style.display = "flex";
+
+    // ensure video plays
+    let vid = document.getElementById("weddingVideo");
+    vid.play();
 }
 </script>
 
