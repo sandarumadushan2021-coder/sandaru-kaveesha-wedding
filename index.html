@@ -278,24 +278,21 @@ h1{
 
 /* MAIN TITLE */
 .lux-title{
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size:18px;              /* size easy change */
-    letter-spacing:10px;         /* full width luxury feel */
-    text-transform:uppercase;    /* ALL CAPS */
-    color:#F5E6C8;               /* change color here */
-    
+    font-family:"Lucida Console","Courier New",monospace;
+    font-size:18px;
+    letter-spacing:10px;
+    text-transform:uppercase;
+    color:#F5E6C8;
+
     margin-bottom:35px;
-
     position:relative;
-    top:-20px;                   /* 👈 makes it go a bit up */
+    top:-20px;
 
-    text-shadow:0 8px 25px rgba(0,0,0,0.8);
-    opacity:0.9;
-}
-.lux-title{
     text-shadow:
     0 8px 25px rgba(0,0,0,0.8),
     0 0 15px rgba(212,175,55,0.2);
+
+    opacity:0.9;
 }
 
 /* NAMES */
@@ -314,6 +311,7 @@ h1{
     letter-spacing:3px;
     color:#fff;
     margin-top:10px;
+    text-shadow:0 8px 25px rgba(0,0,0,0.8);
 }
 
 /* RSVP TEXT */
@@ -324,19 +322,13 @@ h1{
     color:#D4AF37;
     opacity:0.9;
     animation:floatText 2s infinite ease-in-out;
+    text-shadow:0 8px 25px rgba(0,0,0,0.8);
 }
 
-/* soft floating effect */
+/* FLOAT ANIMATION */
 @keyframes floatText{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(5px);}
-}
-
-.lux-title,
-.lux-names,
-.lux-date,
-.lux-rsvp{
-    text-shadow:0 8px 25px rgba(0,0,0,0.8);
 }
 </style>
 </head>
