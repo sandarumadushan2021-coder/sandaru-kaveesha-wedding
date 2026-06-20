@@ -289,17 +289,18 @@ h1{
     letter-spacing: 10px;
     text-transform: uppercase;
 
-    margin: 0; /* ⭐ IMPORTANT FIX */
-
+    margin: 0;
     position: relative;
     line-height: 1.1;
 
     text-shadow: 0 8px 25px rgba(0,0,0,0.8);
 
-    /* animation ONLY transform (no layout shift) */
     opacity: 0;
     transform: translateY(20px);
+
     animation: titleIn 1.2s ease forwards;
+    animation-fill-mode: forwards; /* extra safety */
+    animation-iteration-count: 1;  /* prevent re-run glitch */
 }
 
 @keyframes titleIn {
