@@ -154,7 +154,61 @@ h1{
 }
     /* SECOND PAGE - Section 01 */
 
+/* SECOND PAGE */
 
+.invite{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url('your-second-page-image.jpg') center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    transform:rotateY(-90deg);
+    transform-origin:left;
+    opacity:0;
+
+    transition:1.5s ease;
+}
+
+.invite.active{
+    transform:rotateY(0deg);
+    opacity:1;
+}
+
+.invite-content{
+    text-align:center;
+    color:white;
+    animation:fadeIn 2s ease;
+}
+
+.invite-content h2{
+    font-family:'Great Vibes',cursive;
+    font-size:80px;
+}
+
+.invite-content p{
+    font-size:24px;
+    margin-top:10px;
+}
+
+function openInvite(){
+
+    document.getElementById("home").style.display="none";
+
+    const invite = document.getElementById("invite");
+
+    invite.style.display="flex";
+
+    setTimeout(()=>{
+        invite.classList.add("active");
+    },100);
+
+}
 </style>
 </head>
 
@@ -188,7 +242,15 @@ h1{
   </button>
 <!-- INVITATION SECOND PAGE -->
     
+<div class="invite" id="invite">
 
+    <div class="invite-content">
+        <h2>Sandaru & Kaveesha</h2>
+        <p>05 November 2026</p>
+        <p>11.00 AM</p>
+    </div>
+
+</div>
 <script>
 function openInvite(){
     document.getElementById('home').style.display='none';
