@@ -270,6 +270,59 @@ h1{
 .invite.show{
     display:flex;
 }
+.lux-text{
+    padding:40px 60px;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(212,175,55,0.25);
+    border-radius:20px;
+    text-align:center;
+}
+
+/* MAIN TITLE */
+.lux-title{
+    font-family:'Playfair Display', serif;
+    font-size:22px;
+    letter-spacing:4px;
+    color:#fff;
+    opacity:0.85;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+/* NAMES */
+.lux-names{
+    font-family:'Great Vibes', cursive;
+    font-size:85px;
+    color:#D4AF37;
+    text-shadow:0 10px 30px rgba(0,0,0,0.6);
+    margin:10px 0;
+}
+
+/* DATE */
+.lux-date{
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    letter-spacing:3px;
+    color:#fff;
+    margin-top:10px;
+}
+
+/* RSVP TEXT */
+.lux-rsvp{
+    margin-top:25px;
+    font-size:16px;
+    letter-spacing:3px;
+    color:#D4AF37;
+    opacity:0.9;
+    animation:floatText 2s infinite ease-in-out;
+}
+
+/* soft floating effect */
+@keyframes floatText{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(5px);}
+}
 </style>
 </head>
 
@@ -298,10 +351,18 @@ h1{
     </video>
 
     <div class="invite-content">
-        <h2>Sandaru & Kaveesha</h2>
-        <p>05 November 2026</p>
-        <p>11:00 AM</p>
+
+    <div class="lux-text">
+        <h2 class="lux-title">We are getting married</h2>
+
+        <h1 class="lux-names">Sandaru & Kaveesha</h1>
+
+        <p class="lux-date">05 November 2026</p>
+
+        <p class="lux-rsvp">Confirm Attendance</p>
     </div>
+
+</div>
 
 </div>
 
