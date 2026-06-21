@@ -427,7 +427,7 @@ h1{
 <body>
 
 <!-- HOME -->
-<div id="home">
+<section id="home">
     <h1>The Wedding of</h1>
 
     <div class="names">
@@ -439,79 +439,39 @@ h1{
     <button class="btn" onclick="openInvite()">
         OPEN INVITATION
     </button>
-</div>
+</section>
 
-<!-- INVITE WITH VIDEO -->
-<div class="invite" id="invite">
-
+<!-- INVITE -->
+<section id="invite">
     <video id="weddingVideo" autoplay muted loop>
-        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
+        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4">
     </video>
 
     <div class="invite-content">
+        <div class="lux-text">
+            <h2 class="lux-title">We are getting married</h2>
 
-    <div class="lux-text">
-        <h2 class="lux-title">We are getting married</h2>
+            <h1 class="lux-names">Sandaru & Kaveesha</h1>
 
-        <h1 class="lux-names">Sandaru & Kaveesha</h1>
-<div class="lux-divider">
-    <span>♥</span>
-</div>
+            <div class="lux-divider"><span>♥</span></div>
 
-        <p class="lux-date">05 November 2026</p>
+            <p class="lux-date">05 November 2026</p>
 
-        <p class="lux-rsvp">Confirm Attendance</p>
+            <p class="lux-rsvp">Confirm Attendance</p>
 
-<button class="lux-scroll-btn" onclick="scrollToNext()">
-    Scroll Down
-</button>
+            <button class="lux-scroll-btn" onclick="scrollToNext()">
+                Scroll Down
+            </button>
+        </div>
+    </div>
+</section>
 
-    </div> <!-- lux-text close -->
-    </div> <!-- invite-content close -->
-</div> <!-- invite close -->
-
-
-
-<!-- 🔥 ADD HERE (NEW PAGE) -->
-<div id="nextPage" class="next-page">
+<!-- NEXT -->
+<section id="nextPage" class="next-page">
     <h1>RSVP Coming Soon</h1>
-</div>
+</section>
 
-<script>
-function scrollToNext(){
-    const el = document.getElementById("nextPage");
-
-    window.scrollTo({
-        top: el.offsetTop,
-        behavior: "smooth"
-    });
-}
-function openInvite(){
-    const home = document.getElementById("home");
-    const invite = document.getElementById("invite");
-    const transition = document.getElementById("transition");
-    const vid = document.getElementById("weddingVideo");
-
-    // show transition
-    transition.classList.add("active");
-
-    setTimeout(() => {
-
-        home.style.display = "none";
-        invite.style.display = "flex";
-        invite.classList.add("show");
-
-        vid.play();
-
-        // hide transition
-        setTimeout(() => {
-            transition.classList.remove("active");
-        }, 400);
-
-    }, 800);
-}
-
-</script>
 <div id="transition"></div>
+
 </body>
 </html>
