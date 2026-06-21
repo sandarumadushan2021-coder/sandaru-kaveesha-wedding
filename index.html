@@ -20,7 +20,7 @@
 }
 
 html, body{
-    height:auto;
+    height:100%;
     overflow-x:hidden;
     overflow-y:auto;
 }
@@ -106,14 +106,8 @@ h1{
 /* ================= INVITE PAGE ================= */
 .invite{
     position:relative;
-    min-height:100vh;
-    width:100%;
+    height:100vh;
     display:none;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    background:black;
     overflow:hidden;
 }
 
@@ -551,11 +545,9 @@ h1{
 
 <script>
 function scrollToNext(){
-    const el = document.getElementById("nextPage");
-
-    window.scrollTo({
-        top: el.offsetTop,
-        behavior: "smooth"
+    document.getElementById("nextPage").scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
 }
 function openInvite(){
