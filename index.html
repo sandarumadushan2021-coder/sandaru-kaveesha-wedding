@@ -427,7 +427,7 @@ h1{
 <body>
 
 <!-- HOME -->
-<section id="home">
+<section id="home"> ... </section>
     <h1>The Wedding of</h1>
 
     <div class="names">
@@ -439,39 +439,60 @@ h1{
     <button class="btn" onclick="openInvite()">
         OPEN INVITATION
     </button>
-</section>
+</div>
 
-<!-- INVITE -->
-<section id="invite">
+<!-- INVITE WITH VIDEO -->
+<section id="invite"> ... </section>
+
     <video id="weddingVideo" autoplay muted loop>
-        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4">
+        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
     </video>
 
     <div class="invite-content">
-        <div class="lux-text">
-            <h2 class="lux-title">We are getting married</h2>
 
-            <h1 class="lux-names">Sandaru & Kaveesha</h1>
+    <div class="lux-text">
+        <h2 class="lux-title">We are getting married</h2>
 
-            <div class="lux-divider"><span>♥</span></div>
+        <h1 class="lux-names">Sandaru & Kaveesha</h1>
+<div class="lux-divider">
+    <span>♥</span>
+</div>
 
-            <p class="lux-date">05 November 2026</p>
+        <p class="lux-date">05 November 2026</p>
 
-            <p class="lux-rsvp">Confirm Attendance</p>
+        <p class="lux-rsvp">Confirm Attendance</p>
 
-            <button class="lux-scroll-btn" onclick="scrollToNext()">
-                Scroll Down
-            </button>
-        </div>
-    </div>
-</section>
+<button class="lux-scroll-btn" onclick="scrollToNext()">
+    Scroll Down
+</button>
 
-<!-- NEXT -->
-<section id="nextPage" class="next-page">
+    </div> <!-- lux-text close -->
+    </div> <!-- invite-content close -->
+</div> <!-- invite close -->
+
+
+
+<!-- 🔥 ADD HERE (NEW PAGE) -->
+<section id="nextPage"> ... </section>
     <h1>RSVP Coming Soon</h1>
-</section>
+</div>
 
+<script>
+function scrollToNext(){
+    document.getElementById("nextPage").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+function openInvite(){
+    document.getElementById("invite").scrollIntoView({
+        behavior:"smooth"
+    });
+
+    const vid = document.getElementById("weddingVideo");
+    setTimeout(()=> vid.play(), 800);
+}
+
+</script>
 <div id="transition"></div>
-
 </body>
 </html>
