@@ -419,6 +419,48 @@ h1{
     align-items:center;
     background:#000;
     color:#C9A24E;
+}
+
+
+
+.rsvp-box{
+    text-align:center;
+}
+
+.rsvp-box h1{
+    color:#C9A24E;
+    font-family:'Cinzel', serif;
+    letter-spacing:3px;
+    margin-bottom:40px;
+}
+
+.timer{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    align-items:center;
+}
+
+.time{
+    background:rgba(255,255,255,0.05);
+    padding:20px 25px;
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,0.4);
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    min-width:90px;
+}
+
+.time span{
+    font-size:40px;
+    color:#C9A24E;
+    font-family:'Cinzel', serif;
+    display:block;
+}
+
+.time label{
+    font-size:12px;
+    color:white;
+    letter-spacing:2px;
 }<!-- style close -->
 
 </style>
@@ -474,7 +516,37 @@ h1{
 
 <!-- 🔥 ADD HERE (NEW PAGE) -->
 <div id="nextPage" class="next-page">
-    <h1>RSVP Coming Soon</h1>
+    <!-- 🔥 ADD HERE (NEW PAGE) -->
+<div id="nextPage" class="next-page">
+
+    <div class="rsvp-box">
+        <h1>RSVP Coming Soon</h1>
+
+        <div class="timer">
+            <div class="time">
+                <span id="days">00</span>
+                <label>Days</label>
+            </div>
+
+            <div class="time">
+                <span id="hours">00</span>
+                <label>Hours</label>
+            </div>
+
+            <div class="time">
+                <span id="minutes">00</span>
+                <label>Minutes</label>
+            </div>
+
+            <div class="time">
+                <span id="seconds">00</span>
+                <label>Seconds</label>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 </div>
 
 <script>
@@ -511,6 +583,27 @@ function openInvite(){
     }, 800);
 }
 
+
+
+
+const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
+
+setInterval(function(){
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+
+}, 1000);
 </script>
 <div id="transition"></div>
 </body>
