@@ -1,33 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Wedding Invitation</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-</head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
-
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html, body{
-    height:auto;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     overflow-x:hidden;
-    overflow-y:auto;
+}
+
+/* SECTION */
+section{
+    height:100vh;
+    width:100%;
 }
 
 /* ================= HOME ================= */
 #home{
-    height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -50,75 +51,48 @@ html, body{
     z-index:2;
 }
 
-/* TITLE */
 h1{
     font-family:'Playfair Display',serif;
-    font-size:100px;
-    animation:fadeIn 1.2s ease;
+    font-size:80px;
 }
 
-/* NAMES */
 .names{
     font-family:'Great Vibes',cursive;
-    font-size:115px;
+    font-size:100px;
     margin-top:20px;
     display:flex;
     gap:20px;
     align-items:center;
-    animation:zoomIn 1.5s ease;
 }
 
-/* RING */
 .ring{
-    width:125px;
-    animation:float 3s infinite ease-in-out;
+    width:100px;
 }
 
 /* BUTTON */
 .btn{
     margin-top:40px;
     padding:16px 45px;
-    font-size:40px;
+    font-size:30px;
     border:none;
     border-radius:35px;
     background:linear-gradient(135deg,#ffdde1,#ee9ca7);
     font-weight:700;
     cursor:pointer;
-    position:relative;
-    animation:pulse 2s infinite;
 }
 
-.btn::after{
-    content:"👆 CLICK TO BEGIN";
-    position:absolute;
-    bottom:-48px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:14px;
-    color:white;
-    font-family: 'Cinzel', serif !important;
-    letter-spacing:5px;
-    animation:blink 1.5s infinite;
-
-    white-space: nowrap; /* 👈 මේකෙන් line break නවත්තනවා */
-}
-
-/* ================= INVITE PAGE ================= */
-.invite{
+/* ================= INVITE ================= */
+#invite{
     position:relative;
-    min-height:100vh;
-    width:100%;
-    display:none;
+    display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
     text-align:center;
-    background:black;
+    color:white;
     overflow:hidden;
 }
 
-/* VIDEO FULL SCREEN */
-.invite video{
+#invite video{
     position:absolute;
     width:100%;
     height:100%;
@@ -126,392 +100,147 @@ h1{
     z-index:0;
 }
 
-/* TEXT ON TOP */
-.invite-content{
-    position:relative;
-    z-index:2;
-    color:white;
-    text-align:center;
-}
-
-.invite h2{
-    font-family:'Great Vibes',cursive;
-    font-size:70px;
-    animation:fadeUp 1s ease;
-}
-
-.invite p{
-    font-size:22px;
-    margin-top:10px;
-    animation:fadeUp 1.2s ease;
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(255,255,255,0.4);}
-    70%{box-shadow:0 0 0 20px rgba(255,255,255,0);}
-    100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
-}
-
-@keyframes blink{
-    0%,100%{opacity:0.4;}
-    50%{opacity:1;}
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(-20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes zoomIn{
-    from{opacity:0; transform:scale(0.8);}
-    to{opacity:1; transform:scale(1);}
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-/* ================= LUXURY TRANSITION ================= */
-
-#transition {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: radial-gradient(circle at center, #000 0%, #111 40%, #000 100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 1s ease;
-}
-
-/* golden cinematic flash */
-#transition::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(255,215,160,0.25), transparent 60%);
-    animation: glowPulse 1s ease;
-}
-
-#transition.active {
-    opacity: 1;
-}
-
-/* INVITE LUXURY REVEAL */
-.invite.show {
-    animation: luxuryReveal 1.2s cubic-bezier(.2,.8,.2,1) forwards;
-}
-
-/* cinematic zoom + blur */
-@keyframes luxuryReveal {
-    0% {
-        opacity: 0;
-        transform: scale(1.15) rotateX(8deg);
-        filter: blur(18px) brightness(0.5);
-    }
-    60% {
-        opacity: 1;
-        transform: scale(1.02);
-        filter: blur(2px) brightness(1.1);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0) brightness(1);
-    }
-}
-
-/* golden glow pulse */
-@keyframes glowPulse {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* BUTTON LUXURY PRESS EFFECT */
-.btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 0 40px rgba(255,255,255,0.4);
-} 
-/* vido theam */
-
-
-/* VIDEO BACKGROUND */
-.invite video{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:0;
-}
-
-/* DARK OVERLAY (optional but looks premium) */
-.invite::before{
+#invite::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.35);
+    background:rgba(0,0,0,0.4);
     z-index:1;
 }
 
-/* TEXT ON TOP */
 .invite-content{
     position:relative;
     z-index:2;
+}
+
+/* LUX STYLE */
+.lux-title{
+    font-family:'Cinzel',serif;
+    font-size:35px;
     color:white;
-    text-align:center;
+    margin-bottom:20px;
 }
 
-/* SHOW CLASS */
-.invite.show{
-    display:flex;
-}
-.lux-text{
-    text-align:center;
-    position:relative;
-    z-index:2;
-}
-
-/* MAIN TITLE */
-.lux-title {
-    font-family: 'Cinzel', serif !important;
-    color: #121212 !important;
-    font-size: 40px !important;
-    letter-spacing: 10px;
-    text-transform: uppercase;
-
-    margin: 0 0 30px 0;
-    position: relative;
-    top: -120px; /* වැඩි කළොත් තවත් උඩට යයි */
-
-    line-height: 1.1;
-    text-shadow: 0 8px 25px rgba(0,0,0,0.8);
-
-    opacity: 0;
-    transform: translateY(20px);
-    animation: titleIn 1.2s ease forwards;
-}
-.lux-title {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* NAMES */
 .lux-names{
-    font-family:'Cinzel', serif !important;
-    font-size:80px !important;
-    color:#C9A24E!important;
-    text-shadow:
-    0 0 6px rgba(201,162,78,0.9),
-    0 0 15px rgba(201,162,78,0.6),
-    0 0 30px rgba(184,145,65,0.4),
-    0 0 55px rgba(160,120,50,0.25);!important;
-    letter-spacing:4px;
-    text-shadow:
-        0 4px 15px rgba(0,0,0,0.5),
-        0 0 20px rgba(212,175,55,0.3);
-
-    margin-top:100px!important;   /* 👈 මෙක වැඩි කරොත් පහළට යනවා */
-}
-.lux-divider{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:25px 0;
-    color:#CFB53B;
-}
-
-.lux-divider::before,
-.lux-divider::after{
-    content:"";
-    flex:1;
-    height:2px;
-    background:linear-gradient(to right, transparent, #CFB53B);
-}
-
-.lux-divider::after{
-    background:linear-gradient(to left, transparent, #CFB53B);
-}
-
-.lux-divider span{
-    padding:0 15px;
-    font-size:18px;
-}
-/* DATE */
-.lux-date{
-    font-family:'Playfair Display', serif;
-    font-size:44px!important;
-    letter-spacing:3px;
-    color:#fff;
-    margin-top:80px!important; /* වැඩි කළා */
-    text-shadow:0 8px 25px rgba(0,0,0,0.8);
-}
-
-/* RSVP TEXT */
-.lux-rsvp{
-    margin-top:450px!important; /* 👈 තව පහලට */
-    font-size:58px!important;
-    letter-spacing:4px;
-    color:#C9A24E; /* 👈 more premium gold */
-    opacity:0.95;
-    text-align:center;
-    animation:floatText 2s infinite ease-in-out;
-    text-shadow:0 10px 30px rgba(0,0,0,0.6);
-    font-family:'Cinzel', serif;
-}
-
-/* FLOAT ANIMATION */
-@keyframes floatText{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(6px);}
-}
-
-/* LUXURY SCROLL BUTTON */
-.lux-scroll-btn{
-    display:block;
-    margin:25px auto 0;
-    padding:12px 28px;
-    font-size:14px;
-    letter-spacing:3px;
-    color:#fff;
-    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:40px;
-    cursor:pointer;
-    text-transform:uppercase;
-    font-family:'Cinzel', serif;
-    box-shadow:0 10px 25px rgba(0,0,0,0.4);
-    transition:0.3s ease;
-}
-
-.lux-scroll-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(0,0,0,0.6);
-}
-
-.lux-scroll-btn:hover{
-    transform:translateY(-3px);
-}
-
-/* 🔥 ADD HERE */
-.next-page{
-    height:100vh;
-    background: linear-gradient(180deg, #000, #111);
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    font-family:'Cinzel',serif;
+    font-size:70px;
     color:#C9A24E;
-    font-family:'Cinzel', serif;
-    font-size:40px;
-    letter-spacing:3px;
+}
 
-}  .next-page{
-    height:100vh;
+.lux-date{
+    font-size:30px;
+    margin-top:20px;
+}
+
+.lux-scroll-btn{
+    margin-top:40px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#C9A24E;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= NEXT ================= */
+#nextPage{
     display:flex;
     justify-content:center;
     align-items:center;
     background:#000;
     color:#C9A24E;
-}<!-- style close -->
+    font-size:40px;
+    font-family:'Cinzel',serif;
+}
 
+/* TRANSITION */
+#transition{
+    position:fixed;
+    inset:0;
+    background:black;
+    opacity:0;
+    pointer-events:none;
+    transition:0.6s;
+    z-index:9999;
+}
+
+#transition.active{
+    opacity:1;
+}
 </style>
 </head>
 
 <body>
 
 <!-- HOME -->
-<div id="home">
-    <h1>The Wedding of</h1>
+<section id="home">
+    <div>
+        <h1>The Wedding of</h1>
 
-    <div class="names">
-        Sandaru
-        <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
-        Kaveesha
+        <div class="names">
+            Sandaru
+            <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
+            Kaveesha
+        </div>
+
+        <button class="btn" onclick="openInvite()">
+            OPEN INVITATION
+        </button>
     </div>
+</section>
 
-    <button class="btn" onclick="openInvite()">
-        OPEN INVITATION
-    </button>
-</div>
-
-<!-- INVITE WITH VIDEO -->
-<div class="invite" id="invite">
-
+<!-- INVITE -->
+<section id="invite">
     <video id="weddingVideo" autoplay muted loop>
-        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
+        <source src="From Klickpin.com- Colorful Lip Combo Ideas.mp4">
     </video>
 
     <div class="invite-content">
-
-    <div class="lux-text">
         <h2 class="lux-title">We are getting married</h2>
 
         <h1 class="lux-names">Sandaru & Kaveesha</h1>
-<div class="lux-divider">
-    <span>♥</span>
-</div>
 
         <p class="lux-date">05 November 2026</p>
 
-        <p class="lux-rsvp">Confirm Attendance</p>
+        <button class="lux-scroll-btn" onclick="scrollToNext()">
+            Scroll Down
+        </button>
+    </div>
+</section>
 
-<button class="lux-scroll-btn" onclick="scrollToNext()">
-    Scroll Down
-</button>
+<!-- NEXT -->
+<section id="nextPage">
+    RSVP Coming Soon
+</section>
 
-    </div> <!-- lux-text close -->
-    </div> <!-- invite-content close -->
-</div> <!-- invite close -->
-
-
-
-<!-- 🔥 ADD HERE (NEW PAGE) -->
-<div id="nextPage" class="next-page">
-    <h1>RSVP Coming Soon</h1>
-</div>
+<div id="transition"></div>
 
 <script>
-function scrollToNext(){
-    const el = document.getElementById("nextPage");
-
-    window.scrollTo({
-        top: el.offsetTop,
-        behavior: "smooth"
-    });
-}
 function openInvite(){
-    const home = document.getElementById("home");
-    const invite = document.getElementById("invite");
     const transition = document.getElementById("transition");
     const vid = document.getElementById("weddingVideo");
 
-    // show transition
     transition.classList.add("active");
 
-    setTimeout(() => {
-
-        home.style.display = "none";
-        invite.style.display = "flex";
-        invite.classList.add("show");
+    setTimeout(()=>{
+        document.getElementById("invite")
+        .scrollIntoView({behavior:"smooth"});
 
         vid.play();
 
-        // hide transition
-        setTimeout(() => {
+        setTimeout(()=>{
             transition.classList.remove("active");
-        }, 400);
+        },400);
 
-    }, 800);
+    },600);
 }
 
+function scrollToNext(){
+    document.getElementById("nextPage")
+    .scrollIntoView({behavior:"smooth"});
+}
 </script>
-<div id="transition"></div>
+
 </body>
 </html>
