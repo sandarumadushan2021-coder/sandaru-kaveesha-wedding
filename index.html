@@ -183,12 +183,21 @@ h1{
     top:0; /* 🔥 move up/down here */
 }
 
+.lux-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    margin:30px 0;
+}
+
 .lux-divider::before,
 .lux-divider::after{
     content:"";
     flex:1;
     height:2px;
     background:linear-gradient(to right, transparent, #CFB53B);
+    box-shadow:0 0 10px rgba(207,181,59,0.6);
 }
 
 .lux-divider::after{
@@ -196,8 +205,15 @@ h1{
 }
 
 .lux-divider span{
-    padding:0 15px;
-    font-size:18px;
+    padding:0 18px;
+    font-size:20px;
+    color:#CFB53B;
+    text-shadow:
+        0 0 8px rgba(207,181,59,0.8),
+        0 0 20px rgba(207,181,59,0.4);
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
 .lux-date{
@@ -334,7 +350,9 @@ h1{
 
         <div class="lux-names">Sandaru & Kaveesha</div>
 
-        <div class="lux-divider"></div>
+        <div class="lux-divider">
+    <span>❤</span>
+</div>
 
         <div class="lux-date">05 November 2026</div>
 
