@@ -452,6 +452,9 @@ h1{
 <button class="lux-scroll-btn" onclick="scrollToNext()">
     Scroll Down
 </button>
+<button class="lux-scroll-btn" onclick="goNextPage()">
+    Confirm Attendance
+</button>
 
     </div>
 
@@ -489,6 +492,18 @@ function openInvite(){
         }, 400);
 
     }, 800);
+}
+function goNextPage() {
+    document.getElementById("nextPage").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function goNextPage() {
+    window.scrollBy({
+        top: window.innerHeight,
+        behavior: "smooth"
+    });
 }
 
 </script>
