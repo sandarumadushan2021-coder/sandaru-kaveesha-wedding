@@ -400,39 +400,41 @@ h1{
     transform:translateY(-3px);
     box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
-.lux-timer{
+html, body{
+    margin:0;
+    scroll-behavior:smooth;
+}
+
+.page{
+    height:100vh;
+    width:100%;
     display:flex;
     justify-content:center;
-    gap:25px;
-    margin-top:60px;
+    align-items:center;
     position:relative;
-    z-index:3; /* video overlay එකට උඩ එන්න */
+    flex-direction:column;
 }
 
-.time-box{
+/* VIDEO PAGE */
+#videoPage video{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
     background:rgba(0,0,0,0.4);
-    padding:20px;
-    border-radius:15px;
-    min-width:90px;
-    text-align:center;
-    border:1px solid rgba(201,162,78,0.5);
-    backdrop-filter:blur(8px);
 }
 
-.time-box span{
-    font-size:36px;
-    color:#C9A24E;
-    display:block;
-    text-shadow:0 0 15px rgba(201,162,78,0.7);
-}
-
-.time-box small{
-    color:#fff;
-    font-size:12px;
-    letter-spacing:2px;
-    opacity:0.8;
-}
-
+/* TIMER PAGE */
+.timer-page{
+    background:black;
+    flex-direction:column;
+    justify-content:flex-start; /* 👈 TOP */
+    padding-top:80px; /* 👈 top space */
 }
 </style>
 </head>
@@ -485,27 +487,17 @@ h1{
 
 </div>
 
-<div class="lux-timer">
-    <div class="time-box">
-        <span id="days">00</span>
-        <small>Days</small>
+<!-- PAGE 3 (TIMER PAGE) -->
+<section id="timerPage" class="page timer-page">
+
+    <div class="lux-timer">
+        <div><span id="days">00</span><small>Days</small></div>
+        <div><span id="hours">00</span><small>Hours</small></div>
+        <div><span id="minutes">00</span><small>Minutes</small></div>
+        <div><span id="seconds">00</span><small>Seconds</small></div>
     </div>
 
-    <div class="time-box">
-        <span id="hours">00</span>
-        <small>Hours</small>
-    </div>
-
-    <div class="time-box">
-        <span id="minutes">00</span>
-        <small>Minutes</small>
-    </div>
-
-    <div class="time-box">
-        <span id="seconds">00</span>
-        <small>Seconds</small>
-    </div>
-</div>
+</section>
 <script>
 function scrollToNext(){
     window.scrollBy({
@@ -537,6 +529,33 @@ function openInvite(){
 
     }, 800);
 }
+<!-- ALL YOUR HTML CONTENT -->
+
+<script>
+function openInvite(){
+    document.getElementById("videoPage").scrollIntoView({
+        behavior:"smooth"
+    });
+
+    const vid = document.getElementById("weddingVideo");
+    vid.play();
+}
+
+/* SCROLL TO TIMER PAGE */
+document.addEventListener("wheel", function(e){
+    const videoPage = document.getElementById("videoPage");
+    const timerPage = document.getElementById("timerPage");
+
+    if(videoPage.getBoundingClientRect().top === 0){
+        if(e.deltaY > 0){
+            timerPage.scrollIntoView({behavior:"smooth"});
+        }
+    }
+});
+</script>
+
+</body>
+</html>
 
 </script>
 <div id="transition"></div>
