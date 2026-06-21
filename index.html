@@ -361,15 +361,21 @@ h1{
 
 /* RSVP TEXT */
 .lux-rsvp{
-    margin-top:450px!important; /* 👈 තව පහලට */
+    margin-top:450px!important;
     font-size:58px!important;
     letter-spacing:4px;
-    color:#C9A24E; /* 👈 more premium gold */
+    color:#C9A24E;
     opacity:0.95;
     text-align:center;
     animation:floatText 2s infinite ease-in-out;
-    text-shadow:0 10px 30px rgba(0,0,0,0.6);
     font-family:'Cinzel', serif;
+
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0 10px 30px rgba(0,0,0,0.6);
 }
 
 /* FLOAT ANIMATION */
