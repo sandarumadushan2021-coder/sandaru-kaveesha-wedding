@@ -183,14 +183,21 @@ h1{
     top:0; /* 🔥 move up/down here */
 }
 
-.lux-divider{
-    margin:20px auto;
-    width:200px;
+.lux-divider::before,
+.lux-divider::after{
+    content:"";
+    flex:1;
     height:2px;
-    background:linear-gradient(to right,transparent,#C9A24E,transparent);
+    background:linear-gradient(to right, transparent, #CFB53B);
+}
 
-    position:relative;
-    top:0;
+.lux-divider::after{
+    background:linear-gradient(to left, transparent, #CFB53B);
+}
+
+.lux-divider span{
+    padding:0 15px;
+    font-size:18px;
 }
 
 .lux-date{
@@ -202,7 +209,7 @@ h1{
     margin-top:20px;
 
     position:relative;
-    top:0; /* 🔥 adjust */
+    top:50px; /* 🔥 adjust */
 }
 
 .lux-rsvp{
