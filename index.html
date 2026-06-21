@@ -21,8 +21,8 @@
 
 html, body{
     height:100%;
-    overflow:hidden;
-    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 
 /* ================= HOME ================= */
@@ -400,9 +400,27 @@ h1{
     transform:translateY(-3px);
     box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
-
-
 }
+
+
+.lux-scroll-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* 🔥 ADD HERE */
+.next-page{
+    height:100vh;
+    background: linear-gradient(180deg, #000, #111);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#C9A24E;
+    font-family:'Cinzel', serif;
+    font-size:40px;
+    letter-spacing:3px;
+}
+
+}  <!-- style close -->
 </style>
 </head>
 
@@ -454,11 +472,22 @@ h1{
 
 </div>
 
+
+</div>   <!-- invite close -->
+
+<!-- 🔥 ADD HERE (NEW PAGE) -->
+<div id="nextPage" class="next-page">
+    <h1>RSVP Coming Soon</h1>
+</div>
+
 <script>
-function scrollToNext(){
-    window.scrollBy({
-        top: 600,
-        behavior: "smooth"
+
+<script>
+<script>
+function scrollToNext(){   ← replace here
+    document.getElementById("nextPage").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 }
 function openInvite(){
