@@ -361,21 +361,15 @@ h1{
 
 /* RSVP TEXT */
 .lux-rsvp{
-    margin-top:450px!important;
+    margin-top:450px!important; /* 👈 තව පහලට */
     font-size:58px!important;
     letter-spacing:4px;
-    color:#C9A24E;
+    color:#C9A24E; /* 👈 more premium gold */
     opacity:0.95;
     text-align:center;
     animation:floatText 2s infinite ease-in-out;
+    text-shadow:0 10px 30px rgba(0,0,0,0.6);
     font-family:'Cinzel', serif;
-
-    text-shadow:
-        -2px -1px 0 #000,
-         2px -1px 0 #000,
-        -2px  1px 0 #000,
-         2px  1px 0 #000,
-         0 10px 30px rgba(0,0,0,0.6);
 }
 
 /* FLOAT ANIMATION */
@@ -408,6 +402,7 @@ h1{
 }
 
 
+}
 </style>
 </head>
 
@@ -452,9 +447,6 @@ h1{
 <button class="lux-scroll-btn" onclick="scrollToNext()">
     Scroll Down
 </button>
-<button class="lux-scroll-btn" onclick="goNextPage()">
-    Confirm Attendance
-</button>
 
     </div>
 
@@ -492,18 +484,6 @@ function openInvite(){
         }, 400);
 
     }, 800);
-}
-function goNextPage() {
-    document.getElementById("nextPage").scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-function goNextPage() {
-    window.scrollBy({
-        top: window.innerHeight,
-        behavior: "smooth"
-    });
 }
 
 </script>
