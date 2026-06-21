@@ -13,12 +13,15 @@
     box-sizing:border-box;
 }
 
-body{
-    overflow:hidden; /* 🔥 no scroll */
-    font-family: sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
-/* SECTION SYSTEM */
+body{
+    overflow:hidden;
+}
+
+/* ================= SECTION SYSTEM ================= */
 section{
     display:none;
     height:100vh;
@@ -26,6 +29,7 @@ section{
     justify-content:center;
     align-items:center;
     text-align:center;
+    position:relative;
 }
 
 section.active{
@@ -37,52 +41,78 @@ section.active{
     flex-direction:column;
     color:white;
     background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-    position:relative;
 }
 
 #home::before{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.55);
+    background:rgba(0,0,0,0.6);
 }
 
 #home > div{
     position:relative;
     z-index:2;
+    animation: fadeIn 1.5s ease;
 }
 
 h1{
     font-family:'Playfair Display',serif;
-    font-size:70px;
+    font-size:90px;
+    color:#fff;
+    letter-spacing:2px;
 }
 
 .names{
     font-family:'Great Vibes',cursive;
-    font-size:90px;
+    font-size:110px;
     margin-top:20px;
+    color:#C9A24E;
+    text-shadow:
+        0 0 10px rgba(201,162,78,0.8),
+        0 0 25px rgba(201,162,78,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
 }
 
 .ring{
-    width:90px;
+    width:110px;
+    animation: float 3s infinite ease-in-out;
 }
 
+/* BUTTON */
 .btn{
-    margin-top:40px;
-    padding:15px 35px;
-    font-size:25px;
+    margin-top:50px;
+    padding:16px 45px;
+    font-size:26px;
     border:none;
-    border-radius:30px;
-    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
-    font-weight:bold;
+    border-radius:40px;
+    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
+    color:white;
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;
     cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+    animation:pulse 2s infinite;
+}
+
+.btn::after{
+    content:"👆 CLICK TO BEGIN";
+    position:absolute;
+    margin-top:60px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+    color:#fff;
+    letter-spacing:3px;
+    opacity:0.7;
 }
 
 /* ================= INVITE ================= */
 #invite{
-    position:relative;
     flex-direction:column;
-    color:white;
     overflow:hidden;
 }
 
@@ -98,63 +128,129 @@ h1{
     content:"";
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.4);
+    background:rgba(0,0,0,0.45);
     z-index:1;
 }
 
 .invite-content{
     position:relative;
     z-index:2;
+    animation: luxuryReveal 1.5s ease;
 }
 
+/* LUXURY TEXT */
 .lux-title{
     font-family:'Cinzel',serif;
-    font-size:30px;
+    font-size:32px;
+    color:#fff;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    opacity:0.9;
 }
 
 .lux-names{
     font-family:'Cinzel',serif;
-    font-size:60px;
+    font-size:75px;
     color:#C9A24E;
+    margin-top:20px;
+    text-shadow:
+        0 0 10px rgba(201,162,78,0.8),
+        0 0 25px rgba(201,162,78,0.4);
+    letter-spacing:4px;
+}
+
+.lux-divider{
+    margin:20px auto;
+    width:200px;
+    height:2px;
+    background:linear-gradient(to right,transparent,#C9A24E,transparent);
 }
 
 .lux-date{
-    font-size:25px;
-    margin-top:15px;
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    color:#fff;
+    margin-top:20px;
+    letter-spacing:2px;
 }
 
+.lux-rsvp{
+    margin-top:40px;
+    font-size:34px;
+    color:#C9A24E;
+    font-family:'Cinzel',serif;
+    animation: floatText 2s infinite ease-in-out;
+}
+
+/* BUTTON */
 .lux-scroll-btn{
-    margin-top:30px;
-    padding:12px 25px;
+    margin-top:40px;
+    padding:14px 35px;
     border:none;
-    border-radius:25px;
-    background:#C9A24E;
+    border-radius:40px;
+    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
+    color:#fff;
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;
     cursor:pointer;
-    font-weight:bold;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+
+.lux-scroll-btn:hover{
+    transform:translateY(-3px);
 }
 
 /* ================= NEXT ================= */
 #nextPage{
     flex-direction:column;
-    background:#000;
+    background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
-    font-size:35px;
+    font-size:45px;
+    letter-spacing:3px;
 }
 
-/* TRANSITION */
+/* ================= TRANSITION ================= */
 #transition{
     position:fixed;
     inset:0;
-    background:black;
+    background:radial-gradient(circle,#000,#111);
     opacity:0;
     pointer-events:none;
-    transition:0.5s;
+    transition:0.6s ease;
     z-index:9999;
 }
 
 #transition.active{
     opacity:1;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(201,162,78,0.5);}
+    70%{box-shadow:0 0 0 20px rgba(201,162,78,0);}
+    100%{box-shadow:0 0 0 0 rgba(201,162,78,0);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes luxuryReveal{
+    0%{opacity:0; transform:scale(1.1); filter:blur(10px);}
+    100%{opacity:1; transform:scale(1); filter:blur(0);}
+}
+
+@keyframes floatText{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
 }
 </style>
 </head>
@@ -181,15 +277,19 @@ h1{
 <!-- INVITE -->
 <section id="invite">
     <video id="weddingVideo" autoplay muted loop>
-        <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4">
+        <source src="video.mp4">
     </video>
 
     <div class="invite-content">
-        <h2 class="lux-title">We are getting married</h2>
+        <div class="lux-title">We are getting married</div>
 
-        <h1 class="lux-names">Sandaru & Kaveesha</h1>
+        <div class="lux-names">Sandaru & Kaveesha</div>
 
-        <p class="lux-date">05 November 2026</p>
+        <div class="lux-divider"></div>
+
+        <div class="lux-date">05 November 2026</div>
+
+        <div class="lux-rsvp">Confirm Attendance</div>
 
         <button class="lux-scroll-btn" onclick="scrollToNext()">
             Scroll Down
@@ -209,7 +309,6 @@ function switchPage(id){
     document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
     });
-
     document.getElementById(id).classList.add("active");
 }
 
@@ -221,13 +320,12 @@ function openInvite(){
 
     setTimeout(()=>{
         switchPage("invite");
+        vid.play();
 
         setTimeout(()=>{
-            vid.play();
             transition.classList.remove("active");
-        },300);
-
-    },500);
+        },500);
+    },600);
 }
 
 function scrollToNext(){
