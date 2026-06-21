@@ -427,7 +427,7 @@ h1{
 <body>
 
 <!-- HOME -->
-<section id="home"> ... </section>
+<div id="home">
     <h1>The Wedding of</h1>
 
     <div class="names">
@@ -442,7 +442,7 @@ h1{
 </div>
 
 <!-- INVITE WITH VIDEO -->
-<section id="invite"> ... </section>
+<div class="invite" id="invite">
 
     <video id="weddingVideo" autoplay muted loop>
         <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
@@ -473,23 +473,42 @@ h1{
 
 
 <!-- 🔥 ADD HERE (NEW PAGE) -->
-<section id="nextPage"> ... </section>
+<div id="nextPage" class="next-page">
     <h1>RSVP Coming Soon</h1>
 </div>
 
 <script>
 function scrollToNext(){
-    document.getElementById("nextPage").scrollIntoView({
-        behavior:"smooth"
+    const el = document.getElementById("nextPage");
+
+    window.scrollTo({
+        top: el.offsetTop,
+        behavior: "smooth"
     });
 }
 function openInvite(){
-    document.getElementById("invite").scrollIntoView({
-        behavior:"smooth"
-    });
-
+    const home = document.getElementById("home");
+    const invite = document.getElementById("invite");
+    const transition = document.getElementById("transition");
     const vid = document.getElementById("weddingVideo");
-    setTimeout(()=> vid.play(), 800);
+
+    // show transition
+    transition.classList.add("active");
+
+    setTimeout(() => {
+
+        home.style.display = "none";
+        invite.style.display = "flex";
+        invite.classList.add("show");
+
+        vid.play();
+
+        // hide transition
+        setTimeout(() => {
+            transition.classList.remove("active");
+        }, 400);
+
+    }, 800);
 }
 
 </script>
