@@ -163,17 +163,24 @@ h1{
     letter-spacing:5px;
     text-transform:uppercase;
     opacity:0.9;
+
+    position:relative;
+    top:0; /* 🔥 change this (- or +) for up/down */
 }
 
 .lux-names{
     font-family:'Cinzel',serif;
     font-size:75px;
     color:#C9A24E;
-    margin-top:20px;
+    letter-spacing:4px;
     text-shadow:
         0 0 10px rgba(201,162,78,0.8),
         0 0 25px rgba(201,162,78,0.4);
-    letter-spacing:4px;
+
+    margin-top:20px;
+
+    position:relative;
+    top:0; /* 🔥 move up/down here */
 }
 
 .lux-divider{
@@ -181,22 +188,33 @@ h1{
     width:200px;
     height:2px;
     background:linear-gradient(to right,transparent,#C9A24E,transparent);
+
+    position:relative;
+    top:0;
 }
 
 .lux-date{
     font-family:'Playfair Display',serif;
     font-size:28px;
     color:#fff;
-    margin-top:20px;
     letter-spacing:2px;
+
+    margin-top:20px;
+
+    position:relative;
+    top:0; /* 🔥 adjust */
 }
 
 .lux-rsvp{
-    margin-top:40px;
     font-size:34px;
     color:#C9A24E;
     font-family:'Cinzel',serif;
     animation: floatText 2s infinite ease-in-out;
+
+    margin-top:40px;
+
+    position:relative;
+    top:0; /* 🔥 adjust */
 }
 
 /* BUTTON */
@@ -205,13 +223,20 @@ h1{
     padding:14px 35px;
     border:none;
     border-radius:40px;
+
     background:linear-gradient(135deg,#C9A24E,#8C6B2F);
     color:#fff;
+
     font-family:'Cinzel',serif;
     letter-spacing:3px;
+
     cursor:pointer;
     box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
     transition:0.3s;
+
+    position:relative;
+    top:0; /* 🔥 adjust button up/down */
 }
 
 .lux-scroll-btn:hover{
