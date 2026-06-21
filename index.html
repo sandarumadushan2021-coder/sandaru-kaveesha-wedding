@@ -400,41 +400,8 @@ h1{
     transform:translateY(-3px);
     box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
-html, body{
-    margin:0;
-    scroll-behavior:smooth;
-}
 
-.page{
-    height:100vh;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    flex-direction:column;
-}
 
-/* VIDEO PAGE */
-#videoPage video{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.4);
-}
-
-/* TIMER PAGE */
-.timer-page{
-    background:black;
-    flex-direction:column;
-    justify-content:flex-start; /* 👈 TOP */
-    padding-top:80px; /* 👈 top space */
 }
 </style>
 </head>
@@ -487,17 +454,6 @@ html, body{
 
 </div>
 
-<!-- PAGE 3 (TIMER PAGE) -->
-<section id="timerPage" class="page timer-page">
-
-    <div class="lux-timer">
-        <div><span id="days">00</span><small>Days</small></div>
-        <div><span id="hours">00</span><small>Hours</small></div>
-        <div><span id="minutes">00</span><small>Minutes</small></div>
-        <div><span id="seconds">00</span><small>Seconds</small></div>
-    </div>
-
-</section>
 <script>
 function scrollToNext(){
     window.scrollBy({
@@ -529,33 +485,6 @@ function openInvite(){
 
     }, 800);
 }
-<!-- ALL YOUR HTML CONTENT -->
-
-<script>
-function openInvite(){
-    document.getElementById("videoPage").scrollIntoView({
-        behavior:"smooth"
-    });
-
-    const vid = document.getElementById("weddingVideo");
-    vid.play();
-}
-
-/* SCROLL TO TIMER PAGE */
-document.addEventListener("wheel", function(e){
-    const videoPage = document.getElementById("videoPage");
-    const timerPage = document.getElementById("timerPage");
-
-    if(videoPage.getBoundingClientRect().top === 0){
-        if(e.deltaY > 0){
-            timerPage.scrollIntoView({behavior:"smooth"});
-        }
-    }
-});
-</script>
-
-</body>
-</html>
 
 </script>
 <div id="transition"></div>
