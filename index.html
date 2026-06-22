@@ -480,7 +480,10 @@ h1{
 
 <script>
 
-
+window.onload = function(){
+    const savedPage = localStorage.getItem("lastPage") || "home";
+    switchPage(savedPage);
+};
 
 function openInvite(){
     const transition = document.getElementById("transition");
@@ -489,18 +492,22 @@ function openInvite(){
     transition.classList.add("active");
 
     setTimeout(()=>{
-        switchPage("invite");
-        vid.play();
+    switchPage("invite");
 
-        setTimeout(()=>{
-            transition.classList.remove("active");
-        },500);
-    },600);
-}
+    vid.muted = true;
+    vid.playsInline = true;   // 🔥 add here
+    vid.play();
+
+    setTimeout(()=>{
+        transition.classList.remove("active");
+    },500);
+},600);
 
 function scrollToNext(){
     switchPage("nextPage");
 }
+
+
 function switchPage(id){
     document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
@@ -510,6 +517,8 @@ function switchPage(id){
     const el = document.getElementById(id);
     el.classList.add("active");
     el.style.display = "flex";
+
+    localStorage.setItem("lastPage", id); // 🔥 save page
 }
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
