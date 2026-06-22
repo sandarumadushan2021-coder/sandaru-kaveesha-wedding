@@ -32,8 +32,13 @@ section{
     position:relative;
 }
 
+section{
+    display:none;
+}
+
 section.active{
-    display:flex;
+    display:flex !important;
+}
 }
 
 /* ================= HOME ================= */
@@ -527,17 +532,15 @@ function scrollToNext(){
 
 
 function switchPage(id){
-    const sections = document.querySelectorAll("section");
-
-    sections.forEach(s=>{
+    document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
-        s.style.display = "none";
+        s.style.display = "";   // 🔥 reset (IMPORTANT)
     });
 
     const el = document.getElementById(id);
 
-    el.style.display = "flex";
     el.classList.add("active");
+    el.style.display = "flex";
 
     localStorage.setItem("lastPage", id);
 }
