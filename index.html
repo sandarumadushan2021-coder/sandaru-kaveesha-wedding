@@ -496,6 +496,10 @@ function switchPage(id){
     // save last page
     localStorage.setItem("lastPage", id);
 }
+window.onload = function(){
+    const savedPage = localStorage.getItem("lastPage") || "home";
+    switchPage(savedPage);
+};
 
 function openInvite(){
     const transition = document.getElementById("transition");
