@@ -836,16 +836,13 @@ h1{
 
 /* ================= NEXT ================= */
 #nextPage{
-    display:flex;
     flex-direction:column;
-    justify-content:flex-start; /* 🔥 top එකට ගන්න */
+    justify-content:flex-start;
     align-items:center;
-
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
-
-    padding-top:60px; /* 🔥 top gap */
+    padding-top:60px;
     text-align:center;
 }
 .timer-container{
@@ -1040,16 +1037,18 @@ function openInvite(){
     transition.classList.add("active");
 
     setTimeout(()=>{
-    switchPage("invite");
+        switchPage("invite");
 
-    vid.muted = true;
-    vid.playsInline = true;   // 🔥 add here
-    vid.play();
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.play();
 
-    setTimeout(()=>{
-        transition.classList.remove("active");
-    },500);
-},600);
+        setTimeout(()=>{
+            transition.classList.remove("active");
+        },500);
+    },600);
+
+} // ❗ මේ closing brace එක නැතුව තිබ්බා
 
 function scrollToNext(){
     switchPage("nextPage");
