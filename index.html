@@ -534,13 +534,9 @@ function scrollToNext(){
 function switchPage(id){
     document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
-        s.style.display = "";   // 🔥 reset (IMPORTANT)
     });
 
-    const el = document.getElementById(id);
-
-    el.classList.add("active");
-    el.style.display = "flex";
+    document.getElementById(id).classList.add("active");
 
     localStorage.setItem("lastPage", id);
 }
