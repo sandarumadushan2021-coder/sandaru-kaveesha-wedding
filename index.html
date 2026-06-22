@@ -216,7 +216,7 @@ h1{
     gap:8px;
 }
 
-..lux-date{
+.lux-date{
     font-family:'Playfair Display',serif;
     font-size:48px;
     color:#fff;
@@ -421,7 +421,7 @@ h1{
         <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4">
     </video>
 
-    <div class="invite-content">
+    <div class="invite-content"</div>
         <div class="lux-title">We are getting married</div>
 
         <div class="lux-names">Sandaru & Kaveesha</div>
@@ -508,6 +508,16 @@ function openInvite(){
 
 function scrollToNext(){
     switchPage("nextPage");
+}
+function switchPage(id){
+    document.querySelectorAll("section").forEach(s=>{
+        s.classList.remove("active");
+        s.style.display = "none";
+    });
+
+    const el = document.getElementById(id);
+    el.classList.add("active");
+    el.style.display = "flex";
 }
 </script>
 
