@@ -421,7 +421,7 @@ h1{
         <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4">
     </video>
 
-    <div class="invite-content"</div>
+    <div class="invite-content">
         <div class="lux-title">We are getting married</div>
 
         <div class="lux-names">Sandaru & Kaveesha</div>
@@ -447,7 +447,7 @@ h1{
 <section id="nextPage">
     <div class="timer-container">
 
-        <h2 class="timer-title">RSVP OPENS IN</h2>
+        <h2 class="timer-title">SAVE THE DATE</h2>
 
         <div class="timer">
             <div>
@@ -471,11 +471,7 @@ h1{
             </div>
         </div>
 
-        <p class="timer-sub">We are waiting for your presence</p>
-
-        <button class="back-btn" onclick="switchPage('invite')">
-            ⬅ Back
-        </button>
+        <p class="timer-sub">05 November 2026</p>
 
     </div>
 </section>
@@ -484,10 +480,7 @@ h1{
 
 <script>
 
-window.onload = function(){
-    const savedPage = localStorage.getItem("lastPage") || "home";
-    switchPage(savedPage);
-};
+
 
 function openInvite(){
     const transition = document.getElementById("transition");
