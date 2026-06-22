@@ -216,16 +216,15 @@ h1{
     gap:8px;
 }
 
-.lux-date{
+..lux-date{
     font-family:'Playfair Display',serif;
     font-size:48px;
     color:#fff;
     letter-spacing:2px;
 
-    margin-top:20px;
-
+    margin-top:40px;
     position:relative;
-    top:100px; /* 🔥 adjust */
+    top:0;
 }
 
 .lux-rsvp{
@@ -240,10 +239,11 @@ h1{
 
 /* BUTTON */
 .lux-scroll-btn{
-    margin:40px auto 0 auto;  /* 🔥 center */
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+    margin:40px auto 0;
+
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
 
     background:linear-gradient(135deg,#C9A24E,#8C6B2F);
     color:#fff;
@@ -252,14 +252,15 @@ h1{
     letter-spacing:3px;
 
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
-
-    transition:0.3s;
 
     display:flex;
-    flex-direction:column;   /* 🔥 text + arrow stack */
+    flex-direction:column;
     align-items:center;
     gap:6px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+    transition:.3s;
 }
 
 .lux-arrow{
@@ -377,10 +378,9 @@ h1{
 
         <div class="lux-rsvp">Confirm Attendance</div>
 
-        <button class="lux-scroll-btn">
+        <button class="lux-scroll-btn" onclick="scrollToNext()">
     Scroll Down
     <span class="lux-arrow">⌄</span>
-</button>
 </button>
 </section>
 
