@@ -486,8 +486,15 @@ h1{
 function switchPage(id){
     document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
+        s.style.display = "none";
     });
-    document.getElementById(id).classList.add("active");
+
+    const el = document.getElementById(id);
+    el.classList.add("active");
+    el.style.display = "flex";
+
+    // save last page
+    localStorage.setItem("lastPage", id);
 }
 
 function openInvite(){
