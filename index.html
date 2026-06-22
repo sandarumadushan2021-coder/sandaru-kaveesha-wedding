@@ -307,9 +307,25 @@ h1{
 }
 
 .timer-title{
-    font-size:45px;
-    letter-spacing:5px;
-    margin-bottom:30px;
+    font-size:70px;
+    letter-spacing:8px;
+    margin-bottom:10px;
+    color:#C9A24E;
+    text-transform:uppercase;
+    font-family:'Cinzel',serif;
+    text-shadow:0 0 15px rgba(201,162,78,0.5);
+
+    margin-top:-10px; /* 🔥 ටිකක් උඩට ගන්න */
+    animation: glowTitle 2s infinite ease-in-out;
+}
+
+@keyframes glowTitle{
+    0%,100%{
+        text-shadow:0 0 10px rgba(201,162,78,0.4);
+    }
+    50%{
+        text-shadow:0 0 25px rgba(201,162,78,0.9);
+    }
 }
 
 .timer{
