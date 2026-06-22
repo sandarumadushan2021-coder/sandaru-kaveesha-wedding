@@ -480,10 +480,10 @@ h1{
 
 <script>
 
-window.onload = function(){
+window.addEventListener("load", () => {
     const savedPage = localStorage.getItem("lastPage") || "home";
     switchPage(savedPage);
-};
+});
 
 function openInvite(){
     const transition = document.getElementById("transition");
@@ -492,16 +492,18 @@ function openInvite(){
     transition.classList.add("active");
 
     setTimeout(()=>{
-    switchPage("invite");
+        switchPage("invite");
 
-    vid.muted = true;
-    vid.playsInline = true;   // 🔥 add here
-    vid.play();
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.play();
 
-    setTimeout(()=>{
-        transition.classList.remove("active");
-    },500);
-},600);
+        setTimeout(()=>{
+            transition.classList.remove("active");
+        },500);
+
+    },600);
+}
 
 function scrollToNext(){
     switchPage("nextPage");
@@ -509,16 +511,19 @@ function scrollToNext(){
 
 
 function switchPage(id){
-    document.querySelectorAll("section").forEach(s=>{
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(s=>{
         s.classList.remove("active");
         s.style.display = "none";
     });
 
     const el = document.getElementById(id);
-    el.classList.add("active");
-    el.style.display = "flex";
 
-    localStorage.setItem("lastPage", id); // 🔥 save page
+    el.style.display = "flex";
+    el.classList.add("active");
+
+    localStorage.setItem("lastPage", id);
 }
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
