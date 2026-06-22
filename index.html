@@ -476,11 +476,7 @@ h1{
 
 <div id="transition"></div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Wedding Invitation</title>
+
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -957,8 +953,13 @@ h1{
 <script>
 
 window.onload = function(){
-    const savedPage = localStorage.getItem("lastPage") || "home";
-    switchPage(savedPage);
+    const savedPage = localStorage.getItem("lastPage");
+
+    if(savedPage === "invite" || savedPage === "nextPage"){
+        switchPage("home");
+    } else {
+        switchPage("home");
+    }
 };
 
 function openInvite(){
@@ -991,10 +992,13 @@ function switchPage(id){
     });
 
     const el = document.getElementById(id);
+
+    if(!el) return; // safety fix
+
     el.classList.add("active");
     el.style.display = "flex";
 
-    localStorage.setItem("lastPage", id); // 🔥 save page
+    localStorage.setItem("lastPage", id);
 }
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
@@ -1030,5 +1034,3 @@ updateTimer();
 </body>
 </html>
 
-</body>
-</html>
