@@ -294,8 +294,10 @@ h1{
     height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start; /* 🔥 center → top layout */
     align-items:center;
+
+    padding-top:80px;  /* 🔥 top spacing control */
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
@@ -304,11 +306,12 @@ h1{
 
 .lux-join-title{
     font-family:'Cinzel', serif;
-    font-size:42px;   /* 🔥 bigger font */
-    letter-spacing:10px; /* more luxury spacing */
+    font-size:42px;
+    letter-spacing:10px;
     color:#C9A24E;
     text-transform:uppercase;
 
+    margin-top:60px;   /* 🔥 මෙකෙන් පහලට යනවා */
     margin-bottom:50px;
 
     position:relative;
