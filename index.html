@@ -483,19 +483,7 @@ h1{
 <div id="transition"></div>
 
 <script>
-function switchPage(id){
-    document.querySelectorAll("section").forEach(s=>{
-        s.classList.remove("active");
-        s.style.display = "none";
-    });
 
-    const el = document.getElementById(id);
-    el.classList.add("active");
-    el.style.display = "flex";
-
-    // save last page
-    localStorage.setItem("lastPage", id);
-}
 window.onload = function(){
     const savedPage = localStorage.getItem("lastPage") || "home";
     switchPage(savedPage);
@@ -530,6 +518,35 @@ function switchPage(id){
     el.classList.add("active");
     el.style.display = "flex";
 }
+
+// 🎯 Wedding date set කරන්න (05 Nov 2026)
+const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
+
+function updateTimer() {
+    const now = new Date().getTime();
+    const gap = weddingDate - now;
+
+    if (gap < 0) return;
+
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    const d = Math.floor(gap / day);
+    const h = Math.floor((gap % day) / hour);
+    const m = Math.floor((gap % hour) / minute);
+    const s = Math.floor((gap % minute) / second);
+
+    document.getElementById("days").innerText = d;
+    document.getElementById("hours").innerText = h;
+    document.getElementById("minutes").innerText = m;
+    document.getElementById("seconds").innerText = s;
+}
+
+// 🔥 live update every 1 second
+setInterval(updateTimer, 1000);
+updateTimer();
 </script>
 
 </body>
