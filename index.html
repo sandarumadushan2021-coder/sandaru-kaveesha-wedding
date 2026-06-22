@@ -324,38 +324,39 @@ h1{
     animation: fadeGlow 2.5s ease-in-out infinite;
 }
 .family-info{
-    margin-top:20px;
+    width:100%;
     text-align:center;
-    color:#fff;
-    font-family:'Cinzel',serif;
-    max-width:90%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:30px;
 }
 
 .parent-text{
-    font-size:36px;
-    color:#ffffffcc;
-    letter-spacing:2px;
-    margin:10px 0;
+    font-family:'Playfair Display', serif;
+    font-size:18px;
+    color:rgba(255,255,255,0.85);
+    letter-spacing:1px;
+    text-align:center;
+
+    margin:15px 0;
+    max-width:800px;
 }
 
-.names-row{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    margin:20px 0;
-}
-
-.name-box{
-    font-size:52px;
+.person-name{
+    font-family:'Great Vibes', cursive;
+    font-size:60px;
     color:#C9A24E;
-    text-shadow:0 0 15px rgba(201,162,78,0.5);
-    cursor:pointer;
-    transition:0.3s;
-}
 
-.name-box:hover{
-    transform:scale(1.1);
+    text-align:center;
+
+    text-shadow:
+        0 0 10px rgba(201,162,78,0.7),
+        0 0 25px rgba(201,162,78,0.4);
+
+    margin:15px 0 30px;
 }
 
 
@@ -524,14 +525,18 @@ h1{
         Beloved son of Mr. and Mrs. M. Saman Pushpakumara
     </p>
 
-    <div class="names-row">
-        <span class="name-box">Sandaru</span>
-        
-<p class="parent-text">
+    <div class="person-name">
+        Sandaru
+    </div>
+
+    <p class="parent-text">
         Beloved daughter of Mr. and Mrs. W.A. Wijesunda
     </p>
-        <span class="name-box">Kaveesha</span>
+
+    <div class="person-name">
+        Kaveesha
     </div>
+
 </div>
 
 
