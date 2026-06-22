@@ -152,13 +152,7 @@ h1{
 .invite-content{
     position:relative;
     z-index:2;
-
-    height:100vh;              /* full screen */
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;  /* bottom side */
-    align-items:center;        /* center */
-    padding-bottom:40px;       /* bottom space */
+    animation: luxuryReveal 1.5s ease;
 }
 
 /* LUXURY TEXT */
@@ -224,7 +218,7 @@ h1{
 
 ..lux-date{
     font-family:'Playfair Display',serif;
-    font-size:88px;
+    font-size:48px;
     color:#fff;
     letter-spacing:2px;
 
@@ -234,16 +228,19 @@ h1{
 }
 
 .lux-rsvp{
-    font-size:54px;
+    font-size:34px;
     color:#C9A24E;
     font-family:'Cinzel',serif;
+    animation: floatText 2s infinite ease-in-out;
 
-    margin-bottom:10px;  /* button ලඟට */
+    margin-top:40px;
     text-align:center;
 }
 
 /* BUTTON */
 .lux-scroll-btn{
+    margin:300px auto 0;
+
     padding:14px 35px;
     border:none;
     border-radius:40px;
@@ -251,9 +248,19 @@ h1{
     background:linear-gradient(135deg,#C9A24E,#8C6B2F);
     color:#fff;
 
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
     display:flex;
     flex-direction:column;
     align-items:center;
+    gap:6px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+    transition:.3s;
 }
 
 .lux-arrow{
