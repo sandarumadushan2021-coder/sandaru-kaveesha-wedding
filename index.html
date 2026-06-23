@@ -242,8 +242,8 @@ h1{
 /* BUTTON */
 .lux-scroll-btn{
     width: fit-content;
-    min-width: 280px;   /* width increase */
-    padding: 16px 70px; /* left/right space wadi karala wide karanawa */
+    min-width: 300px;
+    padding: 18px 75px;
 
     margin: 40px auto 0;
 
@@ -263,9 +263,59 @@ h1{
     align-items:center;
     gap:6px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:0 0 15px rgba(201,162,78,0.4);
+    animation:goldGlow 2.5s infinite ease-in-out;
+
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+@keyframes goldGlow{
+    0%,100%{
+        box-shadow:0 0 10px rgba(201,162,78,0.3),
+                   0 0 25px rgba(201,162,78,0.2);
+    }
+    50%{
+        box-shadow:0 0 20px rgba(201,162,78,0.6),
+                   0 0 45px rgba(201,162,78,0.4);
+    }
+}
+.lux-scroll-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 0 25px rgba(201,162,78,0.6),
+               0 0 60px rgba(201,162,78,0.4);
+}
+.lux-scroll-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-75%;
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transform:skewX(-25deg);
 }
 
+.lux-scroll-btn:hover::before{
+    animation:shineMove 0.8s ease;
+}
+
+@keyframes shineMove{
+    from{
+        left:-75%;
+    }
+    to{
+        left:130%;
+    }
+}
 .lux-arrow{
     font-size:24px;
     color:#CFB53B;
