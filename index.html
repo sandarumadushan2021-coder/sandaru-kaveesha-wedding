@@ -20,20 +20,37 @@ html{
 }
 
 body{
-    overflow:hidden;
+    margin:0;
+    overflow:hidden; /* 🔥 IMPORTANT: default scroll OFF */
 }
-
-/* ================= SECTION SYSTEM ================= */
-section{
-    display:none;
+#home, #invite{
     height:100vh;
     width:100%;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+    position:fixed;   /* 🔥 locks screen */
+    overflow:hidden;
+}
+#nextPage, #agendaPage{
+    height:100vh;
+    width:100%;
     position:relative;
 }
+/* ================= SECTION SYSTEM ================= */
+section{
+    height:100vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+html{
+    scroll-behavior:smooth;
+}
 
+body{
+    margin:0;
+    overflow-x:hidden;
+}
 section.active{
     display:flex;
 }
@@ -1342,9 +1359,9 @@ h1{
     <span class="name">Kaveesha</span>
 </div>
 
-        <button class="btn" onclick="openInvite()">
-            OPEN INVITATION
-        </button>
+        <button onclick="document.getElementById('invite').scrollIntoView({behavior:'smooth'})">
+    OPEN INVITATION
+</button>
     </div>
 
 <audio id="bgMusic" loop>
@@ -1371,9 +1388,8 @@ h1{
 
         <div class="lux-rsvp">Confirm Attendance</div>
 
-        <button class="lux-scroll-btn" onclick="scrollToNext()">
-    Scroll Down
-    <span class="lux-arrow">⌄</span>
+        <button onclick="document.getElementById('nextPage').scrollIntoView({behavior:'smooth'})">
+    SCROLL DOWN
 </button>
 </section>
 
@@ -1456,15 +1472,7 @@ h1{
 
 <script>
 
-window.onload = function(){
-    const savedPage = localStorage.getItem("lastPage");
 
-    if(savedPage === "invite" || savedPage === "nextPage"){
-        switchPage("home");
-    } else {
-        switchPage("home");
-    }
-};
 
 function openInvite(){
 
@@ -1491,15 +1499,16 @@ function openInvite(){
 function scrollToNext(){
 
     const gold = document.getElementById("goldTransition");
-
     gold.classList.add("active");
 
     setTimeout(()=>{
-        switchPage("nextPage");
-    },500); // page switch early
+        document.getElementById("nextPage")
+            .scrollIntoView({behavior:"smooth"});
+    },500);
 
     setTimeout(()=>{
         gold.classList.remove("active");
+        unlockScroll(); // 🔥 NOW SCROLL STARTS
     },1000);
 }
 
@@ -1527,22 +1536,10 @@ document.addEventListener("touchend", function(e){
 });
 
 
-
-function switchPage(id){
-    document.querySelectorAll("section").forEach(s=>{
-        s.classList.remove("active");
-        s.style.display = "none";
-    });
-
-    const el = document.getElementById(id);
-
-    if(!el) return; // safety fix
-
-    el.classList.add("active");
-    el.style.display = "flex";
-
-    localStorage.setItem("lastPage", id);
+function unlockScroll(){
+    document.body.style.overflow = "auto";
 }
+
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
 const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
