@@ -5,7 +5,9 @@
 <title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
+<link rel="preload"
+      as="image"
+      href="—Pngtree—beautiful gold wedding rings png_6499014.png">
 <style>
 *{
     margin:0;
@@ -737,11 +739,16 @@ h1{
 }
 
 .ring{
-    width:110px;
-    animation: float 3s infinite ease-in-out;
+    opacity:0;
+    transform:scale(0.6);
+    animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
+}
 
-    position:relative;
-    top:5px; /* 🔥 little adjustment */
+@keyframes ringShow{
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 /* BUTTON */
@@ -1150,10 +1157,16 @@ h1{
         <h1>The Wedding of</h1>
 
         <div class="names">
-            Sandaru
-            <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png">
-            Kaveesha
-        </div>
+    <span class="name">Sandaru</span>
+
+    <img class="ring"
+         src="—Pngtree—beautiful gold wedding rings png_6499014.png"
+         loading="eager"
+         decoding="sync"
+         alt="ring">
+
+    <span class="name">Kaveesha</span>
+</div>
 
         <button class="btn" onclick="openInvite()">
             OPEN INVITATION
