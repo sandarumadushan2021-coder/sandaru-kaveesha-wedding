@@ -534,15 +534,40 @@ h1{
     50%{transform:translateY(6px);}
 }
 
-.home-to-invite {
-    animation: softRomanticOut 1s ease forwards;
+/* HOME → INVITE FOG EFFECT */
+.home-fog-out {
+    animation: fogOut 1s ease forwards;
 }
 
-.invite-reveal {
-    animation: softRomanticIn 1.2s ease forwards;
+.invite-fog-in {
+    animation: fogIn 1.4s ease forwards;
 }
 
-@keyframes softRomanticOut {
+/* CLOUD OVERLAY */
+#fogTransition {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle,
+        rgba(255,255,255,0.15),
+        rgba(0,0,0,0.9)
+    );
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#fogTransition.active {
+    animation: fogWave 1.2s ease;
+}
+
+@keyframes fogWave {
+    0% { opacity: 0; transform: scale(1); }
+    40% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+/* HOME EXIT (foggy fade) */
+@keyframes fogOut {
     0% {
         opacity: 1;
         transform: scale(1);
@@ -550,57 +575,64 @@ h1{
     }
     100% {
         opacity: 0;
-        transform: scale(1.04);
-        filter: blur(6px);
+        transform: scale(1.03);
+        filter: blur(12px);
     }
 }
 
-@keyframes softRomanticIn {
+/* INVITE ENTER (cloud reveal) */
+@keyframes fogIn {
     0% {
         opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        filter: blur(10px);
+        transform: scale(0.97);
+        filter: blur(18px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: blur(2px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1);
         filter: blur(0);
     }
 }
 
-.invite-to-next {
-    animation: cinematicOut 0.9s ease forwards;
+/* INVITE → NEXT GOLD LUXURY */
+.invite-gold-out {
+    animation: goldOut 1s ease forwards;
 }
 
-.next-reveal {
-    animation: cinematicIn 1.3s ease forwards;
+.next-gold-in {
+    animation: goldIn 1.5s ease forwards;
 }
 
 /* GOLD FLASH */
-#transition {
+#goldTransition {
     position: fixed;
     inset: 0;
     background: radial-gradient(circle,
-        rgba(201,162,78,0.6),
+        rgba(201,162,78,0.7),
         rgba(0,0,0,0.98)
     );
     opacity: 0;
-    pointer-events: none;
     z-index: 9999;
+    pointer-events: none;
 }
 
-#transition.active {
-    animation: goldBurst 0.9s ease;
+#goldTransition.active {
+    animation: goldFlash 1s ease;
 }
 
-@keyframes goldBurst {
+@keyframes goldFlash {
     0% { opacity: 0; }
     40% { opacity: 1; }
     100% { opacity: 0; }
 }
 
-/* cinematic exit */
-@keyframes cinematicOut {
+/* GOLD EXIT */
+@keyframes goldOut {
     0% {
         opacity: 1;
         transform: scale(1);
@@ -609,16 +641,16 @@ h1{
     100% {
         opacity: 0;
         transform: scale(1.08);
-        filter: blur(10px) brightness(0.4);
+        filter: brightness(0.4) blur(10px);
     }
 }
 
-/* premium reveal */
-@keyframes cinematicIn {
+/* GOLD ENTER */
+@keyframes goldIn {
     0% {
         opacity: 0;
         transform: scale(0.9) translateY(60px);
-        filter: blur(14px);
+        filter: blur(15px);
     }
     60% {
         opacity: 1;
@@ -1247,29 +1279,29 @@ function openInvite(){
 
     const home = document.getElementById("home");
     const invite = document.getElementById("invite");
-    const transition = document.getElementById("transition");
+    const fog = document.getElementById("fogTransition");
     const music = document.getElementById("bgMusic");
     const vid = document.getElementById("weddingVideo");
 
-    transition.classList.add("active");
-    home.classList.add("home-to-invite");
+    fog.classList.add("active");
+    home.classList.add("home-fog-out");
 
     setTimeout(() => {
 
-        home.classList.remove("active","home-to-invite");
+        home.classList.remove("active","home-fog-out");
         home.style.display = "none";
 
         invite.style.display = "flex";
-        invite.classList.add("active","invite-reveal");
+        invite.classList.add("active","invite-fog-in");
 
         vid.play();
         music.volume = 0.5;
         music.play();
 
         setTimeout(() => {
-            invite.classList.remove("invite-reveal");
-            transition.classList.remove("active");
-        }, 1200);
+            invite.classList.remove("invite-fog-in");
+            fog.classList.remove("active");
+        }, 1400);
 
     }, 800);
 }
@@ -1278,23 +1310,23 @@ function scrollToNext(){
 
     const invite = document.getElementById("invite");
     const next = document.getElementById("nextPage");
-    const transition = document.getElementById("transition");
+    const gold = document.getElementById("goldTransition");
 
-    transition.classList.add("active");
-    invite.classList.add("invite-to-next");
+    gold.classList.add("active");
+    invite.classList.add("invite-gold-out");
 
     setTimeout(() => {
 
-        invite.classList.remove("active","invite-to-next");
+        invite.classList.remove("active","invite-gold-out");
         invite.style.display = "none";
 
         next.style.display = "flex";
-        next.classList.add("active","next-reveal");
+        next.classList.add("active","next-gold-in");
 
         setTimeout(() => {
-            next.classList.remove("next-reveal");
-            transition.classList.remove("active");
-        }, 1300);
+            next.classList.remove("next-gold-in");
+            gold.classList.remove("active");
+        }, 1500);
 
     }, 800);
 }
