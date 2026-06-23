@@ -1316,6 +1316,33 @@ h1{
     cursor:pointer;
     font-family:'Cinzel',serif;
 }
+
+html, body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+}
+
+/* horizontal slider */
+.slider{
+    display:flex;
+    width:200vw;   /* 2 pages */
+    height:100vh;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* each page */
+.slider section{
+    flex:0 0 100vw;
+    height:100vh;
+    scroll-snap-align:start;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 </style>
 </head>
 
@@ -1467,6 +1494,10 @@ h1{
         </div>
 
     </div>
+<div class="slider">
+    <section id="nextPage"></section>
+    <section id="agendaPage"></section>
+</div>
 </section>
 
 <script>
@@ -1561,30 +1592,6 @@ function updateTimer() {
 }
 
 
-let startY = 0;
-
-document.addEventListener("touchstart", (e)=>{
-    startY = e.touches[0].clientY;
-});
-
-document.addEventListener("touchend", (e)=>{
-    const endY = e.changedTouches[0].clientY;
-    const diff = startY - endY;
-
-    // nextPage → agendaPage
-    if(document.getElementById("nextPage").classList.contains("active")){
-        if(diff > 80){
-            switchPage("agendaPage");
-        }
-    }
-
-    // agendaPage → nextPage
-    if(document.getElementById("agendaPage").classList.contains("active")){
-        if(diff < -80){
-            switchPage("nextPage");
-        }
-    }
-});
 
 // 🔥 live update every 1 second
 setInterval(updateTimer, 1000);
