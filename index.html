@@ -375,16 +375,59 @@ h1{
 }
 
 .ornament{
-    text-align:center;
-    margin:20px 0;
+    text-align: center;
+    margin-top: 100px;
+    opacity: 0.95;
 }
 
 .ornament img{
-    width:80%;
-    max-width:700px;
-    height:auto;
+    width: 85%;
+    max-width: 800px;
+    height: auto;
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
 }
 
+.stars{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.stars span{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatStars 6s linear infinite;
+}
+
+/* random positions */
+.stars span:nth-child(1){ left:10%; animation-delay:0s; }
+.stars span:nth-child(2){ left:30%; animation-delay:1s; }
+.stars span:nth-child(3){ left:50%; animation-delay:2s; }
+.stars span:nth-child(4){ left:70%; animation-delay:3s; }
+.stars span:nth-child(5){ left:90%; animation-delay:4s; }
+
+@keyframes floatStars{
+    0%{
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
 .timer-container{
     margin-top:auto;   /* 🔥 pushes it up from bottom */
     margin-bottom:150px;
@@ -570,7 +613,13 @@ h1{
     <img src="ornament.png.png" alt="Golden Ornament">
 </div>
 
-
+<div class="stars">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
     <div class="timer-container">
 
