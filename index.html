@@ -1242,8 +1242,15 @@ window.onload = function(){
 function openInvite(){
 
     const cloud = document.getElementById("cloudTransition");
+    const music = document.getElementById("bgMusic");
 
     cloud.classList.add("active");
+
+    // 🎵 MUSIC START (IMPORTANT)
+    music.volume = 0.6;
+    music.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+    });
 
     setTimeout(()=>{
         switchPage("invite");
