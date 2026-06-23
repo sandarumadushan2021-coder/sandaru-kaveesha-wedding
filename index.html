@@ -1067,6 +1067,10 @@ h1{
             OPEN INVITATION
         </button>
     </div>
+
+<audio id="bgMusic" loop>
+    <source src="khuda jaane.webm" type="audio/webm">
+</audio>
 </section>
 
 <!-- INVITE -->
@@ -1145,20 +1149,27 @@ window.onload = function(){
 function openInvite(){
     const transition = document.getElementById("transition");
     const vid = document.getElementById("weddingVideo");
+    const music = document.getElementById("bgMusic");
 
     transition.classList.add("active");
 
     setTimeout(()=>{
-    switchPage("invite");
+        switchPage("invite");
 
-    vid.muted = true;
-    vid.playsInline = true;   // 🔥 add here
-    vid.play();
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.play();
 
-    setTimeout(()=>{
-        transition.classList.remove("active");
-    },500);
-},600);}
+        // 🔥 Play Background Music
+        music.volume = 0.5;
+        music.play();
+
+        setTimeout(()=>{
+            transition.classList.remove("active");
+        },500);
+
+    },600);
+}
 
 function scrollToNext(){
     switchPage("nextPage");
