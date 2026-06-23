@@ -1096,6 +1096,10 @@ h1{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
 }
+.cloud-transition,
+.gold-transition{
+    transition: opacity 0.6s ease;
+}
 </style>
 </head>
 
@@ -1177,8 +1181,7 @@ h1{
         </div>
 
         <p class="timer-sub">05 November 2026</p>
-<div id="cloudTransition" class="cloud-transition"></div>
-<div id="goldTransition" class="gold-transition"></div>
+
 
     </div>
 </section>
@@ -1205,6 +1208,9 @@ function openInvite(){
 
     setTimeout(()=>{
         switchPage("invite");
+    },600);
+
+    setTimeout(()=>{
         cloud.classList.remove("active");
     },1200);
 }
@@ -1217,6 +1223,9 @@ function scrollToNext(){
 
     setTimeout(()=>{
         switchPage("nextPage");
+    },500); // page switch early
+
+    setTimeout(()=>{
         gold.classList.remove("active");
     },1000);
 }
@@ -1267,7 +1276,9 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 </script>
-
+<div id="cloudTransition" class="cloud-transition"></div>
+<div id="goldTransition" class="gold-transition"></div>
+<div id="transition"></div>
 </body>
 </html>
 
