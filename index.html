@@ -1343,6 +1343,27 @@ html, body{
     justify-content:center;
     align-items:center;
 }
+
+body{
+    overflow:hidden;
+}
+
+/* container for swipe pages */
+.pages{
+    display:flex;
+    width:200vw; /* 2 pages */
+    height:100vh;
+    transition:transform 0.6s ease;
+}
+
+/* each page */
+.page{
+    width:100vw;
+    height:100vh;
+    flex-shrink:0;
+}
+
+
 </style>
 </head>
 
@@ -1399,10 +1420,20 @@ html, body{
     <span class="lux-arrow">⌄</span>
 </button>
 </section>
+<div class="pages" id="pages">
 
+    <section id="nextPage" class="page">
+        <!-- TIMER CONTENT එක මෙතන තියන්න -->
+    </section>
+
+    <section id="agendaPage" class="page">
+        <!-- AGENDA CONTENT එක මෙතන තියන්න -->
+    </section>
+
+</div>
 
 <!-- NEXT / TIMER PAGE -->
-<section id="nextPage">
+
     <div class="timer-container">
 
         <h2 class="timer-title">SAVE THE DATE</h2>
@@ -1438,7 +1469,7 @@ html, body{
 
 
 
-<section id="agendaPage">
+
     <div class="agenda-title">WEDDING AGENDA</div>
 
     <div class="agenda-container">
@@ -1494,10 +1525,7 @@ html, body{
         </div>
 
     </div>
-<div class="slider">
-    <section id="nextPage"></section>
-    <section id="agendaPage"></section>
-</div>
+
 </section>
 
 <script>
@@ -1591,8 +1619,33 @@ function updateTimer() {
     document.getElementById("seconds").innerText = s;
 }
 
+let currentPage = 0;
 
+const pages = document.getElementById("pages");
 
+function goToPage(index){
+    currentPage = index;
+    pages.style.transform = `translateX(-${index * 100}vw)`;
+}
+
+let startX = 0;
+
+document.addEventListener("touchstart", (e)=>{
+    startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", (e)=>{
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+
+    if(diff > 60){
+        goToPage(1); // left swipe → agenda
+    }
+
+    if(diff < -60){
+        goToPage(0); // right swipe → timer
+    }
+});
 // 🔥 live update every 1 second
 setInterval(updateTimer, 1000);
 updateTimer();
