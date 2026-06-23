@@ -553,12 +553,6 @@ h1{
             OPEN INVITATION
         </button>
     </div>
-<!-- AUDIO -->
-<audio id="bgMusic" loop preload="auto">
-    <source src="khuda jaane .mp3.webm" type="audio/mp3">
-</audio>
-
-<!-- your other HTML content above -->
 </section>
 
 <!-- INVITE -->
@@ -1215,27 +1209,6 @@ function updateTimer() {
 // 🔥 live update every 1 second
 setInterval(updateTimer, 1000);
 updateTimer();
-<script>
-window.addEventListener("load", () => {
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.5;
-
-    const playPromise = music.play();
-
-    if (playPromise !== undefined) {
-        playPromise.catch(() => {
-            const startMusic = () => {
-                music.play();
-                document.removeEventListener("click", startMusic);
-                document.removeEventListener("touchstart", startMusic);
-            };
-
-            document.addEventListener("click", startMusic);
-            document.addEventListener("touchstart", startMusic);
-        });
-    }
-});
-
 </script>
 
 </body>
