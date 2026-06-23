@@ -20,37 +20,20 @@ html{
 }
 
 body{
-    margin:0;
-    overflow:hidden; /* 🔥 IMPORTANT: default scroll OFF */
-}
-#home, #invite{
-    height:100vh;
-    width:100%;
-    position:fixed;   /* 🔥 locks screen */
     overflow:hidden;
 }
-#nextPage, #agendaPage{
-    height:100vh;
-    width:100%;
-    position:relative;
-}
+
 /* ================= SECTION SYSTEM ================= */
 section{
+    display:none;
     height:100vh;
     width:100%;
-    display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
-}
-html{
-    scroll-behavior:smooth;
+    text-align:center;
+    position:relative;
 }
 
-body{
-    margin:0;
-    overflow-x:hidden;
-}
 section.active{
     display:flex;
 }
@@ -1264,79 +1247,6 @@ h1{
         0 0 25px rgba(201,162,78,0.3),
         0 0 40px rgba(255,215,120,0.2);
 }
-#agendaPage{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    height:100vh;
-    background:radial-gradient(circle,#0a0a0a,#000);
-    color:#C9A24E;
-    font-family:'Cinzel',serif;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.agenda-title{
-    font-size:38px;
-    letter-spacing:6px;
-    margin-bottom:40px;
-
-    text-shadow:
-        0 0 10px rgba(201,162,78,0.6),
-        0 0 25px rgba(201,162,78,0.3);
-
-    animation:fadeGlow 2.5s infinite ease-in-out;
-}
-
-.agenda-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    width:100%;
-    max-width:700px;
-}
-
-.agenda-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 25px;
-    border:1px solid rgba(201,162,78,0.25);
-    border-radius:15px;
-
-    background:rgba(255,255,255,0.03);
-
-    transition:0.3s ease;
-}
-
-.agenda-item:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 25px rgba(201,162,78,0.3);
-}
-
-.time{
-    font-weight:bold;
-    color:#fff;
-    letter-spacing:2px;
-}
-
-.event{
-    color:rgba(255,255,255,0.85);
-    text-align:right;
-}
-@keyframes fadeGlow{
-    0%,100%{
-        opacity:0.7;
-        letter-spacing:5px;
-    }
-    50%{
-        opacity:1;
-        letter-spacing:8px;
-    }
-}
 </style>
 </head>
 
@@ -1359,9 +1269,9 @@ h1{
     <span class="name">Kaveesha</span>
 </div>
 
-        <button onclick="document.getElementById('invite').scrollIntoView({behavior:'smooth'})">
-    OPEN INVITATION
-</button>
+        <button class="btn" onclick="openInvite()">
+            OPEN INVITATION
+        </button>
     </div>
 
 <audio id="bgMusic" loop>
@@ -1388,8 +1298,9 @@ h1{
 
         <div class="lux-rsvp">Confirm Attendance</div>
 
-        <button onclick="document.getElementById('nextPage').scrollIntoView({behavior:'smooth'})">
-    SCROLL DOWN
+        <button class="lux-scroll-btn" onclick="scrollToNext()">
+    Scroll Down
+    <span class="lux-arrow">⌄</span>
 </button>
 </section>
 
@@ -1428,51 +1339,19 @@ h1{
     </div>
 </section>
 
-<section id="agendaPage">
-
-    <div class="agenda-title">WEDDING CEREMONY AGENDA</div>
-
-    <div class="agenda-list">
-
-        <div class="agenda-item">
-            <span class="time">8:00 AM</span>
-            <span class="event">Home Coming (Poruwa Ceremony Begins)</span>
-        </div>
-
-        <div class="agenda-item">
-            <span class="time">9:30 AM</span>
-            <span class="event">Religious Blessings</span>
-        </div>
-
-        <div class="agenda-item">
-            <span class="time">11:00 AM</span>
-            <span class="event">Poruwa Ceremony</span>
-        </div>
-
-        <div class="agenda-item">
-            <span class="time">12:30 PM</span>
-            <span class="event">Wedding Photography Session</span>
-        </div>
-
-        <div class="agenda-item">
-            <span class="time">1:30 PM</span>
-            <span class="event">Lunch Reception</span>
-        </div>
-
-        <div class="agenda-item">
-            <span class="time">4:00 PM</span>
-            <span class="event">Family & Guest Celebration</span>
-        </div>
-
-    </div>
-
-</section>
-
 <div id="transition"></div>
 
 <script>
 
+window.onload = function(){
+    const savedPage = localStorage.getItem("lastPage");
 
+    if(savedPage === "invite" || savedPage === "nextPage"){
+        switchPage("home");
+    } else {
+        switchPage("home");
+    }
+};
 
 function openInvite(){
 
@@ -1499,47 +1378,34 @@ function openInvite(){
 function scrollToNext(){
 
     const gold = document.getElementById("goldTransition");
+
     gold.classList.add("active");
 
     setTimeout(()=>{
-        document.getElementById("nextPage")
-            .scrollIntoView({behavior:"smooth"});
-    },500);
+        switchPage("nextPage");
+    },500); // page switch early
 
     setTimeout(()=>{
         gold.classList.remove("active");
-        unlockScroll(); // 🔥 NOW SCROLL STARTS
     },1000);
 }
 
 
-// existing code (keep everything above)
+function switchPage(id){
+    document.querySelectorAll("section").forEach(s=>{
+        s.classList.remove("active");
+        s.style.display = "none";
+    });
 
-// switchPage, timer, openInvite etc...
+    const el = document.getElementById(id);
 
-let startY = 0;
+    if(!el) return; // safety fix
 
-document.addEventListener("touchstart", function(e){
-    startY = e.touches[0].clientY;
-});
+    el.classList.add("active");
+    el.style.display = "flex";
 
-document.addEventListener("touchend", function(e){
-    let endY = e.changedTouches[0].clientY;
-
-    if(startY - endY > 80){
-        const current = document.querySelector("section.active").id;
-
-        if(current === "nextPage"){
-            switchPage("agendaPage");
-        }
-    }
-});
-
-
-function unlockScroll(){
-    document.body.style.overflow = "auto";
+    localStorage.setItem("lastPage", id);
 }
-
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
 const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
