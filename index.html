@@ -533,70 +533,6 @@ h1{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
 }
-/* HOME → INVITE FOG EFFECT */
-.home-fog-out {
-    animation: fogOut 1s ease forwards;
-}
-
-.invite-fog-in {
-    animation: fogIn 1.4s ease forwards;
-}
-
-/* CLOUD OVERLAY */
-#fogTransition {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle,
-        rgba(255,255,255,0.15),
-        rgba(0,0,0,0.9)
-    );
-    opacity: 0;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-#fogTransition.active {
-    animation: fogWave 1.2s ease;
-}
-
-@keyframes fogWave {
-    0% { opacity: 0; transform: scale(1); }
-    40% { opacity: 1; }
-    100% { opacity: 0; transform: scale(1.1); }
-}
-
-/* HOME EXIT (foggy fade) */
-@keyframes fogOut {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.03);
-        filter: blur(12px);
-    }
-}
-
-/* INVITE ENTER (cloud reveal) */
-@keyframes fogIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.97);
-        filter: blur(18px);
-    }
-    60% {
-        opacity: 1;
-        transform: scale(1.01);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-}
 </style>
 </head>
 
@@ -1084,7 +1020,56 @@ h1{
 #transition.active{
     opacity:1;
 }
+/* ================= CLOUD / FOG TRANSITION ================= */
+.cloud-transition{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2), transparent 40%),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,0.15), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.1), transparent 50%),
+    rgba(0,0,0,0.6);
 
+    opacity:0;
+    pointer-events:none;
+    z-index:9999;
+
+    filter:blur(8px);
+}
+
+.cloud-transition.active{
+    animation: fogMove 1.2s ease;
+}
+
+@keyframes fogMove{
+    0%{opacity:0; transform:scale(1.05);}
+    50%{opacity:1;}
+    100%{opacity:0; transform:scale(1);}
+}
+
+
+/* ================= GOLD LUXURY FLASH ================= */
+.gold-transition{
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle,
+        rgba(201,162,78,0.9),
+        rgba(0,0,0,0.95));
+
+    opacity:0;
+    pointer-events:none;
+    z-index:9999;
+}
+
+.gold-transition.active{
+    animation: goldReveal 1s ease;
+}
+
+@keyframes goldReveal{
+    0%{opacity:0;}
+    40%{opacity:1; transform:scale(1.05);}
+    100%{opacity:0; transform:scale(1);}
+}
 /* ================= ANIMATIONS ================= */
 @keyframes float{
     0%,100%{transform:translateY(0);}
@@ -1110,69 +1095,6 @@ h1{
 @keyframes floatText{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
-}
-/* INVITE → NEXT GOLD LUXURY */
-.invite-gold-out {
-    animation: goldOut 1s ease forwards;
-}
-
-.next-gold-in {
-    animation: goldIn 1.5s ease forwards;
-}
-
-/* GOLD FLASH */
-#goldTransition {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle,
-        rgba(201,162,78,0.7),
-        rgba(0,0,0,0.98)
-    );
-    opacity: 0;
-    z-index: 9999;
-    pointer-events: none;
-}
-
-#goldTransition.active {
-    animation: goldFlash 1s ease;
-}
-
-@keyframes goldFlash {
-    0% { opacity: 0; }
-    40% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* GOLD EXIT */
-@keyframes goldOut {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        filter: brightness(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.08);
-        filter: brightness(0.4) blur(10px);
-    }
-}
-
-/* GOLD ENTER */
-@keyframes goldIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.9) translateY(60px);
-        filter: blur(15px);
-    }
-    60% {
-        opacity: 1;
-        transform: scale(1.02) translateY(-5px);
-        filter: blur(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 </style>
 </head>
@@ -1255,6 +1177,8 @@ h1{
         </div>
 
         <p class="timer-sub">05 November 2026</p>
+<div id="cloudTransition" class="cloud-transition"></div>
+<div id="goldTransition" class="gold-transition"></div>
 
     </div>
 </section>
@@ -1275,57 +1199,26 @@ window.onload = function(){
 
 function openInvite(){
 
-    const home = document.getElementById("home");
-    const invite = document.getElementById("invite");
-    const fog = document.getElementById("fogTransition");
-    const music = document.getElementById("bgMusic");
-    const vid = document.getElementById("weddingVideo");
+    const cloud = document.getElementById("cloudTransition");
 
-    fog.classList.add("active");
-    home.classList.add("home-fog-out");
+    cloud.classList.add("active");
 
-    setTimeout(() => {
-
-        home.classList.remove("active","home-fog-out");
-        home.style.display = "none";
-
-        invite.style.display = "flex";
-        invite.classList.add("active","invite-fog-in");
-
-        vid.play();
-        music.volume = 0.5;
-        music.play();
-
-        setTimeout(() => {
-            invite.classList.remove("invite-fog-in");
-            fog.classList.remove("active");
-        }, 1400);
-
-    }, 800);
+    setTimeout(()=>{
+        switchPage("invite");
+        cloud.classList.remove("active");
+    },1200);
 }
+
 function scrollToNext(){
 
-    const invite = document.getElementById("invite");
-    const next = document.getElementById("nextPage");
     const gold = document.getElementById("goldTransition");
 
     gold.classList.add("active");
-    invite.classList.add("invite-gold-out");
 
-    setTimeout(() => {
-
-        invite.classList.remove("active","invite-gold-out");
-        invite.style.display = "none";
-
-        next.style.display = "flex";
-        next.classList.add("active","next-gold-in");
-
-        setTimeout(() => {
-            next.classList.remove("next-gold-in");
-            gold.classList.remove("active");
-        }, 1500);
-
-    }, 800);
+    setTimeout(()=>{
+        switchPage("nextPage");
+        gold.classList.remove("active");
+    },1000);
 }
 
 
