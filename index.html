@@ -533,106 +533,6 @@ h1{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
 }
-
-/* ================= HOME → INVITE ================= */
-.home-exit {
-    animation: homeFadeOut 0.8s ease forwards;
-}
-
-.invite-enter {
-    animation: inviteReveal 1s ease forwards;
-}
-
-@keyframes homeFadeOut {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.05);
-        filter: blur(8px);
-    }
-}
-
-@keyframes inviteReveal {
-    0% {
-        opacity: 0;
-        transform: scale(0.97) translateY(30px);
-        filter: blur(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        filter: blur(0);
-    }
-}
-
-
-/* ================= INVITE → NEXT (PREMIUM GOLD CINEMA) ================= */
-.invite-exit {
-    animation: inviteExitLuxury 0.9s ease forwards;
-}
-
-.next-enter {
-    animation: nextRevealLuxury 1.1s ease forwards;
-}
-
-/* GOLD FLASH OVERLAY */
-#transition {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle,
-        rgba(201,162,78,0.5),
-        rgba(0,0,0,0.95)
-    );
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-#transition.active {
-    animation: goldFlash 1s ease;
-}
-
-@keyframes goldFlash {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-/* INVITE EXIT */
-@keyframes inviteExitLuxury {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-        filter: brightness(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.08);
-        filter: brightness(0.5) blur(8px);
-    }
-}
-
-/* NEXT ENTER */
-@keyframes nextRevealLuxury {
-    0% {
-        opacity: 0;
-        transform: scale(0.92) translateY(50px);
-        filter: blur(12px);
-    }
-    60% {
-        opacity: 1;
-        transform: scale(1.02) translateY(-5px);
-        filter: blur(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
 </style>
 </head>
 
@@ -1147,6 +1047,109 @@ h1{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
 }
+
+/* ================= GLOBAL LUXURY TRANSITION OVERLAY ================= */
+#transition {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle,
+        rgba(201,162,78,0.45),
+        rgba(0,0,0,0.98)
+    );
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#transition.active {
+    animation: goldCinematicFlash 1s ease;
+}
+
+@keyframes goldCinematicFlash {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ================= HOME → INVITE ================= */
+.home-out {
+    animation: homeOutLuxury 0.9s ease forwards;
+}
+
+.invite-in {
+    animation: inviteInLuxury 1.1s ease forwards;
+}
+
+/* ================= INVITE → NEXT ================= */
+.invite-out {
+    animation: inviteOutLuxury 0.9s ease forwards;
+}
+
+.next-in {
+    animation: nextInLuxury 1.2s ease forwards;
+}
+
+/* ================= ANIMATIONS ================= */
+
+/* soft cinematic fade */
+@keyframes homeOutLuxury {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: blur(10px);
+    }
+}
+
+/* romantic reveal */
+@keyframes inviteInLuxury {
+    0% {
+        opacity: 0;
+        transform: scale(0.96) translateY(30px);
+        filter: blur(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* cinematic exit (slightly dramatic) */
+@keyframes inviteOutLuxury {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.08);
+        filter: brightness(0.4) blur(10px);
+    }
+}
+
+/* premium reveal for timer */
+@keyframes nextInLuxury {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(60px);
+        filter: blur(14px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.02) translateY(-5px);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
 </style>
 </head>
 
@@ -1251,33 +1254,28 @@ function openInvite(){
     const home = document.getElementById("home");
     const invite = document.getElementById("invite");
     const transition = document.getElementById("transition");
-    const vid = document.getElementById("weddingVideo");
     const music = document.getElementById("bgMusic");
+    const vid = document.getElementById("weddingVideo");
 
-    // GOLD flash
     transition.classList.add("active");
-
-    // HOME exit animation
-    home.classList.add("home-exit");
+    home.classList.add("home-out");
 
     setTimeout(() => {
 
-        home.classList.remove("active","home-exit");
+        home.classList.remove("active","home-out");
         home.style.display = "none";
 
         invite.style.display = "flex";
-        invite.classList.add("active","invite-enter");
+        invite.classList.add("active","invite-in");
 
-        vid.muted = true;
         vid.play();
-
         music.volume = 0.5;
         music.play();
 
         setTimeout(() => {
-            invite.classList.remove("invite-enter");
+            invite.classList.remove("invite-in");
             transition.classList.remove("active");
-        }, 1000);
+        }, 1100);
 
     }, 800);
 }
@@ -1288,24 +1286,21 @@ function scrollToNext(){
     const next = document.getElementById("nextPage");
     const transition = document.getElementById("transition");
 
-    // GOLD flash
     transition.classList.add("active");
-
-    // INVITE exit animation
-    invite.classList.add("invite-exit");
+    invite.classList.add("invite-out");
 
     setTimeout(() => {
 
-        invite.classList.remove("active","invite-exit");
+        invite.classList.remove("active","invite-out");
         invite.style.display = "none";
 
         next.style.display = "flex";
-        next.classList.add("active","next-enter");
+        next.classList.add("active","next-in");
 
         setTimeout(() => {
-            next.classList.remove("next-enter");
+            next.classList.remove("next-in");
             transition.classList.remove("active");
-        }, 1100);
+        }, 1200);
 
     }, 800);
 }
