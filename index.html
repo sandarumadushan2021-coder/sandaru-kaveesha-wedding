@@ -1010,15 +1010,23 @@ h1{
 #transition{
     position:fixed;
     inset:0;
-    background:radial-gradient(circle,#000,#111);
+    background:
+    radial-gradient(circle,
+    rgba(201,162,78,0.4),
+    rgba(0,0,0,0.95));
     opacity:0;
     pointer-events:none;
-    transition:0.6s ease;
     z-index:9999;
 }
 
 #transition.active{
-    opacity:1;
+    animation:goldFlash 1s ease;
+}
+
+@keyframes goldFlash{
+    0%{opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
 }
 
 /* ================= ANIMATIONS ================= */
@@ -1046,6 +1054,41 @@ h1{
 @keyframes floatText{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(6px);}
+}
+
+/* Luxury Page Transition */
+.page-exit{
+    animation: pageFadeOut 0.8s ease forwards;
+}
+
+.page-enter{
+    animation: pageReveal 1s ease forwards;
+}
+
+@keyframes pageFadeOut{
+    0%{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0);
+    }
+    100%{
+        opacity:0;
+        transform:scale(1.08);
+        filter:blur(10px);
+    }
+}
+
+@keyframes pageReveal{
+    0%{
+        opacity:0;
+        transform:scale(0.95) translateY(40px);
+        filter:blur(10px);
+    }
+    100%{
+        opacity:1;
+        transform:scale(1) translateY(0);
+        filter:blur(0);
+    }
 }
 </style>
 </head>
@@ -1172,7 +1215,40 @@ function openInvite(){
 }
 
 function scrollToNext(){
-    switchPage("nextPage");
+
+    const transition = document.getElementById("transition");
+    const invite = document.getElementById("invite");
+    const next = document.getElementById("nextPage");
+
+    // 🔥 GOLD FLASH START
+    transition.classList.add("active");
+
+    setTimeout(()=>{
+
+        // Invite exit animation
+        invite.classList.add("page-exit");
+
+        setTimeout(()=>{
+
+            invite.classList.remove("active","page-exit");
+            invite.style.display = "none";
+
+            next.style.display = "flex";
+            next.classList.add("active","page-enter");
+
+            // remove enter animation class
+            setTimeout(()=>{
+                next.classList.remove("page-enter");
+            },1000);
+
+        },300); // small delay inside flash
+
+        // 🔥 GOLD FLASH END
+        setTimeout(()=>{
+            transition.classList.remove("active");
+        },1000);
+
+    },200);
 }
 
 
