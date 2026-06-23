@@ -1253,6 +1253,69 @@ h1{
         0 0 25px rgba(201,162,78,0.3),
         0 0 40px rgba(255,215,120,0.2);
 }
+
+#agendaPage{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:radial-gradient(circle,#111,#000);
+    color:#C9A24E;
+    font-family:'Cinzel',serif;
+    text-align:center;
+    padding:40px;
+}
+
+.agenda-title{
+    font-size:42px;
+    letter-spacing:6px;
+    margin-bottom:40px;
+    text-shadow:0 0 20px rgba(201,162,78,0.4);
+}
+
+.agenda-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    width:100%;
+    max-width:500px;
+}
+
+.agenda-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 20px;
+    border:1px solid rgba(201,162,78,0.3);
+    background:rgba(255,255,255,0.03);
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.agenda-item:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 20px rgba(201,162,78,0.2);
+}
+
+.time{
+    color:#fff;
+    opacity:0.9;
+}
+
+.event{
+    color:#C9A24E;
+}
+
+.agenda-next-btn{
+    margin-top:30px;
+    padding:12px 35px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
+    color:#fff;
+    cursor:pointer;
+    font-family:'Cinzel',serif;
+}
 </style>
 </head>
 
@@ -1340,12 +1403,71 @@ h1{
         </div>
 
         <p class="timer-sub">05 November 2026</p>
-
-
     </div>
 </section>
 
 <div id="transition"></div>
+
+
+
+
+<section id="agendaPage">
+    <div class="agenda-title">WEDDING AGENDA</div>
+
+    <div class="agenda-container">
+
+        <div class="agenda-item">
+            <span class="time">08:00 AM</span>
+            <span class="event">Guests Arrival & Welcome</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">09:00 AM</span>
+            <span class="event">Traditional Poruwa Ceremony</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">09:45 AM</span>
+            <span class="event">Exchange of Rings</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">10:00 AM</span>
+            <span class="event">Signing of Marriage Register</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">10:30 AM</span>
+            <span class="event">Family Blessings & Group Photos</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">12:00 PM</span>
+            <span class="event">Lunch Reception</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">03:00 PM</span>
+            <span class="event">Couple Photo Session</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">06:00 PM</span>
+            <span class="event">Evening Reception</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">07:00 PM</span>
+            <span class="event">Dinner & Celebration</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="time">09:00 PM</span>
+            <span class="event">End of Ceremony</span>
+        </div>
+
+    </div>
+</section>
 
 <script>
 
@@ -1437,6 +1559,32 @@ function updateTimer() {
     document.getElementById("minutes").innerText = m;
     document.getElementById("seconds").innerText = s;
 }
+
+
+let startY = 0;
+
+document.addEventListener("touchstart", (e)=>{
+    startY = e.touches[0].clientY;
+});
+
+document.addEventListener("touchend", (e)=>{
+    const endY = e.changedTouches[0].clientY;
+    const diff = startY - endY;
+
+    // nextPage → agendaPage
+    if(document.getElementById("nextPage").classList.contains("active")){
+        if(diff > 80){
+            switchPage("agendaPage");
+        }
+    }
+
+    // agendaPage → nextPage
+    if(document.getElementById("agendaPage").classList.contains("active")){
+        if(diff < -80){
+            switchPage("nextPage");
+        }
+    }
+});
 
 // 🔥 live update every 1 second
 setInterval(updateTimer, 1000);
