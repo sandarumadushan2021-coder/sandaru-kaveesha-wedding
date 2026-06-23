@@ -537,6 +537,9 @@ h1{
 </head>
 
 <body>
+<audio id="bgMusic" loop autoplay>
+    <source src="khuda jaane .mp3.webm" type="audio/mp3">
+</audio>
 
 <!-- HOME -->
 <section id="home" class="active">
@@ -1209,6 +1212,27 @@ function updateTimer() {
 // 🔥 live update every 1 second
 setInterval(updateTimer, 1000);
 updateTimer();
+<script>
+window.addEventListener("load", () => {
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5;
+
+    const playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            const startMusic = () => {
+                music.play();
+                document.removeEventListener("click", startMusic);
+                document.removeEventListener("touchstart", startMusic);
+            };
+
+            document.addEventListener("click", startMusic);
+            document.addEventListener("touchstart", startMusic);
+        });
+    }
+});
+</script>
 </script>
 
 </body>
