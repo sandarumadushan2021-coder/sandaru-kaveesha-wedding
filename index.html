@@ -1173,7 +1173,36 @@ h1{
     50%{opacity:1;}
     100%{transform:translateY(-20px); opacity:0;}
 }
+/* ================= ANIMATIONS ================= */
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
 
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(201,162,78,0.5);}
+    70%{box-shadow:0 0 0 20px rgba(201,162,78,0);}
+    100%{box-shadow:0 0 0 0 rgba(201,162,78,0);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes luxuryReveal{
+    0%{opacity:0; transform:scale(1.1); filter:blur(10px);}
+    100%{opacity:1; transform:scale(1); filter:blur(0);}
+}
+
+@keyframes floatText{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+}
+.cloud-transition,
+.gold-transition{
+    transition: opacity 0.6s ease;
+}
 
 .lux-join-title{
     position:relative;
@@ -1413,7 +1442,9 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 </script>
-
+<div id="cloudTransition" class="cloud-transition"></div>
+<div id="goldTransition" class="gold-transition"></div>
+<div id="transition"></div>
 
 </body>
 </html>
