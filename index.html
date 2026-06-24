@@ -1431,7 +1431,7 @@ h1{
 </div>
 </section>
 
-<div id="transition"></div>
+
 
 <script>
 
@@ -1446,55 +1446,41 @@ window.onload = function(){
 };
 
 function openInvite(){
-
     const cloud = document.getElementById("cloudTransition");
     const music = document.getElementById("bgMusic");
 
     cloud.classList.add("active");
 
-    // 🎵 MUSIC START (IMPORTANT)
     music.volume = 0.6;
-    music.play().catch(err => {
-        console.log("Autoplay blocked:", err);
-    });
+    music.play().catch(()=>{});
 
     setTimeout(()=>{
         switchPage("invite");
-    },600);
-
-    setTimeout(()=>{
         cloud.classList.remove("active");
-    },1200);
+    },800);
 }
 
 function scrollToNext(){
-
     const gold = document.getElementById("goldTransition");
 
     gold.classList.add("active");
 
     setTimeout(()=>{
         switchPage("nextPage");
-    },500); // page switch early
-
-    setTimeout(()=>{
         gold.classList.remove("active");
-    },1000);
+    },700);
 }
 
 
 function switchPage(id){
     document.querySelectorAll("section").forEach(s=>{
         s.classList.remove("active");
-        s.style.display = "none";
     });
 
     const el = document.getElementById(id);
-
-    if(!el) return; // safety fix
+    if(!el) return;
 
     el.classList.add("active");
-    el.style.display = "flex";
 
     localStorage.setItem("lastPage", id);
 }
@@ -1528,7 +1514,7 @@ function updateTimer() {
 setInterval(updateTimer, 1000);
 updateTimer();
 </script>
-<div id="cloudTransition" class="cloud-transition"></div>
+
 <div id="goldTransition" class="gold-transition"></div>
 <div id="transition"></div>
 
