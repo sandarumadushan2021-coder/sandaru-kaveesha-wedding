@@ -1004,17 +1004,21 @@ h1{
 
 /* ================= NEXT ================= */
 #nextPage{
+    min-height:100vh;
+    height:auto;
     display:flex;
     flex-direction:column;
-    justify-content:flex-end; /* 🔥 bottom එකට */
+    justify-content:flex-start; /* top layout */
     align-items:center;
 
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
 
-    padding-bottom:60px; /* 🔥 bottom gap */
+    padding:80px 20px 80px;
     text-align:center;
+
+    overflow-y:auto;
 }
 
     
@@ -1069,6 +1073,54 @@ h1{
     padding:10px 20px;
     border-radius:20px;
     cursor:pointer;
+}
+
+.agenda-container{
+    width:90%;
+    max-width:850px;
+    margin:80px auto;
+    text-align:center;
+}
+
+.agenda-title{
+    font-family:'Cinzel',serif;
+    font-size:42px;
+    color:#C9A24E;
+    letter-spacing:6px;
+    margin-bottom:40px;
+
+    text-shadow:0 0 20px rgba(201,162,78,0.4);
+}
+
+/* each item box */
+.agenda-item{
+    padding:25px;
+    margin-bottom:18px;
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(201,162,78,0.25);
+
+    backdrop-filter:blur(8px);
+}
+
+/* EVENT NAME (WHITE - TOP) */
+.agenda-event{
+    color:#ffffff;
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+/* TIME (GOLD - BOTTOM) */
+.agenda-time{
+    color:#C9A24E;
+    font-family:'Cinzel',serif;
+    font-size:18px;
+    letter-spacing:4px;
+
+    text-shadow:0 0 10px rgba(201,162,78,0.6);
 }
 /* ================= TRANSITION ================= */
 #transition{
@@ -1340,9 +1392,44 @@ h1{
         </div>
 
         <p class="timer-sub">05 November 2026</p>
-
-
     </div>
+
+
+<div class="agenda-container">
+
+    <h2 class="agenda-title">Wedding Agenda</h2>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Guest Arrival</div>
+        <div class="agenda-time">08:30 AM</div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Poruwa Ceremony</div>
+        <div class="agenda-time">09:00 AM</div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Signing of Marriage Register</div>
+        <div class="agenda-time">09:45 AM</div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Blessing & Group Photography</div>
+        <div class="agenda-time">10:30 AM</div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Reception Ceremony</div>
+        <div class="agenda-time">11:30 AM</div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="agenda-event">Lunch & Celebration</div>
+        <div class="agenda-time">12:00 PM</div>
+    </div>
+
+</div>
 </section>
 
 <div id="transition"></div>
