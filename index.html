@@ -35,7 +35,7 @@ section{
 }
 
 section.active{
-    display:flex;
+    display:block !important;
 }
 
 /* ================= HOME ================= */
@@ -350,17 +350,15 @@ h1{
 
 
 #nextPage{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start; /* 🔥 center → top layout */
-    align-items:center;
+    min-height:100vh;
+    height:auto;
 
-    padding-top:80px;  /* 🔥 top spacing control */
+    display:block;
+
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
-    font-family:'Cinzel',serif;
-    text-align:center;
+
+    padding:80px 20px 120px;
 }
 
 .lux-join-title{
