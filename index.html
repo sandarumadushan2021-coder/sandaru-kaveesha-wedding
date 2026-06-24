@@ -7,10 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== YOUR EXISTING CSS (UNCHANGED) ===== */
 *{margin:0;padding:0;box-sizing:border-box;}
 
-body{overflow:hidden;}
+body{overflow:hidden;font-family:'Playfair Display',serif;}
 
 section{
     display:none;
@@ -19,18 +18,16 @@ section{
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
 }
 
-section.active{
-    display:flex;
-}
+section.active{display:flex;}
 
 /* HOME */
 #home{
     flex-direction:column;
+    background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover;
     color:white;
-    background:url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    position:relative;
 }
 
 #home::before{
@@ -42,67 +39,92 @@ section.active{
 
 #home > div{position:relative;z-index:2;}
 
-h1{
-    font-family:'Playfair Display',serif;
-    font-size:70px;
-    color:#fff;
-}
+h1{font-size:70px;position:relative;top:-60px;}
 
 .names{
-    font-family:'Great Vibes',cursive;
+    font-family:'Great Vibes';
     font-size:90px;
     color:#C9A24E;
+    display:flex;
+    gap:15px;
+    align-items:center;
 }
+
+.ring{width:80px;animation:float 3s infinite;}
 
 .btn{
     margin-top:40px;
-    padding:15px 40px;
-    font-size:22px;
+    padding:14px 40px;
     border:none;
     border-radius:40px;
-    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
-    color:white;
+    background:#C9A24E;
+    color:#fff;
     cursor:pointer;
+    animation:pulse 2s infinite;
 }
 
 /* INVITE */
 #invite{
     flex-direction:column;
-    overflow:hidden;
-    color:white;
     background:#000;
+    color:white;
 }
 
-.lux-scroll-btn{
-    margin-top:30px;
-    padding:15px 40px;
-    border-radius:30px;
-    border:none;
+.lux-title{font-size:30px;letter-spacing:6px;}
+.lux-names{font-size:60px;color:#C9A24E;}
+.lux-date{margin-top:15px;font-size:35px;}
+
+.lux-btn{
+    margin-top:40px;
+    padding:12px 30px;
     background:#C9A24E;
+    border:none;
+    border-radius:30px;
     cursor:pointer;
 }
 
-/* NEXT */
-#nextPage{
+/* AGENDA */
+#agenda{
     flex-direction:column;
     background:#111;
     color:#C9A24E;
+    padding:20px;
 }
 
-/* ===== TRANSITIONS ===== */
-.cloud-transition,
-.gold-transition{
-    position:fixed;
-    inset:0;
-    opacity:0;
-    pointer-events:none;
-    z-index:9999;
+.agenda-title{
+    font-size:40px;
+    margin-bottom:30px;
 }
 
-.cloud-transition.active,
-.gold-transition.active{
-    opacity:1;
+.agenda{
+    color:white;
+    line-height:2;
+    font-size:20px;
 }
+
+/* TIMER */
+#timer{
+    flex-direction:column;
+    background:#000;
+    color:#C9A24E;
+}
+
+.boxes{
+    display:flex;
+    gap:15px;
+}
+
+.box{
+    padding:15px;
+    border:1px solid #C9A24E;
+    min-width:80px;
+}
+
+.box span{font-size:30px;}
+
+/* ANIMATIONS */
+@keyframes float{50%{transform:translateY(-8px);}}
+@keyframes pulse{70%{box-shadow:0 0 20px rgba(201,162,78,0.5);}}
 </style>
 </head>
 
@@ -114,129 +136,75 @@ h1{
         <h1>The Wedding of</h1>
 
         <div class="names">
-            Sandaru & Kaveesha
+            Sandaru
+            <img class="ring" src="ring.png">
+            Kaveesha
         </div>
 
-        <button class="btn" onclick="openInvite()">
-            OPEN INVITATION
-        </button>
+        <button class="btn" onclick="go('invite')">OPEN INVITATION</button>
     </div>
-
-    <audio id="bgMusic" loop>
-        <source src="khuda jaane.webm" type="audio/webm">
-    </audio>
 </section>
 
 <!-- INVITE -->
 <section id="invite">
     <div>
-        <h2>We are getting married</h2>
+        <div class="lux-title">WE ARE GETTING MARRIED</div>
+        <div class="lux-names">Sandaru & Kaveesha</div>
+        <div class="lux-date">05 NOV 2026</div>
 
-        <h1>Sandaru & Kaveesha</h1>
-
-        <button class="lux-scroll-btn" onclick="scrollToNext()">
-            Scroll Down
-        </button>
+        <button class="lux-btn" onclick="go('agenda')">VIEW AGENDA</button>
     </div>
 </section>
 
-<!-- NEXT -->
-<section id="nextPage">
-    <h1>SAVE THE DATE</h1>
-    <p>05 November 2026</p>
+<!-- AGENDA -->
+<section id="agenda">
+    <div>
+        <div class="agenda-title">AGENDA</div>
+
+        <div class="agenda">
+            4:00 PM – Welcome<br>
+            5:00 PM – Ceremony<br>
+            6:30 PM – Ring Exchange<br>
+            7:30 PM – Dinner<br>
+            8:30 PM – Celebration
+        </div>
+
+        <button class="lux-btn" onclick="go('timer')">SAVE THE DATE</button>
+    </div>
 </section>
 
-<!-- TRANSITIONS -->
-<div id="cloudTransition" class="cloud-transition"></div>
-<div id="goldTransition" class="gold-transition"></div>
+<!-- TIMER -->
+<section id="timer">
+    <div>
+        <h2>COUNTDOWN</h2>
+
+        <div class="boxes">
+            <div class="box"><span id="d">0</span><br>Days</div>
+            <div class="box"><span id="h">0</span><br>Hours</div>
+            <div class="box"><span id="m">0</span><br>Min</div>
+            <div class="box"><span id="s">0</span><br>Sec</div>
+        </div>
+    </div>
+</section>
 
 <script>
-
-let pages = ["home", "invite", "nextPage"];
-let currentIndex = 0;
-
-/* ===== PAGE SWITCH ===== */
-function switchPage(id){
-    document.querySelectorAll("section").forEach(s=>{
-        s.classList.remove("active");
-        s.style.display = "none";
-    });
-
-    const el = document.getElementById(id);
-    if(!el) return;
-
-    el.classList.add("active");
-    el.style.display = "flex";
-
-    currentIndex = pages.indexOf(id);
+function go(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 
-/* sync helper */
-function syncIndex(id){
-    currentIndex = pages.indexOf(id);
-}
+/* countdown */
+const date = new Date("November 5, 2026").getTime();
 
-/* ===== HOME → INVITE ===== */
-function openInvite(){
-    const music = document.getElementById("bgMusic");
+setInterval(()=>{
+    let now = new Date().getTime();
+    let gap = date - now;
 
-    music.volume = 0.6;
-    music.play().catch(()=>{});
-
-    switchPage("invite");
-}
-
-/* ===== INVITE → NEXT ===== */
-function scrollToNext(){
-    switchPage("nextPage");
-}
-
-/* ===== NEXT / PREV ===== */
-function goNext(){
-    if(currentIndex < pages.length - 1){
-        currentIndex++;
-        switchPage(pages[currentIndex]);
-    }
-}
-
-function goPrev(){
-    if(currentIndex > 0){
-        currentIndex--;
-        switchPage(pages[currentIndex]);
-    }
-}
-
-/* ===== SWIPE CONTROL ===== */
-let startY = 0;
-
-document.addEventListener("touchstart", e=>{
-    startY = e.touches[0].clientY;
-});
-
-document.addEventListener("touchend", e=>{
-    let endY = e.changedTouches[0].clientY;
-    let diff = startY - endY;
-
-    if(diff > 80){
-        goNext();
-    }
-
-    if(diff < -80){
-        goPrev();
-    }
-});
-
-/* PC scroll */
-document.addEventListener("wheel", e=>{
-    if(e.deltaY > 50){
-        goNext();
-    }
-
-    if(e.deltaY < -50){
-        goPrev();
-    }
-});
-
+    document.getElementById("d").innerText = Math.floor(gap/86400000);
+    document.getElementById("h").innerText = Math.floor(gap/3600000%24);
+    document.getElementById("m").innerText = Math.floor(gap/60000%60);
+    document.getElementById("s").innerText = Math.floor(gap/1000%60);
+},1000);
 </script>
 
 </body>
