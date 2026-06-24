@@ -20,7 +20,8 @@ html{
 }
 
 body{
-    overflow:hidden;
+    margin:0;
+    overflow:hidden; /* only button navigation */
 }
 
 /* ================= SECTION SYSTEM ================= */
@@ -28,15 +29,13 @@ section{
     display:none;
     height:100vh;
     width:100%;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    position:relative;
 }
 
 section.active{
     display:flex;
 }
+
+
 
 /* ================= HOME ================= */
 #home{
@@ -350,17 +349,17 @@ h1{
 
 
 #nextPage{
-    height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:flex-start; /* 🔥 center → top layout */
     align-items:center;
+    scroll-behavior:smooth;
+    height:100vh;
+    overflow-y:auto;   /* 🔥 enable scroll ONLY here */
 
-    padding-top:80px;  /* 🔥 top spacing control */
+    padding:80px 20px;
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
-    text-align:center;
 }
 
 .lux-join-title{
