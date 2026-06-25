@@ -4,72 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght=400;600&family=Cinzel:wght=400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #000; color: #fff; font-family: 'Cinzel', serif; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; background-color: #000; font-family: 'Cinzel', serif; }
 
-        /* FIXED PAGES */
+        /* FIXED PAGES (HOME & INVITE) */
         .fixed-page {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.8s ease, opacity 0.8s ease;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
             z-index: 100;
         }
 
         #home { z-index: 200; background: url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover; }
-        #invite { z-index: 150; background: #000; }
-
+        #home::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+        
+        #invite { z-index: 150; }
         .hidden-up { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
 
         /* SCROLLABLE AREA */
         #mainContent { display: none; width: 100%; }
         #mainContent.active { display: block; }
-        .scroll-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; text-align: center; }
+        .scroll-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px; text-align: center; }
 
-        /* BUTTONS */
-        .btn { padding: 15px 30px; border-radius: 40px; background: #C9A24E; border: none; cursor: pointer; color: white; font-size: 16px; }
-        .lux-scroll-btn { margin-top: 20px; padding: 12px 30px; border-radius: 40px; background: transparent; border: 2px solid #C9A24E; color: #C9A24E; cursor: pointer; }
+        /* PREVIOUS STYLES */
+        .home-container { position: relative; z-index: 2; color: #fff; text-align: center; }
+        .names { font-family: 'Great Vibes', cursive; font-size: 37px; color: #C9A24E; margin: 20px 0; }
+        .btn { padding: 10px 28px; border: none; border-radius: 40px; background: linear-gradient(135deg, #C9A24E, #8C6B2F); color: white; cursor: pointer; animation: pulse 2s infinite; }
+        
+        /* INVITE PAGE STYLES */
+        #invite video { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        #invite::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1; }
+        .invite-content { position: relative; z-index: 2; color: #fff; text-align: center; }
+        .lux-scroll-btn { margin-top: 30px; padding: 12px 30px; border-radius: 40px; background: #C9A24E; color: #fff; cursor: pointer; border: none; }
+
+        @keyframes pulse { 0%{ box-shadow: 0 0 0 0 rgba(201,162,78,0.5); } 70%{ box-shadow: 0 0 0 20px rgba(201,162,78,0); } 100%{ box-shadow: 0 0 0 0 rgba(201,162,78,0); } }
     </style>
 </head>
 <body>
 
-    <!-- 1. HOME -->
+    <!-- HOME -->
     <section id="home" class="fixed-page">
-        <h1>The Wedding of</h1>
-        <br>
-        <button class="btn" onclick="goToInvite()">OPEN INVITATION</button>
+        <div class="home-container">
+            <h1>The Wedding of</h1>
+            <div class="names">Sandaru & Kaveesha</div>
+            <button class="btn" onclick="goToInvite()">OPEN INVITATION</button>
+        </div>
     </section>
 
-    <!-- 2. INVITE (FIXED WITH SCROLL BUTTON) -->
+    <!-- INVITE -->
     <section id="invite" class="fixed-page hidden-up">
-        <div style="text-align: center;">
+        <video autoplay muted loop playsinline>
+            <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
+        </video>
+        <div class="invite-content">
             <h1>Sandaru & Kaveesha</h1>
             <p>05 November 2026</p>
-            <!-- මේ තියෙන්නේ Scroll Down button එක -->
             <button class="lux-scroll-btn" onclick="goToScrollable()">Scroll Down ⌄</button>
         </div>
     </section>
 
-    <!-- 3. SCROLLABLE PAGES -->
+    <!-- SWIPEABLE AREA -->
     <div id="mainContent">
-        <section id="nextPage" class="scroll-section" style="background: #111;">
-            <h1>Join Our Special Day</h1>
-            <p>Details here...</p>
+        <!-- DETAILS PAGE -->
+        <section id="nextPage" class="scroll-section" style="background: radial-gradient(circle, #111, #000);">
+            <h1 style="color: #C9A24E;">JOIN OUR SPECIAL DAY</h1>
+            <p style="color: #fff; margin-top: 20px;">Details about the parents and event...</p>
         </section>
 
-        <section id="agendaPage" class="scroll-section" style="background: #050505;">
-            <h1>Wedding Agenda</h1>
-            <p>Agenda events here...</p>
+        <!-- AGENDA PAGE -->
+        <section id="agendaPage" class="scroll-section" style="background: #000;">
+            <h1 style="color: #C9A24E;">Wedding Agenda</h1>
+            <p style="color: #fff; margin-top: 20px;">09:00 AM - Guest Arrival...</p>
         </section>
         
-        <!-- ඔබට තව පිටු ඕනෑනම් මෙතනින් පහළට එකතු කරන්න -->
+        <!-- අලුත් පිටු මෙතනට තව එකතු කරන්න පුළුවන් -->
     </div>
 
     <script>
