@@ -63,31 +63,71 @@
             flex-shrink: 0;
         }
         
-        /* ================= INVITE PAGE (PX CONFIGURATION) ================= */
-        /* ඔයාට අවශ්‍ය ප්‍රමාණයන් (px) මෙන්න මෙතනින් විතරක් වෙනස් කරගන්න 👇 */
+        /* ================= INVITE PAGE (SIMPLE PX CONFIG) ================= */
+        /* හෝම් පේජ් එකේ වගේම සරලවම මෙතනින් විතරක් px වෙනස් කරන්න 👇 */
 
         .lux-title {
-            font-size: 34px;         /* 👈 "We are getting married" සයිස් එක (px) */
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 5px;
+            font-size: 34px;         /* 👈 "We are getting married" සයිස් එක */
         }
 
         .lux-names {
-            font-size: 52px;         /* 👈 "Sandaru & Kaveesha" සයිස් එක (px) */
+            font-family: 'Cinzel', serif;
+            color: #C9A24E;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.4);
+            margin-top: 5px;
+            font-size: 52px;         /* 👈 "Sandaru & Kaveesha" සයිස් එක */
         }
 
         .lux-date {
-            font-size: 40px;         /* 👈 "05 November 2026" සයිස් එක (px) */
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-size: 40px;         /* 👈 "05 November 2026" සයිස් එක */
         }
 
         .lux-rsvp {
-            font-size: 30px;         /* 👈 "Confirm Attendance" සයිස් එක (px) */
+            color: #C9A24E;
+            font-family: 'Cinzel', serif;
+            animation: floatText 2s infinite ease-in-out;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 30px;         /* 👈 "Confirm Attendance" සයිස් එක */
         }
 
         .lux-scroll-btn {
-            padding-top: 8px;       /* 👈 Button එකේ උඩ උස ප්‍රමාණය (px) */
-            padding-bottom: 8px;    /* 👈 Button එකේ පල්ලෙහා උස ප්‍රමාණය (px) */
-            padding-left: 40px;      /* 👈 Button එකේ වම් පැත්තේ පළල (px) */
-            padding-right: 40px;     /* 👈 Button එකේ දකුණු පැත්තේ පළල (px) */
-            font-size: 15px;         /* 👈 Button එකේ අකුරු වල සයිස් එක (px) */
+            width: fit-content;
+            min-width: 240px;
+            margin: 30px auto 0;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(201,162,78,0.4);
+            animation: goldGlow 2.5s infinite ease-in-out;
+            transition: transform .3s ease, box-shadow .3s ease;
+            
+            padding-top: 8px;       /* 👈 Scroll Button එකේ උඩ උස */
+            padding-bottom: 8px;    /* 👈 Scroll Button එකේ පල්ලෙහා උස */
+            padding-left: 40px;      /* 👈 Scroll Button එකේ වම් පැත්තේ පළල */
+            padding-right: 40px;     /* 👈 Scroll Button එකේ දකුණු පැත්තේ පළල */
+            font-size: 15px;         /* 👈 Scroll Button එකේ අකුරු වල සයිස් එක */
         }
         
         /* ================================================================= */
@@ -211,23 +251,6 @@
             padding: 0 15px;
         }
 
-        .lux-title{
-            font-family: 'Cinzel', serif;
-            color: #fff;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            opacity: 0.9;
-            margin-bottom: 5px;
-        }
-
-        .lux-names{
-            font-family: 'Cinzel', serif;
-            color: #C9A24E;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.4);
-            margin-top: 5px;
-        }
-
         .lux-divider{
             display: flex;
             align-items: center;
@@ -258,43 +281,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .lux-date{
-            font-family: 'Playfair Display', serif;
-            color: #fff;
-            letter-spacing: 2px;
-            margin-top: 10px;
-        }
-
-        .lux-rsvp{
-            color: #C9A24E;
-            font-family: 'Cinzel', serif;
-            animation: floatText 2s infinite ease-in-out;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        .lux-scroll-btn{
-            width: fit-content;
-            min-width: 240px;
-            margin: 30px auto 0;
-            border: none;
-            border-radius: 40px;
-            background: linear-gradient(135deg, #C9A24E, #8C6B2F);
-            color: #fff;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 3px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(201,162,78,0.4);
-            animation: goldGlow 2.5s infinite ease-in-out;
-            transition: transform .3s ease, box-shadow .3s ease;
         }
 
         .lux-scroll-btn:hover{
@@ -593,62 +579,20 @@
            ================= MEDIA QUERIES (OTHER) ===============
            ======================================================= */
         @media (max-width: 768px) {
-            
-            .home-container {
-                padding: 15px;
-                gap: 40px; 
-            }
-            
-            .btn {
-                font-size: 13px;      
-                padding: 9px 22px;    
-            }
-
-            .btn-hint {
-                font-size: 9px;       
-            }
-
-            /* --- INVITE PAGE MOBILE FORCE OVERRIDES --- */
-            /* මොබයිල් වලදී උඩ තියෙන සයිස් එකෙන්ම 55% ක් වෙනකල් ඔටෝම බැලන්ස් වෙනවා */
-            .lux-title { 
-                font-size: calc(100% * 0.55) !important; 
-                letter-spacing: 2px !important; 
-            }
-            .lux-names { 
-                font-size: calc(100% * 0.55) !important; 
-                letter-spacing: 1px !important; 
-            }
-            .lux-date { 
-                font-size: calc(100% * 0.55) !important; 
-            }
-            .lux-rsvp { 
-                font-size: calc(100% * 0.65) !important; 
-            }
-            .lux-scroll-btn { 
-                font-size: 11px !important; 
-                padding: 7px 18px !important; /* මොබයිල් වලදී බටන් එකේ උස සහ පළල ලස්සනට අඩු වෙනවා */
-                min-width: 150px !important; 
-                margin-top: 20px !important; 
-            }
-            .lux-arrow { 
-                font-size: 12px !important; 
-            }
-
-            /* --- DETAILS PAGE MOBILE --- */
+            .home-container { padding: 15px; gap: 40px; }
+            .btn { font-size: 13px; padding: 9px 22px; }
+            .btn-hint { font-size: 9px; }
+            .lux-arrow { font-size: 12px; }
             .lux-join-title { font-size: 16px; letter-spacing: 2px; }
             .parent-text { font-size: 13px; padding: 0 10px; }
             .person-name { font-size: 26px; margin-bottom: 6px; }
             .invite-message { font-size: 12px; padding: 0 10px; }
             .ornament img { width: 35px; }
-
-            /* --- TIMER MOBILE --- */
             .timer-title { font-size: 15px; }
             .timer div { padding: 6px; min-width: 55px; border-radius: 8px; }
             .timer span { font-size: 16px; }
             .timer small { font-size: 8px; }
             .timer-sub { font-size: 12px; }
-
-            /* --- AGENDA PAGE MOBILE --- */
             .agenda-title { font-size: 20px; }
             .agenda-item { flex-direction: column; align-items: center; text-align: center; padding: 10px; gap: 4px; margin-bottom: 8px; }
             .agenda-time { font-size: 14px; }
