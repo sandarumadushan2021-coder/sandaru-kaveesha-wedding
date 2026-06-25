@@ -63,6 +63,33 @@
             flex-shrink: 0;
         }
         
+        /* ================= INVITE PAGE (PX CONFIGURATION) ================= */
+        /* ඔයාට අවශ්‍ය ප්‍රමාණයන් (px) මෙන්න මෙතනින් විතරක් වෙනස් කරගන්න 👇 */
+
+        .lux-title {
+            font-size: 24px;         /* 👈 "We are getting married" සයිස් එක (px) */
+        }
+
+        .lux-names {
+            font-size: 42px;         /* 👈 "Sandaru & Kaveesha" සයිස් එක (px) */
+        }
+
+        .lux-date {
+            font-size: 30px;         /* 👈 "05 November 2026" සයිස් එක (px) */
+        }
+
+        .lux-rsvp {
+            font-size: 20px;         /* 👈 "Confirm Attendance" සයිස් එක (px) */
+        }
+
+        .lux-scroll-btn {
+            padding-top: 10px;       /* 👈 Button එකේ උඩ උස ප්‍රමාණය (px) */
+            padding-bottom: 10px;    /* 👈 Button එකේ පල්ලෙහා උස ප්‍රමාණය (px) */
+            padding-left: 40px;      /* 👈 Button එකේ වම් පැත්තේ පළල (px) */
+            padding-right: 40px;     /* 👈 Button එකේ දකුණු පැත්තේ පළල (px) */
+            font-size: 15px;         /* 👈 Button එකේ අකුරු වල සයිස් එක (px) */
+        }
+        
         /* ================================================================= */
 
         /* ================= SECTION SYSTEM ================= */
@@ -184,10 +211,8 @@
             padding: 0 15px;
         }
 
-        /* Font Size ටිකක් අඩු කළා */
         .lux-title{
             font-family: 'Cinzel', serif;
-            font-size: 150px;
             color: #fff;
             letter-spacing: 6px;
             text-transform: uppercase;
@@ -195,10 +220,8 @@
             margin-bottom: 5px;
         }
 
-        /* Font Size ටිකක් අඩු කළා */
         .lux-names{
             font-family: 'Cinzel', serif;
-            font-size: 42px;
             color: #C9A24E;
             letter-spacing: 3px;
             text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.4);
@@ -237,18 +260,14 @@
             gap: 8px;
         }
 
-        /* Font Size ටිකක් අඩු කළා */
         .lux-date{
             font-family: 'Playfair Display', serif;
-            font-size: 30px;
             color: #fff;
             letter-spacing: 2px;
             margin-top: 10px;
         }
 
-        /* Font Size ටිකක් අඩු කළා */
         .lux-rsvp{
-            font-size: 20px;
             color: #C9A24E;
             font-family: 'Cinzel', serif;
             animation: floatText 2s infinite ease-in-out;
@@ -256,11 +275,9 @@
             text-align: center;
         }
 
-        /* Padding අඩු කර උස (Height) බැලන්ස් කළා */
         .lux-scroll-btn{
             width: fit-content;
             min-width: 240px;
-            padding: 10px 40px;
             margin: 30px auto 0;
             border: none;
             border-radius: 40px;
@@ -591,13 +608,31 @@
                 font-size: 9px;       
             }
 
-            /* --- INVITE PAGE MOBILE (Sizes Reduced) --- */
-            .lux-title { font-size: 13px; letter-spacing: 2px; }
-            .lux-names { font-size: 22px; letter-spacing: 1px; }
-            .lux-date { font-size: 16px; }
-            .lux-rsvp { font-size: 13px; }
-            .lux-scroll-btn { font-size: 12px; padding: 8px 20px; min-width: 170px; margin-top: 25px; }
-            .lux-arrow { font-size: 12px; }
+            /* --- INVITE PAGE MOBILE FORCE OVERRIDES --- */
+            /* මොබයිල් වලදී උඩ තියෙන සයිස් එකෙන්ම 55% ක් වෙනකල් ඔටෝම බැලන්ස් වෙනවා */
+            .lux-title { 
+                font-size: calc(100% * 0.55) !important; 
+                letter-spacing: 2px !important; 
+            }
+            .lux-names { 
+                font-size: calc(100% * 0.55) !important; 
+                letter-spacing: 1px !important; 
+            }
+            .lux-date { 
+                font-size: calc(100% * 0.55) !important; 
+            }
+            .lux-rsvp { 
+                font-size: calc(100% * 0.65) !important; 
+            }
+            .lux-scroll-btn { 
+                font-size: 11px !important; 
+                padding: 7px 18px !important; /* මොබයිල් වලදී බටන් එකේ උස සහ පළල ලස්සනට අඩු වෙනවා */
+                min-width: 150px !important; 
+                margin-top: 20px !important; 
+            }
+            .lux-arrow { 
+                font-size: 12px !important; 
+            }
 
             /* --- DETAILS PAGE MOBILE --- */
             .lux-join-title { font-size: 16px; letter-spacing: 2px; }
