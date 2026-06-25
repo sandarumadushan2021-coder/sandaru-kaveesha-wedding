@@ -538,6 +538,56 @@ h1{
     border-radius:20px;
     cursor:pointer;
 }
+
+#agendaPage{
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle,#111,#000);
+    color:#fff;
+    font-family:'Cinzel',serif;
+}
+
+.agenda-title{
+    color:#C9A24E;
+    font-size:50px;
+    letter-spacing:8px;
+    margin-bottom:60px;
+
+    text-shadow:
+        0 0 10px rgba(201,162,78,.7),
+        0 0 25px rgba(201,162,78,.4);
+}
+
+.agenda-list{
+    width:90%;
+    max-width:900px;
+}
+
+.agenda-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 30px;
+    margin-bottom:18px;
+
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,.25);
+
+    background:rgba(255,255,255,.03);
+}
+
+.agenda-time{
+    color:#C9A24E;
+    font-size:28px;
+    font-weight:600;
+}
+
+.agenda-topic{
+    color:#fff;
+    font-size:26px;
+}
 /* ================= TRANSITION ================= */
 #transition{
     position:fixed;
@@ -709,9 +759,52 @@ h1{
         <p class="timer-sub">05 November 2026</p>
 
     </div>
+<button class="lux-scroll-btn" onclick="goToAgenda()">
+    Wedding Agenda
+    <span class="lux-arrow">⌄</span>
+</button>
 </section>
 
-<div id="transition"></div>
+<!-- AGENDA PAGE -->
+<section id="agendaPage">
+
+    <h2 class="agenda-title">Wedding Agenda</h2>
+
+    <div class="agenda-list">
+
+        <div class="agenda-item">
+            <span class="agenda-time">09:00 AM</span>
+            <span class="agenda-topic">Guest Arrival & Welcome</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="agenda-time">09:30 AM</span>
+            <span class="agenda-topic">Traditional Poruwa Ceremony</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="agenda-time">10:15 AM</span>
+            <span class="agenda-topic">Exchange of Rings</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="agenda-time">10:45 AM</span>
+            <span class="agenda-topic">Signing of Marriage Certificate</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="agenda-time">11:30 AM</span>
+            <span class="agenda-topic">Wedding Lunch Reception</span>
+        </div>
+
+        <div class="agenda-item">
+            <span class="agenda-time">01:00 PM</span>
+            <span class="agenda-topic">Cake Cutting & Group Photography</span>
+        </div>
+
+    </div>
+
+</section>
 
 
 
@@ -1411,6 +1504,20 @@ function switchPage(id){
     el.style.display = "flex";
 
     localStorage.setItem("lastPage", id);
+}
+function goToAgenda(){
+
+    const gold = document.getElementById("goldTransition");
+
+    gold.classList.add("active");
+
+    setTimeout(()=>{
+        switchPage("agendaPage");
+    },500);
+
+    setTimeout(()=>{
+        gold.classList.remove("active");
+    },1000);
 }
 
 // 🎯 Wedding date set කරන්න (05 Nov 2026)
