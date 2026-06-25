@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght=400;600&family=Cinzel:wght=400;600;700&display=swap" rel="stylesheet">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { overflow-x: hidden; background-color: #000; }
+        body { background-color: #000; color: #fff; font-family: 'Cinzel', serif; overflow-x: hidden; }
 
         /* FIXED PAGES */
         .fixed-page {
@@ -19,71 +15,62 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            z-index: 100;
-            transition: transform 0.8s ease, opacity 0.8s ease;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #000;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            z-index: 100;
         }
 
         #home { z-index: 200; background: url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover; }
-        #invite { z-index: 150; }
+        #invite { z-index: 150; background: #000; }
 
         .hidden-up { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
 
         /* SCROLLABLE AREA */
         #mainContent { display: none; width: 100%; }
         #mainContent.active { display: block; }
-        .scroll-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 20px; text-align: center; }
+        .scroll-section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; text-align: center; }
 
-        /* Styles copied from your previous code */
-        .btn { padding: 10px 28px; border: none; border-radius: 40px; background: linear-gradient(135deg, #C9A24E, #8C6B2F); color: white; font-family: 'Cinzel', serif; cursor: pointer; }
-        .lux-scroll-btn { padding: 10px 25px; border-radius: 40px; background: #C9A24E; color: #fff; cursor: pointer; border: none; font-family: 'Cinzel', serif; }
-        
-        #invite video { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-        .invite-content { position: relative; z-index: 2; color: #fff; text-align: center; }
-        
-        /* Transition */
-        .cloud-transition { position: fixed; inset: 0; opacity: 0; pointer-events: none; z-index: 9999; background: rgba(0,0,0,0.8); transition: opacity 0.6s; }
-        .cloud-transition.active { opacity: 1; }
+        /* BUTTONS */
+        .btn { padding: 15px 30px; border-radius: 40px; background: #C9A24E; border: none; cursor: pointer; color: white; font-size: 16px; }
+        .lux-scroll-btn { margin-top: 20px; padding: 12px 30px; border-radius: 40px; background: transparent; border: 2px solid #C9A24E; color: #C9A24E; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <!-- 1. HOME -->
     <section id="home" class="fixed-page">
-        <div class="invite-content">
-            <h1>The Wedding of</h1>
-            <button class="btn" onclick="goToInvite()">OPEN INVITATION</button>
-        </div>
+        <h1>The Wedding of</h1>
+        <br>
+        <button class="btn" onclick="goToInvite()">OPEN INVITATION</button>
     </section>
 
-    <!-- 2. INVITE (FIXED) -->
+    <!-- 2. INVITE (FIXED WITH SCROLL BUTTON) -->
     <section id="invite" class="fixed-page hidden-up">
-        <video autoplay muted loop playsinline><source src="your-video-link.mp4" type="video/mp4"></video>
-        <div class="invite-content">
+        <div style="text-align: center;">
             <h1>Sandaru & Kaveesha</h1>
             <p>05 November 2026</p>
+            <!-- මේ තියෙන්නේ Scroll Down button එක -->
             <button class="lux-scroll-btn" onclick="goToScrollable()">Scroll Down ⌄</button>
         </div>
     </section>
 
     <!-- 3. SCROLLABLE PAGES -->
     <div id="mainContent">
-        <section id="nextPage" class="scroll-section" style="background: #111; color: #C9A24E;">
+        <section id="nextPage" class="scroll-section" style="background: #111;">
             <h1>Join Our Special Day</h1>
-            <p>Details about the wedding...</p>
+            <p>Details here...</p>
         </section>
 
-        <section id="agendaPage" class="scroll-section" style="background: #050505; color: #fff;">
+        <section id="agendaPage" class="scroll-section" style="background: #050505;">
             <h1>Wedding Agenda</h1>
-            <p>List of events...</p>
+            <p>Agenda events here...</p>
         </section>
+        
+        <!-- ඔබට තව පිටු ඕනෑනම් මෙතනින් පහළට එකතු කරන්න -->
     </div>
-
-    <div id="transition" class="cloud-transition"></div>
 
     <script>
         function goToInvite() {
@@ -92,14 +79,9 @@
         }
 
         function goToScrollable() {
-            const trans = document.getElementById('transition');
-            trans.classList.add('active');
-            
-            setTimeout(() => {
-                document.getElementById('invite').classList.add('hidden-up');
-                document.getElementById('mainContent').classList.add('active');
-                trans.classList.remove('active');
-            }, 600);
+            document.getElementById('invite').classList.add('hidden-up');
+            document.getElementById('mainContent').classList.add('active');
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
