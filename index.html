@@ -60,7 +60,7 @@
             z-index: 1;
         }
 
-        /* HOME CONTAINER - Layout එක මැදට ළං කිරීම සඳහා */
+        /* HOME CONTAINER - Layout එකේ පරතරය තවත් වැඩි කිරීම */
         .home-container {
             position: relative;
             z-index: 2;
@@ -68,9 +68,9 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* සියල්ල මැදට ගෙන ඒම */
+            justify-content: center; 
             align-items: center;
-            gap: 50px; /* උඩ, මැද, යට කොටස් එකිනෙකට තියෙන දුර (පරතරය) */
+            gap: 80px; /* [EDIT] ඩෙස්ක්ටොප් සඳහා කොටස් අතර පරතරය තවත් වැඩි කළා */
             padding: 20px;
             animation: fadeIn 1.5s ease;
         }
@@ -78,7 +78,7 @@
         /* "The Wedding of" - DESKTOP */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 100px;
+            font-size: 150px;
             color: #F5F5F2;
             letter-spacing: 2px;
             margin: 0;
@@ -87,14 +87,14 @@
         /* NAMES CONTAINER - DESKTOP */
         .names {
             font-family: 'Great Vibes', cursive;
-            font-size: 90px;
+            font-size: 110px;
             color: #C9A24E;
             text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: nowrap; /* පේළිය මැදින් කැඩී යාම වළක්වයි (සැමවිටම එකම පේළියේ) */
+            gap: 25px; /* නම් සහ රින්ග් එක අතර පරතරය */
+            flex-wrap: nowrap; 
             margin: 0;
             width: 100%;
         }
@@ -113,7 +113,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px; /* බොත්තම සහ TAP TO BEGIN අතර දුර */
+            gap: 12px; 
         }
 
         /* OPEN INVITATION BUTTON - DESKTOP */
@@ -569,30 +569,30 @@
             
             /* --- HOME PAGE MOBILE --- */
             .home-container {
-                gap: 25px; /* [EDIT] මොබයිල් ෆෝන් වලදී කොටස් 3 මැදට තවදුරටත් ළං කිරීමට ඇති පරතරය */
+                gap: 55px; /* [EDIT] මොබයිල් ෆෝන් වලදී කොටස් අතර මැද පරතරය තවත් වැඩි කළා */
                 padding: 15px;
             }
 
             h1 {
-                font-size: 26px; /* [EDIT] "The Wedding of" අකුරු සයිස් එක */
+                font-size: 26px; 
             }
 
             .names {
-                font-size: 26px; /* [EDIT] නම් දෙක එකම පේළියක ලස්සනට තැබීමට මොබයිල් සයිස් එක */
+                font-size: 26px; 
                 gap: 8px;
             }
 
             .ring {
-                width: 32px; /* [EDIT] එකම පේළියට ගැළපෙන සේ රින්ග් එකේ පළල පොඩි කළා */
+                width: 32px; 
             }
             
             .btn {
-                font-size: 13px;      /* [EDIT] බොත්තමේ අකුරු සයිස් */
-                padding: 9px 22px;    /* [EDIT] බොත්තමේ උස සහ පළල */
+                font-size: 13px;      
+                padding: 9px 22px;    
             }
 
             .btn-hint {
-                font-size: 9px;       /* [EDIT] "TAP TO BEGIN" අකුරු සයිස් */
+                font-size: 9px;       
             }
 
             /* --- INVITE PAGE MOBILE --- */
