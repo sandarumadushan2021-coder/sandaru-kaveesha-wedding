@@ -28,6 +28,41 @@
             background-color: #000;
         }
 
+        /* ================= HOME PAGE (UNIVERSAL px CONTROL) ================= */
+        
+        .home-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px; /* 👈 "The Wedding of" සයිස් එක (px වලින්) */
+            color: #F5F5F2;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .home-container .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 110px; /* 👈 "Sandaru & Kaveesha" සයිස් එක (px වලින්) */
+            color: #C9A24E;
+            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px; 
+            flex-wrap: nowrap; 
+            margin: 0;
+            width: 100%;
+        }
+
+        .home-container .ring {
+            width: 55px; /* 👈 රින්ග් එකේ සයිස් එක (px වලින්) */
+            height: auto;
+            opacity: 0;
+            transform: scale(0.6);
+            animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
+            flex-shrink: 0;
+        }
+        
+        /* ================================================================= */
+
         /* ================= SECTION SYSTEM ================= */
         section{
             display: none;
@@ -44,7 +79,6 @@
             display: flex;
         }
 
-        /* ================= HOME PAGE (DESKTOP) ================= */
         #home{
             flex-direction: column;
             color: white;
@@ -60,7 +94,6 @@
             z-index: 1;
         }
 
-        /* HOME CONTAINER - Layout එකේ පරතරය තවත් වැඩි කිරීම */
         .home-container {
             position: relative;
             z-index: 2;
@@ -70,42 +103,9 @@
             flex-direction: column;
             justify-content: center; 
             align-items: center;
-            gap: 80px; /* [EDIT] ඩෙස්ක්ටොප් සඳහා කොටස් අතර පරතරය තවත් වැඩි කළා */
+            gap: 80px; 
             padding: 20px;
             animation: fadeIn 1.5s ease;
-        }
-
-        /* "The Wedding of" - DESKTOP */
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 150px;
-            color: #F5F5F2;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        /* NAMES CONTAINER - DESKTOP */
-        .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 110px;
-            color: #C9A24E;
-            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 25px; /* නම් සහ රින්ග් එක අතර පරතරය */
-            flex-wrap: nowrap; 
-            margin: 0;
-            width: 100%;
-        }
-
-        /* RING IMAGE - DESKTOP */
-        .ring {
-            width: 90px;
-            opacity: 0;
-            transform: scale(0.6);
-            animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
-            flex-shrink: 0;
         }
 
         /* BUTTON WRAPPER */
@@ -116,7 +116,7 @@
             gap: 12px; 
         }
 
-        /* OPEN INVITATION BUTTON - DESKTOP */
+        /* OPEN INVITATION BUTTON */
         .btn {
             padding: 10px 28px;
             font-size: 16px;
@@ -131,7 +131,7 @@
             animation: pulse 2s infinite;
         }
 
-        /* TAP TO BEGIN LABEL - DESKTOP */
+        /* TAP TO BEGIN LABEL */
         .btn-hint {
             font-size: 11px;
             color: #fff;
@@ -142,7 +142,7 @@
             animation: hintFloat 2s ease-in-out infinite;
         }
 
-        /* ================= INVITE PAGE (DESKTOP) ================= */
+        /* ================= INVITE PAGE ================= */
         #invite{
             flex-direction: column;
             overflow: hidden;
@@ -297,7 +297,7 @@
             animation: bounceArrow 1.2s infinite ease-in-out;
         }
 
-        /* ================= NEXT / DETAILS PAGE (DESKTOP) ================= */
+        /* ================= NEXT / DETAILS PAGE ================= */
         #nextPage{
             flex-direction: column;
             justify-content: flex-start;
@@ -467,7 +467,7 @@
             font-size: 16px;
         }
 
-        /* ================= AGENDA PAGE (DESKTOP) ================= */
+        /* ================= AGENDA PAGE ================= */
         #agendaPage{
             flex-direction: column;
             justify-content: center;
@@ -563,27 +563,12 @@
 
 
         /* =======================================================
-           ================= MOBILE STYLES (PX) ==================
+           ================= MEDIA QUERIES (OTHER) ===============
            ======================================================= */
         @media (max-width: 768px) {
             
-            /* --- HOME PAGE MOBILE --- */
             .home-container {
-                gap: 55px; /* [EDIT] මොබයිල් ෆෝන් වලදී කොටස් අතර මැද පරතරය තවත් වැඩි කළා */
                 padding: 15px;
-            }
-
-            h1 {
-                font-size: 26px; 
-            }
-
-            .names {
-                font-size: 26px; 
-                gap: 8px;
-            }
-
-            .ring {
-                width: 32px; 
             }
             
             .btn {
@@ -596,95 +581,33 @@
             }
 
             /* --- INVITE PAGE MOBILE --- */
-            .lux-title {
-                font-size: 14px; 
-                letter-spacing: 2px;
-            }
-            .lux-names {
-                font-size: 24px; 
-                letter-spacing: 1px;
-            }
-            .lux-date {
-                font-size: 18px; 
-            }
-            .lux-rsvp {
-                font-size: 14px; 
-            }
-            
-            .lux-scroll-btn {
-                font-size: 13px;      
-                padding: 10px 25px;   
-                min-width: 180px;     
-                margin-top: 30px;     
-            }
-            .lux-arrow {
-                font-size: 14px;
-            }
+            .lux-title { font-size: 14px; letter-spacing: 2px; }
+            .lux-names { font-size: 24px; letter-spacing: 1px; }
+            .lux-date { font-size: 18px; }
+            .lux-rsvp { font-size: 14px; }
+            .lux-scroll-btn { font-size: 13px; padding: 10px 25px; min-width: 180px; margin-top: 30px; }
+            .lux-arrow { font-size: 14px; }
 
             /* --- DETAILS PAGE MOBILE --- */
-            .lux-join-title {
-                font-size: 16px; 
-                letter-spacing: 2px;
-            }
-            .parent-text {
-                font-size: 13px; 
-                padding: 0 10px;
-            }
-            .person-name {
-                font-size: 26px; 
-                margin-bottom: 6px;
-            }
-            .invite-message {
-                font-size: 12px; 
-                padding: 0 10px;
-            }
-            .ornament img {
-                width: 35px; 
-            }
+            .lux-join-title { font-size: 16px; letter-spacing: 2px; }
+            .parent-text { font-size: 13px; padding: 0 10px; }
+            .person-name { font-size: 26px; margin-bottom: 6px; }
+            .invite-message { font-size: 12px; padding: 0 10px; }
+            .ornament img { width: 35px; }
 
             /* --- TIMER MOBILE --- */
-            .timer-title {
-                font-size: 15px; 
-            }
-            .timer div {
-                padding: 6px;
-                min-width: 55px;
-                border-radius: 8px;
-            }
-            .timer span {
-                font-size: 16px; 
-            }
-            .timer small {
-                font-size: 8px; 
-            }
-            .timer-sub {
-                font-size: 12px;
-            }
+            .timer-title { font-size: 15px; }
+            .timer div { padding: 6px; min-width: 55px; border-radius: 8px; }
+            .timer span { font-size: 16px; }
+            .timer small { font-size: 8px; }
+            .timer-sub { font-size: 12px; }
 
             /* --- AGENDA PAGE MOBILE --- */
-            .agenda-title {
-                font-size: 20px; 
-            }
-            .agenda-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 10px;
-                gap: 4px;
-                margin-bottom: 8px;
-            }
-            .agenda-time {
-                font-size: 14px; 
-            }
-            .agenda-topic {
-                text-align: center;
-                font-size: 13px; 
-            }
-            
-            .back-btn {
-                font-size: 12px;      
-                padding: 8px 20px;    
-            }
+            .agenda-title { font-size: 20px; }
+            .agenda-item { flex-direction: column; align-items: center; text-align: center; padding: 10px; gap: 4px; margin-bottom: 8px; }
+            .agenda-time { font-size: 14px; }
+            .agenda-topic { text-align: center; font-size: 13px; }
+            .back-btn { font-size: 12px; padding: 8px 20px; }
         }
 
         /* ================= KEYFRAMES ANIMATIONS ================= */
