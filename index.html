@@ -60,7 +60,7 @@
             z-index: 1;
         }
 
-        /* HOME CONTAINER - Layout එක උඩ, මැද, යට බෙදා වෙන් කිරීමට */
+        /* HOME CONTAINER - Layout එක මැදට ළං කිරීම සඳහා */
         .home-container {
             position: relative;
             z-index: 2;
@@ -68,9 +68,10 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* ඉහළට, මැදට සහ පහළට කොටස් තල්ලු කරයි */
+            justify-content: center; /* සියල්ල මැදට ගෙන ඒම */
             align-items: center;
-            padding: 60px 20px 80px 20px; /* උඩ සහ යට ඇති හිස් ඉඩ ප්‍රමාණය */
+            gap: 50px; /* උඩ, මැද, යට කොටස් එකිනෙකට තියෙන දුර (පරතරය) */
+            padding: 20px;
             animation: fadeIn 1.5s ease;
         }
 
@@ -93,8 +94,9 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* පේළිය මැදින් කැඩී යාම වළක්වයි (සැමවිටම එකම පේළියේ) */
             margin: 0;
+            width: 100%;
         }
 
         /* RING IMAGE - DESKTOP */
@@ -103,14 +105,15 @@
             opacity: 0;
             transform: scale(0.6);
             animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
+            flex-shrink: 0;
         }
 
-        /* BUTTON WRAPPER - බොත්තම සහ ලේබලය එකට තබා ගැනීමට */
+        /* BUTTON WRAPPER */
         .btn-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px; /* බොත්තම සහ ලේබලය අතර දුර (ළඟින්ම තැබීමට) */
+            gap: 12px; /* බොත්තම සහ TAP TO BEGIN අතර දුර */
         }
 
         /* OPEN INVITATION BUTTON - DESKTOP */
@@ -566,25 +569,26 @@
             
             /* --- HOME PAGE MOBILE --- */
             .home-container {
-                padding: 40px 15px 50px 15px; /* මොබයිල් වලදී උඩ සහ යට ඇති හිස් ඉඩ (Top/Bottom Distance) */
+                gap: 25px; /* [EDIT] මොබයිල් ෆෝන් වලදී කොටස් 3 මැදට තවදුරටත් ළං කිරීමට ඇති පරතරය */
+                padding: 15px;
             }
 
             h1 {
-                font-size: 32px; /* [EDIT] "The Wedding of" - මොබයිල් වලදී තරමක් ලොකුවට සහ ඉහළටම වන්න */
+                font-size: 26px; /* [EDIT] "The Wedding of" අකුරු සයිස් එක */
             }
 
             .names {
-                font-size: 42px; /* [EDIT] මනාලයා/මනාලියගේ නම් - හරියටම මැදට (Center) */
-                gap: 5px;
+                font-size: 26px; /* [EDIT] නම් දෙක එකම පේළියක ලස්සනට තැබීමට මොබයිල් සයිස් එක */
+                gap: 8px;
             }
 
             .ring {
-                width: 45px; /* [EDIT] රින්ග් එකේ සයිස් එක */
+                width: 32px; /* [EDIT] එකම පේළියට ගැළපෙන සේ රින්ග් එකේ පළල පොඩි කළා */
             }
             
             .btn {
-                font-size: 14px;      /* [EDIT] "OPEN INVITATION" බොත්තමේ අකුරු සයිස් */
-                padding: 10px 24px;   /* [EDIT] බොත්තමේ උස සහ පළල */
+                font-size: 13px;      /* [EDIT] බොත්තමේ අකුරු සයිස් */
+                padding: 9px 22px;    /* [EDIT] බොත්තමේ උස සහ පළල */
             }
 
             .btn-hint {
@@ -720,7 +724,7 @@
                 <span class="name">Kaveesha</span>
             </div>
             
-            <!-- 3. Bottom Section (Button + Hint text) -->
+            <!-- 3. Bottom Section -->
             <div class="btn-wrapper">
                 <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
                 <div class="btn-hint">👆 TAP TO BEGIN</div>
