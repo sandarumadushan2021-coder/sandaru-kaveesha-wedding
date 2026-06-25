@@ -57,26 +57,34 @@
             position: absolute;
             inset: 0;
             background: rgba(0,0,0,0.6);
+            z-index: 1;
         }
 
-        #home > div{
+        /* HOME CONTAINER - Layout එක උඩ, මැද, යට බෙදා වෙන් කිරීමට */
+        .home-container {
             position: relative;
             z-index: 2;
-            animation: fadeIn 1.5s ease;
             width: 100%;
-            max-width: 800px;
-            padding: 0 15px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* ඉහළට, මැදට සහ පහළට කොටස් තල්ලු කරයි */
+            align-items: center;
+            padding: 60px 20px 80px 20px; /* උඩ සහ යට ඇති හිස් ඉඩ ප්‍රමාණය */
+            animation: fadeIn 1.5s ease;
         }
 
+        /* "The Wedding of" - DESKTOP */
         h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 100px;
-    color: #F5F5F2;
-    letter-spacing: 2px;
-    margin-top: -80px;
-}
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+            color: #F5F5F2;
+            letter-spacing: 2px;
+            margin: 0;
+        }
 
-        .names{
+        /* NAMES CONTAINER - DESKTOP */
+        .names {
             font-family: 'Great Vibes', cursive;
             font-size: 90px;
             color: #C9A24E;
@@ -86,62 +94,51 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 10px;
+            margin: 0;
         }
 
+        /* RING IMAGE - DESKTOP */
         .ring {
-    width: 90px;
-    opacity: 0;
-    transform: scale(0.6) translateY(1tpx);
-    animation: ringShow 0.8s ease forwards,
-               float 3s infinite ease-in-out 0.8s;
-}
+            width: 90px;
+            opacity: 0;
+            transform: scale(0.6);
+            animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
+        }
 
+        /* BUTTON WRAPPER - බොත්තම සහ ලේබලය එකට තබා ගැනීමට */
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px; /* බොත්තම සහ ලේබලය අතර දුර (ළඟින්ම තැබීමට) */
+        }
+
+        /* OPEN INVITATION BUTTON - DESKTOP */
         .btn {
-    margin-top: 30px;
-    padding: 10px 28px;
-    font-size: 16px;
-    border: none;
-    border-radius: 40px;
-    background: linear-gradient(135deg, #C9A24E, #8C6B2F);
-    color: white;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    animation: pulse 2s infinite;
-    position: relative;
-}
+            padding: 10px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            animation: pulse 2s infinite;
+        }
 
-        .btn::after {
-    content: "👆 CLICK TO BEGIN";
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 11px;
-    color: #fff;
-    letter-spacing: 3px;
-    opacity: 0.7;
-    white-space: nowrap;
+        /* TAP TO BEGIN LABEL - DESKTOP */
+        .btn-hint {
+            font-size: 11px;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            white-space: nowrap;
+            animation: hintFloat 2s ease-in-out infinite;
+        }
 
-    animation: hintFloat 2s ease-in-out infinite;
-}
-
-@keyframes hintFloat {
-    0% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.5;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-6px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.5;
-    }
-}
         /* ================= INVITE PAGE (DESKTOP) ================= */
         #invite{
             flex-direction: column;
@@ -567,80 +564,83 @@
            ======================================================= */
         @media (max-width: 768px) {
             
-            /* --- HOME PAGE --- */
-            h1 {
-                font-size: 24px; /* "The Wedding of" අකුරු සයිස් එක */
-            }
-            .names {
-                font-size: 38px; /* මනාලයා සහ මනාලියගේ නම් වල අකුරු සයිස් එක */
-                gap: 5px;
-            }
-            .ring {
-                width: 42px; /* මැද තියෙන රින්ග් ඉමේජ් එකේ පළල */
-            }
-            
-            /* [EDIT - 01] පළමු පිටුවේ "OPEN INVITATION" බොත්තම මෙතනින් වෙනස් කරන්න */
-            .btn {
-                font-size: 14px;      /* බොත්තමේ අකුරු වල සයිස් එක */
-                padding: 10px 24px;   /* බොත්තමේ උස (10px) සහ පළල (24px) ඇතුළත හිස් ඉඩ */
-                margin-top: 30px;     /* බොත්තමට ඉහළින් තියෙන ඉඩ */
-            }
-            .btn::after {
-                font-size: 8px;
-                bottom: -22px;
+            /* --- HOME PAGE MOBILE --- */
+            .home-container {
+                padding: 40px 15px 50px 15px; /* මොබයිල් වලදී උඩ සහ යට ඇති හිස් ඉඩ (Top/Bottom Distance) */
             }
 
-            /* --- INVITE PAGE --- */
+            h1 {
+                font-size: 32px; /* [EDIT] "The Wedding of" - මොබයිල් වලදී තරමක් ලොකුවට සහ ඉහළටම වන්න */
+            }
+
+            .names {
+                font-size: 42px; /* [EDIT] මනාලයා/මනාලියගේ නම් - හරියටම මැදට (Center) */
+                gap: 5px;
+            }
+
+            .ring {
+                width: 45px; /* [EDIT] රින්ග් එකේ සයිස් එක */
+            }
+            
+            .btn {
+                font-size: 14px;      /* [EDIT] "OPEN INVITATION" බොත්තමේ අකුරු සයිස් */
+                padding: 10px 24px;   /* [EDIT] බොත්තමේ උස සහ පළල */
+            }
+
+            .btn-hint {
+                font-size: 9px;       /* [EDIT] "TAP TO BEGIN" අකුරු සයිස් */
+            }
+
+            /* --- INVITE PAGE MOBILE --- */
             .lux-title {
-                font-size: 14px; /* "We are getting married" */
+                font-size: 14px; 
                 letter-spacing: 2px;
             }
             .lux-names {
-                font-size: 24px; /* "Sandaru & Kaveesha" */
+                font-size: 24px; 
                 letter-spacing: 1px;
             }
             .lux-date {
-                font-size: 18px; /* "05 November 2026" */
+                font-size: 18px; 
             }
             .lux-rsvp {
-                font-size: 14px; /* "Confirm Attendance" */
+                font-size: 14px; 
             }
             
-            /* [EDIT - 02] "Scroll Down" සහ "Wedding Agenda" බොත්තම් මෙතනින් වෙනස් කරන්න */
             .lux-scroll-btn {
-                font-size: 13px;      /* බොත්තමේ අකුරු වල සයිස් එක */
-                padding: 10px 25px;   /* බොත්තමේ උස (10px) සහ පළල (25px) ඇතුළත හිස් ඉඩ */
-                min-width: 180px;     /* බොත්තම තිබිය යුතු අවම සම්පූර්ණ පළල */
-                margin-top: 30px;     /* බොත්තමට ඉහළින් තියෙන ඉඩ */
+                font-size: 13px;      
+                padding: 10px 25px;   
+                min-width: 180px;     
+                margin-top: 30px;     
             }
             .lux-arrow {
                 font-size: 14px;
             }
 
-            /* --- DETAILS PAGE --- */
+            /* --- DETAILS PAGE MOBILE --- */
             .lux-join-title {
-                font-size: 16px; /* "JOIN OUR SPECIAL DAY" */
+                font-size: 16px; 
                 letter-spacing: 2px;
             }
             .parent-text {
-                font-size: 13px; /* දෙමාපියන්ගේ විස්තර අකුරු සයිස් එක */
+                font-size: 13px; 
                 padding: 0 10px;
             }
             .person-name {
-                font-size: 26px; /* "Kaveesha" සහ "Sandaru" තනි තනි නම් */
+                font-size: 26px; 
                 margin-bottom: 6px;
             }
             .invite-message {
-                font-size: 12px; /* මැද තියෙන ආරාධනා පණිවිඩය */
+                font-size: 12px; 
                 padding: 0 10px;
             }
             .ornament img {
-                width: 35px; /* මැද තියෙන රන්වන් මෝස්තරයේ සයිස් එක */
+                width: 35px; 
             }
 
-            /* --- TIMER --- */
+            /* --- TIMER MOBILE --- */
             .timer-title {
-                font-size: 15px; /* "SAVE THE DATE" */
+                font-size: 15px; 
             }
             .timer div {
                 padding: 6px;
@@ -648,18 +648,18 @@
                 border-radius: 8px;
             }
             .timer span {
-                font-size: 16px; /* ටයිමරයේ දුවන ඉලක්කම් සයිස් එක */
+                font-size: 16px; 
             }
             .timer small {
-                font-size: 8px; /* Days, Hours, Minutes අකුරු */
+                font-size: 8px; 
             }
             .timer-sub {
                 font-size: 12px;
             }
 
-            /* --- AGENDA PAGE --- */
+            /* --- AGENDA PAGE MOBILE --- */
             .agenda-title {
-                font-size: 20px; /* "Wedding Agenda" */
+                font-size: 20px; 
             }
             .agenda-item {
                 flex-direction: column;
@@ -670,17 +670,16 @@
                 margin-bottom: 8px;
             }
             .agenda-time {
-                font-size: 14px; /* Agenda එකේ වෙලාවල් වල සයිස් එක */
+                font-size: 14px; 
             }
             .agenda-topic {
                 text-align: center;
-                font-size: 13px; /*Agenda එකේ විස්තර වල සයිස් එක */
+                font-size: 13px; 
             }
             
-            /* [EDIT - 03] Agenda පිටුවේ ඇති "Go Back" බොත්තම මෙතනින් වෙනස් කරන්න */
             .back-btn {
-                font-size: 12px;      /* බොත්තමේ අකුරු වල සයිස් එක */
-                padding: 8px 20px;    /* බොත්තමේ උස (8px) සහ පළල (20px) ඇතුළත හිස් ඉඩ */
+                font-size: 12px;      
+                padding: 8px 20px;    
             }
         }
 
@@ -699,20 +698,33 @@
         @keyframes fogMove{ 0%{ opacity: 0; transform: scale(1.05); } 50%{ opacity: 1; } 100%{ opacity: 0; transform: scale(1); } }
         @keyframes goldSmooth{ 0%{ opacity: 0; transform: scale(1.15); filter: blur(25px); } 40%{ opacity: 1; filter: blur(10px); } 70%{ opacity: 0.8; transform: scale(1.05); filter: blur(6px); } 100%{ opacity: 0; transform: scale(1); filter: blur(20px); } }
         @keyframes glowMove{ 0%{ transform: translateY(20px); opacity: 0; } 50%{ opacity: 1; } 100%{ transform: translateY(-20px); opacity: 0; } }
+        @keyframes hintFloat {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-4px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
     </style>
 </head>
 <body>
 
     <!-- HOME PAGE -->
     <section id="home" class="active">
-        <div>
+        <div class="home-container">
+            <!-- 1. Top Section -->
             <h1>The Wedding of</h1>
+            
+            <!-- 2. Center Section -->
             <div class="names">
                 <span class="name">Sandaru</span>
                 <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png" loading="eager" decoding="sync" alt="ring">
                 <span class="name">Kaveesha</span>
             </div>
-            <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
+            
+            <!-- 3. Bottom Section (Button + Hint text) -->
+            <div class="btn-wrapper">
+                <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
+                <div class="btn-hint">👆 TAP TO BEGIN</div>
+            </div>
         </div>
         
         <!-- Background Music -->
