@@ -314,16 +314,30 @@
         }
 
         /* ================= NEXT / DETAILS PAGE ================= */
-        #nextPage{
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background: radial-gradient(circle, #111, #000);
-            color: #C9A24E;
-            font-family: 'Cinzel', serif;
-        }
+        #nextPage {
+    flex-direction: column;
+    justify-content: flex-start; /* උඩ ඉඳන් පටන් ගන්න */
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: radial-gradient(circle, #111, #000);
+    color: #C9A24E;
+    font-family: 'Cinzel', serif;
+    
+    /* මේ ටික අනිවාර්යයෙන්ම දාන්න */
+    height: 100dvh; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* Agenda එකේ items වලට අවශ්‍ය spacing */
+.agenda-wrapper {
+    width: 90%;
+    max-width: 700px;
+    margin-top: 40px;
+    padding-bottom: 50px; /* පල්ලෙහා scroll වෙන්න ඉඩ තියන්න */
+}
+
 
         .lux-join-title{
             font-family: 'Cinzel', serif;
@@ -714,14 +728,16 @@
             <p class="timer-sub">05 November 2026</p>
         </div>
 
-        <button class="lux-scroll-btn" onclick="goToAgenda()">
-            Wedding Agenda
-            <span class="lux-arrow">⌄</span>
-        </button>
-    </section>
+        <!-- කලින් තිබුණු button එක වෙනුවට -->
+<button class="lux-scroll-btn" onclick="document.getElementById('nextPage').scrollTop += 300;">
+    View Agenda
+    <span class="lux-arrow">⌄</span>
+</button>
+
+    
 
     <!-- AGENDA PAGE -->
-    <section id="agendaPage">
+     <div class="agenda-wrapper" style="width: 100%; margin-top: 50px;">
         <h2 class="agenda-title">Wedding Agenda</h2>
         <div class="agenda-list">
             <div class="agenda-item">
