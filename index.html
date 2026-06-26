@@ -414,12 +414,22 @@
 
 .ornament{
     width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:40px;
     overflow:hidden;
 }
 
 .ornament img{
-    width:100%;
-    transform:scale(10); /* 1.5, 2, 2.5 try karanna */
+    width:120%;
+    max-width:100%;
+    height:auto;
+
+    transform:scale(10); /* safe zoom */
+    transform-origin:center;
+
+    display:block;
 }
 
 .stars{
