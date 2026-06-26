@@ -415,14 +415,28 @@
     width: 100%;
 }
 
-.ornament img {
-    /* පින්තූරයේ මුල් ප්‍රමාණයම ලබා ගැනීමට */
-    width: auto;
-    height: auto;
-    
-    /* පින්තූරය විශාල වැඩිනම් තිරයට ගැලපෙන සේ සීමා කිරීමට මෙය උපකාරී වේ */
-    max-width: 100%; 
+.ornament {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 0.95;
+    width: 100%;
 }
+
+.ornament img {
+    /* මෙතනින් පළල (width) වැඩි කරන්න (උදා: 50% සිට 80% දක්වා) */
+    width: 100%; 
+    
+    /* max-width එකත් වැඩි කරන්න ඕනෙ නම් මෙතනින් වෙනස් කරන්න */
+    max-width: 1500px; 
+    
+    /* height එක auto වෙනුවට අවශ්‍ය ප්‍රමාණය ලබා දෙන්න */
+    height: 400px; 
+    
+    /* පින්තූරය ඇදීමක් (stretching) නොවී පෙනෙන්නට මෙය භාවිතා කරන්න */
+    object-fit: cover; 
+}
+
 
 
 
