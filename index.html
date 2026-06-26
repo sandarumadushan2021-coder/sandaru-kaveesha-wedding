@@ -315,13 +315,13 @@
 
         /* ================= NEXT / DETAILS PAGE ================= */
         #nextPage{
-    height:100vh;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
-    justify-content:flex-start; /* 🔥 center → top layout */
+    justify-content:flex-start;
     align-items:center;
 
-    padding-top:80px;  /* 🔥 top spacing control */
+    padding-top:20px;
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
@@ -335,18 +335,32 @@
     color:#C9A24E;
     text-transform:uppercase;
 
-    margin-top:100px;   /* 🔥 මෙකෙන් පහලට යනවා */
-    margin-bottom:50px;
+    margin-top:20px;
+    margin-bottom:30px;
 
     position:relative;
     text-align:center;
 
-    text-shadow:
-        0 0 12px rgba(201,162,78,0.7),
-        0 0 30px rgba(201,162,78,0.4);
-
-    animation: fadeGlow 2.5s ease-in-out infinite;
+    animation:goldGlow 3s ease-in-out infinite;
 }
+
+@keyframes goldGlow{
+    0%,100%{
+        text-shadow:
+            0 0 10px rgba(201,162,78,0.5),
+            0 0 20px rgba(201,162,78,0.3);
+        transform:scale(1);
+    }
+
+    50%{
+        text-shadow:
+            0 0 20px rgba(201,162,78,0.9),
+            0 0 40px rgba(201,162,78,0.8),
+            0 0 60px rgba(201,162,78,0.5);
+        transform:scale(1.03);
+    }
+}
+
 .family-info{
     width:100%;
     text-align:center;
@@ -355,7 +369,7 @@
     align-items:center;
     justify-content:center;
 
-    margin-top:30px;
+    margin-top:10px;
 }
 
 .parent-text{
@@ -365,7 +379,7 @@
     letter-spacing:1px;
     text-align:center;
 
-    margin:15px 0;
+    margin:12px 0;
     max-width:800px;
 }
 
@@ -380,11 +394,11 @@
         0 0 10px rgba(201,162,78,0.7),
         0 0 25px rgba(201,162,78,0.4);
 
-    margin:15px 0 30px;
+    margin:10px 0 20px;
 }
 
 .invite-message{
-    margin-top:30px;
+    margin-top:20px;
 
     font-family:'Playfair Display', serif;
     font-size:30px;
@@ -399,68 +413,75 @@
 }
 
 .ornament{
-    text-align: center;
-    margin-top: 100px;
-    opacity: 0.95;
+    width:100vw;
+    margin-top:50px;
+    opacity:0.95;
 }
 
 .ornament img{
-    width: 85%;
-    max-width: 800px;
-    height: auto;
-    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
+    width:100vw;
+    max-width:none;
+    height:auto;
+    display:block;
+
+    filter:drop-shadow(0px 5px 15px rgba(201,162,78,0.25));
 }
 
 .stars{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
 }
 
 .stars span{
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: gold;
-    border-radius: 50%;
-    opacity: 0.7;
-    animation: floatStars 6s linear infinite;
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:gold;
+    border-radius:50%;
+    opacity:0.7;
+    animation:floatStars 6s linear infinite;
 }
 
-/* random positions */
-.stars span:nth-child(1){ left:10%; animation-delay:0s; }
-.stars span:nth-child(2){ left:30%; animation-delay:1s; }
-.stars span:nth-child(3){ left:50%; animation-delay:2s; }
-.stars span:nth-child(4){ left:70%; animation-delay:3s; }
-.stars span:nth-child(5){ left:90%; animation-delay:4s; }
+.stars span:nth-child(1){left:10%;animation-delay:0s;}
+.stars span:nth-child(2){left:30%;animation-delay:1s;}
+.stars span:nth-child(3){left:50%;animation-delay:2s;}
+.stars span:nth-child(4){left:70%;animation-delay:3s;}
+.stars span:nth-child(5){left:90%;animation-delay:4s;}
 
 @keyframes floatStars{
     0%{
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
+        transform:translateY(100vh) scale(0.5);
+        opacity:0;
     }
     50%{
-        opacity: 1;
+        opacity:1;
     }
     100%{
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
+        transform:translateY(-10vh) scale(1.2);
+        opacity:0;
     }
 }
+
 .timer-container{
-    margin-top:auto;   /* 🔥 pushes it up from bottom */
-    margin-bottom:150px;
+    margin-top:60px;
+    margin-bottom:40px;
 }
 
 .timer-title{
     font-size:45px;
     letter-spacing:5px;
     margin-bottom:30px;
+
+    color:#C9A24E;
+    text-shadow:
+        0 0 15px rgba(201,162,78,0.7),
+        0 0 30px rgba(201,162,78,0.4);
 }
 
 .timer{
@@ -476,6 +497,9 @@
     padding:20px;
     border-radius:15px;
     min-width:90px;
+
+    box-shadow:
+        0 0 15px rgba(201,162,78,0.15);
 }
 
 .timer span{
@@ -493,7 +517,6 @@
     color:#fff;
     opacity:0.8;
 }
-
 
 
         /* ================= AGENDA PAGE ================= */
