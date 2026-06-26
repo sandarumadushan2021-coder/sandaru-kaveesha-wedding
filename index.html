@@ -314,100 +314,91 @@
         }
 
         /* ================= NEXT / DETAILS PAGE ================= */
-        #nextPage {
-    flex-direction: column;
-    justify-content: flex-start; /* උඩ ඉඳන් පටන් ගන්න */
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background: radial-gradient(circle, #111, #000);
-    color: #C9A24E;
-    font-family: 'Cinzel', serif;
-    
-    /* මේ ටික අනිවාර්යයෙන්ම දාන්න */
-    height: 100dvh; 
-    overflow-y: auto; 
-    overflow-x: hidden;
+        #nextPage{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start; /* 🔥 center → top layout */
+    align-items:center;
+
+    padding-top:80px;  /* 🔥 top spacing control */
+    background:radial-gradient(circle,#111,#000);
+    color:#C9A24E;
+    font-family:'Cinzel',serif;
+    text-align:center;
 }
 
-/* Agenda එකේ items වලට අවශ්‍ය spacing */
-.agenda-wrapper {
-    width: 90%;
-    max-width: 700px;
-    margin-top: 40px;
-    padding-bottom: 50px; /* පල්ලෙහා scroll වෙන්න ඉඩ තියන්න */
+.lux-join-title{
+    font-family:'Cinzel', serif;
+    font-size:42px;
+    letter-spacing:10px;
+    color:#C9A24E;
+    text-transform:uppercase;
+
+    margin-top:100px;   /* 🔥 මෙකෙන් පහලට යනවා */
+    margin-bottom:50px;
+
+    position:relative;
+    text-align:center;
+
+    text-shadow:
+        0 0 12px rgba(201,162,78,0.7),
+        0 0 30px rgba(201,162,78,0.4);
+
+    animation: fadeGlow 2.5s ease-in-out infinite;
+}
+.family-info{
+    width:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:30px;
 }
 
+.parent-text{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    color:rgba(255,255,255,0.85);
+    letter-spacing:1px;
+    text-align:center;
 
-        .lux-join-title{
-            font-family: 'Cinzel', serif;
-            font-size: 34px;
-            letter-spacing: 8px;
-            color: #C9A24E;
-            text-transform: uppercase;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            position: relative;
-            text-align: center;
-            text-shadow: 0 0 12px rgba(201,162,78,0.7), 0 0 30px rgba(201,162,78,0.4);
-            display: inline-block;
-            overflow: hidden;
-        }
+    margin:15px 0;
+    max-width:800px;
+}
 
-        .lux-join-title::before{
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,215,120,0.8), rgba(201,162,78,0.4), transparent);
-            transform: skewX(-25deg);
-            filter: blur(2px);
-            animation: goldCometMove 3s infinite ease-in-out;
-        }
+.person-name{
+    font-family:'Great Vibes', cursive;
+    font-size:80px;
+    color:#C9A24E;
 
-        .family-info{
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
-        }
+    text-align:center;
 
-        .parent-text{
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: rgba(255,255,255,0.85);
-            letter-spacing: 1px;
-            width: 100%;
-            margin: 5px 0;
-        }
+    text-shadow:
+        0 0 10px rgba(201,162,78,0.7),
+        0 0 25px rgba(201,162,78,0.4);
 
-        .person-name{
-            font-family: 'Great Vibes', cursive;
-            font-size: 50px;
-            color: #C9A24E;
-            text-shadow: 0 0 10px rgba(201,162,78,0.7), 0 0 25px rgba(201,162,78,0.4);
-            margin: 5px 0 15px;
-            text-align: center;
-        }
+    margin:15px 0 30px;
+}
 
-        .invite-message{
-            margin-top: 25px;
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.85);
-            font-style: italic;
-            width: 100%;
-            max-width: 600px;
-        }
+.invite-message{
+    margin-top:30px;
 
-       .ornament{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.85);
+    text-align:center;
+
+    font-style:italic;
+
+    max-width:800px;
+}
+
+.ornament{
     text-align: center;
     margin-top: 100px;
     opacity: 0.95;
@@ -420,82 +411,90 @@
     filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.15));
 }
 
+.stars{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
 
-        .stars{
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
+.stars span{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatStars 6s linear infinite;
+}
 
-        .stars span{
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: gold;
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: floatStars 6s linear infinite;
-        }
+/* random positions */
+.stars span:nth-child(1){ left:10%; animation-delay:0s; }
+.stars span:nth-child(2){ left:30%; animation-delay:1s; }
+.stars span:nth-child(3){ left:50%; animation-delay:2s; }
+.stars span:nth-child(4){ left:70%; animation-delay:3s; }
+.stars span:nth-child(5){ left:90%; animation-delay:4s; }
 
-        .stars span:nth-child(1){ left:10%; animation-delay:0s; }
-        .stars span:nth-child(2){ left:30%; animation-delay:1s; }
-        .stars span:nth-child(3){ left:50%; animation-delay:2s; }
-        .stars span:nth-child(4){ left:70%; animation-delay:3s; }
-        .stars span:nth-child(5){ left:90%; animation-delay:4s; }
+@keyframes floatStars{
+    0%{
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+.timer-container{
+    margin-top:auto;   /* 🔥 pushes it up from bottom */
+    margin-bottom:150px;
+}
 
-        /* TIMER CONTAINER */
-        .timer-container{
-            margin-top: 10px;
-            margin-bottom: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
+.timer-title{
+    font-size:45px;
+    letter-spacing:5px;
+    margin-bottom:30px;
+}
 
-        .timer-title{
-            font-size: 26px;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-        }
+.timer{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
 
-        .timer{
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+.timer div{
+    background:rgba(201,162,78,0.08);
+    border:1px solid rgba(201,162,78,0.3);
+    padding:20px;
+    border-radius:15px;
+    min-width:90px;
+}
 
-        .timer div{
-            background: rgba(201,162,78,0.08);
-            border: 1px solid rgba(201,162,78,0.3);
-            padding: 12px;
-            border-radius: 12px;
-            min-width: 80px;
-        }
+.timer span{
+    font-size:40px;
+    display:block;
+}
 
-        .timer span{
-            font-size: 26px;
-            display: block;
-        }
+.timer small{
+    color:#fff;
+    opacity:0.7;
+}
 
-        .timer small{
-            color: #fff;
-            opacity: 0.7;
-            font-size: 11px;
-        }
+.timer-sub{
+    margin-top:20px;
+    color:#fff;
+    opacity:0.8;
+}
 
-        .timer-sub{
-            margin-top: 15px;
-            color: #fff;
-            opacity: 0.8;
-            font-size: 16px;
-        }
+
 
         /* ================= AGENDA PAGE ================= */
         #agendaPage{
