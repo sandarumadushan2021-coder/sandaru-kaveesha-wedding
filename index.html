@@ -966,9 +966,9 @@
 
         </div>
 
-        <button class="rsvp-submit">
-            CONFIRM RSVP
-        </button>
+        <button class="rsvp-submit" onclick="sendRSVP()">
+    CONFIRM RSVP
+</button>
 
     </div>
 
@@ -1070,6 +1070,53 @@ function changeCount(id, change){
     }
 
     el.innerText = value;
+}
+
+function sendRSVP(){
+
+    const name = document.querySelector('.rsvp-input').value;
+
+    const attendance =
+        document.querySelector('input[name="attendance"]:checked');
+
+    const adults =
+        document.getElementById('adults').innerText;
+
+    const children =
+        document.getElementById('children').innerText;
+
+    if(name === ""){
+        alert("Please enter your name");
+        return;
+    }
+
+    if(!attendance){
+        alert("Please select attendance");
+        return;
+    }
+
+    const status =
+        attendance.value === "yes"
+        ? "Will Attend"
+        : "Cannot Attend";
+
+    const message =
+`🌹 Wedding RSVP
+
+👤 Name: ${name}
+
+📌 Status: ${status}
+
+👨 Adults: ${adults}
+
+👶 Children: ${children}`;
+
+    const phone = "0752452479"; // ඔයාගේ WhatsApp number
+
+    window.open(
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+        '_blank'
+    );
 }
         // ================= COUNTDOWN TIMER LOGIC =================
         const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
