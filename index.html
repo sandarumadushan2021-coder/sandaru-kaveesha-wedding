@@ -608,23 +608,122 @@
             text-align: right;
         }
 
-        .back-btn{
-            background: none;
-            border: 1px solid #C9A24E;
-            color: #C9A24E;
-            padding: 12px 30px;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-            font-size: 15px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
 
-        .back-btn:hover{
-            background: #C9A24E;
-            color: #000;
-        }
+
+
+        .rsvp-section{
+    width:100%;
+    max-width:800px;
+    margin-top:80px;
+    text-align:center;
+}
+
+.rsvp-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(201,162,78,.25);
+    border-radius:25px;
+    padding:30px 20px;
+    backdrop-filter:blur(10px);
+}
+
+.rsvp-input{
+    width:100%;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,.3);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    font-size:16px;
+    margin-bottom:25px;
+    outline:none;
+}
+
+.attendance-box{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.radio-option{
+    color:#fff;
+    cursor:pointer;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,.2);
+    background:rgba(255,255,255,.03);
+}
+
+.radio-option input{
+    margin-right:10px;
+}
+
+.guest-wrapper{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.guest-box{
+    min-width:180px;
+    padding:20px;
+    border-radius:20px;
+    background:rgba(201,162,78,.05);
+    border:1px solid rgba(201,162,78,.25);
+}
+
+.guest-box h4{
+    color:#C9A24E;
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+.counter{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+}
+
+.counter button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#C9A24E;
+    color:#000;
+    font-size:22px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.counter span{
+    font-size:28px;
+    color:#fff;
+    min-width:30px;
+}
+
+.rsvp-submit{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+
+    background:linear-gradient(
+        135deg,
+        #C9A24E,
+        #8C6B2F
+    );
+
+    color:#fff;
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px rgba(201,162,78,.4);
+}
 
         /* ================= TRANSITIONS ================= */
         .cloud-transition,
@@ -818,8 +917,62 @@
                 <span class="agenda-topic">Cake Cutting & Group Photography</span>
             </div>
         </div>
-        <button class="back-btn" onclick="backToDetails()">Go Back</button>
-    </section>
+
+
+<!-- RSVP PAGE -->
+        <div class="rsvp-section">
+
+    <h2 class="section-title">RSVP</h2>
+
+    <div class="rsvp-card">
+
+        <input type="text" placeholder="Guest Name" class="rsvp-input">
+
+        <div class="attendance-box">
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="yes">
+                <span>✓ Yes, We Will Attend</span>
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="no">
+                <span>✕ Regretfully Decline</span>
+            </label>
+
+        </div>
+
+        <div class="guest-wrapper">
+
+            <div class="guest-box">
+                <h4>Adults</h4>
+
+                <div class="counter">
+                    <button type="button" onclick="changeCount('adults',-1)">−</button>
+                    <span id="adults">1</span>
+                    <button type="button" onclick="changeCount('adults',1)">+</button>
+                </div>
+            </div>
+
+            <div class="guest-box">
+                <h4>Children</h4>
+
+                <div class="counter">
+                    <button type="button" onclick="changeCount('children',-1)">−</button>
+                    <span id="children">0</span>
+                    <button type="button" onclick="changeCount('children',1)">+</button>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="rsvp-submit">
+            CONFIRM RSVP
+        </button>
+
+    </div>
+
+</div>
 
     <!-- TRANSITION OVERLAYS -->
     <div id="cloudTransition" class="cloud-transition"></div>
@@ -904,7 +1057,20 @@
             
             window.scrollTo(0,0);
         }
+function changeCount(id, change){
 
+    const el = document.getElementById(id);
+
+    let value = parseInt(el.innerText);
+
+    value += change;
+
+    if(value < 0){
+        value = 0;
+    }
+
+    el.innerText = value;
+}
         // ================= COUNTDOWN TIMER LOGIC =================
         const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
 
