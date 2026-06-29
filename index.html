@@ -737,39 +737,94 @@
 }
 
 .guest-box{
-    min-width:140px;
-    padding:14px 16px;
-    border-radius:18px;
+    position: relative;
+    padding: 18px 16px;
+    border-radius: 22px;
 
     background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,162,78,0.25);
+    border: 1px solid rgba(201,162,78,0.35);
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
-    box-shadow: 0 0 18px rgba(201,162,78,0.12);
+    box-shadow:
+        0 0 18px rgba(201,162,78,0.12),
+        inset 0 0 12px rgba(255,255,255,0.05);
 
-    transition: 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+
+    transition: 0.35s ease;
+}
+.guest-box::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:22px;
+    padding:2px;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(201,162,78,0.6),
+        transparent
+    );
+
+    filter: blur(6px);
+    opacity: 0.6;
+    animation: glowMove 3s linear infinite;
 }
 
+.guest-box::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:22px;
+
+    background: radial-gradient(
+        circle at top left,
+        rgba(255,255,255,0.08),
+        transparent 60%
+    );
+
+    pointer-events:none;
+}
 .guest-box:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(201,162,78,0.25);
-}
+    transform: translateY(-6px) scale(1.02);
 
+    box-shadow:
+        0 0 35px rgba(201,162,78,0.25),
+        0 10px 30px rgba(0,0,0,0.4);
+}
 .guest-box h4{
-    font-size:15px;
-    margin-bottom:10px;
+    font-size:16px;
+    color:#C9A24E;
+    letter-spacing:2px;
+    font-family:'Cinzel', serif;
+    margin-bottom:12px;
+    text-shadow: 0 0 10px rgba(201,162,78,0.3);
 }
 
 .counter button{
-    width:32px;
-    height:32px;
-    font-size:18px;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background: linear-gradient(135deg,#C9A24E,#8C6B2F);
+    color:#000;
+    font-weight:bold;
+    border:none;
+    box-shadow: 0 0 10px rgba(201,162,78,0.3);
+    transition:0.3s ease;
+}
+
+.counter button:hover{
+    transform: scale(1.1);
 }
 
 .counter span{
-    font-size:22px;
+    font-size:24px;
+    color:#fff;
+    text-shadow: 0 0 10px rgba(201,162,78,0.2);
 }
 
 
