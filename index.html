@@ -314,10 +314,14 @@
         }
 
         /* ================= NEXT / DETAILS PAGE ================= */
-        #nextPage {
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-    padding: 60px 20px;
-}
+        #nextPage{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding-top:20px;
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
@@ -369,25 +373,32 @@
 }
 
 
-.family-info {
-    margin: 40px 0;
-    border-top: 1px solid rgba(201, 162, 78, 0.2);
-    border-bottom: 1px solid rgba(201, 162, 78, 0.2);
-    padding: 40px 0;
-}
-.parent-text {
-    font-size: 16px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
+.family-info{
+    width:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:10px;
 }
 
-.person-name {
-    font-size: 60px;
-    margin: 10px 0 30px;
-    color: #C9A24E;
-    letter-spacing: 2px;
+.parent-text{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    color:rgba(255,255,255,0.85);
+    letter-spacing:1px;
+    text-align:center;
+
+    margin:12px 0;
+    max-width:800px;
 }
+
+.person-name{
+    font-family:'Great Vibes', cursive;
+    font-size:80px;
+    color:#C9A24E;
 
     text-align:center;
 
@@ -517,21 +528,17 @@
     justify-content:center;
 }
 
-.timer-container {
-    margin-top: 60px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid rgba(201, 162, 78, 0.1);
+.timer div{
+    background:rgba(201,162,78,0.08);
+    border:1px solid rgba(201,162,78,0.3);
+    padding:20px;
+    border-radius:15px;
+    min-width:90px;
+
+    box-shadow:
+        0 0 15px rgba(201,162,78,0.15);
 }
 
-.timer div {
-    background: transparent;
-    border: none;
-    border-right: 1px solid rgba(201, 162, 78, 0.2);
-}
-
-.timer div:last-child { border-right: none; }
 .timer span{
     font-size:40px;
     display:block;
@@ -601,251 +608,23 @@
             text-align: right;
         }
 
+        .back-btn{
+            background: none;
+            border: 1px solid #C9A24E;
+            color: #C9A24E;
+            padding: 12px 30px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            font-size: 15px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-.location-section{
-    width:100%;
-    max-width:900px;
-    margin-top:80px;
-    text-align:center;
-}
-
-.location-title{
-    font-family:'Cinzel',serif;
-    font-size:34px;
-    letter-spacing:6px;
-    margin-bottom:25px;
-    color:#C9A24E;
-    text-shadow:0 0 15px rgba(201,162,78,0.4);
-}
-
-.location-card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(201,162,78,0.25);
-    border-radius:25px;
-    padding:25px;
-}
-
-.location-card img{
-    width:100%;
-    border-radius:20px;
-    height:250px;
-    object-fit:cover;
-    margin-bottom:20px;
-    box-shadow:0 0 20px rgba(201,162,78,0.15);
-}
-
-.venue-name{
-    font-family:'Great Vibes',cursive;
-    font-size:45px;
-    color:#C9A24E;
-    margin-bottom:10px;
-}
-
-.venue-address{
-    color:#fff;
-    opacity:0.8;
-    margin-bottom:10px;
-    font-size:16px;
-}
-
-.venue-note{
-    color:#fff;
-    opacity:0.6;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
-.location-btn, .action-btn, .rsvp-submit {
-    transition: all 0.4s ease;
-    border: 1px solid #C9A24E;
-    background: transparent;
-    color: #C9A24E;
-    padding: 15px 40px;
-}
-    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
-    box-shadow:0 0 15px rgba(201,162,78,0.4);
-    transition:0.3s;
-}
-
-.location-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 25px rgba(201,162,78,0.6);
-}
-
-        .rsvp-section{
-    width:100%;
-    max-width:800px;
-    margin-top:80px;
-    text-align:center;
-}
-
-.rsvp-card{
-    background:rgba(255,255,255,.03);
-    border:1px solid rgba(201,162,78,.25);
-    border-radius:25px;
-    padding:30px 20px;
-    backdrop-filter:blur(10px);
-}
-
-{
-    background: #C9A24E;
-    color: #000;
-    box-shadow: 0 0 30px rgba(201, 162, 78, 0.4);
-}
-
-.rsvp-input {
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(201, 162, 78, 0.3);
-    text-align: center;
-}
-
-.attendance-box{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    margin-bottom:30px;
-}
-
-.radio-option{
-    color:#fff;
-    cursor:pointer;
-    padding:15px;
-    border-radius:15px;
-    border:1px solid rgba(201,162,78,.2);
-    background:rgba(255,255,255,.03);
-}
-
-.radio-option input{
-    margin-right:10px;
-}
-
-/* ================= RSVP GUEST BOX (PREMIUM) ================= */
-.guest-wrapper {
-    display: flex;
-    gap: 15px; /* ඉඩ පරතරය අඩු කළා */
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-}
-
-.guest-box {
-    min-width: 130px; /* පළල අඩු කළා */
-    padding: 12px 15px; /* ඇතුළත ඉඩ අඩු කළා */
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(201, 162, 78, 0.3);
-    transition: all 0.3s ease;
-}
-
-.guest-box:hover {
-    border-color: rgba(201, 162, 78, 0.6);
-    background: rgba(201, 162, 78, 0.05);
-}
-
-.guest-box h4 {
-    color: #C9A24E;
-    margin-bottom: 8px; /* පහළ ඉඩ අඩු කළා */
-    font-size: 13px; /* අකුරු ප්‍රමාණය අඩු කළා */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: 'Cinzel', serif;
-}
-
-.counter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
-
-.counter button {
-    width: 28px; /* බොත්තමේ ප්‍රමාණය අඩු කළා */
-    height: 28px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(201, 162, 78, 0.2); /* මෘදු රන්වන් පැහැයක් */
-    color: #C9A24E;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.counter button:hover {
-    background: #C9A24E;
-    color: #000;
-}
-
-.counter span {
-    font-size: 20px; /* අංකයේ ප්‍රමාණය අඩු කළා */
-    color: #fff;
-    min-width: 20px;
-    font-family: 'Playfair Display', serif;
-}
-
-
-.rsvp-submit{
-    padding:15px 35px;
-    border:none;
-    border-radius:40px;
-
-    background:linear-gradient(
-        135deg,
-        #C9A24E,
-        #8C6B2F
-    );
-
-    color:#fff;
-    font-family:'Cinzel',serif;
-    letter-spacing:3px;
-    cursor:pointer;
-
-    box-shadow:
-        0 0 15px rgba(201,162,78,.4);
-}
-
-/* ================= SOCIAL & GUESTBOOK STYLES ================= */
-.action-section {
-    width: 100%;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.guestbook-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid rgba(201,162,78,0.3);
-    background: rgba(255,255,255,0.05);
-    color: #fff;
-    margin-bottom: 15px;
-    resize: none;
-    font-family: sans-serif;
-}
-
-.action-btn {
-    padding: 12px 25px;
-    border-radius: 30px;
-    border: none;
-    background: #C9A24E;
-    color: #000;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-.action-btn:hover {
-    background: #fff;
-    transform: scale(1.05);
-}
-
+        .back-btn:hover{
+            background: #C9A24E;
+            color: #000;
+        }
 
         /* ================= TRANSITIONS ================= */
         .cloud-transition,
@@ -961,16 +740,19 @@
     </section>
 
     <!-- NEXT / DETAILS & TIMER PAGE -->
-  <section id="nextPage">
-    <div class="lux-join-title">Our Wedding</div>
+    <section id="nextPage">
+        <div class="stars">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
 
-    <div class="family-info">
-        <p class="parent-text">Daughter of Mr. & Mrs. Wijesundara</p>
-        <div class="person-name">Kaveesha</div>
-        <p class="parent-text">Son of Mr. & Mrs. Saman Pushpakumara</p>
-        <div class="person-name">Sandaru</div>
-    </div>
-            
+        <div class="lux-join-title">JOIN OUR SPECIAL DAY</div>
+
+        <div class="family-info">
+            <p class="parent-text">Beloved daughter of Mr. and Mrs. W.A. Wickramasooriya Wijesundara</p>
+            <div class="person-name">Kaveesha</div>
+
+            <p class="parent-text">Beloved son of Mr. and Mrs. M. Saman Pushpakumara</p>
+            <div class="person-name">Sandaru</div>
 
             <p class="invite-message">
                 A cordial invitation to join us in celebrating the union of two hearts
@@ -983,14 +765,28 @@
         </div>
 
         <div class="timer-container">
-        <h2 class="timer-title" style="font-size: 24px; letter-spacing: 8px;">COUNTING DOWN</h2>
-        <div class="timer">
-            <div><span id="days">00</span><small>Days</small></div>
-            <div><span id="hours">00</span><small>Hours</small></div>
-            <div><span id="minutes">00</span><small>Minutes</small></div>
-            <div><span id="seconds">00</span><small>Seconds</small></div>
+            <h2 class="timer-title">SAVE THE DATE</h2>
+            <div class="timer">
+                <div>
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+            <p class="timer-sub">05 November 2026</p>
         </div>
-    </div>
+
        
 
     <!-- AGENDA PAGE -->
@@ -1022,106 +818,8 @@
                 <span class="agenda-topic">Cake Cutting & Group Photography</span>
             </div>
         </div>
-
-
-
-<!-- LOCATION SECTION -->
-
-    <!-- LOCATION SECTION -->
-<div class="location-section">
-
-    <h2 class="location-title">WEDDING VENUE</h2>
-
-    <div class="location-card">
-
-   
-
-        <h3 class="venue-name">Royal Dream Palace</h3>
-
-        <p class="venue-address">
-            Urapola, Sri Lanka
-        </p>
-
-        <p class="venue-note">
-            A beautiful place where our journey begins ❤️
-        </p>
-
-        <!-- BUTTON -->
-        <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9"
-           target="_blank"
-           class="location-btn">
-            📍 VIEW LOCATION
-        </a>
-
-    </div>
-
-</div>
-
-<!-- RSVP PAGE -->
-        <div class="rsvp-section">
-        <div class="rsvp-card">
-            <h2 class="section-title" style="color:#C9A24E; margin-bottom: 20px;">RSVP</h2>
-            <input type="text" placeholder="Your Name" class="rsvp-input">
-            <!-- ... (Radio buttons and counters) ... -->
-            <button class="rsvp-submit" onclick="sendRSVP()">CONFIRM ATTENDANCE</button>
-        </div>
-    </div>
-        <div class="attendance-box">
-
-            <label class="radio-option">
-                <input type="radio" name="attendance" value="yes">
-                <span>✓ Yes, We Will Attend</span>
-            </label>
-
-            <label class="radio-option">
-                <input type="radio" name="attendance" value="no">
-                <span>✕ No, we will not participate.</span>
-            </label>
-
-        </div>
-
-        <div class="guest-wrapper">
-
-            <div class="guest-box">
-                <h4>Adults</h4>
-
-                <div class="counter">
-                    <button type="button" onclick="changeCount('adults',-1)">−</button>
-                    <span id="adults">1</span>
-                    <button type="button" onclick="changeCount('adults',1)">+</button>
-                </div>
-            </div>
-
-            <div class="guest-box">
-                <h4>Children</h4>
-
-                <div class="counter">
-                    <button type="button" onclick="changeCount('children',-1)">−</button>
-                    <span id="children">0</span>
-                    <button type="button" onclick="changeCount('children',1)">+</button>
-                </div>
-            </div>
-
-        </div>
-
-        <button class="rsvp-submit" onclick="sendRSVP()">
-    Send Messages
-</button>
-
-    </div>
-
-</div>
-
-<div class="action-section">
-        <h2 class="section-title" style="color: #C9A24E; margin-bottom: 20px;">WISHES & SHARING</h2>
-        <textarea id="wishMessage" class="guestbook-textarea" placeholder="Leave a sweet message for the couple..."></textarea>
-        <div style="display:flex; justify-content:center; gap: 10px;">
-            <button class="action-btn" onclick="sendWish()">SEND WISHES</button>
-            <button class="action-btn" onclick="shareInvite()">SHARE INVITE</button>
-        </div>
-    </div>
-
-
+        <button class="back-btn" onclick="backToDetails()">Go Back</button>
+    </section>
 
     <!-- TRANSITION OVERLAYS -->
     <div id="cloudTransition" class="cloud-transition"></div>
@@ -1206,96 +904,6 @@
             
             window.scrollTo(0,0);
         }
-function changeCount(id, change){
-
-    const el = document.getElementById(id);
-
-    let value = parseInt(el.innerText);
-
-    value += change;
-
-    if(value < 0){
-        value = 0;
-    }
-
-    el.innerText = value;
-}
-
-function sendRSVP(){
-
-    const name = document.querySelector('.rsvp-input').value;
-
-    const attendance =
-        document.querySelector('input[name="attendance"]:checked');
-
-    const adults =
-        document.getElementById('adults').innerText;
-
-    const children =
-        document.getElementById('children').innerText;
-
-    if(name === ""){
-        alert("Please enter your name");
-        return;
-    }
-
-    if(!attendance){
-        alert("Please select attendance");
-        return;
-    }
-
-    const status =
-        attendance.value === "yes"
-        ? "Will Attend"
-        : "Cannot Attend";
-
-    const message =
-`🌹 Wedding RSVP
-
-👤 Name: ${name}
-
-📌 Status: ${status}
-
-👨 Adults: ${adults}
-
-👶 Children: ${children}`;
-
-    const phone = "+94752452479"; // ඔයාගේ WhatsApp number
-
-    window.open(
-        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-        '_blank'
-    );
-}
-
-// සුබ පැතුම් යැවීම සඳහා
-function sendWish() {
-    const wish = document.getElementById("wishMessage").value;
-    const phone = "+94752452479"; // ඔබේ අංකය
-
-    if(wish === "") {
-        alert("Please write a message first!");
-        return;
-    }
-
-    const message = `✨ Special Wish for Sandaru & Kaveesha:\n\n"${wish}"`;
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-// ආරාධනා පත්‍රය බෙදා ගැනීමට
-function shareInvite() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Wedding Invitation: Sandaru & Kaveesha',
-            text: 'Please join us on our special day!',
-            url: window.location.href, // දැනට තියෙන ලින්ක් එක
-        })
-        .catch(console.error);
-    } else {
-        alert("Link copied to clipboard!");
-        navigator.clipboard.writeText(window.location.href);
-    }
-}
 
         // ================= COUNTDOWN TIMER LOGIC =================
         const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
