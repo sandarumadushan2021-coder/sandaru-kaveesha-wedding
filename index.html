@@ -1216,18 +1216,13 @@
             window.scrollTo(0,0);
         }
 function changeCount(id, change){
-
     const el = document.getElementById(id);
+    if(!el) return;
 
-    let value = parseInt(el.innerText);
+    let value = parseInt(el.textContent || "0");
+    value = Math.max(0, value + change);
 
-    value += change;
-
-    if(value < 0){
-        value = 0;
-    }
-
-    el.innerText = value;
+    el.textContent = value;
 }
 
 function sendRSVP(){
