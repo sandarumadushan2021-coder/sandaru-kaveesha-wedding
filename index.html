@@ -728,52 +728,72 @@
     margin-right:10px;
 }
 
-.guest-wrapper{
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin-bottom:30px;
+/* ================= RSVP GUEST BOX (PREMIUM) ================= */
+.guest-wrapper {
+    display: flex;
+    gap: 15px; /* ඉඩ පරතරය අඩු කළා */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
-.guest-box{
-    min-width:180px;
-    padding:20px;
-    border-radius:20px;
-    background:rgba(201,162,78,.05);
-    border:1px solid rgba(201,162,78,.25);
+.guest-box {
+    min-width: 130px; /* පළල අඩු කළා */
+    padding: 12px 15px; /* ඇතුළත ඉඩ අඩු කළා */
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    transition: all 0.3s ease;
 }
 
-.guest-box h4{
-    color:#C9A24E;
-    margin-bottom:15px;
-    font-size:18px;
+.guest-box:hover {
+    border-color: rgba(201, 162, 78, 0.6);
+    background: rgba(201, 162, 78, 0.05);
 }
 
-.counter{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:15px;
+.guest-box h4 {
+    color: #C9A24E;
+    margin-bottom: 8px; /* පහළ ඉඩ අඩු කළා */
+    font-size: 13px; /* අකුරු ප්‍රමාණය අඩු කළා */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
 }
 
-.counter button{
-    width:40px;
-    height:40px;
-    border:none;
-    border-radius:50%;
-    background:#C9A24E;
-    color:#000;
-    font-size:22px;
-    cursor:pointer;
-    font-weight:bold;
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
-.counter span{
-    font-size:28px;
-    color:#fff;
-    min-width:30px;
+.counter button {
+    width: 28px; /* බොත්තමේ ප්‍රමාණය අඩු කළා */
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(201, 162, 78, 0.2); /* මෘදු රන්වන් පැහැයක් */
+    color: #C9A24E;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.counter button:hover {
+    background: #C9A24E;
+    color: #000;
+}
+
+.counter span {
+    font-size: 20px; /* අංකයේ ප්‍රමාණය අඩු කළා */
+    color: #fff;
+    min-width: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
 
 .rsvp-submit{
     padding:15px 35px;
