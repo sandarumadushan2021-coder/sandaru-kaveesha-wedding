@@ -820,7 +820,10 @@
 .counter button:hover{
     transform: scale(1.1);
 }
-
+.guest-box, .counter {
+    pointer-events: auto;
+    z-index: 10;
+}
 .counter span{
     font-size:24px;
     color:#fff;
@@ -1217,10 +1220,11 @@
         }
 function changeCount(id, change){
     const el = document.getElementById(id);
-    if(!el) return;
 
-    let value = parseInt(el.textContent || "0");
-    value = Math.max(0, value + change);
+    let value = Number(el.textContent);
+    value = value + change;
+
+    if(value < 0) value = 0;
 
     el.textContent = value;
 }
