@@ -815,6 +815,47 @@
         0 0 15px rgba(201,162,78,.4);
 }
 
+/* ================= SOCIAL & GUESTBOOK STYLES ================= */
+.action-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.guestbook-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(201,162,78,0.3);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    margin-bottom: 15px;
+    resize: none;
+    font-family: sans-serif;
+}
+
+.action-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #C9A24E;
+    color: #000;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+
         /* ================= TRANSITIONS ================= */
         .cloud-transition,
         .gold-transition{
@@ -1097,6 +1138,17 @@
 
 </div>
 
+<div class="action-section">
+    <h2 class="section-title" style="color: #C9A24E; margin-bottom: 20px;">Send Your Wishes</h2>
+    <textarea id="wishMessage" class="guestbook-textarea" placeholder="Leave a sweet message for the couple..."></textarea>
+    
+    <div>
+        <button class="action-btn" onclick="sendWish()">Send Wish via WhatsApp</button>
+        <button class="action-btn" onclick="shareInvite()">Share Invitation</button>
+    </div>
+</div>
+
+
     <!-- TRANSITION OVERLAYS -->
     <div id="cloudTransition" class="cloud-transition"></div>
     <div id="goldTransition" class="gold-transition"></div>
@@ -1241,6 +1293,36 @@ function sendRSVP(){
         '_blank'
     );
 }
+
+// සුබ පැතුම් යැවීම සඳහා
+function sendWish() {
+    const wish = document.getElementById("wishMessage").value;
+    const phone = "+94752452479"; // ඔබේ අංකය
+
+    if(wish === "") {
+        alert("Please write a message first!");
+        return;
+    }
+
+    const message = `✨ Special Wish for Sandaru & Kaveesha:\n\n"${wish}"`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// ආරාධනා පත්‍රය බෙදා ගැනීමට
+function shareInvite() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Wedding Invitation: Sandaru & Kaveesha',
+            text: 'Please join us on our special day!',
+            url: window.location.href, // දැනට තියෙන ලින්ක් එක
+        })
+        .catch(console.error);
+    } else {
+        alert("Link copied to clipboard!");
+        navigator.clipboard.writeText(window.location.href);
+    }
+}
+
         // ================= COUNTDOWN TIMER LOGIC =================
         const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
 
