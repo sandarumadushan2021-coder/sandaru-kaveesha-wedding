@@ -1106,7 +1106,7 @@
 
                 <div class="counter">
                     <button type="button" onclick="changeCount('adults',-1)">−</button>
-                    <span id="adults">1</span>
+                    <span id="adults">0</span>
                     <button type="button" onclick="changeCount('adults',1)">+</button>
                 </div>
             </div>
@@ -1206,27 +1206,28 @@
                 s.style.display = "none";
             });
 
-            const el = document.getElementById(id);
-            if(!el) return;
-
-            el.classList.add("active");
-            el.style.display = "flex";
-            
-            window.scrollTo(0,0);
-        }
-function changeCount(id, change){
+            const el = function changeCount(id, change){
 
     const el = document.getElementById(id);
 
-    let value = parseInt(el.innerText);
+    // safe number parse
+    let value = Number(el.textContent);
+
+    if (isNaN(value)) value = 0;
 
     value += change;
 
-    if(value < 0){
-        value = 0;
-    }
+    if (value < 0) value = 0;
 
-    el.innerText = value;
+    el.textContent = value;
+
+    // small luxury animation effect
+    el.style.transform = "scale(1.3)";
+    el.style.transition = "0.15s ease";
+
+    setTimeout(()=>{
+        el.style.transform = "scale(1)";
+    },150);
 }
 
 function sendRSVP(){
