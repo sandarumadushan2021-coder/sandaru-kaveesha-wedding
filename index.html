@@ -314,14 +314,10 @@
         }
 
         /* ================= NEXT / DETAILS PAGE ================= */
-        #nextPage{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
-
-    padding-top:20px;
+        #nextPage {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    padding: 60px 20px;
+}
     background:radial-gradient(circle,#111,#000);
     color:#C9A24E;
     font-family:'Cinzel',serif;
@@ -373,32 +369,25 @@
 }
 
 
-.family-info{
-    width:100%;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    margin-top:10px;
+.family-info {
+    margin: 40px 0;
+    border-top: 1px solid rgba(201, 162, 78, 0.2);
+    border-bottom: 1px solid rgba(201, 162, 78, 0.2);
+    padding: 40px 0;
+}
+.parent-text {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.parent-text{
-    font-family:'Playfair Display', serif;
-    font-size:40px;
-    color:rgba(255,255,255,0.85);
-    letter-spacing:1px;
-    text-align:center;
-
-    margin:12px 0;
-    max-width:800px;
+.person-name {
+    font-size: 60px;
+    margin: 10px 0 30px;
+    color: #C9A24E;
+    letter-spacing: 2px;
 }
-
-.person-name{
-    font-family:'Great Vibes', cursive;
-    font-size:80px;
-    color:#C9A24E;
 
     text-align:center;
 
@@ -528,17 +517,21 @@
     justify-content:center;
 }
 
-.timer div{
-    background:rgba(201,162,78,0.08);
-    border:1px solid rgba(201,162,78,0.3);
-    padding:20px;
-    border-radius:15px;
-    min-width:90px;
-
-    box-shadow:
-        0 0 15px rgba(201,162,78,0.15);
+.timer-container {
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(201, 162, 78, 0.1);
 }
 
+.timer div {
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(201, 162, 78, 0.2);
+}
+
+.timer div:last-child { border-right: none; }
 .timer span{
     font-size:40px;
     display:block;
@@ -662,15 +655,13 @@
     margin-bottom:20px;
 }
 
-.location-btn{
-    display:inline-block;
-    padding:14px 30px;
-    border-radius:40px;
-    text-decoration:none;
-    color:#fff;
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;
-
+.location-btn, .action-btn, .rsvp-submit {
+    transition: all 0.4s ease;
+    border: 1px solid #C9A24E;
+    background: transparent;
+    color: #C9A24E;
+    padding: 15px 40px;
+}
     background:linear-gradient(135deg,#C9A24E,#8C6B2F);
     box-shadow:0 0 15px rgba(201,162,78,0.4);
     transition:0.3s;
@@ -696,16 +687,16 @@
     backdrop-filter:blur(10px);
 }
 
-.rsvp-input{
-    width:100%;
-    padding:15px;
-    border-radius:15px;
-    border:1px solid rgba(201,162,78,.3);
-    background:rgba(255,255,255,.05);
-    color:#fff;
-    font-size:16px;
-    margin-bottom:25px;
-    outline:none;
+{
+    background: #C9A24E;
+    color: #000;
+    box-shadow: 0 0 30px rgba(201, 162, 78, 0.4);
+}
+
+.rsvp-input {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    text-align: center;
 }
 
 .attendance-box{
@@ -970,19 +961,16 @@
     </section>
 
     <!-- NEXT / DETAILS & TIMER PAGE -->
-    <section id="nextPage">
-        <div class="stars">
-            <span></span><span></span><span></span><span></span><span></span>
-        </div>
+  <section id="nextPage">
+    <div class="lux-join-title">Our Wedding</div>
 
-        <div class="lux-join-title">JOIN OUR SPECIAL DAY</div>
-
-        <div class="family-info">
-            <p class="parent-text">Beloved daughter of Mr. and Mrs. W.A. Wickramasooriya Wijesundara</p>
-            <div class="person-name">Kaveesha</div>
-
-            <p class="parent-text">Beloved son of Mr. and Mrs. M. Saman Pushpakumara</p>
-            <div class="person-name">Sandaru</div>
+    <div class="family-info">
+        <p class="parent-text">Daughter of Mr. & Mrs. Wijesundara</p>
+        <div class="person-name">Kaveesha</div>
+        <p class="parent-text">Son of Mr. & Mrs. Saman Pushpakumara</p>
+        <div class="person-name">Sandaru</div>
+    </div>
+            
 
             <p class="invite-message">
                 A cordial invitation to join us in celebrating the union of two hearts
@@ -995,28 +983,14 @@
         </div>
 
         <div class="timer-container">
-            <h2 class="timer-title">SAVE THE DATE</h2>
-            <div class="timer">
-                <div>
-                    <span id="days">00</span>
-                    <small>Days</small>
-                </div>
-                <div>
-                    <span id="hours">00</span>
-                    <small>Hours</small>
-                </div>
-                <div>
-                    <span id="minutes">00</span>
-                    <small>Minutes</small>
-                </div>
-                <div>
-                    <span id="seconds">00</span>
-                    <small>Seconds</small>
-                </div>
-            </div>
-            <p class="timer-sub">05 November 2026</p>
+        <h2 class="timer-title" style="font-size: 24px; letter-spacing: 8px;">COUNTING DOWN</h2>
+        <div class="timer">
+            <div><span id="days">00</span><small>Days</small></div>
+            <div><span id="hours">00</span><small>Hours</small></div>
+            <div><span id="minutes">00</span><small>Minutes</small></div>
+            <div><span id="seconds">00</span><small>Seconds</small></div>
         </div>
-
+    </div>
        
 
     <!-- AGENDA PAGE -->
@@ -1085,13 +1059,13 @@
 
 <!-- RSVP PAGE -->
         <div class="rsvp-section">
-
-    <h2 class="section-title">Confirm Your Attendance</h2>
-
-    <div class="rsvp-card">
-
-        <input type="text" placeholder="Your Name" class="rsvp-input">
-
+        <div class="rsvp-card">
+            <h2 class="section-title" style="color:#C9A24E; margin-bottom: 20px;">RSVP</h2>
+            <input type="text" placeholder="Your Name" class="rsvp-input">
+            <!-- ... (Radio buttons and counters) ... -->
+            <button class="rsvp-submit" onclick="sendRSVP()">CONFIRM ATTENDANCE</button>
+        </div>
+    </div>
         <div class="attendance-box">
 
             <label class="radio-option">
@@ -1139,14 +1113,14 @@
 </div>
 
 <div class="action-section">
-    <h2 class="section-title" style="color: #C9A24E; margin-bottom: 20px;">Send Your Wishes</h2>
-    <textarea id="wishMessage" class="guestbook-textarea" placeholder="Leave a sweet message for the couple..."></textarea>
-    
-    <div>
-        <button class="action-btn" onclick="sendWish()">Send Wish via WhatsApp</button>
-        <button class="action-btn" onclick="shareInvite()">Share Invitation</button>
+        <h2 class="section-title" style="color: #C9A24E; margin-bottom: 20px;">WISHES & SHARING</h2>
+        <textarea id="wishMessage" class="guestbook-textarea" placeholder="Leave a sweet message for the couple..."></textarea>
+        <div style="display:flex; justify-content:center; gap: 10px;">
+            <button class="action-btn" onclick="sendWish()">SEND WISHES</button>
+            <button class="action-btn" onclick="shareInvite()">SHARE INVITE</button>
+        </div>
     </div>
-</div>
+
 
 
     <!-- TRANSITION OVERLAYS -->
