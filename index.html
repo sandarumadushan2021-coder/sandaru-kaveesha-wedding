@@ -1447,45 +1447,18 @@ function shareInvite() {
 
 
 
-function createSparkles(x,y){
+let lastSparkle = 0;
 
-    for(let i=0;i<8;i++){
+document.addEventListener("touchmove", (e) => {
+    const now = Date.now();
 
-        const sparkle=document.createElement("span");
-        sparkle.classList.add("sparkle");
+    if (now - lastSparkle < 80) return;
 
-        sparkle.innerHTML="✨";
+    lastSparkle = now;
 
-        sparkle.style.left=x+"px";
-        sparkle.style.top=y+"px";
-
-        const randomX=(Math.random()*120)-60;
-        const randomY=-(Math.random()*120+40);
-
-        sparkle.style.setProperty("--x",randomX+"px");
-        sparkle.style.setProperty("--y",randomY+"px");
-
-        document.body.appendChild(sparkle);
-
-        setTimeout(()=>{
-            sparkle.remove();
-        },1500);
-    }
-}
-
-/* Mobile Touch */
-document.addEventListener("touchstart",(e)=>{
-    const touch=e.touches[0];
-    createSparkles(touch.clientX,touch.clientY);
+    const t = e.touches[0];
+    createSparkles(t.clientX, t.clientY);
 });
-
-document.addEventListener("touchmove",(e)=>{
-    const touch=e.touches[0];
-    createSparkles(touch.clientX,touch.clientY);
-});
-
-
-
     </script>
 </body>
 </html>
