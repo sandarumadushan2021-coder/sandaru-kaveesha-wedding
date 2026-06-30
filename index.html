@@ -858,90 +858,37 @@
 
 
 /* ===== SPARKLE BASE ===== */
+body{
+    margin:0;
+    overflow:hidden;
+}
+
 .sparkle{
     position:fixed;
     color:#FFD700;
-    font-size:14px;
+    font-size:12px;
     pointer-events:none;
-    z-index:99999;
+    z-index:9999;
 
-    user-select:none;
-
-    /* ✨ LUXURY GOLD GLOW */
     text-shadow:
         0 0 6px #FFD700,
-        0 0 12px #FFD700,
-        0 0 24px #C9A24E,
-        0 0 40px rgba(201,162,78,0.9),
-        0 0 70px rgba(255,215,0,0.4);
+        0 0 12px rgba(255,215,0,0.6);
 
-    /* soft entrance */
-    animation:sparkleFloat 1.6s ease-out forwards;
+    animation:floatUp 0.9s ease-out forwards;
 }
 
-/* ===== FLOAT + FADE ANIMATION ===== */
-@keyframes sparkleFloat{
+@keyframes floatUp{
     0%{
-        opacity:0;
-        transform:translate(0,0) scale(0.3) rotate(0deg);
-        filter:blur(0px);
-    }
-
-    15%{
         opacity:1;
-    }
-
-    50%{
-        opacity:1;
-        filter:blur(0.2px);
+        transform:translate(0,0) scale(0.6);
     }
 
     100%{
         opacity:0;
         transform:
             translate(var(--x), var(--y))
-            scale(2)
-            rotate(220deg);
-        filter:blur(1.2px);
+            scale(1.2);
     }
-}
-
-/* ===== OPTIONAL GOLD GLOW RING ===== */
-.sparkle::before{
-    content:"";
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:30px;
-    height:30px;
-    transform:translate(-50%,-50%);
-    border-radius:50%;
-
-    background:radial-gradient(
-        circle,
-        rgba(255,215,0,0.35),
-        transparent 70%
-    );
-
-    animation:ringPulse 1.6s ease-out forwards;
-}
-
-/* ===== GLOW PULSE ===== */
-@keyframes ringPulse{
-    0%{
-        transform:translate(-50%,-50%) scale(0.3);
-        opacity:1;
-    }
-
-    100%{
-        transform:translate(-50%,-50%) scale(2.5);
-        opacity:0;
-    }
-}
-
-/* ===== EXTRA LUXURY (OPTIONAL BLUR LAYER) ===== */
-.sparkle.glow{
-    filter:blur(0.2px) brightness(1.2);
 }
         /* ================= TRANSITIONS ================= */
         .cloud-transition,
@@ -1446,52 +1393,33 @@ function shareInvite() {
 
 
 
-function createSparkles(x,y){
 
-    for(let i=0;i<4;i++){ /* 8 -> 4 for better performance */
+function createSparkles(x, y){
 
-        const sparkle=document.createElement("span");
-        sparkle.classList.add("sparkle");
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+    sparkle.innerHTML = "✨";
 
-        sparkle.innerHTML="✨";
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
 
-        sparkle.style.left=x+"px";
-        sparkle.style.top=y+"px";
+    const randomX = (Math.random() * 40) - 20;
+    const randomY = -(Math.random() * 60 + 20);
 
-        const randomX=(Math.random()*120)-60;
-        const randomY=-(Math.random()*120+40);
+    sparkle.style.setProperty("--x", randomX + "px");
+    sparkle.style.setProperty("--y", randomY + "px");
 
-        sparkle.style.setProperty("--x",randomX+"px");
-        sparkle.style.setProperty("--y",randomY+"px");
+    document.body.appendChild(sparkle);
 
-        document.body.appendChild(sparkle);
-
-        setTimeout(()=>{
-            sparkle.remove();
-        },1000);
-    }
+    setTimeout(() => {
+        sparkle.remove();
+    }, 900);
 }
 
-/* Mobile Touch Start */
-document.addEventListener("touchstart",(e)=>{
-    const touch=e.touches[0];
-    createSparkles(touch.clientX,touch.clientY);
-});
-
-/* Optimized Touch Move */
-let lastSparkle = 0;
-
-document.addEventListener("touchmove",(e)=>{
-
-    const now = Date.now();
-
-    if(now - lastSparkle < 80) return;
-
-    lastSparkle = now;
-
-    const touch = e.touches[0];
-    createSparkles(touch.clientX,touch.clientY);
-
+/* touch only */
+document.addEventListener("touchstart", (e) => {
+    const t = e.touches[0];
+    createSparkles(t.clientX, t.clientY);
 });
 
 
