@@ -1446,19 +1446,55 @@ function shareInvite() {
 
 
 
+function createSparkles(x,y){
 
+    for(let i=0;i<4;i++){ /* 8 -> 4 for better performance */
+
+        const sparkle=document.createElement("span");
+        sparkle.classList.add("sparkle");
+
+        sparkle.innerHTML="✨";
+
+        sparkle.style.left=x+"px";
+        sparkle.style.top=y+"px";
+
+        const randomX=(Math.random()*120)-60;
+        const randomY=-(Math.random()*120+40);
+
+        sparkle.style.setProperty("--x",randomX+"px");
+        sparkle.style.setProperty("--y",randomY+"px");
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(()=>{
+            sparkle.remove();
+        },1000);
+    }
+}
+
+/* Mobile Touch Start */
+document.addEventListener("touchstart",(e)=>{
+    const touch=e.touches[0];
+    createSparkles(touch.clientX,touch.clientY);
+});
+
+/* Optimized Touch Move */
 let lastSparkle = 0;
 
-document.addEventListener("touchmove", (e) => {
+document.addEventListener("touchmove",(e)=>{
+
     const now = Date.now();
 
-    if (now - lastSparkle < 80) return;
+    if(now - lastSparkle < 80) return;
 
     lastSparkle = now;
 
-    const t = e.touches[0];
-    createSparkles(t.clientX, t.clientY);
+    const touch = e.touches[0];
+    createSparkles(touch.clientX,touch.clientY);
+
 });
+
+
     </script>
 </body>
 </html>
