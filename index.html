@@ -29,39 +29,73 @@
         }
 
         /* ================= HOME PAGE (PX CONFIGURATION) ================= */
-        .home-container h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 35px; 
-            color: #F5F5F2;
-            letter-spacing: 2px;
-            margin: 0;
-            text-align: center;
-        }
+        .envelope{
+    position:relative;
+    width:280px;
+    height:180px;
+    cursor:pointer;
+    margin-top:20px;
+}
 
-        .home-container .names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 37px; 
-            color: #C9A24E;
-            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px; 
-            flex-wrap: wrap; 
-            margin: 0;
-            width: 100%;
-            max-width: 100%;
-            text-align: center;
-        }
+.envelope-body{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:120px;
+    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
+    border-radius:0 0 12px 12px;
+    z-index:2;
+}
 
-        .home-container .ring {
-            width: 36px; 
-            height: auto;
-            opacity: 0;
-            transform: scale(0.6);
-            animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
-            flex-shrink: 0;
-        }
+.envelope-flap{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:120px;
+    background:linear-gradient(135deg,#D8B76A,#A67C2E);
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    transition:1s ease;
+
+    z-index:3;
+}
+
+.letter{
+    position:absolute;
+    left:50%;
+    top:40px;
+
+    transform:translateX(-50%);
+    width:240px;
+    height:120px;
+
+    background:#fffdf7;
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:#8C6B2F;
+
+    transition:1s ease;
+    z-index:1;
+}
+
+.letter h3{
+    font-family:'Cinzel',serif;
+    margin-bottom:8px;
+}
+
+.envelope.open .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+    transform:translateX(-50%) translateY(-80px);
+}
         
         /* ================= INVITE PAGE (SIMPLE PX CONFIG) ================= */
         .lux-title {
@@ -962,19 +996,15 @@
 <body>
 
     <!-- HOME PAGE -->
-    <section id="home" class="active">
-        <div class="home-container">
-            <h1>The Wedding of</h1>
-            <div class="names">
-                <span class="name">Sandaru</span>
-                <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png" loading="eager" decoding="sync" alt="ring">
-                <span class="name">Kaveesha</span>
-            </div>
-            <div class="btn-wrapper">
-                <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
-                <div class="btn-hint">👆 TAP TO BEGIN</div>
-            </div>
-        </div>
+    <div class="envelope" onclick="openInvite()">
+    <div class="envelope-flap"></div>
+    <div class="envelope-body"></div>
+
+    <div class="letter">
+        <h3>Wedding Invitation</h3>
+        <p>Tap to Open</p>
+    </div>
+</div>
         <audio id="bgMusic" loop>
             <source src="khuda jaane.webm" type="audio/webm">
         </audio>
@@ -1191,24 +1221,31 @@
         };
 
         function openInvite(){
-            const cloud = document.getElementById("cloudTransition");
-            const music = document.getElementById("bgMusic");
 
-            cloud.classList.add("active");
+    const envelope =
+        document.querySelector(".envelope");
 
-            music.volume = 0.6;
-            music.play().catch(err => {
-                console.log("Autoplay blocked or audio file missing:", err);
-            });
+    envelope.classList.add("open");
 
-            setTimeout(()=>{
-                switchPage("invite");
-            },600);
+    setTimeout(()=>{
 
-            setTimeout(()=>{
-                cloud.classList.remove("active");
-            },1200);
-        }
+        const cloud =
+            document.getElementById("cloudTransition");
+
+        const music =
+            document.getElementById("bgMusic");
+
+        cloud.classList.add("active");
+
+        music.volume = 0.6;
+        music.play();
+
+        setTimeout(()=>{
+            switchPage("invite");
+        },600);
+
+    },1200);
+}
 
         function scrollToNext(){
             const gold = document.getElementById("goldTransition");
