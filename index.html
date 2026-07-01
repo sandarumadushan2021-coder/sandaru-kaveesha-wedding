@@ -329,32 +329,105 @@
 }
 
 .lux-join-title{
-    font-family:'Cinzel', serif;
-    font-size:50px;
-    letter-spacing:10px;
-    text-transform:uppercase;
-
-    margin-top:20px;
-    margin-bottom:30px;
-    text-align:center;
-
-    color:#C9A24E;
     position:relative;
+    display:inline-block;
+    overflow:visible;
+}
 
-    background: linear-gradient(
-        90deg,
-        #b38b2d,
-        #f7e7a6,
-        #c9a24e,
-        #f7e7a6,
-        #b38b2d
-    );
-    background-size:200% auto;
+/* Butterfly */
+.lux-join-title::before{
+    content:"🦋";
+    position:absolute;
+    font-size:24px;
+    top:50%;
+    left:-40px;
 
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    filter:
+        drop-shadow(0 0 8px rgba(201,162,78,.9))
+        drop-shadow(0 0 15px rgba(201,162,78,.6));
 
-    animation: shimmerMove 3s linear infinite;
+    animation:
+        butterflyFly 8s linear infinite,
+        butterflyFlap .4s ease-in-out infinite alternate;
+
+    z-index:2;
+}
+
+/* Sparkles */
+.lux-join-title::after{
+    content:"✦ ✧ ✦ ✧ ✦";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:180%;
+    color:#FFD700;
+    font-size:12px;
+    letter-spacing:18px;
+    opacity:.7;
+    pointer-events:none;
+
+    text-shadow:
+        0 0 8px #FFD700,
+        0 0 15px rgba(255,215,0,.7);
+
+    animation:starTwinkle 2s ease-in-out infinite;
+}
+
+/* Butterfly circle movement */
+@keyframes butterflyFly{
+    0%{
+        left:-50px;
+        top:50%;
+        transform:translateY(-50%) rotate(0deg);
+    }
+
+    25%{
+        left:30%;
+        top:-25px;
+        transform:rotate(15deg);
+    }
+
+    50%{
+        left:calc(100% + 20px);
+        top:50%;
+        transform:translateY(-50%) rotate(0deg);
+    }
+
+    75%{
+        left:30%;
+        top:100%;
+        transform:rotate(-15deg);
+    }
+
+    100%{
+        left:-50px;
+        top:50%;
+        transform:translateY(-50%) rotate(0deg);
+    }
+}
+
+/* Wing flap effect */
+@keyframes butterflyFlap{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.15);
+    }
+}
+
+/* Stars twinkle */
+@keyframes starTwinkle{
+    0%,100%{
+        opacity:.3;
+        transform:translate(-50%,-50%) scale(0.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1.1);
+    }
 }
 
 @keyframes shimmerMove {
