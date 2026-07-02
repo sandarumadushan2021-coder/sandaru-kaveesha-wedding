@@ -671,44 +671,41 @@
     margin-bottom:20px;
 }
 
-.location-btn{
-    display:inline-block;
-    padding:14px 30px;
-    border-radius:40px;
-    text-decoration:none;
-    color:#fff;
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;
-
-    background:linear-gradient(135deg,#C9A24E,#8C6B2F);
-    box-shadow:0 0 15px rgba(201,162,78,0.4);
-    transition:0.3s;
+/* බොත්තම් දෙක එක පෙළට තැබීමට */
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* බොත්තම් දෙක අතර පරතරය */
+    margin-top: 20px;
 }
 
-.location-btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 25px rgba(201,162,78,0.6);
-}
-/* Calendar Button Style */
-.calendar-btn {
-    display: inline-block;
-    padding: 14px 30px;
-    margin-top: 15px; /* බොත්තම් දෙක අතර පරතරය */
-    border-radius: 40px;
+/* කුඩා බොත්තම් සඳහා සාමාන්‍ය මෝස්තරය */
+.small-btn {
+    padding: 10px 15px; /* ප්‍රමාණය කුඩා කර ඇත */
+    border-radius: 30px;
     text-decoration: none;
     color: #fff;
     font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, #8C6B2F, #C9A24E);
-    box-shadow: 0 0 15px rgba(201,162,78,0.4);
+    letter-spacing: 1px;
+    font-size: 11px; /* අකුරු ප්‍රමාණය කුඩා කර ඇත */
+    background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+    box-shadow: 0 0 10px rgba(201,162,78,0.3);
     transition: 0.3s;
-    font-size: 14px;
 }
 
-.calendar-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(201,162,78,0.6);
+.small-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(201,162,78,0.5);
 }
+
+/* ජංගම දුරකථන තිර සඳහා බොත්තම් දෙකම එක පේළියේ පෙන්වීමට */
+@media (max-width: 400px) {
+    .btn-group {
+        flex-direction: column; /* අවශ්‍ය නම් පේළි දෙකකට සැකසිය හැක */
+        gap: 10px;
+    }
+}
+
 
         .rsvp-section{
     width:100%;
@@ -1116,39 +1113,19 @@
 
     <!-- LOCATION SECTION -->
 <div class="location-section">
-
     <h2 class="location-title">WEDDING VENUE</h2>
-
     <div class="location-card">
-
-   
-
         <h3 class="venue-name">Royal Dream Palace</h3>
+        <p class="venue-address">Urapola, Sri Lanka</p>
+        <p class="venue-note">A beautiful place where our journey begins ❤️</p>
 
-        <p class="venue-address">
-            Urapola, Sri Lanka
-        </p>
-
-        <p class="venue-note">
-            A beautiful place where our journey begins ❤️
-        </p>
-
-        <!-- BUTTON -->
-        <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9"
-           target="_blank"
-           class="location-btn">
-            📍 VIEW LOCATION
-        </a>
-
+        <!-- බොත්තම් දෙක මෙතැනට -->
+        <div class="btn-group">
+            <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9" target="_blank" class="small-btn">📍 LOCATION</a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml" target="_blank" class="small-btn">📅 CALENDAR</a>
+        </div>
     </div>
-
 </div>
-<!-- View Location Button එකට පසුව මෙය එක් කරන්න -->
-<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml" 
-   target="_blank" 
-   class="calendar-btn">
-   📅 ADD TO CALENDAR
-</a>
 
 
 <!-- RSVP PAGE -->
