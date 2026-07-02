@@ -559,63 +559,97 @@
 }
 
 
-        /* ================= AGENDA PAGE ================= */
-        #agendaPage{
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: radial-gradient(circle, #111, #000);
-            color: #fff;
-            font-family: 'Cinzel', serif;
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
-
-        .agenda-title{
-            color: #C9A24E;
-            font-size: 30px;
-            letter-spacing: 6px;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(201,162,78,.7), 0 0 25px rgba(201,162,78,.4);
-        }
-
-        .agenda-list{
-            width: 100%;
-            max-width: 700px;
-            margin-bottom: 30px;
-        }
-
-        .agenda-item {
-    display: flex;
-    justify-content: space-between;
+        /* ================= AGENDA PAGE (TIMELINE STRUCTURE) ================= */
+#agendaPage {
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    border-radius: 15px;
-    border: 1px solid rgba(201,162,78,.25);
-    background: rgba(255,255,255,.03);
-    gap: 15px;
-}
-
-.agenda-time {
-    color: #C9A24E;
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px; /* අයිකනය සහ වේලාව අතර පරතරය */
-}
-
-.agenda-time i {
-    width: 25px; /* අයිකන සියල්ල එකම ප්‍රමාණයක තබා ගැනීමට */
-    text-align: center;
-}
-
-.agenda-topic {
+    background: radial-gradient(circle, #111, #000);
     color: #fff;
-    font-size: 16px;
+    font-family: 'Cinzel', serif;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 100vh;
 }
 
+.agenda-title {
+    color: #C9A24E;
+    font-size: 36px;
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(201,162,78,.7);
+}
+
+.agenda-list {
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 10px;
+}
+
+/* මැදින් යන රේඛාව */
+.agenda-list::before {
+    content: '';
+    position: absolute;
+    left: 40px; /* අයිකන් එකේ මැදට රේඛාව ගැලපීමට */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #C9A24E;
+    opacity: 0.5;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border: 2px solid #C9A24E;
+    color: #C9A24E;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+.timeline-content {
+    margin-left: 20px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.time-badge {
+    background: rgba(201,162,78,0.2);
+    color: #C9A24E;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
+}
+
+.timeline-content h3 {
+    color: #fff;
+    margin: 8px 0 5px 0;
+    font-size: 18px;
+    font-family: 'Cinzel', serif;
+}
+
+.timeline-content p {
+    color: #aaa;
+    font-size: 14px;
+    margin: 0;
+}
 
 
 .location-section{
@@ -1087,32 +1121,36 @@
     <!-- AGENDA PAGE -->
      <div class="agenda-wrapper" style="width: 100%; margin-top: 50px;">
         <h2 class="agenda-title">Wedding Agenda</h2>
-        <div class="agenda-list">
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-door-open"></i> 09:00 AM</span>
-        <span class="agenda-topic">Guest Arrival & Welcome</span>
+        <div class="timeline">
+    <!-- Item 1 -->
+    <div class="timeline-item">
+        <div class="timeline-icon"><i class="fa-solid fa-door-open"></i></div>
+        <div class="timeline-content">
+            <span class="time-badge">09:00 AM</span>
+            <h3>Guest Arrival</h3>
+            <p>Welcome and reception</p>
+        </div>
     </div>
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-people-roof"></i> 09:30 AM</span>
-        <span class="agenda-topic">Traditional Poruwa Ceremony</span>
+    <!-- Item 2 -->
+    <div class="timeline-item">
+        <div class="timeline-icon"><i class="fa-solid fa-people-roof"></i></div>
+        <div class="timeline-content">
+            <span class="time-badge">09:30 AM</span>
+            <h3>Poruwa Ceremony</h3>
+            <p>Traditional ritual</p>
+        </div>
     </div>
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-ring"></i> 10:15 AM</span>
-        <span class="agenda-topic">Exchange of Rings</span>
-    </div>
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-file-signature"></i> 10:45 AM</span>
-        <span class="agenda-topic">Signing of Marriage Certificate</span>
-    </div>
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-utensils"></i> 11:30 AM</span>
-        <span class="agenda-topic">Wedding Lunch Reception</span>
-    </div>
-    <div class="agenda-item">
-        <span class="agenda-time"><i class="fa-solid fa-camera-retro"></i> 01:00 PM</span>
-        <span class="agenda-topic">Cake Cutting & Group Photography</span>
+    <!-- Item 3 -->
+    <div class="timeline-item">
+        <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
+        <div class="timeline-content">
+            <span class="time-badge">10:15 AM</span>
+            <h3>Exchange of Rings</h3>
+            <p>Vows and rings</p>
+        </div>
     </div>
 </div>
+
 
 
 
