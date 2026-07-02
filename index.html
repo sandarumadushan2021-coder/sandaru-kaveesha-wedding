@@ -559,24 +559,25 @@
 }
 
 
-        /* ================= AGENDA PAGE (DAY PROGRAM - TIMELINE) ================= */
+        /* ================================================== 
+   AGENDA PAGE (DAY PROGRAM) - FULL CSS 
+   ================================================== */
+
 #agendaPage {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     background: radial-gradient(circle, #111, #000);
     color: #fff;
     font-family: 'Cinzel', serif;
-    padding-top: 20px;
-    padding-bottom: 40px;
-    min-height: 100vh;
-    display: flex;
+    padding: 30px 0;
+    min-height: auto;
 }
 
 .program-title {
     color: #C9A24E !important;
-    font-size: 32px;
-    letter-spacing: 5px;
+    font-size: 28px;
+    letter-spacing: 4px;
     margin-bottom: 5px;
     text-shadow: 0 0 10px rgba(201,162,78,.5);
     text-align: center;
@@ -585,11 +586,11 @@
 .program-subtitle {
     color: #fff;
     opacity: 0.8;
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin-bottom: 25px;
     font-family: 'Playfair Display', serif;
-    letter-spacing: 1px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
 .agenda-list {
@@ -597,26 +598,26 @@
     max-width: 400px;
     width: 90%;
     margin: 0 auto;
-    padding-left: 0px;
 }
 
 /* මැදින් යන රන්වන් රේඛාව */
 .agenda-list::before {
     content: '';
     position: absolute;
-    left: 29px; /* අයිකන් එකේ මැදට රේඛාව ගැලපීමට */
-    top: 0;
-    bottom: 0;
+    left: 29px;
+    top: 5px;
+    bottom: 20px;
     width: 2px;
     background: #C9A24E;
-    opacity: 1; /* තද වර්ණයෙන් පෙනීමට 1 කළා */
+    z-index: 1;
 }
 
 .timeline-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     position: relative;
+    z-index: 2;
 }
 
 .timeline-icon {
@@ -629,13 +630,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
     flex-shrink: 0;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .timeline-content {
-    margin-left: 20px;
+    margin-left: 15px;
     text-align: left;
     padding-top: 5px;
 }
@@ -643,28 +643,26 @@
 .time-badge {
     background: rgba(201,162,78,0.2);
     color: #C9A24E;
-    padding: 4px 10px;
-    border-radius: 5px;
-    font-size: 11px;
-    letter-spacing: 1px;
-    font-family: 'Cinzel', serif;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .timeline-content h3 {
     color: #fff;
-    margin: 0 0 5px 0;
-    font-size: 18px;
+    margin: 0;
+    font-size: 16px;
     font-family: 'Cinzel', serif;
 }
 
 .timeline-content p {
     color: #aaa;
-    font-size: 14px;
+    font-size: 13px;
     margin: 0;
 }
-
 
 
 .location-section{
@@ -1134,47 +1132,66 @@
        
 
     <!-- AGENDA PAGE -->
-     <div class="agenda-wrapper" style="width: 100%; margin-top: 50px;">
-        <div id="agendaPage" class="section">
-    <!-- නව මාතෘකා කොටස -->
+     <section id="agendaPage">
     <h2 class="program-title">Day Program</h2>
     <p class="program-subtitle">What we have prepared for you</p>
 
-    
-    </div>
-</div>
-
-        <div class="timeline">
-    <!-- Item 1 -->
-    <div class="timeline-item">
-        <div class="timeline-icon"><i class="fa-solid fa-door-open"></i></div>
-        <div class="timeline-content">
-            <span class="time-badge">09:00 AM</span>
-            <h3>Guest Arrival</h3>
-            <p>Welcome and reception</p>
+    <div class="agenda-list">
+        <!-- Item 1 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-door-open"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">09:00 AM</span>
+                <h3>Guest Arrival</h3>
+                <p>Welcome and reception</p>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">09:30 AM</span>
+                <h3>Poruwa Ceremony</h3>
+                <p>Traditional ritual</p>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">10:15 AM</span>
+                <h3>Exchange of Rings</h3>
+                <p>Vows and rings</p>
+            </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">11:00 AM</span>
+                <h3>Cocktail Hour</h3>
+                <p>Drinks and appetizers</p>
+            </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">12:30 PM</span>
+                <h3>Lunch Reception</h3>
+                <p>Wedding banquet</p>
+            </div>
+        </div>
+        <!-- Item 6 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-cake-candles"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">02:00 PM</span>
+                <h3>Cake Cutting</h3>
+                <p>Celebrating together</p>
+            </div>
         </div>
     </div>
-    <!-- Item 2 -->
-    <div class="timeline-item">
-        <div class="timeline-icon"><i class="fa-solid fa-people-roof"></i></div>
-        <div class="timeline-content">
-            <span class="time-badge">09:30 AM</span>
-            <h3>Poruwa Ceremony</h3>
-            <p>Traditional ritual</p>
-        </div>
-    </div>
-    <!-- Item 3 -->
-    <div class="timeline-item">
-        <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
-        <div class="timeline-content">
-            <span class="time-badge">10:15 AM</span>
-            <h3>Exchange of Rings</h3>
-            <p>Vows and rings</p>
-        </div>
-    </div>
-</div>
-
-
 
 
 
