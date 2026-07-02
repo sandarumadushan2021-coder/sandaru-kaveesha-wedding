@@ -559,7 +559,7 @@
 }
 
 
-        /* ================= AGENDA PAGE (TIMELINE STRUCTURE) ================= */
+        /* ================= AGENDA PAGE (DAY PROGRAM - TIMELINE) ================= */
 #agendaPage {
     flex-direction: column;
     justify-content: flex-start;
@@ -567,56 +567,55 @@
     background: radial-gradient(circle, #111, #000);
     color: #fff;
     font-family: 'Cinzel', serif;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 40px;
     min-height: 100vh;
+    display: flex;
 }
 
-./* Day Program Title */
 .program-title {
-    color: #C9A24E;
-    font-size: 40px; /* අකුරු ප්‍රමාණය තරමක් විශාල කළා */
+    color: #C9A24E !important;
+    font-size: 32px;
     letter-spacing: 5px;
-    margin-bottom: 5px; /* පහළ මාතෘකාවට ළං කිරීමට */
+    margin-bottom: 5px;
     text-shadow: 0 0 10px rgba(201,162,78,.5);
-    font-family: 'Cinzel', serif;
+    text-align: center;
 }
 
-/* What we have prepared for you subtitle */
 .program-subtitle {
     color: #fff;
     opacity: 0.8;
-    font-size: 16px;
-    margin-bottom: 40px;
+    font-size: 14px;
+    margin-bottom: 20px;
     font-family: 'Playfair Display', serif;
     letter-spacing: 1px;
+    text-align: center;
 }
-
 
 .agenda-list {
     position: relative;
     max-width: 400px;
     width: 90%;
     margin: 0 auto;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
-/* මැදින් යන රේඛාව */
+/* මැදින් යන රන්වන් රේඛාව */
 .agenda-list::before {
     content: '';
     position: absolute;
-    left: 40px; /* අයිකන් එකේ මැදට රේඛාව ගැලපීමට */
+    left: 29px; /* අයිකන් එකේ මැදට රේඛාව ගැලපීමට */
     top: 0;
     bottom: 0;
     width: 2px;
     background: #C9A24E;
-    opacity: 0.5;
+    opacity: 1; /* තද වර්ණයෙන් පෙනීමට 1 කළා */
 }
 
 .timeline-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     position: relative;
 }
 
@@ -624,8 +623,8 @@
     width: 60px;
     height: 60px;
     background: #000;
-    border: 2px solid #C9A24E;
-    color: #C9A24E;
+    border: 2px solid #C9A24E !important;
+    color: #C9A24E !important;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -649,11 +648,13 @@
     font-size: 11px;
     letter-spacing: 1px;
     font-family: 'Cinzel', serif;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .timeline-content h3 {
     color: #fff;
-    margin: 8px 0 5px 0;
+    margin: 0 0 5px 0;
     font-size: 18px;
     font-family: 'Cinzel', serif;
 }
@@ -663,6 +664,7 @@
     font-size: 14px;
     margin: 0;
 }
+
 
 
 .location-section{
