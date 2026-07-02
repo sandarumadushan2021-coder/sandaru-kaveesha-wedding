@@ -671,8 +671,7 @@
     margin-bottom:20px;
 }
 
-/* බොත්තම් දෙක එක පෙළට තැබීමට */
-/* බොත්තම් දෙකේ පරතරය වැඩි කිරීමට */
+
 .btn-group {
     display: flex;
     justify-content: center;
@@ -680,21 +679,23 @@
     margin-top: 25px;
 }
 
-/* බොත්තම් වල පළල තවත් අඩු කිරීමට */
+
 .small-btn {
-    padding: 8px 12px; /* වම් සහ දකුණු පැත්තේ padding එක අඩු කර බොත්තම කුඩා කර ඇත */
-    border-radius: 30px;
+    padding: 6px 8px;      /* ඇතුළත ඉඩ තවදුරටත් අඩු කළා */
+    border-radius: 20px;   /* කොන් වල වටකුරු බව තරමක් අඩු කළා */
     text-decoration: none;
     color: #fff;
     font-family: 'Cinzel', serif;
-    letter-spacing: 1px;
-    font-size: 10px; /* අකුරු ප්‍රමාණය තවත් කුඩා කර ඇත */
+    letter-spacing: 0.5px; /* අකුරු අතර පරතරය තරමක් අඩු කළා */
+    font-size: 9px;        /* අකුරු ප්‍රමාණය තවදුරටත් කුඩා කළා */
     background: linear-gradient(135deg, #C9A24E, #8C6B2F);
     box-shadow: 0 0 10px rgba(201,162,78,0.3);
     transition: 0.3s;
     text-align: center;
-    min-width: 100px; /* බොත්තමේ අවම පළල සීමා කිරීම */
+    min-width: 80px;       /* බොත්තමේ අවම පළල 80px දක්වා අඩු කළා */
+    display: inline-block;
 }
+
 
 .small-btn:hover {
     transform: translateY(-2px);
