@@ -573,7 +573,7 @@
 
         .agenda-title{
             color: #C9A24E;
-            font-size: 36px;
+            font-size: 30px;
             letter-spacing: 6px;
             margin-bottom: 30px;
             text-shadow: 0 0 10px rgba(201,162,78,.7), 0 0 25px rgba(201,162,78,.4);
@@ -627,7 +627,7 @@
 
 .location-title{
     font-family:'Cinzel',serif;
-    font-size:34px;
+    font-size:25px;
     letter-spacing:6px;
     margin-bottom:25px;
     color:#C9A24E;
@@ -680,21 +680,24 @@
 }
 
 
+/* බොත්තම් වල පළල තවදුරටත් අඩු කිරීමට */
 .small-btn {
-    padding: 6px 8px;      /* ඇතුළත ඉඩ තවදුරටත් අඩු කළා */
-    border-radius: 20px;   /* කොන් වල වටකුරු බව තරමක් අඩු කළා */
+    padding: 8px 4px;      /* උස (8px) එලෙසම තබා, පළල (4px) ඉතා අඩු කළා */
+    border-radius: 20px;   
     text-decoration: none;
     color: #fff;
     font-family: 'Cinzel', serif;
-    letter-spacing: 0.5px; /* අකුරු අතර පරතරය තරමක් අඩු කළා */
-    font-size: 9px;        /* අකුරු ප්‍රමාණය තවදුරටත් කුඩා කළා */
+    letter-spacing: 0px; 
+    font-size: 9px;        
     background: linear-gradient(135deg, #C9A24E, #8C6B2F);
     box-shadow: 0 0 10px rgba(201,162,78,0.3);
     transition: 0.3s;
     text-align: center;
-    min-width: 80px;       /* බොත්තමේ අවම පළල 80px දක්වා අඩු කළා */
+    min-width: 70px;       /* පළල තවත් අඩු කළා */
     display: inline-block;
+    white-space: nowrap;   /* අකුරු පේළි දෙකකට යෑම වළක්වයි */
 }
+
 
 
 .small-btn:hover {
@@ -1126,8 +1129,8 @@
 
         <!-- බොත්තම් දෙක මෙතැනට -->
         <div class="btn-group">
-            <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9" target="_blank" class="small-btn">📍 LOCATION</a>
-            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml" target="_blank" class="small-btn">📅 CALENDAR</a>
+            <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9" target="_blank" class="small-btn">📍 VIEW LOCATION</a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml" target="_blank" class="small-btn">📅 ADD TO CALENDAR</a>
         </div>
     </div>
 </div>
