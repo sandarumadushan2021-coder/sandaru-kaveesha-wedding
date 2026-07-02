@@ -11,6 +11,9 @@
     <!-- PRELOAD RING IMAGE -->
     <link rel="preload" as="image" href="—Pngtree—beautiful gold wedding rings png_6499014.png">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
     <style>
         /* ================= GENERAL STYLES ================= */
         *{
@@ -582,31 +585,37 @@
             margin-bottom: 30px;
         }
 
-        .agenda-item{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            border-radius: 15px;
-            border: 1px solid rgba(201,162,78,.25);
-            background: rgba(255,255,255,.03);
-            gap: 15px;
-            text-align: left;
-        }
+        .agenda-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(201,162,78,.25);
+    background: rgba(255,255,255,.03);
+    gap: 15px;
+}
 
-        .agenda-time{
-            color: #C9A24E;
-            font-size: 18px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
+.agenda-time {
+    color: #C9A24E;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* අයිකනය සහ වේලාව අතර පරතරය */
+}
 
-        .agenda-topic{
-            color: #fff;
-            font-size: 16px;
-            text-align: right;
-        }
+.agenda-time i {
+    width: 25px; /* අයිකන සියල්ල එකම ප්‍රමාණයක තබා ගැනීමට */
+    text-align: center;
+}
+
+.agenda-topic {
+    color: #fff;
+    font-size: 16px;
+}
+
 
 
 .location-section{
@@ -1074,31 +1083,32 @@
      <div class="agenda-wrapper" style="width: 100%; margin-top: 50px;">
         <h2 class="agenda-title">Wedding Agenda</h2>
         <div class="agenda-list">
-            <div class="agenda-item">
-                <span class="agenda-time">09:00 AM</span>
-                <span class="agenda-topic">Guest Arrival & Welcome</span>
-            </div>
-            <div class="agenda-item">
-                <span class="agenda-time">09:30 AM</span>
-                <span class="agenda-topic">Traditional Poruwa Ceremony</span>
-            </div>
-            <div class="agenda-item">
-                <span class="agenda-time">10:15 AM</span>
-                <span class="agenda-topic">Exchange of Rings</span>
-            </div>
-            <div class="agenda-item">
-                <span class="agenda-time">10:45 AM</span>
-                <span class="agenda-topic">Signing of Marriage Certificate</span>
-            </div>
-            <div class="agenda-item">
-                <span class="agenda-time">11:30 AM</span>
-                <span class="agenda-topic">Wedding Lunch Reception</span>
-            </div>
-            <div class="agenda-item">
-                <span class="agenda-time">01:00 PM</span>
-                <span class="agenda-topic">Cake Cutting & Group Photography</span>
-            </div>
-        </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-door-open"></i> 09:00 AM</span>
+        <span class="agenda-topic">Guest Arrival & Welcome</span>
+    </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-people-roof"></i> 09:30 AM</span>
+        <span class="agenda-topic">Traditional Poruwa Ceremony</span>
+    </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-ring"></i> 10:15 AM</span>
+        <span class="agenda-topic">Exchange of Rings</span>
+    </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-file-signature"></i> 10:45 AM</span>
+        <span class="agenda-topic">Signing of Marriage Certificate</span>
+    </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-utensils"></i> 11:30 AM</span>
+        <span class="agenda-topic">Wedding Lunch Reception</span>
+    </div>
+    <div class="agenda-item">
+        <span class="agenda-time"><i class="fa-solid fa-camera-retro"></i> 01:00 PM</span>
+        <span class="agenda-topic">Cake Cutting & Group Photography</span>
+    </div>
+</div>
+
 
 
 
