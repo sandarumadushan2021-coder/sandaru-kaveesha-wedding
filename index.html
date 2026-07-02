@@ -572,13 +572,26 @@
     min-height: 100vh;
 }
 
-.agenda-title {
+./* Day Program Title */
+.program-title {
     color: #C9A24E;
-    font-size: 36px;
-    letter-spacing: 6px;
-    margin-bottom: 40px;
-    text-shadow: 0 0 10px rgba(201,162,78,.7);
+    font-size: 40px; /* අකුරු ප්‍රමාණය තරමක් විශාල කළා */
+    letter-spacing: 5px;
+    margin-bottom: 5px; /* පහළ මාතෘකාවට ළං කිරීමට */
+    text-shadow: 0 0 10px rgba(201,162,78,.5);
+    font-family: 'Cinzel', serif;
 }
+
+/* What we have prepared for you subtitle */
+.program-subtitle {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 16px;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+}
+
 
 .agenda-list {
     position: relative;
@@ -1120,7 +1133,15 @@
 
     <!-- AGENDA PAGE -->
      <div class="agenda-wrapper" style="width: 100%; margin-top: 50px;">
-        <h2 class="agenda-title">Wedding Agenda</h2>
+        <div id="agendaPage" class="section">
+    <!-- නව මාතෘකා කොටස -->
+    <h2 class="program-title">Day Program</h2>
+    <p class="program-subtitle">What we have prepared for you</p>
+
+    
+    </div>
+</div>
+
         <div class="timeline">
     <!-- Item 1 -->
     <div class="timeline-item">
