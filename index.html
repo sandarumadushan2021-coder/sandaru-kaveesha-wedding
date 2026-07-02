@@ -672,31 +672,35 @@
 }
 
 /* බොත්තම් දෙක එක පෙළට තැබීමට */
+/* බොත්තම් දෙකේ පරතරය වැඩි කිරීමට */
 .btn-group {
     display: flex;
     justify-content: center;
-    gap: 10px; /* බොත්තම් දෙක අතර පරතරය */
-    margin-top: 20px;
+    gap: 30px; /* මෙහි අගය වැඩි කිරීමෙන් බොත්තම් දෙක අතර ඉඩ වැඩි වේ */
+    margin-top: 25px;
 }
 
-/* කුඩා බොත්තම් සඳහා සාමාන්‍ය මෝස්තරය */
+/* බොත්තම් වල පළල තවත් අඩු කිරීමට */
 .small-btn {
-    padding: 10px 15px; /* ප්‍රමාණය කුඩා කර ඇත */
+    padding: 8px 12px; /* වම් සහ දකුණු පැත්තේ padding එක අඩු කර බොත්තම කුඩා කර ඇත */
     border-radius: 30px;
     text-decoration: none;
     color: #fff;
     font-family: 'Cinzel', serif;
     letter-spacing: 1px;
-    font-size: 11px; /* අකුරු ප්‍රමාණය කුඩා කර ඇත */
+    font-size: 10px; /* අකුරු ප්‍රමාණය තවත් කුඩා කර ඇත */
     background: linear-gradient(135deg, #C9A24E, #8C6B2F);
     box-shadow: 0 0 10px rgba(201,162,78,0.3);
     transition: 0.3s;
+    text-align: center;
+    min-width: 100px; /* බොත්තමේ අවම පළල සීමා කිරීම */
 }
 
 .small-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 15px rgba(201,162,78,0.5);
 }
+
 
 /* ජංගම දුරකථන තිර සඳහා බොත්තම් දෙකම එක පේළියේ පෙන්වීමට */
 @media (max-width: 400px) {
