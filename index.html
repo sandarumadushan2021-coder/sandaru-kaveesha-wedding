@@ -3,386 +3,1524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adele & Oliver - Digital Invitation</title>
+    <title>Wedding Invitation</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght=400;600&family=Cinzel:wght=400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts (Exact Matching Typography) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- PRELOAD RING IMAGE -->
+    <link rel="preload" as="image" href="—Pngtree—beautiful gold wedding rings png_6499014.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <style>
-        /* ==========================================================================
-           1. CORE & RESET (වීඩියෝවේ සිරස් Mobile පෙනුම)
-           ========================================================================== */
-        * {
+        /* ================= GENERAL STYLES ================= */
+        *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            background-color: #3f4740; /* Dark premium backdrop */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            perspective: 1800px; /* 3D Realism */
-            overflow: hidden;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Mobile Container Size (9:16 Aspect Ratio) */
-        .invitation-container {
-            position: relative;
-            width: 360px;
-            height: 640px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-            background: #F9F6F0; /* Soft Watercolor Cream */
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* ==========================================================================
-           2. 100% EXACT 3D ENVELOPE (හතර පැත්තට දිගහැරෙන කවරය)
-           ========================================================================== */
-        .envelope-wrapper {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #6a796b; /* Sage Green */
-            z-index: 10;
-            transform-style: preserve-3d;
-            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* කොළ වැල් රටාව (Embossed Floral Texture Background) */
-        .envelope-wrapper::before {
-            content: '';
-            position: absolute;
-            width: 100%; height: 100%;
-            opacity: 0.15;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30,20 Q40,10 50,20 T70,20' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E");
-            background-size: 80px;
-            z-index: 1;
-        }
-
-        /* 4-Panel Flap System */
-        .flap {
-            position: absolute;
-            background-color: #718272;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
-            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 2;
-        }
-
-        /* Top Flap (උඩ ත්‍රිකෝණය) */
-        .flap.top {
-            top: 0; left: 0; width: 100%; height: 50%;
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
-            transform-origin: top center;
-            background-color: #788979;
-        }
-
-        /* Bottom Flap (පහළ ත්‍රිකෝණය) */
-        .flap.bottom {
-            bottom: 0; left: 0; width: 100%; height: 50%;
-            clip-path: polygon(0 100%, 100% 100%, 50% 0%);
-            transform-origin: bottom center;
-            background-color: #647365;
-        }
-
-        /* Left Flap (වම් ත්‍රිකෝණය) */
-        .flap.left {
-            top: 0; left: 0; width: 50%; height: 100%;
-            clip-path: polygon(0 0, 100% 50%, 0 100%);
-            transform-origin: left center;
-            background-color: #6c7d6d;
-        }
-
-        /* Right Flap (දකුණු ත්‍රිකෝණය) */
-        .flap.right {
-            top: 0; right: 0; width: 50%; height: 100%;
-            clip-path: polygon(100% 0, 0 50%, 100% 100%);
-            transform-origin: right center;
-            background-color: #6c7d6d;
-        }
-
-        /* Gold Wax Seal (මැද රන්වන් සීල් එක) */
-        .gold-seal {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 95px; height: 95px;
-            background: radial-gradient(circle, #f3e5ab 0%, #d4af37 60%, #aa820a 100%);
-            border-radius: 50%;
-            z-index: 5;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 2px 5px rgba(255,255,255,0.5);
-            border: 3px double #b89724;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.8s ease;
-        }
-
-        /* සීල් එක ඇතුළත සමනල කැටයම */
-        .gold-seal::after {
-            content: '🦋';
-            font-size: 2.2rem;
-            opacity: 0.6;
-            filter: drop-shadow(1px 1px 1px #555);
-        }
-
-        /* ANIMATION: ON CLICK OPEN (වීඩියෝව හා සමාන සුමට දිගහැරීම) */
-        .invitation-container.open .flap.top { transform: rotateX(180deg); }
-        .invitation-container.open .flap.bottom { transform: rotateX(-180deg); }
-        .invitation-container.open .flap.left { transform: rotateY(-180deg); }
-        .invitation-container.open .flap.right { transform: rotateY(180deg); }
-        
-        .invitation-container.open .gold-seal {
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
-        }
-        
-        .invitation-container.open .envelope-wrapper {
-            transform: scale(1.1);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease 1s, transform 1.2s ease;
-        }
-
-        /* ==========================================================================
-           3. INNER WATERCOLOR CARD CONTENT (ඇතුළත පිටු)
-           ========================================================================== */
-        .main-card {
-            width: 100%; height: 100%;
-            background: #F9F6F0; /* Soft Cream Textures */
-            overflow-y: auto;
+        html{
             scroll-behavior: smooth;
-            padding: 0 25px;
+        }
+
+        body{
+            overflow-x:hidden;
+            background-color: #000;
+        }
+
+        /* ================= HOME PAGE (PX CONFIGURATION) ================= */
+        .home-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px; 
+            color: #F5F5F2;
+            letter-spacing: 2px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .home-container .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 37px; 
+            color: #C9A24E;
+            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; 
+            flex-wrap: wrap; 
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .home-container .ring {
+            width: 36px; 
+            height: auto;
             opacity: 0;
+            transform: scale(0.6);
+            animation: ringShow 0.8s ease forwards, float 3s infinite ease-in-out 0.8s;
+            flex-shrink: 0;
+        }
+        
+        /* ================= INVITE PAGE (SIMPLE PX CONFIG) ================= */
+        .lux-title {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    font-size: 14px;
+    
+    /* 👈 ඔයාගේ code එකට මෙන්න මේ පේළිය විතරක් අලුතින් එකතු කරන්න */
+    transform: translateY(-15px); 
+}
+
+
+        .lux-names {
+            font-family: 'Cinzel', serif;
+            color: #C9A24E;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(201,162,78,0.8), 0 0 25px rgba(201,162,78,0.4);
+            margin-top: 5px;
+            font-size: 26px;         /* 👈 "Sandaru & Kaveesha" සයිස් එක */
         }
 
-        .invitation-container.open .main-card {
-            opacity: 1;
-            transition: opacity 1s ease 0.8s;
+        .lux-date {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-size: 20px;         /* 👈 "05 November 2026" සයිස් එක */
         }
 
-        /* සිරස් පිටු එකින් එක (Vertical Slides) */
-        .page-slide {
-            min-height: 100%;
+        .lux-rsvp {
+            color: #C9A24E;
+            font-family: 'Cinzel', serif;
+            animation: floatText 2s infinite ease-in-out;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 15px;         /* 👈 "Confirm Attendance" සයිස් එක */
+        }
+
+        .lux-scroll-btn {
+            width: fit-content;
+            min-width: 140px;          /* 👈 Button එකේ පළල අඩු කර ඇත */
+            margin: 20px auto 0;       /* 👈 Button එකට උඩින් ඇති ඉඩ අඩු කර ඇත */
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(201,162,78,0.4);
+            animation: goldGlow 2.5s infinite ease-in-out;
+            transition: transform .3s ease, box-shadow .3s ease;
+            
+            padding-top: 5px;          /* 👈 Button එක ඇතුළේ උඩ උස */
+            padding-bottom: 4px;       /* 👈 Button එක ඇතුළේ පල්ලෙහා උස */
+            padding-left: 15px;        /* 👈 වම් පැත්තේ පළල */
+            padding-right: 15px;       /* 👈 දකුණු පැත්තේ පළල */
+            font-size: 9px;            /* 👈 අකුරු වල සයිස් එක අඩු කර ඇත */
+        }
+        
+        /* ================================================================= */
+
+        /* ================= SECTION SYSTEM ================= */
+        section{
+            display: none;
+            min-height: 100vh;
+            width: 100%;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 0;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s ease, transform 1s ease;
+            position: relative;
+            padding: 20px;
         }
 
-        .page-slide.reveal {
-            opacity: 1;
-            transform: translateY(0);
+        section.active{
+            display: flex;
         }
 
-        /* ==========================================================================
-           4. VISUAL ELEMENTS (TEXTS & IMAGES LIKE THE VIDEO)
-           ========================================================================== */
-        
-        /* 3D Animated Butterfly Wings */
-        .butterfly-wings {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            animation: wingFlutter 0.3s ease infinite alternate, pathFloat 4s ease-in-out infinite;
+        #home{
+            flex-direction: column;
+            color: white;
+            background: url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 100vh;
+            width: 100%;
         }
 
-        @keyframes wingFlutter {
-            0% { transform: scaleX(0.8); }
-            100% { transform: scaleX(1.1); }
-        }
-        @keyframes pathFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Typography Styles */
-        .sub-title {
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            color: #7A8B7B;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
+        #home::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1;
         }
 
-        .tagline {
-            font-weight: 200;
-            font-size: 1.1rem;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .main-names {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-weight: 400;
-            color: #2b332c;
-            font-size: 2.8rem;
-            line-height: 1.2;
-        }
-
-        /* 100% Match Arch Frame */
-        .arch-frame {
-            width: 240px;
-            height: 350px;
-            border: 1px solid #d4af37;
-            border-radius: 120px 120px 0 0;
+        .home-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            gap: 60px; 
+            padding: 20px;
             overflow: hidden;
-            margin-bottom: 25px;
-            padding: 5px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            animation: fadeIn 1.5s ease;
         }
 
-        .couple-img {
-            width: 100%; height: 100%;
-            border-radius: 115px 115px 0 0;
-            background-size: cover;
-            background-position: center;
-            background-image: url('https://picsum.photos/id/838/400/600'); /* High quality elegant wedding couple placeholder */
+        /* BUTTON WRAPPER */
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px; 
         }
 
-        /* Date Section */
-        .wedding-date-row {
-            display: flex; gap: 15px; align-items: center;
-            font-family: 'Cinzel', serif; font-size: 1.2rem; margin: 20px 0;
-            border-top: 1px solid #d4af37; border-bottom: 1px solid #d4af37;
-            padding: 10px 0; width: 260px; justify-content: center;
+        /* OPEN INVITATION BUTTON */
+        .btn {
+            padding: 10px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            animation: pulse 2s infinite;
         }
-        .wedding-date-row .big-day { font-size: 2.2rem; font-weight: 600; color: #111; }
 
-        /* Timeline Event Nodes */
-        .timeline-box .node { margin: 25px 0; }
-        .timeline-box .time { color: #d4af37; font-family: 'Cinzel', serif; font-size: 0.9rem; display: block; margin-bottom: 5px; }
-        .timeline-box .event-name { font-size: 0.95rem; font-weight: 300; letter-spacing: 2px; }
-
-        /* QR Details */
-        .qr-flex { display: flex; gap: 35px; justify-content: center; margin: 20px 0 35px; }
-        .qr-card-box {
-            width: 90px; height: 90px; border: 1px solid #d4af37;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 0.75rem; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        /* TAP TO BEGIN LABEL */
+        .btn-hint {
+            font-size: 11px;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            white-space: nowrap;
+            animation: hintFloat 2s ease-in-out infinite;
         }
-        .palette-flex { display: flex; gap: 12px; justify-content: center; margin: 15px 0; }
-        .palette-dot { width: 26px; height: 26px; border-radius: 50%; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
-        .c1 { background-color: #6a796b; }
-        .c2 { background-color: #d4af37; }
-        .c3 { background-color: #e6dcd3; }
+
+        /* ================= INVITE PAGE ================= */
+        #invite{
+            flex-direction: column;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        #invite video{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+
+        #invite::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+
+        .invite-content{
+            position: relative;
+            z-index: 2;
+            animation: luxuryReveal 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 0 15px;
+            margin-top: -60px; /* 👈 Text සියල්ලම තවත් ඉහළට (udata) ගැනීමට මෙය එකතු කරන ලදී */
+        }
+
+        .lux-divider{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 15px 0;
+        }
+
+        .lux-divider::before,
+        .lux-divider::after{
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #CFB53B);
+            box-shadow: 0 0 10px rgba(207,181,59,0.6);
+        }
+
+        .lux-divider::after{
+            background: linear-gradient(to left, transparent, #CFB53B);
+        }
+
+        .lux-divider span{
+            padding: 0 18px;
+            font-size: 16px;
+            color: #CFB53B;
+            text-shadow: 0 0 8px rgba(207,181,59,0.8), 0 0 20px rgba(207,181,59,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lux-scroll-btn:hover{
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 0 25px rgba(201,162,78,0.6), 0 0 60px rgba(201,162,78,0.4);
+        }
+
+        .lux-scroll-btn::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-25deg);
+        }
+
+        .lux-scroll-btn:hover::before{
+            animation: shineMove 0.8s ease;
+        }
+
+        .lux-arrow{
+            font-size: 18px;
+            color: #CFB53B;
+            text-shadow: 0 0 10px rgba(207,181,59,0.9), 0 0 25px rgba(207,181,59,0.6);
+            animation: bounceArrow 1.2s infinite ease-in-out;
+        }
+
+        /* ================= NEXT / DETAILS PAGE ================= */
+        #nextPage{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding-top:20px;
+    background:radial-gradient(circle,#111,#000);
+    color:#C9A24E;
+    font-family:'Cinzel',serif;
+    text-align:center;
+}
+
+.lux-join-title{
+    font-family:'Cinzel', serif;
+    font-size:50px;
+    letter-spacing:10px;
+    text-transform:uppercase;
+
+    margin-top:20px;
+    margin-bottom:30px;
+    text-align:center;
+
+    color:#C9A24E;
+    position:relative;
+
+    background: linear-gradient(
+        90deg,
+        #b38b2d,
+        #f7e7a6,
+        #c9a24e,
+        #f7e7a6,
+        #b38b2d
+    );
+    background-size:200% auto;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation: shimmerMove 3s linear infinite;
+}
+
+@keyframes shimmerMove {
+    0%{
+        background-position:0% center;
+    }
+    100%{
+        background-position:200% center;
+    }
+}
+
+.timer-title {
+    animation: goldPulse 3s infinite ease-in-out;
+    color: #C9A24E; /* ඔබේ ප්‍රධාන රන්වන් පැහැය */
+    transition: all 0.3s ease;
+}
+
+
+.family-info{
+    width:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:10px;
+}
+
+.parent-text{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    color:rgba(255,255,255,0.85);
+    letter-spacing:1px;
+    text-align:center;
+
+    margin:12px 0;
+    max-width:800px;
+}
+
+.person-name{
+    font-family:'Great Vibes', cursive;
+    font-size:80px;
+    color:#C9A24E;
+
+    text-align:center;
+
+    text-shadow:
+        0 0 10px rgba(201,162,78,0.7),
+        0 0 25px rgba(201,162,78,0.4);
+
+    margin:10px 0 20px;
+}
+
+.invite-message{
+    margin-top:20px;
+
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    line-height:1.8;
+
+    color:rgba(255,255,255,0.85);
+    text-align:center;
+
+    font-style:italic;
+
+    max-width:800px;
+}
+
+.ornament{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:40px;
+    overflow:visible; /* change this */
+}
+
+.ornament img{
+    width:100%;
+    max-width:100%;
+    height:auto;
+
+    transform:scale(10); /* keep small zoom only */
+    transform-origin:center top; /* important */
+    display:block;
+}
+
+.stars{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.stars span{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#D4AF37;
+    transform:rotate(-45deg);
+    opacity:0.7;
+    animation:floatHearts 8s linear infinite;
+}
+
+.stars span::before,
+.stars span::after{
+    content:'';
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#D4AF37;
+    border-radius:50%;
+}
+
+.stars span::before{
+    top:-3px;
+    left:0;
+}
+
+.stars span::after{
+    top:0;
+    left:3px;
+}
+
+.stars span:nth-child(1){left:10%;animation-delay:0s;}
+.stars span:nth-child(2){left:30%;animation-delay:1.5s;}
+.stars span:nth-child(3){left:50%;animation-delay:3s;}
+.stars span:nth-child(4){left:70%;animation-delay:4.5s;}
+.stars span:nth-child(5){left:90%;animation-delay:6s;}
+
+@keyframes floatHearts{
+    0%{
+        transform:translateY(100vh) rotate(-45deg) scale(0.5);
+        opacity:0;
+    }
+    50%{
+        opacity:0.8;
+    }
+    100%{
+        transform:translateY(-10vh) rotate(-45deg) scale(1);
+        opacity:0;
+    }
+}
+.timer-container {
+    /* Ornament එකට ඉහළින් ඉඩ ලබා ගැනීමට මෙම අගය වැඩි කරන්න */
+    margin-top: 150px; 
+    margin-bottom: 40px;
+}
+
+
+.timer-title{
+    font-size:45px;
+    letter-spacing:5px;
+    margin-bottom:30px;
+
+    color:#C9A24E;
+    text-shadow:
+        0 0 15px rgba(201,162,78,0.7),
+        0 0 30px rgba(201,162,78,0.4);
+}
+
+.timer{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.timer div{
+    background:rgba(201,162,78,0.08);
+    border:1px solid rgba(201,162,78,0.3);
+    padding:20px;
+    border-radius:15px;
+    min-width:90px;
+
+    box-shadow:
+        0 0 15px rgba(201,162,78,0.15);
+}
+
+.timer span{
+    font-size:40px;
+    display:block;
+}
+
+.timer small{
+    color:#fff;
+    opacity:0.7;
+}
+
+.timer-sub{
+    margin-top:20px;
+    color:#fff;
+    opacity:0.8;
+}
+
+
+        /* ================================================== 
+   AGENDA PAGE (DAY PROGRAM) - FULL CSS 
+   ================================================== */
+
+#agendaPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle, #111, #000);
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    padding: 30px 0;
+    min-height: auto;
+}
+
+.program-title {
+    color: #C9A24E !important;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(201,162,78,.5);
+    text-align: center;
+}
+
+.program-subtitle {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 13px;
+    margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.agenda-list {
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* මැදින් යන රන්වන් රේඛාව */
+.agenda-list::before {
+    content: '';
+    position: absolute;
+    left: 29px;
+    top: 5px;
+    bottom: 20px;
+    width: 2px;
+    background: #C9A24E;
+    z-index: 1;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    border: 2px solid #C9A24E !important;
+    color: #C9A24E !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.timeline-content {
+    margin-left: 15px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.time-badge {
+    background: rgba(201,162,78,0.2);
+    color: #C9A24E;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.timeline-content h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Cinzel', serif;
+}
+
+.timeline-content p {
+    color: #aaa;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+.location-section{
+    width:100%;
+    max-width:900px;
+    margin-top:80px;
+    text-align:center;
+}
+
+.location-title{
+    font-family:'Cinzel',serif;
+    font-size:25px;
+    letter-spacing:6px;
+    margin-bottom:25px;
+    color:#C9A24E;
+    text-shadow:0 0 15px rgba(201,162,78,0.4);
+}
+
+.location-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(201,162,78,0.25);
+    border-radius:25px;
+    padding:25px;
+}
+
+.location-card img{
+    width:100%;
+    border-radius:20px;
+    height:250px;
+    object-fit:cover;
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(201,162,78,0.15);
+}
+
+.venue-name{
+    font-family:'Great Vibes',cursive;
+    font-size:45px;
+    color:#C9A24E;
+    margin-bottom:10px;
+}
+
+.venue-address{
+    color:#fff;
+    opacity:0.8;
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+.venue-note{
+    color:#fff;
+    opacity:0.6;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* මෙහි අගය වැඩි කිරීමෙන් බොත්තම් දෙක අතර ඉඩ වැඩි වේ */
+    margin-top: 25px;
+}
+
+
+/* බොත්තම් වල පළල තවදුරටත් අඩු කිරීමට */
+.small-btn {
+    padding: 10px 4px;      /* උස (8px) එලෙසම තබා, පළල (4px) ඉතා අඩු කළා */
+    border-radius: 20px;   
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0px; 
+    font-size: 12px;        
+    background: linear-gradient(135deg, #C9A24E, #8C6B2F);
+    box-shadow: 0 0 10px rgba(201,162,78,0.3);
+    transition: 0.3s;
+    text-align: center;
+    min-width: 70px;       /* පළල තවත් අඩු කළා */
+    display: inline-block;
+    white-space: nowrap;   /* අකුරු පේළි දෙකකට යෑම වළක්වයි */
+}
+
+
+
+.small-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(201,162,78,0.5);
+}
+
+
+/* ජංගම දුරකථන තිර සඳහා බොත්තම් දෙකම එක පේළියේ පෙන්වීමට */
+@media (max-width: 400px) {
+    .btn-group {
+        flex-direction: column; /* අවශ්‍ය නම් පේළි දෙකකට සැකසිය හැක */
+        gap: 10px;
+    }
+}
+
+
+        .rsvp-section{
+    width:100%;
+    max-width:800px;
+    margin-top:80px;
+    text-align:center;
+}
+
+.rsvp-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(201,162,78,.25);
+    border-radius:25px;
+    padding:30px 20px;
+    backdrop-filter:blur(10px);
+}
+
+.rsvp-input{
+    width:100%;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,.3);
+    background:rgba(255,255,255,.05);
+    color:#fff;
+    font-size:16px;
+    margin-bottom:25px;
+    outline:none;
+}
+
+.attendance-box{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.radio-option{
+    color:#fff;
+    cursor:pointer;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid rgba(201,162,78,.2);
+    background:rgba(255,255,255,.03);
+}
+
+.radio-option input{
+    margin-right:10px;
+}
+
+/* ================= RSVP GUEST BOX (PREMIUM) ================= */
+.guest-wrapper {
+    display: flex;
+    gap: 15px; /* ඉඩ පරතරය අඩු කළා */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.guest-box {
+    min-width: 130px; /* පළල අඩු කළා */
+    padding: 12px 15px; /* ඇතුළත ඉඩ අඩු කළා */
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(201, 162, 78, 0.3);
+    transition: all 0.3s ease;
+}
+
+.guest-box:hover {
+    border-color: rgba(201, 162, 78, 0.6);
+    background: rgba(201, 162, 78, 0.05);
+}
+
+.guest-box h4 {
+    color: #C9A24E;
+    margin-bottom: 8px; /* පහළ ඉඩ අඩු කළා */
+    font-size: 13px; /* අකුරු ප්‍රමාණය අඩු කළා */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.counter button {
+    width: 28px; /* බොත්තමේ ප්‍රමාණය අඩු කළා */
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(201, 162, 78, 0.2); /* මෘදු රන්වන් පැහැයක් */
+    color: #C9A24E;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter button:hover {
+    background: #C9A24E;
+    color: #000;
+}
+
+.counter span {
+    font-size: 20px; /* අංකයේ ප්‍රමාණය අඩු කළා */
+    color: #fff;
+    min-width: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+
+.rsvp-submit{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+
+    background:linear-gradient(
+        135deg,
+        #C9A24E,
+        #8C6B2F
+    );
+
+    color:#fff;
+    font-family:'Cinzel',serif;
+    letter-spacing:3px;
+    cursor:pointer;
+
+    box-shadow:
+        0 0 15px rgba(201,162,78,.4);
+}
+
+/* ================= SOCIAL & GUESTBOOK STYLES ================= */
+.action-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.guestbook-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(201,162,78,0.3);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    margin-bottom: 15px;
+    resize: none;
+    font-family: sans-serif;
+}
+
+.action-btn {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    background: #C9A24E;
+    color: #000;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+
+
+/* ===== SPARKLE BASE ===== */
+
+
+.sparkle{
+    position:fixed;
+    color:#FFD700;
+    font-size:12px;
+    pointer-events:none;
+    z-index:9999;
+
+    text-shadow:
+        0 0 6px #FFD700,
+        0 0 12px rgba(255,215,0,0.6);
+
+    animation:floatUp 0.9s ease-out forwards;
+}
+
+@keyframes floatUp{
+    0%{
+        opacity:1;
+        transform:translate(0,0) scale(0.6);
+    }
+
+    100%{
+        opacity:0;
+        transform:
+            translate(var(--x), var(--y))
+            scale(1.2);
+    }
+}
+        /* ================= TRANSITIONS ================= */
+        .cloud-transition,
+        .gold-transition{
+            position: fixed;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .cloud-transition{
+            background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.2), transparent 40%),
+                        radial-gradient(circle at 80% 40%, rgba(255,255,255,0.15), transparent 45%),
+                        radial-gradient(circle at 50% 80%, rgba(255,255,255,0.1), transparent 50%),
+                        rgba(0,0,0,0.6);
+            filter: blur(8px);
+        }
+
+        .cloud-transition.active{ animation: fogMove 1.2s ease forwards; }
+        .gold-transition{ background: radial-gradient(circle, rgba(201,162,78,0.35), rgba(0,0,0,0.92)); filter: blur(20px); transform: scale(1.1); }
+        .gold-transition.active{ animation: goldSmooth 1.2s ease-in-out forwards; }
+        .gold-transition::before{ content: ""; position: absolute; inset: -20%; background: radial-gradient(circle, rgba(255,215,120,0.25), transparent 60% ); animation: glowMove 1.2s ease-in-out; }
+
+
+        /* =======================================================
+           ================= MEDIA QUERIES (OTHER) ===============
+           ======================================================= */
+        @media (max-width: 768px) {
+            .home-container { padding: 15px; gap: 40px; }
+            .btn { font-size: 13px; padding: 9px 22px; }
+            .btn-hint { font-size: 9px; }
+            .lux-arrow { font-size: 12px; }
+            .lux-join-title { font-size: 16px; letter-spacing: 2px; }
+            .parent-text { font-size: 13px; padding: 0 10px; }
+            .person-name { font-size: 26px; margin-bottom: 6px; }
+            .invite-message { font-size: 12px; padding: 0 10px; }
+            .ornament img { width: 35px; }
+            .timer-title { font-size: 15px; }
+            .timer div { padding: 6px; min-width: 55px; border-radius: 8px; }
+            .timer span { font-size: 16px; }
+            .timer small { font-size: 8px; }
+            .timer-sub { font-size: 12px; }
+            .agenda-title { font-size: 20px; }
+            .agenda-item { flex-direction: column; align-items: center; text-align: center; padding: 10px; gap: 4px; margin-bottom: 8px; }
+            .agenda-time { font-size: 14px; }
+            .agenda-topic { text-align: center; font-size: 13px; }
+            .back-btn { font-size: 12px; padding: 8px 20px; }
+        }
+
+        /* ================= KEYFRAMES ANIMATIONS ================= */
+        @keyframes ringShow{ to{ opacity: 1; transform: scale(1); } }
+        @keyframes float{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+        @keyframes pulse{ 0%{ box-shadow: 0 0 0 0 rgba(201,162,78,0.5); } 70%{ box-shadow: 0 0 0 20px rgba(201,162,78,0); } 100%{ box-shadow: 0 0 0 0 rgba(201,162,78,0); } }
+        @keyframes fadeIn{ from{ opacity: 0; transform: translateY(-20px); } to{ opacity: 1; transform: translateY(0); } }
+        @keyframes luxuryReveal{ 0%{ opacity: 0; transform: scale(1.1); filter: blur(10px); } 100%{ opacity: 1; transform: scale(1); filter: blur(0); } }
+        @keyframes floatText{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(6px); } }
+        @keyframes bounceArrow{ 0%, 100%{ transform: translateY(0); opacity: 0.6; } 50%{ transform: translateY(5px); opacity: 1; } }
+        @keyframes goldGlow{ 0%,100%{ box-shadow: 0 0 10px rgba(201,162,78,0.3), 0 0 25px rgba(201,162,78,0.2); } 50%{ box-shadow: 0 0 20px rgba(201,162,78,0.6), 0 0 45px rgba(201,162,78,0.4); } }
+        @keyframes shineMove{ from{ left: -75%; } to{ left: 130%; } }
+        @keyframes floatStars{ 0%{ transform: translateY(100vh) scale(0.5); opacity: 0; } 50%{ opacity: 1; } 100%{ transform: translateY(-10vh) scale(1.2); opacity: 0; } }
+        @keyframes goldCometMove{ 0%{ left: -120%; opacity: 0; } 20%{ opacity: 1; } 50%{ left: 120%; opacity: 0.8; } 100%{ left: 120%; opacity: 0; } }
+        @keyframes fogMove{ 0%{ opacity: 0; transform: scale(1.05); } 50%{ opacity: 1; } 100%{ opacity: 0; transform: scale(1); } }
+        @keyframes goldSmooth{ 0%{ opacity: 0; transform: scale(1.15); filter: blur(25px); } 40%{ opacity: 1; filter: blur(10px); } 70%{ opacity: 0.8; transform: scale(1.05); filter: blur(6px); } 100%{ opacity: 0; transform: scale(1); filter: blur(20px); } }
+        @keyframes glowMove{ 0%{ transform: translateY(20px); opacity: 0; } 50%{ opacity: 1; } 100%{ transform: translateY(-20px); opacity: 0; } }
+        @keyframes hintFloat {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-4px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="invitation-container" id="inviteContainer">
-        
-        <!-- 3D ENVELOPE LAYER (හතර පැත්තට දිගහැරෙන කොටස) -->
-        <div class="envelope-wrapper">
-            <div class="flap top"></div>
-            <div class="flap left"></div>
-            <div class="flap right"></div>
-            <div class="flap bottom"></div>
-            <div class="gold-seal" onclick="triggerEnvelopeOpen()"></div>
+    <!-- HOME PAGE -->
+    <section id="home" class="active">
+        <div class="home-container">
+            <h1>The Wedding of</h1>
+            <div class="names">
+                <span class="name">Sandaru</span>
+                <img class="ring" src="—Pngtree—beautiful gold wedding rings png_6499014.png" loading="eager" decoding="sync" alt="ring">
+                <span class="name">Kaveesha</span>
+            </div>
+            <div class="btn-wrapper">
+                <button class="btn" onclick="openInvite()">OPEN INVITATION</button>
+                <div class="btn-hint">👆 TAP TO BEGIN</div>
+            </div>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="khuda jaane.webm" type="audio/webm">
+        </audio>
+    </section>
+
+    <!-- INVITE PAGE -->
+    <section id="invite">
+        <video id="weddingVideo" autoplay muted loop playsinline>
+            <source src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4" type="video/mp4">
+        </video>
+        <div class="invite-content">
+            <div class="lux-title">We are getting married</div>
+            <div class="lux-names">Sandaru & Kaveesha</div>
+            <div class="lux-divider">
+                <span>❤</span>
+            </div>
+            <div class="lux-date">05 November 2026</div>
+            <div class="lux-rsvp">Confirm Attendance</div>
+            <button class="lux-scroll-btn" onclick="scrollToNext()">
+                Scroll Down
+                <span class="lux-arrow">⌄</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- NEXT / DETAILS & TIMER PAGE -->
+    <section id="nextPage">
+        <div class="stars">
+            <span></span><span></span><span></span><span></span><span></span>
         </div>
 
-        <!-- INSIDE CARD PAGES (ඇතුළත විස්තර) -->
-        <div class="main-card" id="scrollContent">
-            
-            <!-- Page 1: Greeting & Butterfly -->
-            <div class="page-slide reveal">
-                <div class="butterfly-wings">🦋</div>
-                <p class="sub-title">YOU'RE CORDIALLY INVITED</p>
-                <p class="tagline">WE'RE GETTING MARRIED</p>
-                <h1 class="main-names">Adele<br>&<br>Oliver</h1>
+        <div class="lux-join-title">JOIN OUR SPECIAL DAY</div>
+
+        <div class="family-info">
+            <p class="parent-text">Beloved daughter of Mr. and Mrs. W.A. Wickramasooriya Wijesundara</p>
+            <div class="person-name">Kaveesha</div>
+
+            <p class="parent-text">Beloved son of Mr. and Mrs. M. Saman Pushpakumara</p>
+            <div class="person-name">Sandaru</div>
+
+            <p class="invite-message">
+                A cordial invitation to join us in celebrating the union of two hearts
+                and the beginning of a beautiful journey together.
+            </p>
+        </div>
+
+        <div class="ornament">
+            <img src="ornament.png.png" alt="Golden Ornament">
+        </div>
+
+        <div class="timer-container">
+            <h2 class="timer-title">SAVE THE DATE</h2>
+            <div class="timer">
+                <div>
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
             </div>
+            <p class="timer-sub">05 November 2026</p>
+        </div>
 
-            <!-- Page 2: Photo & Real Wedding Date -->
-            <div class="page-slide">
-                <div class="arch-frame">
-                    <div class="couple-img"></div>
-                </div>
-                <p class="sub-title">IN THE CELEBRATION OF THEIR</p>
-                <div class="wedding-date-row">
-                    <span>AUGUST</span>
-                    <span class="big-day">24</span>
-                    <span>20XX</span>
-                </div>
-                <p class="sub-title" style="letter-spacing: 2px;">RECEPTION TO FOLLOW</p>
+       
+
+    <!-- AGENDA PAGE -->
+     
+    <h2 class="program-title">Day Program</h2>
+    <p class="program-subtitle">What we have prepared for you</p>
+
+    <div class="agenda-list">
+        <!-- Item 1 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-door-open"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">09:00 AM</span>
+                <h3>Guest Arrival</h3>
+                <p>Welcome and reception</p>
             </div>
-
-            <!-- Page 3: Detailed Timeline -->
-            <div class="page-slide">
-                <h2 style="font-family:'Cinzel'; font-weight:400; margin-bottom:15px;">Timeline</h2>
-                <div style="color: #6a796b; margin-bottom: 25px;">✦ ─── ✦</div>
-                <div class="timeline-box">
-                    <div class="node"><span class="time">1:00 PM</span><p class="event-name">SEATING BEGINS</p></div>
-                    <div class="node"><span class="time">2:00 PM</span><p class="event-name">CEREMONY</p></div>
-                    <div class="node"><span class="time">3:00 PM</span><p class="event-name">RECEPTION</p></div>
-                    <div class="node"><span class="time">4:30 PM</span><p class="event-name">PARTY TIME</p></div>
-                    <div class="node"><span class="time">7:30 PM</span><p class="event-name">FIREWORKS</p></div>
-                </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">09:30 AM</span>
+                <h3>Poruwa Ceremony</h3>
+                <p>Traditional ritual</p>
             </div>
-
-            <!-- Page 4: Registry & Dress Code Info -->
-            <div class="page-slide">
-                <h2 style="font-family:'Cinzel'; font-size: 1.3rem; margin-bottom: 25px; letter-spacing:3px;">THE DETAILS</h2>
-                
-                <p class="sub-title" style="font-size:0.75rem;">REGISTRY</p>
-                <div class="qr-flex">
-                    <div><div class="qr-card-box">QR CODE</div><p style="font-size:0.75rem; margin-top:5px; font-weight:300;">TARGET</p></div>
-                    <div><div class="qr-card-box">QR CODE</div><p style="font-size:0.75rem; margin-top:5px; font-weight:300;">AMAZON</p></div>
-                </div>
-
-                <p class="sub-title" style="font-size:0.75rem;">DRESS CODE</p>
-                <div class="palette-flex">
-                    <span class="palette-dot c1"></span>
-                    <span class="palette-dot c2"></span>
-                    <span class="palette-dot c3"></span>
-                </div>
-                <p style="font-size: 0.8rem; letter-spacing: 2px; font-weight:300;">FORMAL ATTIRE</p>
+        </div>
+        <!-- Item 3 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-ring"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">10:15 AM</span>
+                <h3>Exchange of Rings</h3>
+                <p>Vows and rings</p>
             </div>
-
+        </div>
+        <!-- Item 4 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">11:00 AM</span>
+                <h3>Cocktail Hour</h3>
+                <p>Drinks and appetizers</p>
+            </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">12:30 PM</span>
+                <h3>Lunch Reception</h3>
+                <p>Wedding banquet</p>
+            </div>
+        </div>
+        <!-- Item 6 -->
+        <div class="timeline-item">
+            <div class="timeline-icon"><i class="fa-solid fa-cake-candles"></i></div>
+            <div class="timeline-content">
+                <span class="time-badge">02:00 PM</span>
+                <h3>Cake Cutting</h3>
+                <p>Celebrating together</p>
+            </div>
         </div>
     </div>
 
-    <!-- ==========================================================================
-           5. JAVASCRIPT CORE INTERACTION
-           ========================================================================== -->
+
+
+<!-- LOCATION SECTION -->
+
+    <!-- LOCATION SECTION -->
+<div class="location-section">
+    <h2 class="location-title">WEDDING VENUE</h2>
+    <div class="location-card">
+        <h3 class="venue-name">Royal Dream Palace</h3>
+        <p class="venue-address">Urapola, Sri Lanka</p>
+        <p class="venue-note">A beautiful place where our journey begins ❤️</p>
+
+        <!-- බොත්තම් දෙක මෙතැනට -->
+        <div class="btn-group">
+            <a href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9" target="_blank" class="small-btn">📍 VIEW LOCATION</a>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml" target="_blank" class="small-btn">📅 ADD TO CALENDAR</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- RSVP PAGE -->
+        <div class="rsvp-section">
+
+    <h2 class="section-title">Confirm Your Attendance</h2>
+
+    <div class="rsvp-card">
+
+        <input type="text" placeholder="Your Name" class="rsvp-input">
+
+        <div class="attendance-box">
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="yes">
+                <span>✓ Yes, We Will Attend</span>
+            </label>
+
+            <label class="radio-option">
+                <input type="radio" name="attendance" value="no">
+                <span>✕ No, we will not participate.</span>
+            </label>
+
+        </div>
+
+        <div class="guest-wrapper">
+
+            <div class="guest-box">
+                <h4>Adults</h4>
+
+                <div class="counter">
+                    <button type="button" onclick="changeCount('adults',-1)">−</button>
+                    <span id="adults">1</span>
+                    <button type="button" onclick="changeCount('adults',1)">+</button>
+                </div>
+            </div>
+
+            <div class="guest-box">
+                <h4>Children</h4>
+
+                <div class="counter">
+                    <button type="button" onclick="changeCount('children',-1)">−</button>
+                    <span id="children">0</span>
+                    <button type="button" onclick="changeCount('children',1)">+</button>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="rsvp-submit" onclick="sendRSVP()">
+    Send Messages
+</button>
+
+    </div>
+
+</div>
+
+<div class="action-section">
+    <h2 class="section-title" style="color: #C9A24E; margin-bottom: 20px;">Send Your Wishes</h2>
+    <textarea id="wishMessage" class="guestbook-textarea" placeholder="Leave a sweet message for the couple..."></textarea>
+    
+    <div>
+        <button class="action-btn" onclick="sendWish()">Send Wish via WhatsApp</button>
+        <button class="action-btn" onclick="shareInvite()">Share Invitation</button>
+    </div>
+</div>
+
+
+    <!-- TRANSITION OVERLAYS -->
+    <div id="cloudTransition" class="cloud-transition"></div>
+    <div id="goldTransition" class="gold-transition"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // කවරය ඇරීමේ ශ්‍රිතය (Unfold Open Action)
-        function triggerEnvelopeOpen() {
-            const container = document.getElementById('inviteContainer');
-            container.classList.add('open');
-            
-            // කවරය ඇරී අවසන් වූ පසු Scroll Reveal එක සක්‍රීය කිරීම
-            setTimeout(() => {
-                initScrollObserver();
-            }, 1200);
-        }
+        window.onload = function(){
+            switchPage("home");
+        };
 
-        // පිටු පහළට Scroll කිරීමේදී සුමටව Slide-in වීමට සලස්වන කේතය
-        function initScrollObserver() {
-            const slides = document.querySelectorAll('.page-slide');
-            const scrollContent = document.getElementById('scrollContent');
+        function openInvite(){
+            const cloud = document.getElementById("cloudTransition");
+            const music = document.getElementById("bgMusic");
 
-            scrollContent.addEventListener('scroll', () => {
-                slides.forEach(slide => {
-                    const slideTop = slide.getBoundingClientRect().top;
-                    const triggerHeight = window.innerHeight - 120;
+            cloud.classList.add("active");
 
-                    if (slideTop < triggerHeight) {
-                        slide.classList.add('reveal');
-                    }
-                });
+            music.volume = 0.6;
+            music.play().catch(err => {
+                console.log("Autoplay blocked or audio file missing:", err);
             });
+
+            setTimeout(()=>{
+                switchPage("invite");
+            },600);
+
+            setTimeout(()=>{
+                cloud.classList.remove("active");
+            },1200);
         }
+
+        function scrollToNext(){
+            const gold = document.getElementById("goldTransition");
+            gold.classList.add("active");
+
+            setTimeout(()=>{
+                switchPage("nextPage");
+            },500);
+
+            setTimeout(()=>{
+                gold.classList.remove("active");
+            },1000);
+        }
+
+        function goToAgenda(){
+            const gold = document.getElementById("goldTransition");
+            gold.classList.add("active");
+
+            setTimeout(()=>{
+                switchPage("agendaPage");
+            },500);
+
+            setTimeout(()=>{
+                gold.classList.remove("active");
+            },1000);
+        }
+
+        function backToDetails() {
+            const gold = document.getElementById("goldTransition");
+            gold.classList.add("active");
+
+            setTimeout(()=>{
+                switchPage("nextPage");
+            },500);
+
+            setTimeout(()=>{
+                gold.classList.remove("active");
+            },1000);
+        }
+
+        function switchPage(id){
+            document.querySelectorAll("section").forEach(s=>{
+                s.classList.remove("active");
+                s.style.display = "none";
+            });
+
+            const el = document.getElementById(id);
+            if(!el) return;
+
+            el.classList.add("active");
+            el.style.display = "flex";
+            
+            window.scrollTo(0,0);
+        }
+function changeCount(id, change){
+
+    const el = document.getElementById(id);
+
+    let value = parseInt(el.innerText);
+
+    value += change;
+
+    if(value < 0){
+        value = 0;
+    }
+
+    el.innerText = value;
+}
+
+function sendRSVP(){
+
+    const name = document.querySelector('.rsvp-input').value;
+
+    const attendance =
+        document.querySelector('input[name="attendance"]:checked');
+
+    const adults =
+        document.getElementById('adults').innerText;
+
+    const children =
+        document.getElementById('children').innerText;
+
+    if(name === ""){
+        alert("Please enter your name");
+        return;
+    }
+
+    if(!attendance){
+        alert("Please select attendance");
+        return;
+    }
+
+    const status =
+        attendance.value === "yes"
+        ? "Will Attend"
+        : "Cannot Attend";
+
+    const message =
+`🌹 Wedding RSVP
+
+👤 Name: ${name}
+
+📌 Status: ${status}
+
+👨 Adults: ${adults}
+
+👶 Children: ${children}`;
+
+    const phone = "+94752452479"; // ඔයාගේ WhatsApp number
+
+    window.open(
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+        '_blank'
+    );
+}
+
+// සුබ පැතුම් යැවීම සඳහා
+function sendWish() {
+    const wish = document.getElementById("wishMessage").value;
+    const phone = "+94752452479"; // ඔබේ අංකය
+
+    if(wish === "") {
+        alert("Please write a message first!");
+        return;
+    }
+
+    const message = `✨ Special Wish for Sandaru & Kaveesha:\n\n"${wish}"`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// ආරාධනා පත්‍රය බෙදා ගැනීමට
+function shareInvite() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Wedding Invitation: Sandaru & Kaveesha',
+            text: 'Please join us on our special day!',
+            url: window.location.href, // දැනට තියෙන ලින්ක් එක
+        })
+        .catch(console.error);
+    } else {
+        alert("Link copied to clipboard!");
+        navigator.clipboard.writeText(window.location.href);
+    }
+}
+
+        // ================= COUNTDOWN TIMER LOGIC =================
+        const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const gap = weddingDate - now;
+
+            if (gap < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+
+            document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+
+
+
+function createSparkles(x, y){
+
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+    sparkle.innerHTML = "✨";
+
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
+
+    const randomX = (Math.random() * 40) - 20;
+    const randomY = -(Math.random() * 60 + 20);
+
+    sparkle.style.setProperty("--x", randomX + "px");
+    sparkle.style.setProperty("--y", randomY + "px");
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+        sparkle.remove();
+    }, 900);
+}
+
+/* touch only */
+document.addEventListener("touchstart", (e) => {
+    const t = e.touches[0];
+    createSparkles(t.clientX, t.clientY);
+});
+
+
     </script>
 </body>
 </html>
+
