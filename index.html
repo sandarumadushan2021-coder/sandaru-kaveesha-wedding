@@ -1,166 +1,252 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adele & Oliver - Wedding Invitation</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:ital@0;1&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. CSS STYLES (වර්ණ සහ හැඩතල සැකසුම්)
+           ========================================================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F9F6F0; /* Soft Cream */
+            color: #4A534C;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, .sub-title, .wedding-date {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+
+        .main-names {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #7A8B7B; /* Sage Green */
+            font-size: 2.8rem;
+            margin-top: 20px;
+        }
+
+        /* Sections පොදුවේ සැකසීම */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        /* සුමට ලෙස මතුවීමේ Animation එක සඳහා (Scroll Reveal) */
+        .hidden {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section 1: Hero Cover */
+        .envelope-section {
+            background-color: #F9F6F0;
+        }
+
+        /* වීඩියෝවේ ඇති පරිදි සරල සමනල හැඩයක් (CSS Clip-path භාවිතයෙන්) */
+        .butterfly {
+            width: 50px;
+            height: 50px;
+            background-color: #7A8B7B;
+            clip-path: polygon(50% 20%, 100% 0%, 85% 65%, 50% 45%, 15% 65%, 0% 0%);
+            margin: 0 auto 40px;
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.05); }
+        }
+
+        .sub-title {
+            font-size: 0.9rem;
+            color: #8A9A8B;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Section 2: Couple & Date (ආරුක්කු රාමුව) */
+        .arch-frame {
+            width: 260px;
+            height: 390px;
+            border: 2px solid #D4AF37; /* Elegant Gold */
+            border-radius: 150px 150px 0 0; /* ආරුක්කු හැඩය */
+            overflow: hidden;
+            margin-bottom: 35px;
+            padding: 8px;
+            background-color: transparent;
+        }
+
+        .couple-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 140px 140px 0 0;
+            background-size: cover;
+            background-position: center;
+            background-color: #D3D3D3; /* ඡායාරූපය දමන තෙක් පෙනෙන වර්ණය */
+        }
+
+        .celebration-text, .reception-text {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: #7A8B7B;
+        }
+
+        .wedding-date {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            border-top: 1px solid #D4AF37;
+            border-bottom: 1px solid #D4AF37;
+            padding: 10px 0;
+            width: 280px;
+        }
+
+        .wedding-date .day {
+            font-size: 2.2rem;
+            color: #4A534C;
+        }
+
+        /* Section 3: Timeline */
+        .section-title {
+            font-size: 1.8rem;
+            color: #4A534C;
+            margin-bottom: 10px;
+        }
+
+        .timeline-flower {
+            font-size: 1.5rem;
+            color: #7A8B7B;
+            margin-bottom: 30px;
+        }
+
+        .timeline-events .event {
+            margin: 25px 0;
+        }
+
+        .timeline-events span {
+            font-size: 0.85rem;
+            color: #D4AF37;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .timeline-events p {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Section 4: Details & QR */
+        .registry-container {
+            margin-bottom: 40px;
+        }
+
+        .registry-container h3, .dress-code h3 {
+            font-size: 1.1rem;
+            color: #7A8B7B;
+            margin-bottom: 20px;
+        }
+
+        .qr-codes {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .qr-box {
+            width: 90px;
+            height: 90px;
+            border: 1px solid #D4AF37;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #888;
+            background-color: #fff;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .qr-item p {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .color-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .c1 { background-color: #7A8B7B; } /* Sage */
+        .c2 { background-color: #D4AF37; } /* Gold */
+        .c3 { background-color: #E6DCD3; } /* Beige */
+
+        .dress-code p {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 <body>
 
-/* මූලික සැකසුම් */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #F9F6F0; /* Soft Cream */
-    color: #4A534C;
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-}
-
-/* හැඩකාර අකුරු (Typography) */
-h1, h2, .sub-title, .wedding-date {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-}
-
-.main-names {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #7A8B7B; /* Sage Green */
-    font-size: 2.5rem;
-    margin-top: 20px;
-}
-
-/* Sections පොදුවේ සැකසීම */
-.section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-/* Slide-in Animations සඳහා අවශ්‍ය Variable */
-.hidden {
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Section 1: Envelope & Butterfly */
-.envelope-section {
-    background-color: #F9F6F0;
-}
-
-.butterfly {
-    width: 60px;
-    height: 60px;
-    background-color: #7A8B7B; /* මෙතනට සමනලයෙකුගේ රූපයක් එක් කරන්න */
-    clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 70%, 18% 100%, 0% 35%);
-    margin: 0 auto 30px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1.05); }
-}
-
-/* Section 2: Arch Frame (වීඩියෝවේ ඇති ආරුක්කු හැඩය) */
-.arch-frame {
-    width: 250px;
-    height: 380px;
-    border: 2px solid #D4AF37; /* Gold border */
-    border-radius: 150px 150px 0 0; /* ආරුක්කු හැඩය ලබා ගැනීම */
-    overflow: hidden;
-    margin-bottom: 30px;
-    padding: 10px;
-}
-
-.couple-photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 140px 140px 0 0;
-    background-size: cover;
-    background-position: center;
-    background-color: #e0e0e0; /* Placeholder color */
-}
-
-/* Timeline විලාසිතාව */
-.timeline-events .event {
-    margin: 20px 0;
-}
-
-.timeline-events span {
-    font-size: 0.9rem;
-    color: #D4AF37;
-    display: block;
-}
-
-/* QR සහ වර්ණ තේරීම් කොටස */
-.qr-codes {
-    display: flex;
-    gap: 30px;
-    margin-top: 15px;
-}
-
-.qr-box {
-    width: 80px;
-    height: 80px;
-    border: 1px solid #4A534C;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.color-palette {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.color-dot {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-}
-.c1 { background-color: #7A8B7B; }
-.c2 { background-color: #D4AF37; }
-.c3 { background-color: #E6DCD3; }
-
-
     <section class="section envelope-section active">
-        <div class="envelope-bg">
-            <div class="butterfly-container animate-butterfly">
-                <div class="butterfly"></div>
-            </div>
-            <div class="intro-text">
-                <p class="sub-title">YOU'RE CORDIALLY INVITED</p>
-                <p class="tagline">WE'RE GETTING MARRIED</p>
-                <h1 class="main-names">Adele & Oliver</h1>
-            </div>
+        <div class="butterfly-container">
+            <div class="butterfly"></div>
+        </div>
+        <div class="intro-text">
+            <p class="sub-title">YOU'RE CORDIALLY INVITED</p>
+            <p class="tagline">WE'RE GETTING MARRIED</p>
+            <h1 class="main-names">Adele & Oliver</h1>
         </div>
     </section>
 
-    <section class="section details-section hidden">
+    <section class="section details-section">
         <div class="arch-frame">
-            <div class="couple-photo" style="background-image: url('couple-placeholder.jpg');"></div>
+            <div class="couple-photo" style="background-image: url('https://picsum.photos/id/64/400/600');"></div>
         </div>
         <div class="date-container">
             <p class="celebration-text">IN THE CELEBRATION OF THEIR</p>
@@ -173,27 +259,33 @@ h1, h2, .sub-title, .wedding-date {
         </div>
     </section>
 
-    <section class="section timeline-section hidden">
+    <section class="section timeline-section">
         <h2 class="section-title">Timeline</h2>
-        <div class="timeline-flower">🌸</div>
+        <div class="timeline-flower">✦ ✦ ✦</div>
         <div class="timeline-events">
-            <div class="event"><span>1:00</span><p>SEATING BEGINS</p></div>
-            <div class="event"><span>2:00</span><p>CEREMONY</p></div>
-            <div class="event"><span>3:00</span><p>RECEPTION</p></div>
-            <div class="event"><span>4:30</span><p>PARTY TIME</p></div>
-            <div class="event"><span>19:30</span><p>FIREWORKS</p></div>
+            <div class="event"><span>1:00 PM</span><p>SEATING BEGINS</p></div>
+            <div class="event"><span>2:00 PM</span><p>CEREMONY</p></div>
+            <div class="event"><span>3:00 PM</span><p>RECEPTION</p></div>
+            <div class="event"><span>4:30 PM</span><p>PARTY TIME</p></div>
+            <div class="event"><span>7:30 PM</span><p>FIREWORKS</p></div>
         </div>
     </section>
 
-    <section class="section info-section hidden">
-        <h2 class="section-title">The Details</h2>
+    <section class="section info-section">
         <div class="registry-container">
             <h3>REGISTRY</h3>
             <div class="qr-codes">
-                <div class="qr-item"><div class="qr-box">QR</div><p>TARGET</p></div>
-                <div class="qr-item"><div class="qr-box">QR</div><p>AMAZON</p></div>
+                <div class="qr-item">
+                    <div class="qr-box">QR CODE</div>
+                    <p>TARGET</p>
+                </div>
+                <div class="qr-item">
+                    <div class="qr-box">QR CODE</div>
+                    <p>AMAZON</p>
+                </div>
             </div>
         </div>
+        
         <div class="dress-code">
             <h3>DRESS CODE</h3>
             <div class="color-palette">
@@ -205,35 +297,34 @@ h1, h2, .sub-title, .wedding-date {
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // සියලුම සෙක්ෂන් ලබා ගැනීම
+            const sections = document.querySelectorAll(".section");
 
-document.addEventListener("DOMContentLoaded", function () {
-    // නිරීක්ෂණය කළ යුතු සියලුම Sections ලබා ගැනීම
-    const sections = document.querySelectorAll(".section");
+            const observerOptions = {
+                root: null, 
+                threshold: 0.15 // සෙක්ෂන් එකෙන් 15%ක් screen එකට ආ විට ක්‍රියාත්මක වේ
+            };
 
-    const observerOptions = {
-        root: null, // Viewport එක මත පදනම්ව
-        threshold: 0.2 // Section එකෙන් 20%ක් දර්ශනය වන විට ක්‍රියාත්මක වේ
-    };
+            const sectionObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // සෙක්ෂන් එක දර්ශනය වන විට 'show' ක්ලාස් එක එකතු කර 'hidden' ඉවත් කරයි
+                        entry.target.classList.remove("hidden");
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, observerOptions);
 
-    const sectionObserver = new IntersectionObserver(function (entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Section එක screen එකට පැමිණි විට 'show' class එක එකතු කරයි
-                entry.target.classList.remove("hidden");
-                entry.target.classList.add("show");
-            }
+            // මුල්ම පිටුව හැර අනෙක් පිටු මුලින්ම සඟවා (hidden) පසු ස්ක්‍රෝල් කිරීමේදී මතු වීමට සැලැස්වීම
+            sections.forEach((section, index) => {
+                if (index !== 0) {
+                    section.classList.add("hidden");
+                }
+                sectionObserver.observe(section);
+            });
         });
-    }, observerOptions);
-
-    // හැම සෙක්ෂන් එකක්ම ඔබ්සර්වර් එකට ඇතුළත් කිරීම
-    sections.forEach(section => {
-        // පළමු සෙක්ෂන් එක හැර අනෙක්වා මුලින් සඟවන්න
-        if (!section.classList.contains('active')) {
-            section.classList.add("hidden");
-        }
-        sectionObserver.observe(section);
-    });
-});
+    </script>
 </body>
 </html>
