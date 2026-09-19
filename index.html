@@ -1453,7 +1453,48 @@ function shareInvite() {
         navigator.clipboard.writeText(window.location.href);
     }
 }
+<!-- PRE-SHOOT GALLERY -->
+<div class="preshot-gallery">
 
+    <h2 class="preshot-title">PRE-SHOOT MOMENTS</h2>
+    <p class="preshot-subtitle">
+        A few beautiful moments before our special day
+    </p>
+
+    <div class="preshot-grid">
+
+        <div class="preshot-item" onclick="openPhoto('preshoot1.jpg')">
+            <img src="preshoot1.jpg" alt="Pre-Shoot Photo 1">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot2.jpg')">
+            <img src="preshoot2.jpg" alt="Pre-Shoot Photo 2">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot3.jpg')">
+            <img src="preshoot3.jpg" alt="Pre-Shoot Photo 3">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot4.jpg')">
+            <img src="preshoot4.jpg" alt="Pre-Shoot Photo 4">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot5.jpg')">
+            <img src="preshoot5.jpg" alt="Pre-Shoot Photo 5">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FULL SCREEN IMAGE VIEW -->
+<div id="photoViewer" class="photo-viewer" onclick="closePhoto()">
+
+    <button class="photo-close" onclick="closePhoto()">×</button>
+
+    <img id="photoViewerImage" src="" alt="Pre-Shoot">
+
+</div>
         // ================= COUNTDOWN TIMER LOGIC =================
         const weddingDate = new Date("November 5, 2026 00:00:00").getTime();
 
