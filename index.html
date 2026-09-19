@@ -1038,6 +1038,208 @@
             50% { transform: translateY(-4px); opacity: 1; }
             100% { transform: translateY(0); opacity: 0.5; }
         }
+
+
+        /* ================= PRE-SHOOT GALLERY ================= */
+
+.preshot-gallery {
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto 30px;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.preshot-title {
+    font-family: 'Cinzel', serif;
+    color: #C9A24E;
+    font-size: 25px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px rgba(201,162,78,.5);
+}
+
+.preshot-subtitle {
+    color: rgba(255,255,255,.7);
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* IMAGE GRID */
+
+.preshot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.preshot-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    border-radius: 16px;
+
+    border: 1px solid rgba(201,162,78,.5);
+
+    background: rgba(255,255,255,.03);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.4),
+        0 0 15px rgba(201,162,78,.08);
+
+    cursor: pointer;
+}
+
+.preshot-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+}
+
+.preshot-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(.75);
+}
+
+/* GOLD OVERLAY */
+
+.preshot-item::after {
+    content: "⌕";
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: 35px;
+
+    background: rgba(0,0,0,.15);
+
+    opacity: 0;
+
+    transition: .3s;
+}
+
+.preshot-item:hover::after {
+    opacity: 1;
+}
+
+
+/* ================= FULL SCREEN VIEWER ================= */
+
+.photo-viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.95);
+
+    backdrop-filter: blur(10px);
+}
+
+.photo-viewer.active {
+    display: flex;
+}
+
+.photo-viewer img {
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(201,162,78,.7);
+
+    box-shadow:
+        0 0 40px rgba(201,162,78,.2);
+}
+
+
+/* CLOSE BUTTON */
+
+.photo-close {
+
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201,162,78,.6);
+
+    background: rgba(0,0,0,.6);
+
+    color: #C9A24E;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    z-index: 10001;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .preshot-gallery {
+        margin-top: 35px;
+    }
+
+    .preshot-title {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+
+    .preshot-subtitle {
+        font-size: 12px;
+    }
+
+    .preshot-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 8px;
+    }
+
+    .preshot-item {
+
+        aspect-ratio: 4 / 5;
+
+        border-radius: 12px;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -1279,6 +1481,48 @@
     </div>
 </div>
 
+        <!-- PRE-SHOOT GALLERY -->
+<div class="preshot-gallery">
+
+    <h2 class="preshot-title">PRE-SHOOT MOMENTS</h2>
+    <p class="preshot-subtitle">
+        A few beautiful moments before our special day
+    </p>
+
+    <div class="preshot-grid">
+
+        <div class="preshot-item" onclick="openPhoto('preshoot1.jpg')">
+            <img src="preshoot1.jpg" alt="Pre-Shoot Photo 1">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot2.jpg')">
+            <img src="preshoot2.jpg" alt="Pre-Shoot Photo 2">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot3.jpg')">
+            <img src="preshoot3.jpg" alt="Pre-Shoot Photo 3">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot4.jpg')">
+            <img src="preshoot4.jpg" alt="Pre-Shoot Photo 4">
+        </div>
+
+        <div class="preshot-item" onclick="openPhoto('preshoot5.jpg')">
+            <img src="preshoot5.jpg" alt="Pre-Shoot Photo 5">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FULL SCREEN IMAGE VIEW -->
+<div id="photoViewer" class="photo-viewer" onclick="closePhoto()">
+
+    <button class="photo-close" onclick="closePhoto()">×</button>
+
+    <img id="photoViewerImage" src="" alt="Pre-Shoot">
+
+</div>
 
     <!-- TRANSITION OVERLAYS -->
     <div id="cloudTransition" class="cloud-transition"></div>
@@ -1518,7 +1762,51 @@ document.addEventListener("touchstart", (e) => {
     const t = e.touches[0];
     createSparkles(t.clientX, t.clientY);
 });
+/* ================= PHOTO VIEWER ================= */
 
+function openPhoto(imageName) {
+
+    const viewer =
+        document.getElementById("photoViewer");
+
+    const image =
+        document.getElementById("photoViewerImage");
+
+    image.src = imageName;
+
+    viewer.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closePhoto() {
+
+    const viewer =
+        document.getElementById("photoViewer");
+
+    const image =
+        document.getElementById("photoViewerImage");
+
+    viewer.classList.remove("active");
+
+    image.src = "";
+
+    document.body.style.overflow = "";
+}
+
+
+/* ESC KEY */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closePhoto();
+
+    }
+
+});
 
     </script>
 </body>
