@@ -1070,26 +1070,13 @@
 /* IMAGE GRID */
 
 .preshot-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 15px;
 }
 
 .preshot-item {
-    position: relative;
-    overflow: hidden;
+    width: 100%;
     aspect-ratio: 4 / 5;
-    border-radius: 16px;
-
-    border: 1px solid rgba(201,162,78,.5);
-
-    background: rgba(255,255,255,.03);
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.4),
-        0 0 15px rgba(201,162,78,.08);
-
-    cursor: pointer;
 }
 
 .preshot-item img {
