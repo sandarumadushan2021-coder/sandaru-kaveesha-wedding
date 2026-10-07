@@ -1553,12 +1553,17 @@
 
 </div>
 
-<!-- FULL SCREEN IMAGE VIEW -->
-<div id="photoViewer" class="photo-viewer" onclick="closePhoto()">
+<div class="photo-viewer" id="photoViewer" onclick="closePhoto(event)">
 
-    <button class="photo-close" onclick="closePhoto()">×</button>
+    <button class="photo-close"
+            onclick="closePhoto()">
+        ×
+    </button>
 
-    <img id="photoViewerImage" src="" alt="Pre-Shoot">
+    <img id="viewerImage"
+         src=""
+         alt="Full size photo"
+         onclick="event.stopPropagation()">
 
 </div>
 
@@ -1802,15 +1807,14 @@ document.addEventListener("touchstart", (e) => {
 });
 /* ================= PHOTO VIEWER ================= */
 
-function openPhoto(imageName) {
+<script>
 
-    const viewer =
-        document.getElementById("photoViewer");
+function openPhoto(imageSrc) {
 
-    const image =
-        document.getElementById("photoViewerImage");
+    const viewer = document.getElementById("photoViewer");
+    const viewerImage = document.getElementById("viewerImage");
 
-    image.src = imageName;
+    viewerImage.src = imageSrc;
 
     viewer.classList.add("active");
 
@@ -1818,31 +1822,38 @@ function openPhoto(imageName) {
 }
 
 
-function closePhoto() {
+function closePhoto(event) {
 
-    const viewer =
-        document.getElementById("photoViewer");
+    /* If clicked on the image itself, don't close */
+    if (
+        event &&
+        event.target &&
+        event.target.id === "viewerImage"
+    ) {
+        return;
+    }
 
-    const image =
-        document.getElementById("photoViewerImage");
+    const viewer = document.getElementById("photoViewer");
 
     viewer.classList.remove("active");
 
-    image.src = "";
+    document.getElementById("viewerImage").src = "";
 
     document.body.style.overflow = "";
 }
 
 
-/* ESC KEY */
+/* ESC KEY TO CLOSE */
 
 document.addEventListener("keydown", function(event) {
 
     if (event.key === "Escape") {
-
         closePhoto();
-
     }
+
+});
+
+</script>
 
 });
 
