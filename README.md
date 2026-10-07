@@ -1,2 +1,2 @@
-# sandaru-kaveesha-wedding
+# sandaru & kaveesha
 sandaru-kaveesha-wedding
