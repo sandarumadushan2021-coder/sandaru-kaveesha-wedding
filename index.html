@@ -2712,119 +2712,42 @@
 
     <script>
 
-       window.onload = function () {
-
+     window.onload = function () {
     switchPage("home");
-
-    // Automatically open invitation after 3 seconds
-    setTimeout(() => {
-
-        openInvite(true);
-
-    }, 3000);
-
 };
 
 
        /* OPEN INVITATION */
 
-function openInvite(autoOpen = false) {
+function openInvite() {
 
-    const cloud =
-        document.getElementById("cloudTransition");
-
-    const music =
-        document.getElementById("bgMusic");
+    const cloud = document.getElementById("cloudTransition");
+    const music = document.getElementById("bgMusic");
 
     cloud.classList.add("active");
 
+    /* Play music after OPEN INVITATION button click */
     music.volume = 0.6;
 
+    music.play().catch(error => {
+        console.log("Music could not start:", error);
+    });
 
-    /*
-       Try to play wedding music
-    */
-
-    const playMusic = () => {
-
-        music.play()
-            .then(() => {
-
-                console.log(
-                    "Wedding music started successfully."
-                );
-
-            })
-            .catch(() => {
-
-                console.log(
-                    "Autoplay blocked. Waiting for user interaction."
-                );
-
-            });
-
-    };
-
-
-    // Try to start music
-    playMusic();
-
-
-    /*
-       If autoplay is blocked,
-       first touch/click will start music.
-    */
-
-    const startMusicOnTouch = () => {
-
-        music.play()
-            .catch(() => {});
-
-    };
-
-
-    document.addEventListener(
-        "pointerdown",
-        startMusicOnTouch,
-        { once: true }
-    );
-
-
-    /*
-       Open Invitation Page
-    */
-
+    /* Go to invitation page */
     setTimeout(() => {
-
         switchPage("invite");
-
     }, 600);
 
-
-    /*
-       Remove cloud transition
-    */
-
+    /* Remove cloud transition */
     setTimeout(() => {
-
         cloud.classList.remove("active");
-
     }, 1200);
 
-
-    /*
-       Automatically go to Next Page
-       after 5 seconds on Invitation Page
-    */
-
+    /* Automatically go to next page after 5 seconds */
     setTimeout(() => {
-
         scrollToNext();
-
     }, 5600);
-
 }
-
         /* SCROLL TO MAIN PAGE */
 
         function scrollToNext() {
