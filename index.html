@@ -1,1613 +1,3209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sandaru & Kaveesha | Wedding Invitation</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f5f5f2;
-    color:#333;
-    overflow-x:hidden;
-    font-family:'Playfair Display',serif;
-}
-
-/* ==============================
-   COMMON
-============================== */
-
-.page{
-    width:100%;
-    min-height:100vh;
-    position:relative;
-}
-
-.hidden{
-    display:none !important;
-}
-
-.gold{
-    color:#c9a24e;
-}
-
-.section{
-    min-height:100vh;
-    padding:80px 20px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.container{
-    width:100%;
-    max-width:1100px;
-    margin:auto;
-}
-
-.small-title{
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    font-size:13px;
-    color:#a8863c;
-    margin-bottom:20px;
-}
-
-.section-title{
-    font-family:'Great Vibes',cursive;
-    font-size:60px;
-    color:#c9a24e;
-    margin-bottom:20px;
-}
-
-.divider{
-    width:100px;
-    height:1px;
-    background:#c9a24e;
-    margin:20px auto;
-}
-
-/* ==============================
-   HOME PAGE
-============================== */
-
-#homePage{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-
-    background:
-        radial-gradient(circle at center,
-        rgba(255,255,255,.95),
-        rgba(245,245,242,.98) 65%,
-        rgba(232,220,190,.25));
-}
-
-.home-decoration{
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(201,162,78,.45);
-    pointer-events:none;
-}
-
-.home-decoration::before,
-.home-decoration::after{
-    content:"";
-    position:absolute;
-    width:80px;
-    height:80px;
-    border:1px solid rgba(201,162,78,.5);
-}
-
-.home-decoration::before{
-    top:-1px;
-    left:-1px;
-    border-right:0;
-    border-bottom:0;
-}
-
-.home-decoration::after{
-    right:-1px;
-    bottom:-1px;
-    border-left:0;
-    border-top:0;
-}
-
-.home-content{
-    position:relative;
-    z-index:5;
-    padding:30px 20px;
-}
-
-.home-top{
-    font-family:'Cinzel',serif;
-    letter-spacing:7px;
-    font-size:12px;
-    color:#9e7b32;
-    margin-bottom:25px;
-}
-
-.home-title{
-    font-family:'Great Vibes',cursive;
-    font-size:85px;
-    line-height:1;
-    color:#c9a24e;
-}
-
-.home-subtitle{
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    font-size:13px;
-    margin-top:15px;
-    color:#555;
-}
-
-.ring-image{
-    width:150px;
-    max-width:45vw;
-    margin:35px auto 25px;
-    display:block;
-    filter:drop-shadow(0 8px 12px rgba(0,0,0,.12));
-}
-
-.home-names{
-    font-family:'Great Vibes',cursive;
-    font-size:55px;
-    color:#333;
-}
-
-.home-date{
-    font-family:'Cinzel',serif;
-    letter-spacing:4px;
-    font-size:13px;
-    margin-top:15px;
-    color:#777;
-}
-
-.open-btn{
-    margin-top:35px;
-    padding:15px 35px;
-    border:1px solid #c9a24e;
-    background:transparent;
-    color:#9c7933;
-    font-family:'Cinzel',serif;
-    letter-spacing:3px;
-    font-size:11px;
-    cursor:pointer;
-    transition:.4s;
-}
-
-.open-btn:hover{
-    background:#c9a24e;
-    color:white;
-    box-shadow:0 8px 25px rgba(201,162,78,.3);
-}
-
-.auto-note{
-    margin-top:18px;
-    font-size:11px;
-    color:#999;
-    letter-spacing:1px;
-}
-
-/* ==============================
-   INVITATION PAGE
-============================== */
-
-#invitePage{
-    min-height:100vh;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-
-.invite-video{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:0;
-}
-
-.invite-overlay{
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(
-            rgba(0,0,0,.38),
-            rgba(0,0,0,.45)
-        );
-    z-index:1;
-}
-
-.invite-content{
-    position:relative;
-    z-index:3;
-    padding:30px;
-}
-
-.invite-small{
-    font-family:'Cinzel',serif;
-    letter-spacing:7px;
-    font-size:12px;
-    margin-bottom:25px;
-}
-
-.invite-names{
-    font-family:'Great Vibes',cursive;
-    font-size:100px;
-    line-height:1.05;
-    text-shadow:0 3px 20px rgba(0,0,0,.4);
-}
-
-.invite-and{
-    font-family:'Playfair Display',serif;
-    font-size:22px;
-    margin:10px;
-}
-
-.invite-date{
-    font-family:'Cinzel',serif;
-    font-size:14px;
-    letter-spacing:5px;
-    margin-top:25px;
-}
-
-.scroll-btn{
-    margin-top:55px;
-    border:1px solid rgba(255,255,255,.8);
-    background:rgba(255,255,255,.08);
-    color:white;
-    padding:14px 30px;
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:3px;
-    cursor:pointer;
-    backdrop-filter:blur(5px);
-    transition:.4s;
-}
-
-.scroll-btn:hover{
-    background:white;
-    color:#777;
-}
-
-/* ==============================
-   MAIN PAGE
-============================== */
-
-#mainPage{
-    background:#f5f5f2;
-}
-
-.hero-main{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:50px 20px;
-    position:relative;
-}
-
-.hero-main::before{
-    content:"";
-    position:absolute;
-    inset:20px;
-    border:1px solid rgba(201,162,78,.3);
-}
-
-.hero-inner{
-    position:relative;
-    z-index:2;
-}
-
-.hero-small{
-    font-family:'Cinzel',serif;
-    letter-spacing:5px;
-    font-size:12px;
-    color:#a07c35;
-}
-
-.hero-names{
-    font-family:'Great Vibes',cursive;
-    color:#c9a24e;
-    font-size:95px;
-    line-height:1.1;
-    margin:20px 0;
-}
-
-.hero-date{
-    font-family:'Cinzel',serif;
-    letter-spacing:4px;
-    font-size:14px;
-}
-
-/* ==============================
-   FAMILY
-============================== */
-
-.family-section{
-    padding:90px 20px;
-    text-align:center;
-}
-
-.family-grid{
-    max-width:950px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-}
-
-.family-card{
-    padding:40px 25px;
-    border:1px solid rgba(201,162,78,.35);
-    background:rgba(255,255,255,.45);
-}
-
-.family-title{
-    font-family:'Cinzel',serif;
-    font-size:12px;
-    letter-spacing:3px;
-    color:#a27e36;
-    margin-bottom:20px;
-}
-
-.family-name{
-    font-size:19px;
-    line-height:1.8;
-}
-
-/* ==============================
-   COUNTDOWN
-============================== */
-
-.countdown-section{
-    padding:90px 20px;
-    text-align:center;
-    background:#eeeade;
-}
-
-.countdown{
-    max-width:900px;
-    margin:40px auto 0;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.count-box{
-    padding:25px 10px;
-    border:1px solid rgba(201,162,78,.4);
-    background:rgba(255,255,255,.5);
-}
-
-.count-number{
-    font-family:'Cinzel',serif;
-    font-size:35px;
-    color:#9f7d36;
-}
-
-.count-label{
-    font-size:10px;
-    letter-spacing:2px;
-    margin-top:8px;
-    color:#777;
-}
-
-/* ==============================
-   AGENDA
-============================== */
-
-.agenda{
-    max-width:800px;
-    margin:40px auto 0;
-}
-
-.agenda-row{
-    display:grid;
-    grid-template-columns:150px 1fr;
-    border-bottom:1px solid rgba(201,162,78,.25);
-    padding:20px;
-    text-align:left;
-}
-
-.agenda-time{
-    font-family:'Cinzel',serif;
-    color:#a07c35;
-}
-
-.agenda-event{
-    color:#555;
-}
-
-/* ==============================
-   LOCATION
-============================== */
-
-.location-card{
-    max-width:700px;
-    margin:30px auto;
-    padding:40px 25px;
-    border:1px solid rgba(201,162,78,.35);
-}
-
-.location-name{
-    font-family:'Cinzel',serif;
-    font-size:22px;
-    color:#9f7d36;
-}
-
-.location-address{
-    margin-top:15px;
-    line-height:1.8;
-}
-
-.map-btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:13px 28px;
-    border:1px solid #c9a24e;
-    color:#9f7d36;
-    text-decoration:none;
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-/* ==============================
-   RSVP
-============================== */
-
-.rsvp-box{
-    max-width:650px;
-    margin:30px auto;
-    padding:40px 25px;
-    border:1px solid rgba(201,162,78,.35);
-}
-
-.rsvp-box input,
-.rsvp-box select,
-.rsvp-box textarea{
-    width:100%;
-    padding:13px;
-    margin:8px 0;
-    border:1px solid #ddd;
-    background:white;
-    font-family:'Playfair Display',serif;
-}
-
-.rsvp-box textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.rsvp-submit{
-    padding:13px 30px;
-    background:#c9a24e;
-    color:white;
-    border:0;
-    cursor:pointer;
-    font-family:'Cinzel',serif;
-    letter-spacing:2px;
-}
-
-/* ==============================
-   GALLERY
-============================== */
-
-.gallery{
-    max-width:1000px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.gallery img{
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    display:block;
-}
-
-/* ==============================
-   WISHES
-============================== */
-
-.wishes{
-    max-width:700px;
-    margin:30px auto;
-}
-
-.wishes textarea{
-    width:100%;
-    min-height:140px;
-    padding:15px;
-    border:1px solid #ddd;
-}
-
-/* ==============================
-   THANK YOU
-============================== */
-
-.thankyou{
-    min-height:80vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.thankyou-title{
-    font-family:'Great Vibes',cursive;
-    font-size:80px;
-    color:#c9a24e;
-}
-
-.thankyou-text{
-    max-width:600px;
-    margin:20px auto;
-    line-height:2;
-}
-
-/* ==============================
-   MUSIC BUTTON
-============================== */
-
-.music-control{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:9999;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:1px solid #c9a24e;
-    background:rgba(255,255,255,.85);
-    color:#a17d36;
-    cursor:pointer;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-.music-control.show{
-    display:flex;
-}
-
-/* ==============================
-   RESPONSIVE
-============================== */
-
-@media(max-width:700px){
-
-    .home-title{
-        font-size:65px;
-    }
-
-    .home-names{
-        font-size:45px;
-    }
-
-    .invite-names{
-        font-size:65px;
-    }
-
-    .hero-names{
-        font-size:65px;
-    }
-
-    .section-title{
-        font-size:48px;
-    }
-
-    .family-grid{
-        grid-template-columns:1fr;
-    }
-
-    .countdown{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .agenda-row{
-        grid-template-columns:100px 1fr;
-    }
-
-    .gallery{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .thankyou-title{
-        font-size:60px;
-    }
-}
-
-</style>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Invitation</title>
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Cinzel:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- PRELOAD RING IMAGE -->
+    <link
+        rel="preload"
+        as="image"
+        href="—Pngtree—beautiful gold wedding rings png_6499014.png">
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: #000;
+        }
+
+
+        /* =========================================================
+           HOME PAGE
+           ========================================================= */
+
+        .home-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            color: #F5F5F2;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .home-container .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 37px;
+            color: #C9A24E;
+            text-shadow:
+                0 0 10px rgba(201,162,78,0.8),
+                0 0 25px rgba(201,162,78,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            width: 100%;
+            text-align: center;
+        }
+
+        .home-container .ring {
+            width: 36px;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.6);
+            animation:
+                ringShow 0.8s ease forwards,
+                float 3s infinite ease-in-out 0.8s;
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           SECTIONS
+           ========================================================= */
+
+        section {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        section.active {
+            display: flex;
+        }
+
+
+        /* =========================================================
+           HOME
+           ========================================================= */
+
+        #home {
+            flex-direction: column;
+            color: white;
+            background:
+                url('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80')
+                center / cover no-repeat;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 1;
+        }
+
+        .home-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 20px;
+            overflow: hidden;
+            animation: fadeIn 1.5s ease;
+        }
+
+
+        /* =========================================================
+           HOME BUTTON
+           ========================================================= */
+
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            color: white;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .btn-hint {
+            font-size: 11px;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            opacity: 0.7;
+            white-space: nowrap;
+            animation: hintFloat 2s ease-in-out infinite;
+        }
+
+
+        /* =========================================================
+           OPEN INVITATION PAGE
+           FONT SIZES INCREASED
+           ========================================================= */
+
+        #invite {
+            flex-direction: column;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        #invite video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+
+        #invite::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+
+        .invite-content {
+            position: relative;
+            z-index: 2;
+            animation: luxuryReveal 1.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 0 15px;
+            margin-top: -40px;
+        }
+
+
+        /* BIGGER */
+
+        .lux-title {
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-bottom: 8px;
+            font-size: 18px;
+            transform: translateY(-15px);
+        }
+
+
+        /* BIGGER */
+
+        .lux-names {
+            font-family: 'Cinzel', serif;
+            color: #C9A24E;
+            letter-spacing: 4px;
+            text-shadow:
+                0 0 10px rgba(201,162,78,0.8),
+                0 0 25px rgba(201,162,78,0.4);
+            margin-top: 5px;
+            font-size: 34px;
+        }
+
+
+        .lux-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 450px;
+            margin: 18px 0;
+        }
+
+        .lux-divider::before,
+        .lux-divider::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    #CFB53B
+                );
+            box-shadow:
+                0 0 10px rgba(207,181,59,0.6);
+        }
+
+        .lux-divider::after {
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    #CFB53B
+                );
+        }
+
+        .lux-divider span {
+            padding: 0 18px;
+            font-size: 20px;
+            color: #CFB53B;
+            text-shadow:
+                0 0 8px rgba(207,181,59,0.8),
+                0 0 20px rgba(207,181,59,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+        /* BIGGER */
+
+        .lux-date {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-top: 8px;
+            font-size: 25px;
+        }
+
+
+        /* BIGGER */
+
+        .lux-rsvp {
+            color: #C9A24E;
+            font-family: 'Cinzel', serif;
+            animation: floatText 2s infinite ease-in-out;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+
+        .lux-scroll-btn {
+            width: fit-content;
+            min-width: 160px;
+            margin: 25px auto 0;
+            border: none;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 0 15px rgba(201,162,78,0.4);
+            animation:
+                goldGlow 2.5s infinite ease-in-out;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+            padding: 7px 18px 6px;
+            font-size: 11px;
+        }
+
+        .lux-scroll-btn:hover {
+            transform:
+                translateY(-4px)
+                scale(1.03);
+            box-shadow:
+                0 0 25px rgba(201,162,78,0.6),
+                0 0 60px rgba(201,162,78,0.4);
+        }
+
+        .lux-scroll-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background:
+                linear-gradient(
+                    120deg,
+                    transparent,
+                    rgba(255,255,255,0.4),
+                    transparent
+                );
+            transform: skewX(-25deg);
+        }
+
+        .lux-scroll-btn:hover::before {
+            animation: shineMove 0.8s ease;
+        }
+
+        .lux-arrow {
+            font-size: 18px;
+            color: #CFB53B;
+            text-shadow:
+                0 0 10px rgba(207,181,59,0.9),
+                0 0 25px rgba(207,181,59,0.6);
+            animation:
+                bounceArrow 1.2s infinite ease-in-out;
+        }
+
+
+        /* =========================================================
+           MAIN DETAILS PAGE
+           FONTS INCREASED
+           ========================================================= */
+
+        #nextPage {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 25px;
+            background:
+                radial-gradient(
+                    circle,
+                    #111,
+                    #000
+                );
+            color: #C9A24E;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+        }
+
+
+        /* BIGGER */
+
+        .lux-join-title {
+            font-family: 'Cinzel', serif;
+            font-size: 58px;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin-top: 25px;
+            margin-bottom: 35px;
+            text-align: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    90deg,
+                    #b38b2d,
+                    #f7e7a6,
+                    #c9a24e,
+                    #f7e7a6,
+                    #b38b2d
+                );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation:
+                shimmerMove 3s linear infinite;
+        }
+
+
+        /* =========================================================
+           FAMILY INFORMATION
+           ========================================================= */
+
+        .family-info {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+
+        /* BIGGER */
+
+        .parent-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            color: rgba(255,255,255,0.88);
+            letter-spacing: 1px;
+            text-align: center;
+            margin: 15px 0;
+            max-width: 900px;
+            line-height: 1.4;
+        }
+
+
+        /* BIGGER */
+
+        .person-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 90px;
+            color: #C9A24E;
+            text-align: center;
+            text-shadow:
+                0 0 10px rgba(201,162,78,0.7),
+                0 0 25px rgba(201,162,78,0.4);
+            margin: 10px 0 25px;
+        }
+
+
+        /* BIGGER */
+
+        .invite-message {
+            margin-top: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.88);
+            text-align: center;
+            font-style: italic;
+            max-width: 950px;
+        }
+
+
+        /* =========================================================
+           ORNAMENT
+           ========================================================= */
+
+        .ornament {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 45px;
+            overflow: visible;
+        }
+
+        .ornament img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            transform: scale(10);
+            transform-origin: center top;
+            display: block;
+        }
+
+
+        /* =========================================================
+           HEARTS
+           ========================================================= */
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #D4AF37;
+            transform: rotate(-45deg);
+            opacity: 0.7;
+            animation:
+                floatHearts 8s linear infinite;
+        }
+
+        .stars span::before,
+        .stars span::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #D4AF37;
+            border-radius: 50%;
+        }
+
+        .stars span::before {
+            top: -3px;
+            left: 0;
+        }
+
+        .stars span::after {
+            top: 0;
+            left: 3px;
+        }
+
+        .stars span:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .stars span:nth-child(2) {
+            left: 30%;
+            animation-delay: 1.5s;
+        }
+
+        .stars span:nth-child(3) {
+            left: 50%;
+            animation-delay: 3s;
+        }
+
+        .stars span:nth-child(4) {
+            left: 70%;
+            animation-delay: 4.5s;
+        }
+
+        .stars span:nth-child(5) {
+            left: 90%;
+            animation-delay: 6s;
+        }
+
+
+        /* =========================================================
+           COUNTDOWN
+           ========================================================= */
+
+        .timer-container {
+            margin-top: 150px;
+            margin-bottom: 50px;
+        }
+
+
+        /* BIGGER */
+
+        .timer-title {
+            font-size: 52px;
+            letter-spacing: 5px;
+            margin-bottom: 35px;
+            color: #C9A24E;
+            text-shadow:
+                0 0 15px rgba(201,162,78,0.7),
+                0 0 30px rgba(201,162,78,0.4);
+        }
+
+        .timer {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .timer div {
+            background:
+                rgba(201,162,78,0.08);
+            border:
+                1px solid rgba(201,162,78,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 100px;
+            box-shadow:
+                0 0 15px rgba(201,162,78,0.15);
+        }
+
+        .timer span {
+            font-size: 42px;
+            display: block;
+        }
+
+        .timer small {
+            color: #fff;
+            opacity: 0.7;
+            font-size: 13px;
+        }
+
+        .timer-sub {
+            margin-top: 20px;
+            color: #fff;
+            opacity: 0.8;
+            font-size: 16px;
+        }
+
+
+        /* =========================================================
+           AGENDA
+           ========================================================= */
+
+        .program-title {
+            color: #C9A24E !important;
+            font-size: 32px;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+            text-shadow:
+                0 0 10px rgba(201,162,78,.5);
+            text-align: center;
+        }
+
+        .program-subtitle {
+            color: #fff;
+            opacity: 0.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .agenda-list {
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .agenda-list::before {
+            content: '';
+            position: absolute;
+            left: 29px;
+            top: 5px;
+            bottom: 20px;
+            width: 2px;
+            background: #C9A24E;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border:
+                2px solid #C9A24E !important;
+            color: #C9A24E !important;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        .timeline-content {
+            margin-left: 18px;
+            text-align: left;
+            padding-top: 5px;
+        }
+
+        .time-badge {
+            background:
+                rgba(201,162,78,0.2);
+            color: #C9A24E;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            color: #fff;
+            margin: 0;
+            font-size: 19px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .timeline-content p {
+            color: #aaa;
+            font-size: 14px;
+            margin: 3px 0 0;
+        }
+
+
+        /* =========================================================
+           LOCATION
+           ========================================================= */
+
+        .location-section {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 90px;
+            text-align: center;
+        }
+
+        .location-title {
+            font-family: 'Cinzel', serif;
+            font-size: 30px;
+            letter-spacing: 6px;
+            margin-bottom: 30px;
+            color: #C9A24E;
+            text-shadow:
+                0 0 15px rgba(201,162,78,0.4);
+        }
+
+        .location-card {
+            background:
+                rgba(255,255,255,0.03);
+            border:
+                1px solid rgba(201,162,78,0.25);
+            border-radius: 25px;
+            padding: 30px;
+        }
+
+        .venue-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 52px;
+            color: #C9A24E;
+            margin-bottom: 12px;
+        }
+
+        .venue-address {
+            color: #fff;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .venue-note {
+            color: #fff;
+            opacity: 0.6;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+        }
+
+        .small-btn {
+            padding: 12px 8px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            box-shadow:
+                0 0 10px rgba(201,162,78,0.3);
+            transition: 0.3s;
+            text-align: center;
+            min-width: 150px;
+            display: inline-block;
+        }
+
+        .small-btn:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 15px rgba(201,162,78,0.5);
+        }
+
+
+        /* =========================================================
+           RSVP
+           ========================================================= */
+
+        .rsvp-section {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 90px;
+            text-align: center;
+        }
+
+        .section-title {
+            color: #C9A24E;
+            font-family: 'Cinzel', serif;
+            font-size: 30px;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .rsvp-card {
+            background:
+                rgba(255,255,255,.03);
+            border:
+                1px solid rgba(201,162,78,.25);
+            border-radius: 25px;
+            padding: 35px 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .rsvp-input {
+            width: 100%;
+            padding: 17px;
+            border-radius: 15px;
+            border:
+                1px solid rgba(201,162,78,.3);
+            background:
+                rgba(255,255,255,.05);
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 25px;
+            outline: none;
+        }
+
+        .rsvp-input::placeholder {
+            color: rgba(255,255,255,.5);
+        }
+
+        .attendance-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .radio-option {
+            color: #fff;
+            cursor: pointer;
+            padding: 17px;
+            border-radius: 15px;
+            border:
+                1px solid rgba(201,162,78,.2);
+            background:
+                rgba(255,255,255,.03);
+            font-size: 16px;
+        }
+
+        .radio-option input {
+            margin-right: 10px;
+        }
+
+
+        /* =========================================================
+           GUEST COUNTERS
+           ========================================================= */
+
+        .guest-wrapper {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .guest-box {
+            min-width: 140px;
+            padding: 15px;
+            border-radius: 15px;
+            background:
+                rgba(255,255,255,0.03);
+            border:
+                1px solid rgba(201,162,78,0.3);
+        }
+
+        .guest-box h4 {
+            color: #C9A24E;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .counter button {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background:
+                rgba(201,162,78,0.2);
+            color: #C9A24E;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .counter span {
+            font-size: 21px;
+            color: #fff;
+            min-width: 20px;
+        }
+
+        .rsvp-submit {
+            padding: 16px 38px;
+            border: none;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            cursor: pointer;
+            box-shadow:
+                0 0 15px rgba(201,162,78,.4);
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           WISHES
+           ========================================================= */
+
+        .action-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .guestbook-textarea {
+            width: 100%;
+            height: 120px;
+            padding: 17px;
+            border-radius: 15px;
+            border:
+                1px solid rgba(201,162,78,0.3);
+            background:
+                rgba(255,255,255,0.05);
+            color: #fff;
+            margin-bottom: 15px;
+            resize: none;
+            font-family: sans-serif;
+            font-size: 15px;
+        }
+
+        .guestbook-textarea::placeholder {
+            color: rgba(255,255,255,.5);
+        }
+
+        .action-btn {
+            padding: 13px 27px;
+            border-radius: 30px;
+            border: none;
+            background: #C9A24E;
+            color: #000;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.3s;
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           PRE-SHOOT
+           ========================================================= */
+
+        .preshot-gallery {
+            width: 100%;
+            max-width: 900px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .preshot-title {
+            font-family: 'Cinzel', serif;
+            color: #C9A24E;
+            font-size: 30px;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            text-shadow:
+                0 0 10px rgba(201,162,78,.5);
+        }
+
+        .preshot-subtitle {
+            color:
+                rgba(255,255,255,.75);
+            font-family:
+                'Playfair Display', serif;
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .preshot-grid {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .preshot-item {
+            width: 100%;
+            max-width: 850px;
+            position: relative;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(201,162,78,.12),
+                    rgba(255,255,255,.02),
+                    rgba(201,162,78,.08)
+                );
+            border:
+                1px solid rgba(201,162,78,.35);
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow:
+                0 0 15px rgba(201,162,78,.08),
+                0 0 40px rgba(0,0,0,.5);
+            overflow: hidden;
+            transition:
+                transform .5s ease,
+                box-shadow .5s ease;
+        }
+
+        .preshot-item:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 0 25px rgba(201,162,78,.18),
+                0 0 60px rgba(0,0,0,.7);
+        }
+
+        .preshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+
+        .preshot-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35px;
+            height: 35px;
+            pointer-events: none;
+            z-index: 2;
+            border-top:
+                2px solid #C9A24E;
+            border-left:
+                2px solid #C9A24E;
+            border-radius:
+                18px 0 0 0;
+        }
+
+        .preshot-item::after {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: rgba(201,162,78,.8);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+
+        .preshot-item:nth-child(1)::after {
+            content: "01";
+        }
+
+        .preshot-item:nth-child(2)::after {
+            content: "02";
+        }
+
+        .preshot-item:nth-child(3)::after {
+            content: "03";
+        }
+
+        .preshot-item:nth-child(4)::after {
+            content: "04";
+        }
+
+        .preshot-item:nth-child(5)::after {
+            content: "05";
+        }
+
+
+        /* =========================================================
+           THANK YOU
+           ========================================================= */
+
+        .thank-you-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 90px auto 80px;
+            padding: 70px 25px;
+            text-align: center;
+            position: relative;
+            border-top:
+                1px solid rgba(201,162,78,.25);
+            border-bottom:
+                1px solid rgba(201,162,78,.25);
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(201,162,78,.08),
+                    transparent 65%
+                );
+        }
+
+        .thank-you-section::before,
+        .thank-you-section::after {
+            content: "✦";
+            position: absolute;
+            left: 50%;
+            transform:
+                translateX(-50%);
+            color: #C9A24E;
+            font-size: 18px;
+        }
+
+        .thank-you-section::before {
+            top: -12px;
+        }
+
+        .thank-you-section::after {
+            bottom: -12px;
+        }
+
+        .thank-small {
+            font-family: 'Cinzel', serif;
+            color:
+                rgba(255,255,255,.75);
+            font-size: 14px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .thank-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 80px;
+            color: #C9A24E;
+            margin-bottom: 15px;
+            text-shadow:
+                0 0 10px rgba(201,162,78,.6),
+                0 0 30px rgba(201,162,78,.3);
+            animation:
+                thankGlow 3s infinite ease-in-out;
+        }
+
+        .thank-message {
+            max-width: 650px;
+            margin: 0 auto;
+            font-family:
+                'Playfair Display', serif;
+            color:
+                rgba(255,255,255,.8);
+            font-size: 18px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .thank-names {
+            margin-top: 30px;
+            font-family:
+                'Cinzel', serif;
+            color: #C9A24E;
+            font-size: 21px;
+            letter-spacing: 4px;
+        }
+
+        .thank-heart {
+            margin-top: 25px;
+            color: #C9A24E;
+            font-size: 22px;
+            animation:
+                heartBeat 2s infinite ease-in-out;
+        }
+
+
+        /* =========================================================
+           TRANSITIONS
+           ========================================================= */
+
+        .cloud-transition,
+        .gold-transition {
+            position: fixed;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition:
+                opacity 0.6s ease;
+        }
+
+        .cloud-transition {
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,0.2),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 80% 40%,
+                    rgba(255,255,255,0.15),
+                    transparent 45%
+                ),
+                rgba(0,0,0,0.6);
+            filter: blur(8px);
+        }
+
+        .cloud-transition.active {
+            animation:
+                fogMove 1.2s ease forwards;
+        }
+
+        .gold-transition {
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(201,162,78,0.35),
+                    rgba(0,0,0,0.92)
+                );
+            filter: blur(20px);
+            transform: scale(1.1);
+        }
+
+        .gold-transition.active {
+            animation:
+                goldSmooth 1.2s ease-in-out forwards;
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .home-container {
+                padding: 15px;
+                gap: 40px;
+            }
+
+            .home-container h1 {
+                font-size: 26px;
+            }
+
+            .home-container .names {
+                font-size: 32px;
+                gap: 10px;
+            }
+
+            .home-container .ring {
+                width: 30px;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 9px 22px;
+            }
+
+            .btn-hint {
+                font-size: 9px;
+            }
+
+
+            /* =========================================
+               OPEN INVITATION MOBILE - BIGGER
+               ========================================= */
+
+            .lux-title {
+                font-size: 15px;
+                letter-spacing: 3px;
+            }
+
+            .lux-names {
+                font-size: 29px;
+                letter-spacing: 3px;
+            }
+
+            .lux-date {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            .lux-rsvp {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            .lux-scroll-btn {
+                min-width: 150px;
+                font-size: 10px;
+            }
+
+            .lux-arrow {
+                font-size: 14px;
+            }
+
+
+            /* =========================================
+               MAIN PAGE MOBILE - BIGGER
+               ========================================= */
+
+            .lux-join-title {
+                font-size: 22px;
+                letter-spacing: 3px;
+                margin-bottom: 25px;
+            }
+
+            .parent-text {
+                font-size: 17px;
+                padding: 0 15px;
+                line-height: 1.5;
+            }
+
+            .person-name {
+                font-size: 58px;
+                margin-bottom: 12px;
+            }
+
+            .invite-message {
+                font-size: 16px;
+                padding: 0 15px;
+                line-height: 1.7;
+            }
+
+            .ornament img {
+                width: 35px;
+            }
+
+
+            /* =========================================
+               COUNTDOWN MOBILE
+               ========================================= */
+
+            .timer-container {
+                margin-top: 110px;
+            }
+
+            .timer-title {
+                font-size: 22px;
+                margin-bottom: 20px;
+                letter-spacing: 3px;
+            }
+
+            .timer {
+                gap: 8px;
+            }
+
+            .timer div {
+                padding: 8px;
+                min-width: 65px;
+                border-radius: 8px;
+            }
+
+            .timer span {
+                font-size: 20px;
+            }
+
+            .timer small {
+                font-size: 9px;
+            }
+
+            .timer-sub {
+                font-size: 13px;
+            }
+
+
+            /* =========================================
+               AGENDA MOBILE
+               ========================================= */
+
+            .program-title {
+                font-size: 23px;
+            }
+
+            .program-subtitle {
+                font-size: 13px;
+            }
+
+            .timeline-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 14px;
+            }
+
+            .agenda-list::before {
+                left: 24px;
+            }
+
+            .timeline-content {
+                margin-left: 11px;
+            }
+
+            .timeline-content h3 {
+                font-size: 15px;
+            }
+
+            .timeline-content p {
+                font-size: 12px;
+            }
+
+            .time-badge {
+                font-size: 9px;
+            }
+
+
+            /* =========================================
+               LOCATION MOBILE
+               ========================================= */
+
+            .location-section {
+                margin-top: 65px;
+            }
+
+            .location-title {
+                font-size: 21px;
+                letter-spacing: 4px;
+            }
+
+            .venue-name {
+                font-size: 40px;
+            }
+
+            .venue-address {
+                font-size: 15px;
+            }
+
+            .venue-note {
+                font-size: 13px;
+            }
+
+            .btn-group {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .small-btn {
+                font-size: 10px;
+                min-width: 135px;
+            }
+
+
+            /* =========================================
+               RSVP MOBILE
+               ========================================= */
+
+            .rsvp-section {
+                margin-top: 65px;
+            }
+
+            .section-title {
+                font-size: 21px;
+                letter-spacing: 2px;
+            }
+
+            .radio-option {
+                font-size: 14px;
+            }
+
+
+            /* =========================================
+               PRE-SHOOT MOBILE
+               ========================================= */
+
+            .preshot-gallery {
+                margin-top: 65px;
+                padding: 0 12px;
+            }
+
+            .preshot-title {
+                font-size: 22px;
+                letter-spacing: 3px;
+            }
+
+            .preshot-subtitle {
+                font-size: 13px;
+                margin-bottom: 30px;
+            }
+
+            .preshot-grid {
+                gap: 22px;
+            }
+
+            .preshot-item {
+                padding: 5px;
+                border-radius: 15px;
+            }
+
+            .preshot-item img {
+                border-radius: 11px;
+            }
+
+
+            /* =========================================
+               THANK YOU MOBILE
+               ========================================= */
+
+            .thank-you-section {
+                margin-top: 60px;
+                margin-bottom: 50px;
+                padding: 55px 18px;
+            }
+
+            .thank-small {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .thank-title {
+                font-size: 60px;
+            }
+
+            .thank-message {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .thank-names {
+                font-size: 16px;
+                letter-spacing: 2px;
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL MOBILE
+           ========================================================= */
+
+        @media (max-width: 400px) {
+
+            .home-container .names {
+                font-size: 29px;
+            }
+
+            .home-container h1 {
+                font-size: 23px;
+            }
+
+            .lux-title {
+                font-size: 13px;
+            }
+
+            .lux-names {
+                font-size: 25px;
+            }
+
+            .lux-date {
+                font-size: 18px;
+            }
+
+            .lux-rsvp {
+                font-size: 13px;
+            }
+
+            .lux-join-title {
+                font-size: 19px;
+            }
+
+            .parent-text {
+                font-size: 15px;
+            }
+
+            .person-name {
+                font-size: 52px;
+            }
+
+            .invite-message {
+                font-size: 14px;
+            }
+
+            .timer-title {
+                font-size: 20px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .small-btn {
+                width: 180px;
+            }
+
+            .thank-title {
+                font-size: 52px;
+            }
+
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+           ========================================================= */
+
+        @keyframes ringShow {
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+        }
+
+        @keyframes pulse {
+
+            0% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(201,162,78,0.5);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 20px
+                    rgba(201,162,78,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(201,162,78,0);
+            }
+
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes luxuryReveal {
+
+            0% {
+                opacity: 0;
+                transform: scale(1.1);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+
+        }
+
+        @keyframes floatText {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+
+        }
+
+        @keyframes bounceArrow {
+
+            0%,100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(5px);
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes goldGlow {
+
+            0%,100% {
+                box-shadow:
+                    0 0 10px rgba(201,162,78,0.3),
+                    0 0 25px rgba(201,162,78,0.2);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 20px rgba(201,162,78,0.6),
+                    0 0 45px rgba(201,162,78,0.4);
+            }
+
+        }
+
+        @keyframes shineMove {
+
+            from {
+                left: -75%;
+            }
+
+            to {
+                left: 130%;
+            }
+
+        }
+
+        @keyframes fogMove {
+
+            0% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes goldSmooth {
+
+            0% {
+                opacity: 0;
+                transform: scale(1.15);
+                filter: blur(25px);
+            }
+
+            40% {
+                opacity: 1;
+                filter: blur(10px);
+            }
+
+            70% {
+                opacity: 0.8;
+                transform: scale(1.05);
+                filter: blur(6px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1);
+                filter: blur(20px);
+            }
+
+        }
+
+        @keyframes shimmerMove {
+
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+
+        }
+
+        @keyframes floatHearts {
+
+            0% {
+                transform:
+                    translateY(100vh)
+                    rotate(-45deg)
+                    scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform:
+                    translateY(-10vh)
+                    rotate(-45deg)
+                    scale(1);
+                opacity: 0;
+            }
+
+        }
+
+        @keyframes hintFloat {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateY(-4px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+        }
+
+        @keyframes thankGlow {
+
+            0%,100% {
+                text-shadow:
+                    0 0 10px rgba(201,162,78,.4),
+                    0 0 25px rgba(201,162,78,.2);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 15px rgba(201,162,78,.8),
+                    0 0 40px rgba(201,162,78,.5);
+            }
+
+        }
+
+        @keyframes heartBeat {
+
+            0%,100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================================================
-     AUDIO
-========================================================= -->
 
-<audio id="bgMusic" loop preload="auto">
-    <source src="khuda jaane.mp3" type="audio/mpeg">
-    <source src="khuda jaane.webm" type="audio/webm">
-</audio>
+    <!-- =========================================================
+         HOME
+         ========================================================= -->
 
+    <section id="home" class="active">
 
-<!-- =========================================================
-     MUSIC CONTROL
-========================================================= -->
+        <div class="home-container">
 
-<button class="music-control" id="musicControl" onclick="toggleMusic()">
-    ♪
-</button>
+            <h1>
+                The Wedding of
+            </h1>
 
+            <div class="names">
 
-<!-- =========================================================
-     HOME PAGE
-========================================================= -->
+                <span>
+                    Sandaru
+                </span>
 
-<section id="homePage" class="page">
+                <img
+                    class="ring"
+                    src="—Pngtree—beautiful gold wedding rings png_6499014.png"
+                    alt="Wedding Rings"
+                >
 
-    <div class="home-decoration"></div>
+                <span>
+                    Kaveesha
+                </span>
 
-    <div class="home-content">
-
-        <div class="home-top">
-            TOGETHER WITH THEIR FAMILIES
-        </div>
-
-        <div class="home-title">
-            Wedding Invitation
-        </div>
-
-        <img
-            class="ring-image"
-            src="—Pngtree—beautiful gold wedding rings png_6499014.png"
-            alt="Wedding Rings"
-        >
-
-        <div class="home-names">
-            Sandaru & Kaveesha
-        </div>
-
-        <div class="home-date">
-            05 NOVEMBER 2026
-        </div>
-
-        <button class="open-btn" onclick="openInvite(false)">
-            OPEN INVITATION
-        </button>
-
-        <div class="auto-note">
-            THE INVITATION WILL OPEN AUTOMATICALLY
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     INVITATION VIDEO PAGE
-========================================================= -->
-
-<section id="invitePage" class="page hidden">
-
-    <video
-        id="inviteVideo"
-        class="invite-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-    >
-        <source
-            src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4"
-            type="video/mp4"
-        >
-    </video>
-
-    <div class="invite-overlay"></div>
-
-    <div class="invite-content">
-
-        <div class="invite-small">
-            YOU ARE CORDIALLY INVITED
-        </div>
-
-        <div class="invite-names">
-            Sandaru
-            <div class="invite-and">&</div>
-            Kaveesha
-        </div>
-
-        <div class="invite-date">
-            05 • NOVEMBER • 2026
-        </div>
-
-        <button class="scroll-btn" onclick="scrollToNext(false)">
-            SCROLL DOWN
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     MAIN PAGE
-========================================================= -->
-
-<main id="mainPage" class="page hidden">
-
-
-    <!-- HERO -->
-
-    <section class="hero-main">
-
-        <div class="hero-inner">
-
-            <div class="hero-small">
-                THE WEDDING OF
             </div>
 
-            <div class="hero-names">
+            <div class="btn-wrapper">
+
+                <button
+                    class="btn"
+                    onclick="openInvite()"
+                >
+                    OPEN INVITATION
+                </button>
+
+                <div class="btn-hint">
+                    👆 TAP TO BEGIN
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <audio id="bgMusic" loop>
+
+            <source
+                src="khuda jaane.webm"
+                type="audio/webm">
+
+        </audio>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         OPEN INVITATION
+         ========================================================= -->
+
+    <section id="invite">
+
+        <video
+            id="weddingVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+
+            <source
+                src="From Klickpin.com- Colorful Lip Combo Ideas for a Cozy Vibe-pin-id-1034139133211775751.mp4"
+                type="video/mp4">
+
+        </video>
+
+
+        <div class="invite-content">
+
+            <div class="lux-title">
+                We are getting married
+            </div>
+
+            <div class="lux-names">
                 Sandaru & Kaveesha
             </div>
 
-            <div class="hero-date">
-                05 NOVEMBER 2026
-                <br><br>
-                ROYAL DREAM PALACE • URAPOLA
+            <div class="lux-divider">
+
+                <span>
+                    ❤
+                </span>
+
             </div>
+
+            <div class="lux-date">
+                05 November 2026
+            </div>
+
+            <div class="lux-rsvp">
+                Confirm Attendance
+            </div>
+
+            <button
+                class="lux-scroll-btn"
+                onclick="scrollToNext()"
+            >
+
+                Scroll Down
+
+                <span class="lux-arrow">
+                    ⌄
+                </span>
+
+            </button>
 
         </div>
 
     </section>
 
 
-    <!-- FAMILY -->
 
-    <section class="family-section">
+    <!-- =========================================================
+         MAIN PAGE
+         ========================================================= -->
 
-        <div class="small-title">
-            WITH THE BLESSINGS OF OUR FAMILIES
-        </div>
+    <section id="nextPage">
 
-        <div class="section-title">
-            Our Families
-        </div>
+        <div class="stars">
 
-        <div class="divider"></div>
-
-        <div class="family-grid">
-
-            <div class="family-card">
-
-                <div class="family-title">
-                    BRIDE
-                </div>
-
-                <div class="family-name">
-                    Kaveesha<br>
-                    Daughter of<br>
-                    Mr. & Mrs. W.A. Wickramasooriya Wijesundara
-                </div>
-
-            </div>
-
-
-            <div class="family-card">
-
-                <div class="family-title">
-                    GROOM
-                </div>
-
-                <div class="family-name">
-                    Sandaru<br>
-                    Son of<br>
-                    Mr. & Mrs. M. Saman Pushpakumara
-                </div>
-
-            </div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
 
         </div>
 
-    </section>
 
-
-    <!-- COUNTDOWN -->
-
-    <section class="countdown-section">
-
-        <div class="small-title">
-            COUNTING EVERY MOMENT
+        <div class="lux-join-title">
+            JOIN OUR SPECIAL DAY
         </div>
 
-        <div class="section-title">
-            Until Our Big Day
-        </div>
 
-        <div class="divider"></div>
+        <!-- FAMILY -->
 
-        <div class="countdown">
+        <div class="family-info">
 
-            <div class="count-box">
-                <div class="count-number" id="days">00</div>
-                <div class="count-label">DAYS</div>
+            <p class="parent-text">
+                Beloved daughter of Mr. and Mrs. W.A. Wickramasooriya Wijesundara
+            </p>
+
+            <div class="person-name">
+                Kaveesha
             </div>
 
-            <div class="count-box">
-                <div class="count-number" id="hours">00</div>
-                <div class="count-label">HOURS</div>
+            <p class="parent-text">
+                Beloved son of Mr. and Mrs. M. Saman Pushpakumara
+            </p>
+
+            <div class="person-name">
+                Sandaru
             </div>
 
-            <div class="count-box">
-                <div class="count-number" id="minutes">00</div>
-                <div class="count-label">MINUTES</div>
-            </div>
+            <p class="invite-message">
 
-            <div class="count-box">
-                <div class="count-number" id="seconds">00</div>
-                <div class="count-label">SECONDS</div>
-            </div>
+                A cordial invitation to join us in celebrating
+                the union of two hearts and the beginning of
+                a beautiful journey together.
+
+            </p>
 
         </div>
 
-    </section>
 
+        <!-- ORNAMENT -->
 
-    <!-- AGENDA -->
+        <div class="ornament">
 
-    <section class="section">
-
-        <div class="container">
-
-            <div class="small-title">
-                JOIN US FOR
-            </div>
-
-            <div class="section-title">
-                Our Special Day
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="agenda">
-
-                <div class="agenda-row">
-                    <div class="agenda-time">
-                        09:00 AM
-                    </div>
-                    <div class="agenda-event">
-                        Guest Registration
-                    </div>
-                </div>
-
-                <div class="agenda-row">
-                    <div class="agenda-time">
-                        10:00 AM
-                    </div>
-                    <div class="agenda-event">
-                        Welcome & Gathering
-                    </div>
-                </div>
-
-                <div class="agenda-row">
-                    <div class="agenda-time">
-                        11:00 AM
-                    </div>
-                    <div class="agenda-event">
-                        Poruwa Ceremony
-                    </div>
-                </div>
-
-                <div class="agenda-row">
-                    <div class="agenda-time">
-                        12:30 PM
-                    </div>
-                    <div class="agenda-event">
-                        Lunch & Celebration
-                    </div>
-                </div>
-
-                <div class="agenda-row">
-                    <div class="agenda-time">
-                        04:00 PM
-                    </div>
-                    <div class="agenda-event">
-                        End of Celebration
-                    </div>
-                </div>
-
-            </div>
+            <img
+                src="ornament.png.png"
+                alt="Golden Ornament"
+            >
 
         </div>
 
-    </section>
 
+        <!-- COUNTDOWN -->
 
-    <!-- LOCATION -->
+        <div class="timer-container">
 
-    <section class="section">
+            <h2 class="timer-title">
+                SAVE THE DATE
+            </h2>
 
-        <div class="container">
+            <div class="timer">
 
-            <div class="small-title">
-                OUR CELEBRATION
+                <div>
+
+                    <span id="days">
+                        00
+                    </span>
+
+                    <small>
+                        Days
+                    </small>
+
+                </div>
+
+                <div>
+
+                    <span id="hours">
+                        00
+                    </span>
+
+                    <small>
+                        Hours
+                    </small>
+
+                </div>
+
+                <div>
+
+                    <span id="minutes">
+                        00
+                    </span>
+
+                    <small>
+                        Minutes
+                    </small>
+
+                </div>
+
+                <div>
+
+                    <span id="seconds">
+                        00
+                    </span>
+
+                    <small>
+                        Seconds
+                    </small>
+
+                </div>
+
             </div>
 
-            <div class="section-title">
-                The Venue
-            </div>
+            <p class="timer-sub">
+                05 November 2026
+            </p>
 
-            <div class="divider"></div>
+        </div>
+
+
+        <!-- DAY PROGRAM -->
+
+<h2 class="program-title">
+    Day Program
+</h2>
+
+<p class="program-subtitle">
+    A beautiful day of love and celebration
+</p>
+
+<div class="agenda-list">
+
+    <!-- Marriage Registration -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-file-signature"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                08:22 AM
+            </span>
+
+            <h3>
+                Marriage Registration
+            </h3>
+
+            <p>
+                Officially beginning our journey together
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Guest Arrival -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-door-open"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                09:00 AM
+            </span>
+
+            <h3>
+                Guest Arrival
+            </h3>
+
+            <p>
+                Welcome and reception
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Poruwa Ceremony -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-people-roof"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                10:06 AM
+            </span>
+
+            <h3>
+                Poruwa Ceremony
+            </h3>
+
+            <p>
+                A cherished traditional celebration
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Lunch -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-utensils"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                12:08 PM
+            </span>
+
+            <h3>
+                Lunch
+            </h3>
+
+            <p>
+                A delightful wedding feast
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Cocktail -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-champagne-glasses"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                02:30 PM
+            </span>
+
+            <h3>
+                Cocktail
+            </h3>
+
+            <p>
+                Cheers to love and happiness
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Going Away -->
+    <div class="timeline-item">
+
+        <div class="timeline-icon">
+            <i class="fa-solid fa-car-side"></i>
+        </div>
+
+        <div class="timeline-content">
+
+            <span class="time-badge">
+                03:36 PM
+            </span>
+
+            <h3>
+                Going Away
+            </h3>
+
+            <p>
+                Beginning our journey as one
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- LOCATION -->
+
+        <div class="location-section">
+
+            <h2 class="location-title">
+                WEDDING VENUE
+            </h2>
 
             <div class="location-card">
 
-                <div class="location-name">
+                <h3 class="venue-name">
                     Royal Dream Palace
-                </div>
+                </h3>
 
-                <div class="location-address">
-                    Urapola<br>
-                    Sri Lanka
-                </div>
+                <p class="venue-address">
+                    Urapola, Sri Lanka
+                </p>
 
-                <a
-                    class="map-btn"
-                    href="https://www.google.com/maps/search/?api=1&query=Royal+Dream+Palace+Urapola"
-                    target="_blank"
-                >
-                    VIEW LOCATION
-                </a>
+                <p class="venue-note">
+                    A beautiful place where our journey begins ❤️
+                </p>
+
+                <div class="btn-group">
+
+                    <a
+                        href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9"
+                        target="_blank"
+                        class="small-btn"
+                    >
+                        📍 VIEW LOCATION
+                    </a>
+
+                    <a
+                        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml"
+                        target="_blank"
+                        class="small-btn"
+                    >
+                        📅 ADD TO CALENDAR
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
-    </section>
 
+        <!-- RSVP -->
 
-    <!-- RSVP -->
+        <div class="rsvp-section">
 
-    <section class="section">
+            <h2 class="section-title">
+                Confirm Your Attendance
+            </h2>
 
-        <div class="container">
-
-            <div class="small-title">
-                WE WOULD LOVE TO HAVE YOU
-            </div>
-
-            <div class="section-title">
-                RSVP
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="rsvp-box">
+            <div class="rsvp-card">
 
                 <input
                     type="text"
-                    id="rsvpName"
                     placeholder="Your Name"
+                    class="rsvp-input"
                 >
 
-                <select id="rsvpAttendance">
+                <div class="attendance-box">
 
-                    <option value="">
-                        Will you attend?
-                    </option>
+                    <label class="radio-option">
 
-                    <option value="yes">
-                        Joyfully Accept
-                    </option>
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="yes"
+                        >
 
-                    <option value="no">
-                        Regretfully Decline
-                    </option>
+                        ✓ Yes, We Will Attend
 
-                </select>
+                    </label>
 
-                <input
-                    type="number"
-                    id="guestCount"
-                    min="1"
-                    placeholder="Number of Guests"
-                >
+                    <label class="radio-option">
 
-                <textarea
-                    id="rsvpMessage"
-                    placeholder="Message"
-                ></textarea>
+                        <input
+                            type="radio"
+                            name="attendance"
+                            value="no"
+                        >
+
+                        ✕ No, we will not participate.
+
+                    </label>
+
+                </div>
+
+
+                <div class="guest-wrapper">
+
+
+                    <div class="guest-box">
+
+                        <h4>
+                            Adults
+                        </h4>
+
+                        <div class="counter">
+
+                            <button
+                                type="button"
+                                onclick="changeCount('adults',-1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="adults">
+                                1
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeCount('adults',1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="guest-box">
+
+                        <h4>
+                            Children
+                        </h4>
+
+                        <div class="counter">
+
+                            <button
+                                type="button"
+                                onclick="changeCount('children',-1)"
+                            >
+                                −
+                            </button>
+
+                            <span id="children">
+                                0
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="changeCount('children',1)"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
 
                 <button
                     class="rsvp-submit"
-                    onclick="submitRSVP()"
+                    onclick="sendRSVP()"
                 >
-                    SEND RSVP
+                    Send Message
                 </button>
 
             </div>
 
         </div>
 
-    </section>
 
+        <!-- WISHES -->
 
-    <!-- PRE SHOOT -->
+        <div class="action-section">
 
-    <section class="section">
+            <h2 class="section-title">
+                Send Your Wishes
+            </h2>
 
-        <div class="container">
+            <textarea
+                id="wishMessage"
+                class="guestbook-textarea"
+                placeholder="Leave a sweet message for the couple..."
+            ></textarea>
 
-            <div class="small-title">
-                A FEW MEMORIES
-            </div>
-
-            <div class="section-title">
-                Pre-Shoot
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="gallery">
-
-                <img src="1.jpg" alt="Pre Shoot 1">
-                <img src="2.jpg" alt="Pre Shoot 2">
-                <img src="3.jpg" alt="Pre Shoot 3">
-                <img src="4.jpg" alt="Pre Shoot 4">
-                <img src="5.jpg" alt="Pre Shoot 5">
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WISHES -->
-
-    <section class="section">
-
-        <div class="container">
-
-            <div class="small-title">
-                LEAVE US A LITTLE LOVE
-            </div>
-
-            <div class="section-title">
-                Wishes
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="wishes">
-
-                <textarea
-                    id="wishText"
-                    placeholder="Write your wishes for Sandaru & Kaveesha..."
-                ></textarea>
-
-                <br><br>
+            <div>
 
                 <button
-                    class="rsvp-submit"
+                    class="action-btn"
                     onclick="sendWish()"
                 >
-                    SEND WISH
+                    Send Wish via WhatsApp
+                </button>
+
+                <button
+                    class="action-btn"
+                    onclick="shareInvite()"
+                >
+                    Share Invitation
                 </button>
 
             </div>
 
         </div>
 
-    </section>
+
+        <!-- PRE-SHOOT -->
+
+        <div class="preshot-gallery">
+
+            <h2 class="preshot-title">
+                PRE-SHOOT MOMENTS
+            </h2>
+
+            <p class="preshot-subtitle">
+                A few beautiful moments before our special day
+            </p>
 
 
-    <!-- THANK YOU -->
+            <div class="preshot-grid">
 
-    <section class="thankyou">
 
-        <div>
+                <div class="preshot-item">
 
-            <div class="thankyou-title">
-                Thank You
+                    <img
+                        src="1.jpg"
+                        alt="Pre-Shoot Photo 1"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="preshot-item">
+
+                    <img
+                        src="2.jpg"
+                        alt="Pre-Shoot Photo 2"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="preshot-item">
+
+                    <img
+                        src="3.jpg"
+                        alt="Pre-Shoot Photo 3"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="preshot-item">
+
+                    <img
+                        src="4.jpg"
+                        alt="Pre-Shoot Photo 4"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="preshot-item">
+
+                    <img
+                        src="5.jpg"
+                        alt="Pre-Shoot Photo 5"
+                        loading="lazy"
+                    >
+
+                </div>
+
             </div>
 
-            <div class="divider"></div>
 
-            <div class="thankyou-text">
-                Your presence, love and blessings mean the world to us.
-                <br>
-                We can't wait to celebrate this beautiful beginning with you.
-            </div>
+            <!-- THANK YOU -->
 
-            <div class="home-date">
-                SANDARU & KAVEESHA
+            <div class="thank-you-section">
+
+                <div class="thank-small">
+                    With Love & Gratitude
+                </div>
+
+                <div class="thank-title">
+                    Thank You
+                </div>
+
+                <p class="thank-message">
+
+                    Thank you for being a part of our special day
+                    and for sharing in the love, laughter and memories
+                    that make this journey so beautiful.
+
+                </p>
+
+                <div class="thank-names">
+                    SANDARU & KAVEESHA
+                </div>
+
+                <div class="thank-heart">
+                    ♡
+                </div>
+
             </div>
 
         </div>
 
     </section>
 
-</main>
+
+    <!-- TRANSITIONS -->
+
+    <div
+        id="cloudTransition"
+        class="cloud-transition"
+    ></div>
+
+    <div
+        id="goldTransition"
+        class="gold-transition"
+    ></div>
 
 
-<script>
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+    <script>
 
-const homePage = document.getElementById("homePage");
-const invitePage = document.getElementById("invitePage");
-const mainPage = document.getElementById("mainPage");
+        window.onload = function () {
 
-const bgMusic = document.getElementById("bgMusic");
-const musicControl = document.getElementById("musicControl");
-
-const inviteVideo = document.getElementById("inviteVideo");
-
-
-/* =========================================================
-   MUSIC
-========================================================= */
-
-let musicStarted = false;
-
-async function startMusic(){
-
-    if(musicStarted){
-        return;
-    }
-
-    try{
-
-        bgMusic.volume = 0.8;
-
-        await bgMusic.play();
-
-        musicStarted = true;
-
-        musicControl.classList.add("show");
-
-    }catch(error){
-
-        console.log("Autoplay blocked:", error);
-
-        /*
-         Browser autoplay policy blocked audio.
-         The next user interaction will start the music.
-        */
-
-        const playOnInteraction = async () => {
-
-            try{
-
-                await bgMusic.play();
-
-                musicStarted = true;
-
-                musicControl.classList.add("show");
-
-            }catch(e){
-
-                console.log("Music still blocked:", e);
-
-            }
-
-            document.removeEventListener(
-                "click",
-                playOnInteraction
-            );
-
-            document.removeEventListener(
-                "touchstart",
-                playOnInteraction
-            );
+            switchPage("home");
 
         };
 
-        document.addEventListener(
-            "click",
-            playOnInteraction,
-            {once:true}
+
+        /* OPEN INVITATION */
+
+        function openInvite() {
+
+            const cloud =
+                document.getElementById(
+                    "cloudTransition"
+                );
+
+            const music =
+                document.getElementById(
+                    "bgMusic"
+                );
+
+
+            cloud.classList.add("active");
+
+
+            music.volume = 0.6;
+
+
+            music.play().catch(err => {
+
+                console.log(
+                    "Audio could not start:",
+                    err
+                );
+
+            });
+
+
+            setTimeout(() => {
+
+                switchPage("invite");
+
+            }, 600);
+
+
+            setTimeout(() => {
+
+                cloud.classList.remove("active");
+
+            }, 1200);
+
+        }
+
+
+        /* SCROLL TO MAIN PAGE */
+
+        function scrollToNext() {
+
+            const gold =
+                document.getElementById(
+                    "goldTransition"
+                );
+
+
+            gold.classList.add("active");
+
+
+            setTimeout(() => {
+
+                switchPage("nextPage");
+
+            }, 500);
+
+
+            setTimeout(() => {
+
+                gold.classList.remove("active");
+
+            }, 1000);
+
+        }
+
+
+        /* PAGE SWITCH */
+
+        function switchPage(id) {
+
+            document
+                .querySelectorAll("section")
+                .forEach(section => {
+
+                    section.classList.remove(
+                        "active"
+                    );
+
+                    section.style.display =
+                        "none";
+
+                });
+
+
+            const el =
+                document.getElementById(id);
+
+
+            if (!el) return;
+
+
+            el.classList.add("active");
+
+            el.style.display = "flex";
+
+
+            window.scrollTo(0, 0);
+
+        }
+
+
+        /* GUEST COUNTER */
+
+        function changeCount(id, change) {
+
+            const el =
+                document.getElementById(id);
+
+
+            let value =
+                parseInt(el.innerText);
+
+
+            value += change;
+
+
+            if (value < 0) {
+
+                value = 0;
+
+            }
+
+
+            el.innerText = value;
+
+        }
+
+
+        /* RSVP */
+
+        function sendRSVP() {
+
+            const name =
+                document
+                    .querySelector(
+                        '.rsvp-input'
+                    )
+                    .value
+                    .trim();
+
+
+            const attendance =
+                document.querySelector(
+                    'input[name="attendance"]:checked'
+                );
+
+
+            const adults =
+                document
+                    .getElementById(
+                        'adults'
+                    )
+                    .innerText;
+
+
+            const children =
+                document
+                    .getElementById(
+                        'children'
+                    )
+                    .innerText;
+
+
+            if (name === "") {
+
+                alert(
+                    "Please enter your name"
+                );
+
+                return;
+
+            }
+
+
+            if (!attendance) {
+
+                alert(
+                    "Please select attendance"
+                );
+
+                return;
+
+            }
+
+
+            const status =
+                attendance.value === "yes"
+                    ? "Will Attend"
+                    : "Cannot Attend";
+
+
+            const message =
+`🌹 Wedding RSVP
+
+👤 Name: ${name}
+
+📌 Status: ${status}
+
+👨 Adults: ${adults}
+
+👶 Children: ${children}`;
+
+
+            const phone =
+                "94752452479";
+
+
+            window.open(
+                `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+                "_blank"
+            );
+
+        }
+
+
+        /* SEND WISH */
+
+        function sendWish() {
+
+            const wish =
+                document
+                    .getElementById(
+                        "wishMessage"
+                    )
+                    .value
+                    .trim();
+
+
+            const phone =
+                "94752452479";
+
+
+            if (wish === "") {
+
+                alert(
+                    "Please write a message first!"
+                );
+
+                return;
+
+            }
+
+
+            const message =
+`✨ Special Wish for Sandaru & Kaveesha:
+
+"${wish}"`;
+
+
+            window.open(
+                `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+                "_blank"
+            );
+
+        }
+
+
+        /* SHARE */
+
+        function shareInvite() {
+
+            if (navigator.share) {
+
+                navigator.share({
+
+                    title:
+                        'Wedding Invitation: Sandaru & Kaveesha',
+
+                    text:
+                        'Please join us on our special day!',
+
+                    url:
+                        window.location.href
+
+                }).catch(console.error);
+
+            } else {
+
+                navigator.clipboard
+                    .writeText(
+                        window.location.href
+                    )
+                    .then(() => {
+
+                        alert(
+                            "Invitation link copied to clipboard!"
+                        );
+
+                    })
+                    .catch(() => {
+
+                        alert(
+                            "Please copy the invitation link from your browser."
+                        );
+
+                    });
+
+            }
+
+        }
+
+
+        /* COUNTDOWN */
+
+        const weddingDate =
+            new Date(
+                "November 5, 2026 00:00:00"
+            ).getTime();
+
+
+        function updateTimer() {
+
+            const now =
+                new Date().getTime();
+
+
+            const gap =
+                weddingDate - now;
+
+
+            if (gap < 0) {
+
+                document.getElementById("days").innerText =
+                    "00";
+
+                document.getElementById("hours").innerText =
+                    "00";
+
+                document.getElementById("minutes").innerText =
+                    "00";
+
+                document.getElementById("seconds").innerText =
+                    "00";
+
+                return;
+
+            }
+
+
+            const second = 1000;
+
+            const minute = second * 60;
+
+            const hour = minute * 60;
+
+            const day = hour * 24;
+
+
+            const d =
+                Math.floor(
+                    gap / day
+                );
+
+
+            const h =
+                Math.floor(
+                    (gap % day) / hour
+                );
+
+
+            const m =
+                Math.floor(
+                    (gap % hour) / minute
+                );
+
+
+            const s =
+                Math.floor(
+                    (gap % minute) / second
+                );
+
+
+            document.getElementById("days").innerText =
+                d < 10 ? "0" + d : d;
+
+
+            document.getElementById("hours").innerText =
+                h < 10 ? "0" + h : h;
+
+
+            document.getElementById("minutes").innerText =
+                m < 10 ? "0" + m : m;
+
+
+            document.getElementById("seconds").innerText =
+                s < 10 ? "0" + s : s;
+
+        }
+
+
+        setInterval(
+            updateTimer,
+            1000
         );
+
+
+        updateTimer();
+
+
+        /* TOUCH SPARKLES */
+
+        function createSparkles(x, y) {
+
+            const sparkle =
+                document.createElement(
+                    "span"
+                );
+
+
+            sparkle.className =
+                "sparkle";
+
+
+            sparkle.innerHTML =
+                "✨";
+
+
+            sparkle.style.left =
+                x + "px";
+
+
+            sparkle.style.top =
+                y + "px";
+
+
+            const randomX =
+                (Math.random() * 40) - 20;
+
+
+            const randomY =
+                -(Math.random() * 60 + 20);
+
+
+            sparkle.style.setProperty(
+                "--x",
+                randomX + "px"
+            );
+
+
+            sparkle.style.setProperty(
+                "--y",
+                randomY + "px"
+            );
+
+
+            document.body.appendChild(
+                sparkle
+            );
+
+
+            setTimeout(() => {
+
+                sparkle.remove();
+
+            }, 900);
+
+        }
+
 
         document.addEventListener(
             "touchstart",
-            playOnInteraction,
-            {once:true}
+            (e) => {
+
+                const t =
+                    e.touches[0];
+
+                createSparkles(
+                    t.clientX,
+                    t.clientY
+                );
+
+            }
         );
 
-    }
-
-}
-
-
-/* =========================================================
-   MUSIC TOGGLE
-========================================================= */
-
-function toggleMusic(){
-
-    if(bgMusic.paused){
-
-        bgMusic.play()
-        .then(()=>{
-
-            musicStarted = true;
-
-        })
-        .catch(()=>{});
-
-    }else{
-
-        bgMusic.pause();
-
-    }
-
-}
-
-
-/* =========================================================
-   PAGE SWITCH
-========================================================= */
-
-function switchPage(page){
-
-    homePage.classList.add("hidden");
-    invitePage.classList.add("hidden");
-    mainPage.classList.add("hidden");
-
-    if(page === "home"){
-
-        homePage.classList.remove("hidden");
-
-    }
-
-    if(page === "invite"){
-
-        invitePage.classList.remove("hidden");
-
-        /*
-         Restart invitation video
-        */
-
-        if(inviteVideo){
-
-            inviteVideo.currentTime = 0;
-
-            inviteVideo.play()
-            .catch(()=>{});
-
-        }
-
-    }
-
-    if(page === "main"){
-
-        mainPage.classList.remove("hidden");
-
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-
-    }
-
-}
-
-
-/* =========================================================
-   OPEN INVITATION
-========================================================= */
-
-let inviteTimer;
-let mainTimer;
-
-
-function openInvite(autoOpen = false){
-
-    clearTimeout(inviteTimer);
-
-    /*
-     This function is called either:
-     1. automatically after 3 seconds
-     2. by OPEN INVITATION button
-    */
-
-    switchPage("invite");
-
-    /*
-     Try music immediately.
-    If browser allows it -> starts.
-    If browser blocks it -> first user interaction
-    will start it.
-    */
-
-    startMusic();
-
-    /*
-     Automatically move to main page
-     after 5 seconds.
-    */
-
-    clearTimeout(mainTimer);
-
-    mainTimer = setTimeout(function(){
-
-        scrollToNext(true);
-
-    },5000);
-
-}
-
-
-/* =========================================================
-   SCROLL DOWN
-========================================================= */
-
-function scrollToNext(autoNext = false){
-
-    clearTimeout(mainTimer);
-
-    switchPage("main");
-
-    /*
-     Make sure music keeps playing
-    */
-
-    if(bgMusic.paused){
-
-        startMusic();
-
-    }
-
-}
-
-
-/* =========================================================
-   AUTO OPEN AFTER 3 SECONDS
-========================================================= */
-
-window.addEventListener("load", function(){
-
-    switchPage("home");
-
-    /*
-     EXACTLY 3 SECONDS
-    */
-
-    setTimeout(function(){
-
-        openInvite(true);
-
-    },3000);
-
-});
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-const weddingDate =
-    new Date("November 5, 2026 11:00:00").getTime();
-
-
-function updateCountdown(){
-
-    const now = new Date().getTime();
-
-    const distance = weddingDate - now;
-
-    if(distance <= 0){
-
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
-
-        return;
-
-    }
-
-    const days = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
-
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
-    );
-
-    const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
-    );
-
-
-    document.getElementById("days").innerText =
-        String(days).padStart(2,"0");
-
-    document.getElementById("hours").innerText =
-        String(hours).padStart(2,"0");
-
-    document.getElementById("minutes").innerText =
-        String(minutes).padStart(2,"0");
-
-    document.getElementById("seconds").innerText =
-        String(seconds).padStart(2,"0");
-
-}
-
-
-updateCountdown();
-
-setInterval(
-    updateCountdown,
-    1000
-);
-
-
-/* =========================================================
-   RSVP
-========================================================= */
-
-function submitRSVP(){
-
-    const name =
-        document.getElementById("rsvpName").value.trim();
-
-    const attendance =
-        document.getElementById("rsvpAttendance").value;
-
-    const guests =
-        document.getElementById("guestCount").value;
-
-    const message =
-        document.getElementById("rsvpMessage").value.trim();
-
-
-    if(!name){
-
-        alert("Please enter your name.");
-
-        return;
-
-    }
-
-
-    if(!attendance){
-
-        alert("Please select your attendance.");
-
-        return;
-
-    }
-
-
-    alert(
-        "Thank you " +
-        name +
-        "! Your RSVP has been recorded."
-    );
-
-
-    document.getElementById("rsvpName").value = "";
-    document.getElementById("rsvpAttendance").value = "";
-    document.getElementById("guestCount").value = "";
-    document.getElementById("rsvpMessage").value = "";
-
-}
-
-
-/* =========================================================
-   WISH
-========================================================= */
-
-function sendWish(){
-
-    const wish =
-        document.getElementById("wishText").value.trim();
-
-
-    if(!wish){
-
-        alert("Please write your wishes first.");
-
-        return;
-
-    }
-
-
-    alert(
-        "Thank you for your beautiful wishes! ❤️"
-    );
-
-
-    document.getElementById("wishText").value = "";
-
-}
-
-
-/* =========================================================
-   PREVENT VIDEO PAUSE
-========================================================= */
-
-if(inviteVideo){
-
-    inviteVideo.addEventListener(
-        "canplay",
-        function(){
-
-            inviteVideo.play()
-            .catch(()=>{});
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   VISIBILITY HANDLING
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    function(){
-
-        if(!document.hidden && !bgMusic.paused){
-
-            bgMusic.play()
-            .catch(()=>{});
-
-        }
-
-    }
-);
-
-</script>
+    </script>
 
 </body>
+
 </html>
