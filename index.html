@@ -998,274 +998,134 @@
 
 
         /* =========================================================
-           WISHES
-           ========================================================= */
-
-        .action-section {
-            width: 100%;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .guestbook-textarea {
-            width: 100%;
-            height: 120px;
-            padding: 17px;
-            border-radius: 15px;
-            border:
-                1px solid rgba(201,162,78,0.3);
-            background:
-                rgba(255,255,255,0.05);
-            color: #fff;
-            margin-bottom: 15px;
-            resize: none;
-            font-family: sans-serif;
-            font-size: 15px;
-        }
-
-        .guestbook-textarea::placeholder {
-            color: rgba(255,255,255,.5);
-        }
-
-        .action-btn {
-            padding: 13px 27px;
-            border-radius: 30px;
-            border: none;
-            background: #C9A24E;
-            color: #000;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            transition: 0.3s;
-            font-size: 12px;
-        }
-
-
-        /* =========================================================
-           PRE-SHOOT
-           ========================================================= */
-
-        .preshot-gallery {
-            width: 100%;
-            max-width: 900px;
-            margin: 80px auto 0;
-            padding: 0 20px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .preshot-title {
-            font-family: 'Cinzel', serif;
-            color: #C9A24E;
-            font-size: 30px;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-            text-shadow:
-                0 0 10px rgba(201,162,78,.5);
-        }
-
-        .preshot-subtitle {
-            color:
-                rgba(255,255,255,.75);
-            font-family:
-                'Playfair Display', serif;
-            font-size: 16px;
-            font-style: italic;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .preshot-grid {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .preshot-item {
-            width: 100%;
-            max-width: 850px;
-            position: relative;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(201,162,78,.12),
-                    rgba(255,255,255,.02),
-                    rgba(201,162,78,.08)
-                );
-            border:
-                1px solid rgba(201,162,78,.35);
-            border-radius: 20px;
-            padding: 8px;
-            box-shadow:
-                0 0 15px rgba(201,162,78,.08),
-                0 0 40px rgba(0,0,0,.5);
-            overflow: hidden;
-            transition:
-                transform .5s ease,
-                box-shadow .5s ease;
-        }
-
-        .preshot-item:hover {
-            transform: translateY(-5px);
-            box-shadow:
-                0 0 25px rgba(201,162,78,.18),
-                0 0 60px rgba(0,0,0,.7);
-        }
-
-        .preshot-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            border-radius: 14px;
-        }
-
-        .preshot-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 35px;
-            height: 35px;
-            pointer-events: none;
-            z-index: 2;
-            border-top:
-                2px solid #C9A24E;
-            border-left:
-                2px solid #C9A24E;
-            border-radius:
-                18px 0 0 0;
-        }
-
-        .preshot-item::after {
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-            color: rgba(201,162,78,.8);
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-            pointer-events: none;
-        }
-
-        .preshot-item:nth-child(1)::after {
-            content: "01";
-        }
-
-        .preshot-item:nth-child(2)::after {
-            content: "02";
-        }
-
-        .preshot-item:nth-child(3)::after {
-            content: "03";
-        }
-
-        .preshot-item:nth-child(4)::after {
-            content: "04";
-        }
-
-        .preshot-item:nth-child(5)::after {
-            content: "05";
-        }
-
-
-        /* =========================================================
            THANK YOU
            ========================================================= */
 
-        .thank-you-section {
-            width: 100%;
-            max-width: 900px;
-            margin: 90px auto 80px;
-            padding: 70px 25px;
+        .thank-you {
+            margin-top: 100px;
+            padding: 60px 20px;
             text-align: center;
-            position: relative;
-            border-top:
-                1px solid rgba(201,162,78,.25);
-            border-bottom:
-                1px solid rgba(201,162,78,.25);
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(201,162,78,.08),
-                    transparent 65%
-                );
         }
 
-        .thank-you-section::before,
-        .thank-you-section::after {
-            content: "✦";
-            position: absolute;
-            left: 50%;
-            transform:
-                translateX(-50%);
-            color: #C9A24E;
-            font-size: 18px;
-        }
-
-        .thank-you-section::before {
-            top: -12px;
-        }
-
-        .thank-you-section::after {
-            bottom: -12px;
-        }
-
-        .thank-small {
-            font-family: 'Cinzel', serif;
-            color:
-                rgba(255,255,255,.75);
-            font-size: 14px;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .thank-title {
+        .thank-you h2 {
             font-family: 'Great Vibes', cursive;
-            font-size: 80px;
+            font-size: 75px;
             color: #C9A24E;
-            margin-bottom: 15px;
             text-shadow:
-                0 0 10px rgba(201,162,78,.6),
-                0 0 30px rgba(201,162,78,.3);
-            animation:
-                thankGlow 3s infinite ease-in-out;
+                0 0 10px rgba(201,162,78,.5),
+                0 0 25px rgba(201,162,78,.3);
+            animation: thankGlow 3s ease-in-out infinite;
         }
 
-        .thank-message {
-            max-width: 650px;
-            margin: 0 auto;
-            font-family:
-                'Playfair Display', serif;
-            color:
-                rgba(255,255,255,.8);
-            font-size: 18px;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .thank-names {
-            margin-top: 30px;
-            font-family:
-                'Cinzel', serif;
-            color: #C9A24E;
-            font-size: 21px;
-            letter-spacing: 4px;
-        }
-
-        .thank-heart {
-            margin-top: 25px;
-            color: #C9A24E;
+        .thank-you p {
+            color: #fff;
+            opacity: .8;
+            font-family: 'Playfair Display', serif;
             font-size: 22px;
-            animation:
-                heartBeat 2s infinite ease-in-out;
+            margin-top: 15px;
+        }
+
+
+        /* =========================================================
+           WISHES
+           ========================================================= */
+
+        .wishes-section {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 90px;
+            text-align: center;
+        }
+
+        .wish-box {
+            background:
+                rgba(255,255,255,.03);
+            border:
+                1px solid rgba(201,162,78,.25);
+            border-radius: 25px;
+            padding: 30px;
+        }
+
+        .wish-input {
+            width: 100%;
+            min-height: 130px;
+            resize: vertical;
+            padding: 18px;
+            border-radius: 15px;
+            border:
+                1px solid rgba(201,162,78,.3);
+            background:
+                rgba(255,255,255,.05);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            outline: none;
+        }
+
+        .wish-input::placeholder {
+            color: rgba(255,255,255,.5);
+        }
+
+        .wish-button {
+            margin-top: 20px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           SHARE
+           ========================================================= */
+
+        .share-section {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 80px;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .share-button {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 40px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #C9A24E,
+                    #8C6B2F
+                );
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-size: 15px;
+            box-shadow:
+                0 0 15px rgba(201,162,78,.35);
+        }
+
+
+        /* =========================================================
+           SPARKLE
+           ========================================================= */
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 16px;
+            animation: sparkleMove .9s ease forwards;
         }
 
 
@@ -1273,414 +1133,51 @@
            TRANSITIONS
            ========================================================= */
 
-        .cloud-transition,
-        .gold-transition {
+        #cloudTransition {
             position: fixed;
             inset: 0;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 9999;
-            transition:
-                opacity 0.6s ease;
-        }
-
-        .cloud-transition {
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,0.2),
-                    transparent 40%
-                ),
-                radial-gradient(
-                    circle at 80% 40%,
-                    rgba(255,255,255,0.15),
-                    transparent 45%
-                ),
-                rgba(0,0,0,0.6);
-            filter: blur(8px);
-        }
-
-        .cloud-transition.active {
-            animation:
-                fogMove 1.2s ease forwards;
-        }
-
-        .gold-transition {
             background:
                 radial-gradient(
                     circle,
-                    rgba(201,162,78,0.35),
-                    rgba(0,0,0,0.92)
+                    rgba(255,255,255,0.98),
+                    rgba(255,255,255,0.7),
+                    rgba(255,255,255,0)
                 );
-            filter: blur(20px);
-            transform: scale(1.1);
+            z-index: 99999;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity .6s ease,
+                visibility .6s ease;
         }
 
-        .gold-transition.active {
-            animation:
-                goldSmooth 1.2s ease-in-out forwards;
+        #cloudTransition.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-
-        /* =========================================================
-           MOBILE
-           ========================================================= */
-
-        @media (max-width: 768px) {
-
-            .home-container {
-                padding: 15px;
-                gap: 40px;
-            }
-
-            .home-container h1 {
-                font-size: 26px;
-            }
-
-            .home-container .names {
-                font-size: 32px;
-                gap: 10px;
-            }
-
-            .home-container .ring {
-                width: 30px;
-            }
-
-            .btn {
-                font-size: 13px;
-                padding: 9px 22px;
-            }
-
-            .btn-hint {
-                font-size: 9px;
-            }
-
-
-            /* =========================================
-               OPEN INVITATION MOBILE - BIGGER
-               ========================================= */
-
-            .lux-title {
-                font-size: 15px;
-                letter-spacing: 3px;
-            }
-
-            .lux-names {
-                font-size: 29px;
-                letter-spacing: 3px;
-            }
-
-            .lux-date {
-                font-size: 20px;
-                letter-spacing: 2px;
-            }
-
-            .lux-rsvp {
-                font-size: 15px;
-                letter-spacing: 1px;
-            }
-
-            .lux-scroll-btn {
-                min-width: 150px;
-                font-size: 10px;
-            }
-
-            .lux-arrow {
-                font-size: 14px;
-            }
-
-
-            /* =========================================
-               MAIN PAGE MOBILE - BIGGER
-               ========================================= */
-
-            .lux-join-title {
-                font-size: 22px;
-                letter-spacing: 3px;
-                margin-bottom: 25px;
-            }
-
-            .parent-text {
-                font-size: 17px;
-                padding: 0 15px;
-                line-height: 1.5;
-            }
-
-            .person-name {
-                font-size: 58px;
-                margin-bottom: 12px;
-            }
-
-            .invite-message {
-                font-size: 16px;
-                padding: 0 15px;
-                line-height: 1.7;
-            }
-
-            .ornament img {
-                width: 35px;
-            }
-
-
-            /* =========================================
-               COUNTDOWN MOBILE
-               ========================================= */
-
-            .timer-container {
-                margin-top: 110px;
-            }
-
-            .timer-title {
-                font-size: 22px;
-                margin-bottom: 20px;
-                letter-spacing: 3px;
-            }
-
-            .timer {
-                gap: 8px;
-            }
-
-            .timer div {
-                padding: 8px;
-                min-width: 65px;
-                border-radius: 8px;
-            }
-
-            .timer span {
-                font-size: 20px;
-            }
-
-            .timer small {
-                font-size: 9px;
-            }
-
-            .timer-sub {
-                font-size: 13px;
-            }
-
-
-            /* =========================================
-               AGENDA MOBILE
-               ========================================= */
-
-            .program-title {
-                font-size: 23px;
-            }
-
-            .program-subtitle {
-                font-size: 13px;
-            }
-
-            .timeline-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 14px;
-            }
-
-            .agenda-list::before {
-                left: 24px;
-            }
-
-            .timeline-content {
-                margin-left: 11px;
-            }
-
-            .timeline-content h3 {
-                font-size: 15px;
-            }
-
-            .timeline-content p {
-                font-size: 12px;
-            }
-
-            .time-badge {
-                font-size: 9px;
-            }
-
-
-            /* =========================================
-               LOCATION MOBILE
-               ========================================= */
-
-            .location-section {
-                margin-top: 65px;
-            }
-
-            .location-title {
-                font-size: 21px;
-                letter-spacing: 4px;
-            }
-
-            .venue-name {
-                font-size: 40px;
-            }
-
-            .venue-address {
-                font-size: 15px;
-            }
-
-            .venue-note {
-                font-size: 13px;
-            }
-
-            .btn-group {
-                gap: 12px;
-                flex-wrap: wrap;
-            }
-
-            .small-btn {
-                font-size: 10px;
-                min-width: 135px;
-            }
-
-
-            /* =========================================
-               RSVP MOBILE
-               ========================================= */
-
-            .rsvp-section {
-                margin-top: 65px;
-            }
-
-            .section-title {
-                font-size: 21px;
-                letter-spacing: 2px;
-            }
-
-            .radio-option {
-                font-size: 14px;
-            }
-
-
-            /* =========================================
-               PRE-SHOOT MOBILE
-               ========================================= */
-
-            .preshot-gallery {
-                margin-top: 65px;
-                padding: 0 12px;
-            }
-
-            .preshot-title {
-                font-size: 22px;
-                letter-spacing: 3px;
-            }
-
-            .preshot-subtitle {
-                font-size: 13px;
-                margin-bottom: 30px;
-            }
-
-            .preshot-grid {
-                gap: 22px;
-            }
-
-            .preshot-item {
-                padding: 5px;
-                border-radius: 15px;
-            }
-
-            .preshot-item img {
-                border-radius: 11px;
-            }
-
-
-            /* =========================================
-               THANK YOU MOBILE
-               ========================================= */
-
-            .thank-you-section {
-                margin-top: 60px;
-                margin-bottom: 50px;
-                padding: 55px 18px;
-            }
-
-            .thank-small {
-                font-size: 10px;
-                letter-spacing: 3px;
-            }
-
-            .thank-title {
-                font-size: 60px;
-            }
-
-            .thank-message {
-                font-size: 15px;
-                line-height: 1.7;
-            }
-
-            .thank-names {
-                font-size: 16px;
-                letter-spacing: 2px;
-            }
-
+        #goldTransition {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(201,162,78,.95),
+                    rgba(0,0,0,.95)
+                );
+            z-index: 99998;
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition:
+                opacity .5s ease,
+                visibility .5s ease;
         }
 
-
-        /* =========================================================
-           VERY SMALL MOBILE
-           ========================================================= */
-
-        @media (max-width: 400px) {
-
-            .home-container .names {
-                font-size: 29px;
-            }
-
-            .home-container h1 {
-                font-size: 23px;
-            }
-
-            .lux-title {
-                font-size: 13px;
-            }
-
-            .lux-names {
-                font-size: 25px;
-            }
-
-            .lux-date {
-                font-size: 18px;
-            }
-
-            .lux-rsvp {
-                font-size: 13px;
-            }
-
-            .lux-join-title {
-                font-size: 19px;
-            }
-
-            .parent-text {
-                font-size: 15px;
-            }
-
-            .person-name {
-                font-size: 52px;
-            }
-
-            .invite-message {
-                font-size: 14px;
-            }
-
-            .timer-title {
-                font-size: 20px;
-            }
-
-            .btn-group {
-                flex-direction: column;
-                gap: 10px;
-                align-items: center;
-            }
-
-            .small-btn {
-                width: 180px;
-            }
-
-            .thank-title {
-                font-size: 52px;
-            }
-
+        #goldTransition.active {
+            opacity: 1;
+            visibility: visible;
         }
 
 
@@ -1688,7 +1185,24 @@
            ANIMATIONS
            ========================================================= */
 
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
         @keyframes ringShow {
+
+            from {
+                opacity: 0;
+                transform: scale(0.6);
+            }
 
             to {
                 opacity: 1;
@@ -1711,52 +1225,26 @@
 
         @keyframes pulse {
 
-            0% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(201,162,78,0.5);
+            0%,100% {
+                transform: scale(1);
             }
 
-            70% {
-                box-shadow:
-                    0 0 0 20px
-                    rgba(201,162,78,0);
-            }
-
-            100% {
-                box-shadow:
-                    0 0 0 0
-                    rgba(201,162,78,0);
-            }
-
-        }
-
-        @keyframes fadeIn {
-
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            50% {
+                transform: scale(1.04);
             }
 
         }
 
         @keyframes luxuryReveal {
 
-            0% {
+            from {
                 opacity: 0;
-                transform: scale(1.1);
-                filter: blur(10px);
+                transform: translateY(25px);
             }
 
-            100% {
+            to {
                 opacity: 1;
-                transform: scale(1);
-                filter: blur(0);
+                transform: translateY(0);
             }
 
         }
@@ -1768,21 +1256,7 @@
             }
 
             50% {
-                transform: translateY(6px);
-            }
-
-        }
-
-        @keyframes bounceArrow {
-
-            0%,100% {
-                transform: translateY(0);
-                opacity: 0.6;
-            }
-
-            50% {
-                transform: translateY(5px);
-                opacity: 1;
+                transform: translateY(-5px);
             }
 
         }
@@ -1791,14 +1265,13 @@
 
             0%,100% {
                 box-shadow:
-                    0 0 10px rgba(201,162,78,0.3),
-                    0 0 25px rgba(201,162,78,0.2);
+                    0 0 15px rgba(201,162,78,.4);
             }
 
             50% {
                 box-shadow:
-                    0 0 20px rgba(201,162,78,0.6),
-                    0 0 45px rgba(201,162,78,0.4);
+                    0 0 30px rgba(201,162,78,.7),
+                    0 0 60px rgba(201,162,78,.3);
             }
 
         }
@@ -1815,47 +1288,14 @@
 
         }
 
-        @keyframes fogMove {
+        @keyframes bounceArrow {
 
-            0% {
-                opacity: 0;
-                transform: scale(1.05);
+            0%,100% {
+                transform: translateY(0);
             }
 
             50% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1);
-            }
-
-        }
-
-        @keyframes goldSmooth {
-
-            0% {
-                opacity: 0;
-                transform: scale(1.15);
-                filter: blur(25px);
-            }
-
-            40% {
-                opacity: 1;
-                filter: blur(10px);
-            }
-
-            70% {
-                opacity: 0.8;
-                transform: scale(1.05);
-                filter: blur(6px);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1);
-                filter: blur(20px);
+                transform: translateY(5px);
             }
 
         }
@@ -1943,12 +1383,226 @@
 
         }
 
+        @keyframes sparkleMove {
+
+            0% {
+                opacity: 1;
+                transform:
+                    translate(0,0)
+                    scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translate(var(--x),var(--y))
+                    scale(0.2);
+            }
+
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .home-container h1 {
+                font-size: 29px;
+            }
+
+            .home-container .names {
+                font-size: 34px;
+            }
+
+            .lux-title {
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+
+            .lux-names {
+                font-size: 26px;
+                letter-spacing: 3px;
+            }
+
+            .lux-date {
+                font-size: 19px;
+            }
+
+            .lux-rsvp {
+                font-size: 15px;
+            }
+
+            .lux-join-title {
+                font-size: 30px;
+                letter-spacing: 4px;
+                margin-top: 20px;
+                margin-bottom: 25px;
+            }
+
+            .parent-text {
+                font-size: 22px;
+                max-width: 90%;
+            }
+
+            .person-name {
+                font-size: 60px;
+            }
+
+            .invite-message {
+                font-size: 20px;
+                max-width: 90%;
+                line-height: 1.6;
+            }
+
+            .timer-container {
+                margin-top: 100px;
+            }
+
+            .timer-title {
+                font-size: 28px;
+            }
+
+            .timer {
+                gap: 10px;
+            }
+
+            .timer div {
+                min-width: 75px;
+                padding: 12px;
+            }
+
+            .timer span {
+                font-size: 28px;
+            }
+
+            .location-title {
+                font-size: 23px;
+            }
+
+            .venue-name {
+                font-size: 40px;
+            }
+
+            .btn-group {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .small-btn {
+                min-width: 125px;
+            }
+
+            .thank-you h2 {
+                font-size: 55px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .home-container {
+                gap: 40px;
+            }
+
+            .home-container h1 {
+                font-size: 25px;
+            }
+
+            .home-container .names {
+                font-size: 30px;
+                gap: 10px;
+            }
+
+            .home-container .ring {
+                width: 30px;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 9px 22px;
+            }
+
+            .lux-names {
+                font-size: 23px;
+            }
+
+            .lux-date {
+                font-size: 17px;
+            }
+
+            .lux-scroll-btn {
+                min-width: 145px;
+            }
+
+            .lux-join-title {
+                font-size: 25px;
+                letter-spacing: 3px;
+            }
+
+            .parent-text {
+                font-size: 19px;
+            }
+
+            .person-name {
+                font-size: 52px;
+            }
+
+            .invite-message {
+                font-size: 17px;
+            }
+
+            .timer-title {
+                font-size: 23px;
+            }
+
+            .timer div {
+                min-width: 65px;
+            }
+
+            .timer span {
+                font-size: 23px;
+            }
+
+            .timer small {
+                font-size: 10px;
+            }
+
+            .program-title {
+                font-size: 25px;
+            }
+
+            .location-section,
+            .rsvp-section,
+            .wishes-section {
+                margin-top: 60px;
+            }
+
+            .location-card,
+            .rsvp-card,
+            .wish-box {
+                padding: 22px 15px;
+            }
+
+        }
+
     </style>
 
 </head>
 
 
 <body>
+
+
+    <!-- =========================================================
+         TRANSITIONS
+         ========================================================= -->
+
+    <div id="cloudTransition"></div>
+
+    <div id="goldTransition"></div>
 
 
     <!-- =========================================================
@@ -2008,7 +1662,6 @@
         </audio>
 
     </section>
-
 
 
     <!-- =========================================================
@@ -2074,7 +1727,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================================================
@@ -2146,9 +1798,9 @@
 
         <div class="timer-container">
 
-            <h2 class="timer-title">
-                SAVE THE DATE
-            </h2>
+            <div class="timer-title">
+                COUNTDOWN
+            </div>
 
             <div class="timer">
 
@@ -2159,7 +1811,7 @@
                     </span>
 
                     <small>
-                        Days
+                        DAYS
                     </small>
 
                 </div>
@@ -2171,7 +1823,7 @@
                     </span>
 
                     <small>
-                        Hours
+                        HOURS
                     </small>
 
                 </div>
@@ -2183,7 +1835,7 @@
                     </span>
 
                     <small>
-                        Minutes
+                        MINUTES
                     </small>
 
                 </div>
@@ -2195,227 +1847,183 @@
                     </span>
 
                     <small>
-                        Seconds
+                        SECONDS
                     </small>
 
                 </div>
 
             </div>
 
-            <p class="timer-sub">
-                05 November 2026
-            </p>
+            <div class="timer-sub">
+                Until we say "I Do"
+            </div>
 
         </div>
 
 
-        <!-- DAY PROGRAM -->
+        <!-- =====================================================
+             PROGRAM
+             ===================================================== -->
 
-<h2 class="program-title">
-    Day Program
-</h2>
+        <div class="program-section">
 
-<p class="program-subtitle">
-    A beautiful day of love and celebration
-</p>
+            <div class="program-title">
+                OUR SPECIAL DAY
+            </div>
 
-<div class="agenda-list">
-
-    <!-- Marriage Registration -->
-    <div class="timeline-item">
-
-        <div class="timeline-icon">
-            <i class="fa-solid fa-file-signature"></i>
-        </div>
-
-        <div class="timeline-content">
-
-            <span class="time-badge">
-                08:22 AM
-            </span>
-
-            <h3>
-                Marriage Registration
-            </h3>
-
-            <p>
-                Officially beginning our journey together
-            </p>
-
-        </div>
-
-    </div>
+            <div class="program-subtitle">
+                A day filled with love, joy and beautiful memories
+            </div>
 
 
-    <!-- Guest Arrival -->
-    <div class="timeline-item">
+            <div class="agenda-list">
 
-        <div class="timeline-icon">
-            <i class="fa-solid fa-door-open"></i>
-        </div>
+                <div class="timeline-item">
 
-        <div class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
 
-            <span class="time-badge">
-                09:00 AM
-            </span>
+                    <div class="timeline-content">
 
-            <h3>
-                Guest Arrival
-            </h3>
+                        <div class="time-badge">
+                            08:30 AM
+                        </div>
 
-            <p>
-                Welcome and reception
-            </p>
+                        <h3>
+                            Arrival of Guests
+                        </h3>
 
-        </div>
+                        <p>
+                            Welcome and greetings
+                        </p>
 
-    </div>
+                    </div>
 
-
-    <!-- Poruwa Ceremony -->
-    <div class="timeline-item">
-
-        <div class="timeline-icon">
-            <i class="fa-solid fa-people-roof"></i>
-        </div>
-
-        <div class="timeline-content">
-
-            <span class="time-badge">
-                10:06 AM
-            </span>
-
-            <h3>
-                Poruwa Ceremony
-            </h3>
-
-            <p>
-                A cherished traditional celebration
-            </p>
-
-        </div>
-
-    </div>
+                </div>
 
 
-    <!-- Lunch -->
-    <div class="timeline-item">
+                <div class="timeline-item">
 
-        <div class="timeline-icon">
-            <i class="fa-solid fa-utensils"></i>
-        </div>
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-ring"></i>
+                    </div>
 
-        <div class="timeline-content">
+                    <div class="timeline-content">
 
-            <span class="time-badge">
-                12:08 PM
-            </span>
+                        <div class="time-badge">
+                            09:30 AM
+                        </div>
 
-            <h3>
-                Lunch
-            </h3>
+                        <h3>
+                            Wedding Ceremony
+                        </h3>
 
-            <p>
-                A delightful wedding feast
-            </p>
+                        <p>
+                            The beginning of our forever
+                        </p>
 
-        </div>
+                    </div>
 
-    </div>
+                </div>
 
 
-    <!-- Cocktail -->
-    <div class="timeline-item">
+                <div class="timeline-item">
 
-        <div class="timeline-icon">
-            <i class="fa-solid fa-champagne-glasses"></i>
-        </div>
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
 
-        <div class="timeline-content">
+                    <div class="timeline-content">
 
-            <span class="time-badge">
-                02:30 PM
-            </span>
+                        <div class="time-badge">
+                            11:30 AM
+                        </div>
 
-            <h3>
-                Cocktail
-            </h3>
+                        <h3>
+                            Reception
+                        </h3>
 
-            <p>
-                Cheers to love and happiness
-            </p>
+                        <p>
+                            Celebrate with us
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-icon">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+
+                    <div class="timeline-content">
+
+                        <div class="time-badge">
+                            01:00 PM
+                        </div>
+
+                        <h3>
+                            Lunch & Celebration
+                        </h3>
+
+                        <p>
+                            Food, music and happiness
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
 
-
-    <!-- Going Away -->
-    <div class="timeline-item">
-
-        <div class="timeline-icon">
-            <i class="fa-solid fa-car-side"></i>
-        </div>
-
-        <div class="timeline-content">
-
-            <span class="time-badge">
-                03:36 PM
-            </span>
-
-            <h3>
-                Going Away
-            </h3>
-
-            <p>
-                Beginning our journey as one
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-        <!-- LOCATION -->
+        <!-- =====================================================
+             LOCATION
+             ===================================================== -->
 
         <div class="location-section">
 
-            <h2 class="location-title">
-                WEDDING VENUE
-            </h2>
+            <div class="location-title">
+                VENUE
+            </div>
 
             <div class="location-card">
 
-                <h3 class="venue-name">
-                    Royal Dream Palace
-                </h3>
+                <div class="venue-name">
+                    Our Wedding Venue
+                </div>
 
-                <p class="venue-address">
-                    Urapola, Sri Lanka
-                </p>
+                <div class="venue-address">
+                    Yakkala, Sri Lanka
+                </div>
 
-                <p class="venue-note">
-                    A beautiful place where our journey begins ❤️
-                </p>
+                <div class="venue-note">
+                    We can't wait to celebrate this beautiful day with you.
+                </div>
 
                 <div class="btn-group">
 
                     <a
-                        href="https://maps.app.goo.gl/urqXrfc6RspDoAdq9"
+                        href="https://www.google.com/maps"
                         target="_blank"
                         class="small-btn"
                     >
-                        📍 VIEW LOCATION
+                        <i class="fa-solid fa-location-dot"></i>
+                        View Map
                     </a>
 
                     <a
-                        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Sandaru+%26+Kaveesha&dates=20261105T090000Z/20261105T140000Z&details=You+are+cordially+invited+to+join+us+in+celebrating+the+union+of+Sandaru+and+Kaveesha.&location=Royal+Dream+Palace,+Urapola,+Sri+Lanka&sf=true&output=xml"
+                        href="https://www.google.com/maps"
                         target="_blank"
                         class="small-btn"
                     >
-                        📅 ADD TO CALENDAR
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        Get Directions
                     </a>
 
                 </div>
@@ -2425,21 +2033,25 @@
         </div>
 
 
-        <!-- RSVP -->
+        <!-- =====================================================
+             RSVP
+             ===================================================== -->
 
         <div class="rsvp-section">
 
-            <h2 class="section-title">
-                Confirm Your Attendance
-            </h2>
+            <div class="section-title">
+                RSVP
+            </div>
 
             <div class="rsvp-card">
 
                 <input
                     type="text"
-                    placeholder="Your Name"
+                    id="guestName"
                     class="rsvp-input"
+                    placeholder="Your Name"
                 >
+
 
                 <div class="attendance-box">
 
@@ -2448,22 +2060,23 @@
                         <input
                             type="radio"
                             name="attendance"
-                            value="yes"
+                            value="Yes"
                         >
 
-                        ✓ Yes, We Will Attend
+                        Yes, I will attend
 
                     </label>
+
 
                     <label class="radio-option">
 
                         <input
                             type="radio"
                             name="attendance"
-                            value="no"
+                            value="No"
                         >
 
-                        ✕ No, we will not participate.
+                        Sorry, I can't attend
 
                     </label>
 
@@ -2471,7 +2084,6 @@
 
 
                 <div class="guest-wrapper">
-
 
                     <div class="guest-box">
 
@@ -2482,19 +2094,17 @@
                         <div class="counter">
 
                             <button
-                                type="button"
-                                onclick="changeCount('adults',-1)"
+                                onclick="changeGuest('adult',-1)"
                             >
                                 −
                             </button>
 
-                            <span id="adults">
+                            <span id="adultCount">
                                 1
                             </span>
 
                             <button
-                                type="button"
-                                onclick="changeCount('adults',1)"
+                                onclick="changeGuest('adult',1)"
                             >
                                 +
                             </button>
@@ -2513,19 +2123,17 @@
                         <div class="counter">
 
                             <button
-                                type="button"
-                                onclick="changeCount('children',-1)"
+                                onclick="changeGuest('child',-1)"
                             >
                                 −
                             </button>
 
-                            <span id="children">
+                            <span id="childCount">
                                 0
                             </span>
 
                             <button
-                                type="button"
-                                onclick="changeCount('children',1)"
+                                onclick="changeGuest('child',1)"
                             >
                                 +
                             </button>
@@ -2539,9 +2147,9 @@
 
                 <button
                     class="rsvp-submit"
-                    onclick="sendRSVP()"
+                    onclick="submitRSVP()"
                 >
-                    Send Message
+                    CONFIRM RSVP
                 </button>
 
             </div>
@@ -2549,34 +2157,29 @@
         </div>
 
 
-        <!-- WISHES -->
+        <!-- =====================================================
+             WISHES
+             ===================================================== -->
 
-        <div class="action-section">
+        <div class="wishes-section">
 
-            <h2 class="section-title">
-                Send Your Wishes
-            </h2>
+            <div class="section-title">
+                SEND US A WISH
+            </div>
 
-            <textarea
-                id="wishMessage"
-                class="guestbook-textarea"
-                placeholder="Leave a sweet message for the couple..."
-            ></textarea>
+            <div class="wish-box">
 
-            <div>
+                <textarea
+                    id="wishInput"
+                    class="wish-input"
+                    placeholder="Write your beautiful wishes for Sandaru & Kaveesha..."
+                ></textarea>
 
                 <button
-                    class="action-btn"
+                    class="wish-button"
                     onclick="sendWish()"
                 >
-                    Send Wish via WhatsApp
-                </button>
-
-                <button
-                    class="action-btn"
-                    onclick="shareInvite()"
-                >
-                    Share Invitation
+                    SEND WISH
                 </button>
 
             </div>
@@ -2584,196 +2187,227 @@
         </div>
 
 
-        <!-- PRE-SHOOT -->
+        <!-- =====================================================
+             SHARE
+             ===================================================== -->
 
-        <div class="preshot-gallery">
+        <div class="share-section">
 
-            <h2 class="preshot-title">
-                PRE-SHOOT MOMENTS
+            <div class="section-title">
+                SHARE OUR INVITATION
+            </div>
+
+            <button
+                class="share-button"
+                onclick="shareInvite()"
+            >
+
+                <i class="fa-solid fa-share-nodes"></i>
+
+                SHARE INVITATION
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             THANK YOU
+             ===================================================== -->
+
+        <div class="thank-you">
+
+            <h2>
+                Thank You
             </h2>
 
-            <p class="preshot-subtitle">
-                A few beautiful moments before our special day
+            <p>
+                With love, Sandaru & Kaveesha
             </p>
-
-
-            <div class="preshot-grid">
-
-
-                <div class="preshot-item">
-
-                    <img
-                        src="1.jpg"
-                        alt="Pre-Shoot Photo 1"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="preshot-item">
-
-                    <img
-                        src="2.jpg"
-                        alt="Pre-Shoot Photo 2"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="preshot-item">
-
-                    <img
-                        src="3.jpg"
-                        alt="Pre-Shoot Photo 3"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="preshot-item">
-
-                    <img
-                        src="4.jpg"
-                        alt="Pre-Shoot Photo 4"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="preshot-item">
-
-                    <img
-                        src="5.jpg"
-                        alt="Pre-Shoot Photo 5"
-                        loading="lazy"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <!-- THANK YOU -->
-
-            <div class="thank-you-section">
-
-                <div class="thank-small">
-                    With Love & Gratitude
-                </div>
-
-                <div class="thank-title">
-                    Thank You
-                </div>
-
-                <p class="thank-message">
-
-                    Thank you for being a part of our special day
-                    and for sharing in the love, laughter and memories
-                    that make this journey so beautiful.
-
-                </p>
-
-                <div class="thank-names">
-                    SANDARU & KAVEESHA
-                </div>
-
-                <div class="thank-heart">
-                    ♡
-                </div>
-
-            </div>
 
         </div>
 
     </section>
 
 
-    <!-- TRANSITIONS -->
-
-    <div
-        id="cloudTransition"
-        class="cloud-transition"
-    ></div>
-
-    <div
-        id="goldTransition"
-        class="gold-transition"
-    ></div>
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-         ========================================================= -->
-
     <script>
 
-        window.onload = function () {
+        /* =========================================================
+           PAGE FLOW
+           ========================================================= */
 
-            switchPage("home");
+        let autoInviteTimer = null;
 
-        };
+        let autoNextTimer = null;
+
+        let inviteOpened = false;
+
+        let nextPageOpened = false;
 
 
-        /* OPEN INVITATION */
+        /* =========================================================
+           PAGE SWITCH
+           ========================================================= */
+
+        function switchPage(pageId) {
+
+            const sections =
+                document.querySelectorAll("section");
+
+            sections.forEach(section => {
+
+                section.classList.remove("active");
+
+            });
+
+
+            const target =
+                document.getElementById(pageId);
+
+            if (target) {
+
+                target.classList.add("active");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+
+
+        /* =========================================================
+           MUSIC
+           ========================================================= */
+
+        function startMusic() {
+
+            const music =
+                document.getElementById("bgMusic");
+
+            if (!music) {
+                return;
+            }
+
+            music.volume = 0.6;
+
+            const playPromise =
+                music.play();
+
+            if (playPromise !== undefined) {
+
+                playPromise.catch(err => {
+
+                    console.log(
+                        "Audio autoplay was blocked by the browser:",
+                        err
+                    );
+
+                });
+
+            }
+
+        }
+
+
+        /* =========================================================
+           OPEN INVITATION
+           AUTO AFTER 3 SECONDS
+           BUTTON ALSO WORKS
+           ========================================================= */
 
         function openInvite() {
+
+            if (inviteOpened) {
+                return;
+            }
+
+            inviteOpened = true;
+
+
+            if (autoInviteTimer) {
+
+                clearTimeout(
+                    autoInviteTimer
+                );
+
+                autoInviteTimer = null;
+
+            }
+
 
             const cloud =
                 document.getElementById(
                     "cloudTransition"
                 );
 
-            const music =
-                document.getElementById(
-                    "bgMusic"
-                );
-
-
             cloud.classList.add("active");
-
-
-            music.volume = 0.6;
-
-
-            music.play().catch(err => {
-
-                console.log(
-                    "Audio could not start:",
-                    err
-                );
-
-            });
 
 
             setTimeout(() => {
 
                 switchPage("invite");
 
+                startMusic();
+
+
+                /* =============================================
+                   AUTO NEXT PAGE AFTER 5 SECONDS
+                   ============================================= */
+
+                autoNextTimer =
+                    setTimeout(() => {
+
+                        scrollToNext();
+
+                    }, 5000);
+
             }, 600);
 
 
             setTimeout(() => {
 
-                cloud.classList.remove("active");
+                cloud.classList.remove(
+                    "active"
+                );
 
             }, 1200);
 
         }
 
 
-        /* SCROLL TO MAIN PAGE */
+        /* =========================================================
+           SCROLL / NEXT PAGE
+           AUTO AFTER 5 SECONDS
+           BUTTON ALSO WORKS
+           ========================================================= */
 
         function scrollToNext() {
+
+            if (nextPageOpened) {
+                return;
+            }
+
+            nextPageOpened = true;
+
+
+            if (autoNextTimer) {
+
+                clearTimeout(
+                    autoNextTimer
+                );
+
+                autoNextTimer = null;
+
+            }
+
 
             const gold =
                 document.getElementById(
                     "goldTransition"
                 );
-
 
             gold.classList.add("active");
 
@@ -2787,114 +2421,135 @@
 
             setTimeout(() => {
 
-                gold.classList.remove("active");
+                gold.classList.remove(
+                    "active"
+                );
 
             }, 1000);
 
         }
 
 
-        /* PAGE SWITCH */
+        /* =========================================================
+           PAGE LOAD
+           HOME FIRST
+           THEN AUTO OPEN AFTER 3 SECONDS
+           ========================================================= */
 
-        function switchPage(id) {
+        window.onload = function () {
 
-            document
-                .querySelectorAll("section")
-                .forEach(section => {
-
-                    section.classList.remove(
-                        "active"
-                    );
-
-                    section.style.display =
-                        "none";
-
-                });
+            switchPage("home");
 
 
-            const el =
-                document.getElementById(id);
+            autoInviteTimer =
+                setTimeout(() => {
+
+                    openInvite();
+
+                }, 3000);
+
+        };
 
 
-            if (!el) return;
+        /* =========================================================
+           MUSIC AUTOPLAY FALLBACK
+           ========================================================= */
+
+        document.addEventListener(
+            "click",
+            () => {
+
+                if (inviteOpened) {
+
+                    startMusic();
+
+                }
+
+            },
+            {
+                once: true
+            }
+        );
 
 
-            el.classList.add("active");
+        /* =========================================================
+           GUEST COUNTER
+           ========================================================= */
 
-            el.style.display = "flex";
+        let adultCount = 1;
 
-
-            window.scrollTo(0, 0);
-
-        }
-
-
-        /* GUEST COUNTER */
-
-        function changeCount(id, change) {
-
-            const el =
-                document.getElementById(id);
+        let childCount = 0;
 
 
-            let value =
-                parseInt(el.innerText);
+        function changeGuest(
+            type,
+            amount
+        ) {
 
+            if (type === "adult") {
 
-            value += change;
+                adultCount += amount;
 
+                if (adultCount < 1) {
+                    adultCount = 1;
+                }
 
-            if (value < 0) {
+                if (adultCount > 20) {
+                    adultCount = 20;
+                }
 
-                value = 0;
+                document.getElementById(
+                    "adultCount"
+                ).innerText =
+                    adultCount;
 
             }
 
 
-            el.innerText = value;
+            if (type === "child") {
+
+                childCount += amount;
+
+                if (childCount < 0) {
+                    childCount = 0;
+                }
+
+                if (childCount > 20) {
+                    childCount = 20;
+                }
+
+                document.getElementById(
+                    "childCount"
+                ).innerText =
+                    childCount;
+
+            }
 
         }
 
 
-        /* RSVP */
+        /* =========================================================
+           RSVP
+           ========================================================= */
 
-        function sendRSVP() {
+        function submitRSVP() {
 
             const name =
-                document
-                    .querySelector(
-                        '.rsvp-input'
-                    )
-                    .value
-                    .trim();
+                document.getElementById(
+                    "guestName"
+                ).value.trim();
 
 
-            const attendance =
+            const selected =
                 document.querySelector(
                     'input[name="attendance"]:checked'
                 );
 
 
-            const adults =
-                document
-                    .getElementById(
-                        'adults'
-                    )
-                    .innerText;
-
-
-            const children =
-                document
-                    .getElementById(
-                        'children'
-                    )
-                    .innerText;
-
-
             if (name === "") {
 
                 alert(
-                    "Please enter your name"
+                    "Please enter your name."
                 );
 
                 return;
@@ -2902,10 +2557,10 @@
             }
 
 
-            if (!attendance) {
+            if (!selected) {
 
                 alert(
-                    "Please select attendance"
+                    "Please select your attendance."
                 );
 
                 return;
@@ -2913,26 +2568,21 @@
             }
 
 
-            const status =
-                attendance.value === "yes"
-                    ? "Will Attend"
-                    : "Cannot Attend";
-
-
-            const message =
-`🌹 Wedding RSVP
-
-👤 Name: ${name}
-
-📌 Status: ${status}
-
-👨 Adults: ${adults}
-
-👶 Children: ${children}`;
+            const attendance =
+                selected.value;
 
 
             const phone =
                 "94752452479";
+
+
+            const message =
+`✨ Wedding RSVP - Sandaru & Kaveesha
+
+Name: ${name}
+Attendance: ${attendance}
+Adults: ${adultCount}
+Children: ${childCount}`;
 
 
             window.open(
@@ -2943,17 +2593,16 @@
         }
 
 
-        /* SEND WISH */
+        /* =========================================================
+           SEND WISH
+           ========================================================= */
 
         function sendWish() {
 
             const wish =
-                document
-                    .getElementById(
-                        "wishMessage"
-                    )
-                    .value
-                    .trim();
+                document.getElementById(
+                    "wishInput"
+                ).value.trim();
 
 
             const phone =
@@ -2985,7 +2634,9 @@
         }
 
 
-        /* SHARE */
+        /* =========================================================
+           SHARE
+           ========================================================= */
 
         function shareInvite() {
 
@@ -3030,7 +2681,9 @@
         }
 
 
-        /* COUNTDOWN */
+        /* =========================================================
+           COUNTDOWN
+           ========================================================= */
 
         const weddingDate =
             new Date(
@@ -3127,7 +2780,9 @@
         updateTimer();
 
 
-        /* TOUCH SPARKLES */
+        /* =========================================================
+           TOUCH SPARKLES
+           ========================================================= */
 
         function createSparkles(x, y) {
 
@@ -3188,16 +2843,33 @@
 
 
         document.addEventListener(
-            "touchstart",
-            (e) => {
-
-                const t =
-                    e.touches[0];
+            "click",
+            function(event) {
 
                 createSparkles(
-                    t.clientX,
-                    t.clientY
+                    event.clientX,
+                    event.clientY
                 );
+
+            }
+        );
+
+
+        document.addEventListener(
+            "touchstart",
+            function(event) {
+
+                if (
+                    event.touches &&
+                    event.touches.length > 0
+                ) {
+
+                    createSparkles(
+                        event.touches[0].clientX,
+                        event.touches[0].clientY
+                    );
+
+                }
 
             }
         );
