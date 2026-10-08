@@ -1999,13 +1999,17 @@
         </div>
 
 
-        <audio id="bgMusic" loop>
+      <audio id="bgMusic" loop preload="auto">
 
-            <source
-                src="khuda jaane.webm"
-                type="audio/webm">
+    <source
+        src="khuda jaane.mp3"
+        type="audio/mpeg">
 
-        </audio>
+    <source
+        src="khuda jaane.webm"
+        type="audio/webm">
+
+</audio>
 
     </section>
 
@@ -2711,58 +2715,109 @@
 
     <script>
 
-        window.onload = function () {
+       window.onload = function () {
 
-            switchPage("home");
+    switchPage("home");
 
-        };
+    // Automatically open invitation after 3 seconds
+    setTimeout(() => {
+
+        openInvite(true);
+
+    }, 3000);
+
+};
 
 
         /* OPEN INVITATION */
 
-        function openInvite() {
+      function openInvite(autoOpen = false) {
 
-            const cloud =
-                document.getElementById(
-                    "cloudTransition"
-                );
+    const cloud =
+        document.getElementById(
+            "cloudTransition"
+        );
 
-            const music =
-                document.getElementById(
-                    "bgMusic"
-                );
+    const music =
+        document.getElementById(
+            "bgMusic"
+        );
 
+    cloud.classList.add("active");
 
-            cloud.classList.add("active");
+    music.volume = 0.6;
 
+    /*
+       Try to start music.
 
-            music.volume = 0.6;
+       If the browser allows autoplay,
+       music starts automatically.
 
+       If the browser blocks autoplay,
+       the first user touch/click will
+       start the music.
+    */
 
-            music.play().catch(err => {
+    const playMusic = () => {
+
+        music.play()
+            .then(() => {
 
                 console.log(
-                    "Audio could not start:",
-                    err
+                    "Wedding music started successfully."
+                );
+
+                document.removeEventListener(
+                    "pointerdown",
+                    playMusic
+                );
+
+            })
+            .catch(() => {
+
+                console.log(
+                    "Browser blocked autoplay. Waiting for user interaction."
                 );
 
             });
 
-
-            setTimeout(() => {
-
-                switchPage("invite");
-
-            }, 600);
+    };
 
 
-            setTimeout(() => {
+    playMusic();
 
-                cloud.classList.remove("active");
 
-            }, 1200);
+    /*
+       Fallback for Chrome / Firefox / mobile browsers
+       that block audio autoplay.
+    */
 
-        }
+    document.addEventListener(
+        "pointerdown",
+        playMusic,
+        { once: true }
+    );
+
+
+    /*
+       Open invitation page.
+       Manual button OR automatic 3-second opening.
+    */
+
+    setTimeout(() => {
+
+        switchPage("invite");
+
+    }, 600);
+
+
+    setTimeout(() => {
+
+        cloud.classList.remove("active");
+
+    }, 1200);
+
+}
 
 
         /* SCROLL TO MAIN PAGE */
