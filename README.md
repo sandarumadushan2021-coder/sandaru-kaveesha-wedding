@@ -1,2 +1,2 @@
 # sandaru & kaveesha
-sandaru-kaveesha-wedding
+sandar & kaveesha-wedding
